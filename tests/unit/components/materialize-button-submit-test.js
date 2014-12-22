@@ -6,6 +6,7 @@ import {
 moduleForComponent('materialize-button-submit', 'MaterializeButtonSubmitComponent', {
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
+  needs: ['template:components/materialize-button']
 });
 
 test('it renders', function() {
@@ -18,4 +19,11 @@ test('it renders', function() {
   // appends the component to the page
   this.append();
   equal(component._state, 'inDOM');
+});
+
+test('it is added to the page', function() {
+  var component = this.subject();
+  this.append();
+
+  ok($('button').length);
 });

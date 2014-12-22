@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 import {
   moduleForComponent,
   test
@@ -18,4 +20,95 @@ test('it renders', function() {
   // appends the component to the page
   this.append();
   equal(component._state, 'inDOM');
+});
+
+test('it is added to the page', function() {
+  var component = this.subject();
+  this.append();
+
+  ok($('a').length);
+});
+
+test('text test', function() {
+  var component = this.subject();
+
+  Ember.run(function(){
+    component.set('text', 'Button');
+  });
+
+  equal(this.$().html().trim(), 'Button');
+});
+
+test('icon test', function() {
+  var component = this.subject();
+  this.append();
+
+  Ember.run(function(){
+    component.set('icon', 'mdi-action-favorite');
+  });
+
+  ok($('i').length);
+  ok($('i').hasClass('mdi-action-favorite'));
+  ok($('i').hasClass('left'));
+});
+
+test('icon with position test', function() {
+  var component = this.subject();
+  this.append();
+
+  Ember.run(function(){
+    component.set('icon', 'mdi-action-favorite');
+    component.set('iconPosition', 'right');
+  });
+
+  ok($('i').length);
+  ok($('i').hasClass('mdi-action-favorite'));
+  ok($('i').hasClass('right'));
+});
+
+test('buttonType floating test', function() {
+  var component = this.subject();
+
+  Ember.run(function(){
+    component.set('buttonType', 'floating');
+  });
+
+  ok(this.$().hasClass('waves-light'));
+  ok(this.$().hasClass('waves-effect'));
+  ok(this.$().hasClass('btn-floating'));
+});
+
+test('buttonType flat test', function() {
+  var component = this.subject();
+
+  Ember.run(function(){
+    component.set('buttonType', 'flat');
+  });
+
+  ok(this.$().hasClass('waves-effect'));
+  ok(this.$().hasClass('btn-flat'));
+});
+
+test('buttonType large test', function() {
+  var component = this.subject();
+
+  Ember.run(function(){
+    component.set('buttonType', 'large');
+  });
+
+  ok(this.$().hasClass('waves-light'));
+  ok(this.$().hasClass('waves-effect'));
+  ok(this.$().hasClass('btn-large'));
+});
+
+test('isDisabled test', function() {
+  var component = this.subject();
+
+  Ember.run(function(){
+    component.set('isDisabled', 'true');
+  });
+
+  ok(this.$().hasClass('waves-light'));
+  ok(this.$().hasClass('disabled'));
+  ok(this.$().hasClass('btn'));
 });
