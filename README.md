@@ -1,25 +1,46 @@
-# Ember-cli-materialize
+ember-cli-materialize
+=====================
 
-This README outlines the details of collaborating on this Ember addon.
+An [ember-cli](http://www.ember-cli.com) addon for using [Materialize](http://materializecss.com/) (CSS Framework based on [Material Design](http://www.google.com/design/spec/material-design/introduction.html)) in Ember applications.
+
+*Materialize Version 0.93*
+
+This addon:
+
+* Imports [Materialize](http://materializecss.com/) sass (via [ember-cli-sass](https://www.npmjs.com/package/ember-cli-sass)) and fonts into your app.
+* It's a components library for all Materialize components
+
+## Changelog
+See [CHANGELOG file](https://github.com/sgasser/ember-cli-materialize/tree/master/CHANGELOG.md).
+
+## Usage
+See [USAGE file](https://github.com/sgasser/ember-cli-materialize/tree/master/USAGE.md).
 
 ## Installation
+```sh
+# install via npm
+$ npm install ember-cli-materialize --save-dev
+# make ember-cli fetch internal dependencies
+$ ember g ember-cli-materialize
+```
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+## Demo
 
-## Running
+### The demo demonstrates all components with all possible options
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+```sh
+$ sudo npm install -g ember-cli
+$ git clone git@github.com:sgasser/ember-cli-materialize
+$ cd ember-cli-materialize
+# install dependencies
+$ npm install && bower install
+# fire up local server
+$ ember serve
+```
 
-## Running Tests
+## Contributing
+See [CONTRIBUTING file](https://github.com/sgasser/ember-cli-materialize/tree/master/CONTRIBUTING.md).
 
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+## License
+ember-cli-materialize is released under the MIT License. See the bundled LICENSE file for
+details.

@@ -1,3 +1,17 @@
-<h2 id='title'>Welcome to Ember.js</h2>
+<nav>
+  <div class='nav-wrapper'>
+    {{#link-to 'index' class='brand-logo'}}ember-cli-materialize{{/link-to}}
+    <ul id='nav-mobile' class='right side-nav'>
+      <li>{{#link-to 'buttons'}}Buttons{{/link-to}}</li>
+    </ul>
 
-{{outlet}}
+    <!-- Include this line below -->
+    <a class='button-collapse' href='/' data-activates='nav-mobile'><i class='mdi-navigation-menu'></i></a>
+    <!-- End -->
+
+  </div>
+</nav>
+
+<div class='container'>
+  {{outlet}}
+</div>

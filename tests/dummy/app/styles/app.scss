@@ -1,0 +1,14 @@
+$button-color: #e51c23;
+
+@import 'materialize';
+@import 'code';
+
+a {
+  color: color("materialize-red", "darken-1");
+}
+
+span.badge {
+  &.new {
+    background-color: color('materialize-red', 'base');
+  }
+}
