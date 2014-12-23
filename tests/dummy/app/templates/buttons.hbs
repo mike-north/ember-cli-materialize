@@ -1,7 +1,29 @@
-<div class='section'>
-    <h3>Buttons</h3>
+<div class="section index-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m9">
+        <h1 class="header">Buttons</h1>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <h4>Raised</h4>
+<div class='container'>
+  <div class="section">
+    <div class="intro">
+        <h4 class="col s12 header">The component supports many options:</h4>
+        <ul>
+          <li>text, default value <span class="default-value badge">null</span></li>
+          <li>action, default value <span class="default-value badge">null</span></li>
+          <li>icon, default value <span class="default-value badge">null</span></li>
+          <li>iconPosition, default value <span class="default-value badge">left</span></li>
+          <li>buttonType, default value <span class="default-value badge">null</span></li>
+          <li>isDisabled, default value <span class="default-value badge">false</span></li>
+        </ul>
+      </div>
+  </div>
+  <div class="section">
+    <h4 class="col s12 header">Raised</h4>
     <div class="button-example">
       {{materialize-button text='Button' action='debug'}}
       {{materialize-button text='Button' icon='mdi-action-favorite' action='debug'}}
@@ -15,8 +37,9 @@
         </code>
       </pre>
     </div>
-
-    <h4>Floating</h4>
+  </div>
+  <div class="section">
+    <h4 class="col s12 header">Floating</h4>
     <div class="button-example">
       {{materialize-button icon='mdi-action-favorite' action='debug' buttonType='floating'}}
       <pre class=" language-markup">
@@ -25,8 +48,9 @@
         </code>
       </pre>
     </div>
-
-    <h4>Flat</h4>
+  </div>
+  <div class="section">
+    <h4 class="col s12 header">Flat</h4>
     <div class="button-example">
       {{materialize-button text='Flat button' action='debug' buttonType='flat'}}
       <pre class=" language-markup">
@@ -35,8 +59,9 @@
         </code>
       </pre>
     </div>
-
-    <h4>Submit</h4>
+  </div>
+  <div class="section">
+    <h4 class="col s12 header">Submit</h4>
     <div class="button-example">
       {{materialize-button-submit icon='mdi-content-send' iconPosition='right' text='Submit'}}
       <pre class=" language-markup">
@@ -45,8 +70,9 @@
         </code>
       </pre>
     </div>
-
-    <h4>Large</h4>
+  </div>
+  <div class="section">
+    <h4 class="col s12 header">Large</h4>
     <div class="button-example">
       {{materialize-button text='Large button' action='debug' buttonType='large'}}
       <pre class=" language-markup">
@@ -55,8 +81,9 @@
         </code>
       </pre>
     </div>
-
-    <h4>Disabled</h4>
+  </div>
+  <div class="section">
+    <h4 class="col s12 header">Disabled</h4>
     <div class="button-example">
       {{materialize-button text='Disabled button' isDisabled=true}}
       <pre class=" language-markup">

@@ -3,12 +3,59 @@ $button-color: #e51c23;
 @import 'materialize';
 @import 'code';
 
+nav {
+  background-color: #fff;
+  position: relative;
+}
+
+nav .brand-logo,
+nav ul a,
+nav a {
+  color: $button-color;
+}
+
+.index-banner {
+  background-color: color('materialize-red', 'lighten-2');
+}
+.index-banner .container {
+  position: relative;
+}
+.index-banner .header {
+  color: #fff;
+}
+.index-banner h4 {
+  margin-bottom: 40px;
+}
+.index-banner a{
+  color: #fff;
+}
+.github-commit {
+  padding: 14px 0;
+  height: 36px;
+  line-height: 36px;
+  background-color: #5c5757;
+  color: #e6e6e6;
+  font-size: 0.9rem;
+}
+
+.header {
+  color: color('materialize-red', 'lighten-2');
+  font-weight: 300;
+}
+
 a {
-  color: color("materialize-red", "darken-1");
+  color: $button-color;
 }
 
 span.badge {
   &.new {
-    background-color: color('materialize-red', 'base');
+    color: color('materialize-red', 'base');
+    background-color: #fff
   }
+  &.default-value {
+    float: none;
+  }
+}
+.intro {
+  font-size: 1.2em;
 }
