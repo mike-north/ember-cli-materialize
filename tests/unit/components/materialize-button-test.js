@@ -27,6 +27,10 @@ test('it is added to the page', function() {
   this.append();
 
   ok($('a').length);
+
+  ok($('a').hasClass('waves-light'));
+  ok($('a').hasClass('waves-effect'));
+  ok($('a').hasClass('btn'));
 });
 
 test('text test', function() {
@@ -68,47 +72,51 @@ test('icon with position test', function() {
 
 test('buttonType floating test', function() {
   var component = this.subject();
+  this.append();
 
   Ember.run(function(){
     component.set('buttonType', 'floating');
   });
 
-  ok(this.$().hasClass('waves-light'));
-  ok(this.$().hasClass('waves-effect'));
-  ok(this.$().hasClass('btn-floating'));
+  ok($('a').hasClass('waves-light'));
+  ok($('a').hasClass('waves-effect'));
+  ok($('a').hasClass('btn-floating'));
 });
 
 test('buttonType flat test', function() {
   var component = this.subject();
+  this.append();
 
   Ember.run(function(){
     component.set('buttonType', 'flat');
   });
 
-  ok(this.$().hasClass('waves-effect'));
-  ok(this.$().hasClass('btn-flat'));
+  ok($('a').hasClass('waves-effect'));
+  ok($('a').hasClass('btn-flat'));
 });
 
 test('buttonType large test', function() {
   var component = this.subject();
+  this.append();
 
   Ember.run(function(){
     component.set('buttonType', 'large');
   });
 
-  ok(this.$().hasClass('waves-light'));
-  ok(this.$().hasClass('waves-effect'));
-  ok(this.$().hasClass('btn-large'));
+  ok($('a').hasClass('waves-light'));
+  ok($('a').hasClass('waves-effect'));
+  ok($('a').hasClass('btn-large'));
 });
 
 test('isDisabled test', function() {
   var component = this.subject();
-
+  this.append();
+  
   Ember.run(function(){
     component.set('isDisabled', 'true');
   });
 
-  ok(this.$().hasClass('waves-light'));
-  ok(this.$().hasClass('disabled'));
-  ok(this.$().hasClass('btn'));
+  ok($('a').hasClass('waves-light'));
+  ok($('a').hasClass('disabled'));
+  ok($('a').hasClass('btn'));
 });
