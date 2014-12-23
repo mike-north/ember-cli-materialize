@@ -4,7 +4,5 @@ export default Ember.View.extend({
   didInsertElement: function(){
     this._super();
     $('.button-collapse').sideNav();
-    var Waves = Waves || {};
-    Waves.displayEffect();
   }
 });

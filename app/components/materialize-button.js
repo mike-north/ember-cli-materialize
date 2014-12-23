@@ -1,6 +1,15 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  didInsertElement: function(){
+    this._super();
+    Ember.run.scheduleOnce('afterRender', this, function(){
+      var Waves = window.Waves || {};
+      if(typeof Waves.displayEffect === 'function'){
+        Waves.displayEffect();
+      }
+    });
+  },
   tagName: 'a',
   classNameBindings: ['btn:waves-effect', 'isFlat::waves-light', 'isDisabled:disabled:waves-effect', 'buttonClass'],
   text: null,
