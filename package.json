@@ -32,7 +32,7 @@
     "express": "^4.8.5",
     "glob": "^4.0.5"
   },
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "An ember-cli addon for using Materialize (CSS Framework based on Material Design) in Ember applications.",
   "keywords": [
     "ember-addon",
     "materialize",
