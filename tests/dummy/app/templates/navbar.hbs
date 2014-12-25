@@ -1,0 +1,36 @@
+<div class="section index-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m9">
+        <h1 class="header">Navbar</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='container'>
+  <div class="section">
+    <div class="intro">
+      <h4 class="col s12 header">The component supports one option:</h4>
+      <ul>
+        <li>name, default value <span class="default-value badge">null</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="section">
+    <h4 class="col s12 header">Navbar with mobile collapse button</h4>
+    <div class="button-example">
+      {{#materialize-navbar name='Example'}}
+        <li>{{#link-to 'navbar'}}Navbar{{/link-to}}</li>
+      {{/materialize-navbar}}
+
+      <pre class=" language-markup">
+        <code class=" col s12 language-markup">
+          <span>&#123;&#123;</span>#materialize-navbar name='Example'<span>&#125;&#125;</span>
+            <span>&#60;</span>li<span>&#62;</span><span>&#123;&#123;</span>#link-to 'navbar'<span>&#125;&#125;</span>Navbar<span>&#123;&#123;</span>/link-to<span>&#125;&#125;</span><span>&#60;</span>/li<span>&#62;</span>
+          <span>&#123;&#123;</span>/materialize-navbar<span>&#125;&#125;</span>
+        </code>
+      </pre>
+    </div>
+  </div>
+</div>

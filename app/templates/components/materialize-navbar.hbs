@@ -1,0 +1,9 @@
+<div class='nav-wrapper'>
+  <div class='container'>
+    {{#link-to 'index' class='brand-logo'}}{{name}}{{/link-to}}
+    <ul id='nav-mobile' class='right side-nav'>
+      {{yield}}
+    </ul>
+  </div>
+  {{#link-to 'index' class='button-collapse' data-activates='nav-mobile'}}<i class='mdi-navigation-menu'></i>{{/link-to}}
+</div>
