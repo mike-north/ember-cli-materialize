@@ -29,6 +29,13 @@ $ ember serve
 ```
 
 ## Installation
+
+Using ember-cli 0.1.5:
+```sh
+$ ember install:addon ember-cli-materialize
+```
+
+Using previous versions:
 ```sh
 # install via npm
 $ npm install ember-cli-materialize --save-dev
