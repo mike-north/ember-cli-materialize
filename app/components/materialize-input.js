@@ -4,6 +4,7 @@ export default Ember.Component.extend({
   classNames: ['input-field', 'col'],
   classNameBindings: ['numberOfColumns'],
   label: '',
+  value: '',
   validate: false,
   type: 'text',
   cols: 12,
