@@ -1,0 +1,48 @@
+{{yield}}
+{{#each I in inputs}}
+  {{#if I.isText}}
+    <div class="input-field">
+      {{input type="text"}}
+    </div>
+  {{/if}}
+  {{#if I.isRadio}}
+    <p class="radio">
+      {{input name="group1" type="radio"}}
+    </p>
+  {{/if}}
+  {{#if I.isCheckBox}}
+    <p class="checkbox">
+      {{input type="checkbox"}}
+    </p>
+  {{/if}}
+  {{#if I.isSwitch}}
+    <div class="switch">
+      <p>{{I.input}}</p>
+      <label>
+        {{I.off}}
+        {{input type="checkbox"}}
+        <span class="lever"></span>
+        {{I.on}}
+      </label>
+    </div>
+  {{/if}}
+  {{#if I.isRange}}
+    <p>{{I.input}}</p>
+    <p class="range-field">
+      {{input type="range" min="0" max="100"}}
+    </p>
+  {{/if}}
+  {{#if I.isDate}}
+    {{input type="date" class="datepicker"}}
+  {{/if}}
+  {{#if I.isSelect}}
+   <br>
+  <select>
+    <option value="" disabled selected>Choose your option</option>
+    {{#each op in I.selections}}
+    <option {{bind-attr value=op.value}}>{{op.option}}</option>
+    {{/each}}
+  </select>
+  {{/if}}
+{{/each}}
+

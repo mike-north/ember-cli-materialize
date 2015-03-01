@@ -8,6 +8,7 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route("buttons");
   this.route("navbar");
+  this.route('forms');
 });
 
 export default Router;
