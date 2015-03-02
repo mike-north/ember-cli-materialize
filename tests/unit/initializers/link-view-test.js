@@ -1,5 +1,6 @@
 import Ember from 'ember';
-import { initialize } from 'ember-cli-materialize/initializers/link-view';
+import { initialize } from '../../../initializers/link-view';
+import { module, test } from 'qunit';
 
 var container, application;
 
@@ -13,10 +14,10 @@ module('LinkViewInitializer', {
   }
 });
 
-test('"data-activates" is added to attributeBindings', function() {
+test('"data-activates" is added to attributeBindings', function(assert) {
   initialize(container, application);
 
   var linkView = Ember.LinkView.create();
-  ok(linkView.attributeBindings.indexOf('data-activates')!==-1,
+  assert.ok(linkView.attributeBindings.indexOf('data-activates')!==-1,
     "'data-activates' must be present in `attributeBindings`");
 });

@@ -10,113 +10,113 @@ moduleForComponent('materialize-button', 'MaterializeButtonComponent', {
   // needs: ['component:foo', 'helper:bar']
 });
 
-test('it renders', function() {
-  expect(2);
+test('it renders', function(assert) {
+  assert.expect(2);
 
   // creates the component instance
   var component = this.subject();
-  equal(component._state, 'preRender');
+  assert.equal(component._state, 'preRender');
 
   // appends the component to the page
-  this.append();
-  equal(component._state, 'inDOM');
+  this.render();
+  assert.equal(component._state, 'inDOM');
 });
 
-test('it is added to the page', function() {
+test('it is added to the page', function(assert) {
   var component = this.subject();
-  this.append();
+  this.render();
 
-  ok($('a').length);
+  assert.ok($('a').length);
 
-  ok($('a').hasClass('waves-light'));
-  ok($('a').hasClass('waves-effect'));
-  ok($('a').hasClass('btn'));
+  assert.ok($('a').hasClass('waves-light'));
+  assert.ok($('a').hasClass('waves-effect'));
+  assert.ok($('a').hasClass('btn'));
 });
 
-test('text test', function() {
+test('text test', function(assert) {
   var component = this.subject();
 
   Ember.run(function(){
     component.set('text', 'Button');
   });
 
-  equal(this.$().html().trim(), 'Button');
+  assert.equal(this.$().html().trim(), 'Button');
 });
 
-test('icon test', function() {
+test('icon test', function(assert) {
   var component = this.subject();
-  this.append();
+  this.render();
 
   Ember.run(function(){
     component.set('icon', 'mdi-action-favorite');
   });
 
-  ok($('i').length);
-  ok($('i').hasClass('mdi-action-favorite'));
-  ok($('i').hasClass('left'));
+  assert.ok($('i').length);
+  assert.ok($('i').hasClass('mdi-action-favorite'));
+  assert.ok($('i').hasClass('left'));
 });
 
-test('icon with position test', function() {
+test('icon with position test', function(assert) {
   var component = this.subject();
-  this.append();
+  this.render();
 
   Ember.run(function(){
     component.set('icon', 'mdi-action-favorite');
     component.set('iconPosition', 'right');
   });
 
-  ok($('i').length);
-  ok($('i').hasClass('mdi-action-favorite'));
-  ok($('i').hasClass('right'));
+  assert.ok($('i').length);
+  assert.ok($('i').hasClass('mdi-action-favorite'));
+  assert.ok($('i').hasClass('right'));
 });
 
-test('buttonType floating test', function() {
+test('buttonType floating test', function(assert) {
   var component = this.subject();
-  this.append();
+  this.render();
 
   Ember.run(function(){
     component.set('buttonType', 'floating');
   });
 
-  ok($('a').hasClass('waves-light'));
-  ok($('a').hasClass('waves-effect'));
-  ok($('a').hasClass('btn-floating'));
+  assert.ok($('a').hasClass('waves-light'));
+  assert.ok($('a').hasClass('waves-effect'));
+  assert.ok($('a').hasClass('btn-floating'));
 });
 
-test('buttonType flat test', function() {
+test('buttonType flat test', function(assert) {
   var component = this.subject();
-  this.append();
+  this.render();
 
   Ember.run(function(){
     component.set('buttonType', 'flat');
   });
 
-  ok($('a').hasClass('waves-effect'));
-  ok($('a').hasClass('btn-flat'));
+  assert.ok($('a').hasClass('waves-effect'));
+  assert.ok($('a').hasClass('btn-flat'));
 });
 
-test('buttonType large test', function() {
+test('buttonType large test', function(assert) {
   var component = this.subject();
-  this.append();
+  this.render();
 
   Ember.run(function(){
     component.set('buttonType', 'large');
   });
 
-  ok($('a').hasClass('waves-light'));
-  ok($('a').hasClass('waves-effect'));
-  ok($('a').hasClass('btn-large'));
+  assert.ok($('a').hasClass('waves-light'));
+  assert.ok($('a').hasClass('waves-effect'));
+  assert.ok($('a').hasClass('btn-large'));
 });
 
-test('isDisabled test', function() {
+test('isDisabled test', function(assert) {
   var component = this.subject();
-  this.append();
-  
+  this.render();
+
   Ember.run(function(){
     component.set('isDisabled', 'true');
   });
 
-  ok($('a').hasClass('waves-light'));
-  ok($('a').hasClass('disabled'));
-  ok($('a').hasClass('btn'));
+  assert.ok($('a').hasClass('waves-light'));
+  assert.ok($('a').hasClass('disabled'));
+  assert.ok($('a').hasClass('btn'));
 });

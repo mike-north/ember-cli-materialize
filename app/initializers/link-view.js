@@ -1,4 +1,10 @@
-import { initialize } from 'ember-cli-materialize/initializers/link-view';
+import Ember from 'ember';
+
+export function initialize(/* container, application */) {
+  Ember.LinkView.reopen({
+    attributeBindings: ['data-activates'],
+  });
+}
 
 export default {
   name: 'link-view',
