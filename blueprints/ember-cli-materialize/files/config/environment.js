@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'dummy',
+    modulePrefix: '<%= modulePrefix %>',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
@@ -43,18 +43,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.baseURL = '/ember-cli-materialize';
-    ENV.locationType = 'hash';
-  }
 
-  ENV.contentSecurityPolicy = {
-    'default-src': "'none' 'unsafe-inline'",
-    'script-src': "'self' 'unsafe-eval' 'unsafe-inline'",
-    'style-src': "'self' 'unsafe-inline'",
-    'connect-src': "'self' ",
-    'img-src': "'self'",
-    'media-src': "'self'"
-  };
+  }
 
   return ENV;
 };

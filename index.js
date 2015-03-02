@@ -19,13 +19,5 @@ module.exports = {
     app.import(app.bowerDirectory + '/materialize/dist/font/material-design-icons/Material-Design-Icons.woff', { destDir: 'font/material-design-icons' });
 
     app.import(app.bowerDirectory + '/materialize/dist/js/materialize.js');
-
-    //Make sure the ember-cli-sass options are set/appended in the right way (and not just overwriting)
-    if(app.options['sassOptions'] && app.options['sassOptions']['includePaths']) {
-      app.options['sassOptions']['includePaths'].push(app.bowerDirectory + '/materialize/sass');
-    } else {
-      app.options['sassOptions'] = app.options['sassOptions'] || {};
-      app.options['sassOptions']['includePaths'] = [app.bowerDirectory + '/materialize/sass'];
-    }
   }
 };
