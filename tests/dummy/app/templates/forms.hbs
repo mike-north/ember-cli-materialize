@@ -7,7 +7,7 @@
     </div>
   </div>
 </div>
-
+{{test}}
 <div class='container'>
   <div class='section'>
     <div class="intro">
@@ -25,7 +25,24 @@
   <div class='section'>
     <div class="intro">
       <div class="col s12">
-        {{materialize-form}}
+        {{materialize-form sendForm="getFormData" }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='container'>
+  <div class='section'>
+    <div class="intro">
+      <div class="col s12">
+        <h4 class="col s12 header">It's Magic</h4>
+        {{#each I in inputs}}
+          {{#if I.isSelect}}
+            <p>{{I.input}}: {{I.value.option}}
+          {{else}}
+            <p>{{I.input}}: {{I.value}}</p>
+          {{/if}}
+        {{/each}}
       </div>
     </div>
   </div>

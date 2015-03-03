@@ -2,17 +2,20 @@
 {{#each I in inputs}}
   {{#if I.isText}}
     <div class="input-field">
-      {{input type="text"}}
+      {{input id=I.id type="text" value=I.value}}
+      <label {{bind-attr for=I.id}}>{{I.input}}</label>
     </div>
   {{/if}}
   {{#if I.isRadio}}
     <p class="radio">
-      {{input name="group1" type="radio"}}
+      {{input name="group1" id=I.id checked=I.value type="radio"}}
+      <label {{bind-attr for=I.id}}>{{I.input}}</label>
     </p>
   {{/if}}
   {{#if I.isCheckBox}}
     <p class="checkbox">
-      {{input type="checkbox"}}
+      {{input id=I.id type="checkbox" checked=I.value}}
+      <label {{bind-attr for=I.id}}>{{I.input}}</label>
     </p>
   {{/if}}
   {{#if I.isSwitch}}
@@ -20,7 +23,7 @@
       <p>{{I.input}}</p>
       <label>
         {{I.off}}
-        {{input type="checkbox"}}
+        {{input type="checkbox" checked=I.value}}
         <span class="lever"></span>
         {{I.on}}
       </label>
@@ -29,20 +32,21 @@
   {{#if I.isRange}}
     <p>{{I.input}}</p>
     <p class="range-field">
-      {{input type="range" min="0" max="100"}}
+      {{input type="range" min="0" max="100" value=I.value}}
     </p>
   {{/if}}
   {{#if I.isDate}}
-    {{input type="date" class="datepicker"}}
+    {{input id=I.id type="date" class="datepicker" value=I.value}}
+    <label {{bind-attr for=I.id}}>{{I.input}}</label>
   {{/if}}
   {{#if I.isSelect}}
    <br>
-  <select>
-    <option value="" disabled selected>Choose your option</option>
-    {{#each op in I.selections}}
-    <option {{bind-attr value=op.value}}>{{op.option}}</option>
-    {{/each}}
-  </select>
+     {{view "select" selection=I.value
+       content=I.selections
+       optionValuePath="content.value"
+       optionLabelPath="content.option"}}
+       
+    <label {{bind-attr for=I.id}}>{{I.input}}</label>
   {{/if}}
 {{/each}}
-
+<button {{action 'sendFormData'}}>Send</button>
