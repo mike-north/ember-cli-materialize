@@ -40,12 +40,10 @@
     <label {{bind-attr for=I.id}}>{{I.input}}</label>
   {{/if}}
   {{#if I.isSelect}}
-   <br>
-     {{view "select" selection=I.value
-       content=I.selections
-       optionValuePath="content.value"
-       optionLabelPath="content.option"}}
-       
+    {{view "select" selection=I.value
+        content=I.selections
+        optionValuePath="content.value"
+        optionLabelPath="content.option"}}
     <label {{bind-attr for=I.id}}>{{I.input}}</label>
   {{/if}}
 {{/each}}

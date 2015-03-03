@@ -35,7 +35,6 @@ export default Ember.Component.extend({
   },
   actions: {
     sendFormData: function(){
-      console.log("yep");
       this.sendAction('sendForm', this.inputs);
     }
   },
