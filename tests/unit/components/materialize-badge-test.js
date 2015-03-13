@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('materialize-form', 'MaterializeFormComponent', {
+moduleForComponent('materialize-badge', 'MaterializeBadgeComponent', {
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
 });
