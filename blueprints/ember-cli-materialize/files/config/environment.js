@@ -19,7 +19,7 @@ module.exports = function(environment) {
     },
     sassOptions: {
       includePaths: ['bower_components/materialize/sass']
-    },
+    }
   };
 
   if (environment === 'development') {
