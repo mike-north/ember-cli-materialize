@@ -1,3 +1,5 @@
+import Ember from 'ember'
+
 import {
   moduleForComponent,
   test
@@ -8,7 +10,7 @@ moduleForComponent('materialize-badge', 'MaterializeBadgeComponent', {
   // needs: ['component:foo', 'helper:bar']
 });
 
-test('it renders', function(assert) {
+test('it renders', function() {
   expect(2);
 
   // creates the component instance
