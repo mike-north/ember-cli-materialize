@@ -8,7 +8,7 @@ moduleForComponent('materialize-badge', 'MaterializeBadgeComponent', {
   // needs: ['component:foo', 'helper:bar']
 });
 
-test('it renders', function() {
+test('it renders', function(assert) {
   assert.expect(2);
 
   // creates the component instance
