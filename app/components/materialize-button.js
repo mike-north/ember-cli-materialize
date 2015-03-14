@@ -27,5 +27,5 @@ export default Ember.Component.extend({
   }.property('buttonType'),
   click: function(){
     this.sendAction();
-  },
+  }
 });
