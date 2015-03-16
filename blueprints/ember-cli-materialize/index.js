@@ -6,6 +6,6 @@ module.exports = {
   },
 
   afterInstall: function() {
-    return this.addPackageToProject('ember-cli-sass', '~3.0.3');
+    return this.addPackageToProject('ember-cli-sass', '^3.1.0');
   }
 };
