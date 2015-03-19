@@ -1,14 +1,3 @@
-import Ember from 'ember';
+import MaterializeCardContent from 'ember-cli-materialize/components/materialize-card-content';
 
-export default Ember.Component.extend({
-  tagName: 'div',
-  classNames: ['card-content'],
-  classNameBinding: 'class',
-  titleBinding: 'parentView.title',
-  titleClassBinding: 'parentView.titleClass',
-  activatorBinding: 'parentView.activator',
-  cardTitleClass: function() {
-    var clz = this.get('titleClass');
-    return (clz) ? clz : 'black-text';
-  }.property('titleClass')
-});
+export default MaterializeCardContent;

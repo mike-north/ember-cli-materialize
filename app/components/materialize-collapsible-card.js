@@ -1,15 +1,3 @@
-import Ember from 'ember';
+import MaterializeCollapsibleCard from 'ember-cli-materialize/components/materialize-collapsible-card';
 
-export default Ember.Component.extend({
-  tagName: 'ul',
-  classNames: ['collapsible'],
-  attributeBindings: ['data-collapsible'],
-  'data-collapsible': function() {
-    return (this.get('accordion')) ? 'accordion' : 'expandable';
-  }.property(),
-  accordion: true,
-  didInsertElement: function() {
-    var isAccordion = this.get('accordion');
-    this.$().collapsible({ accordion : isAccordion });
-  }
-});
+export default MaterializeCollapsibleCard;

@@ -1,6 +1,3 @@
-import Ember from 'ember';
+import MaterializeCardAction from 'ember-cli-materialize/components/materialize-card-action';
 
-export default Ember.Component.extend({
-  tagName: 'div',
-  classNames: ['card-action']
-});
+export default MaterializeCardAction;

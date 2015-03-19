@@ -1,8 +1,3 @@
-import Ember from 'ember';
+import MaterializeCardReveal from 'ember-cli-materialize/components/materialize-card-reveal';
 
-export default Ember.Component.extend({
-  tagName: 'div',
-  classNames: ['card-reveal'],
-  classNameBinding: 'class',
-  activatorBinding: 'parentView.activator'
-});
+export default MaterializeCardReveal;

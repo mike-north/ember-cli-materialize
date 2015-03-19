@@ -1,13 +1,3 @@
-import Ember from 'ember';
+import MaterializeNavBar from 'ember-cli-materialize/components/materialize-navbar';
 
-export default Ember.Component.extend({
-  didInsertElement: function(){
-    this._super();
-    Ember.run.scheduleOnce('afterRender', this, function(){
-      if(typeof $('.button-collapse').sideNav === 'function'){
-        $('.button-collapse').sideNav();
-      }
-    });
-  },
-  tagName: 'nav',
-});
+export default MaterializeNavBar;

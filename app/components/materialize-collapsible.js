@@ -1,6 +1,3 @@
-import Ember from 'ember';
+import MaterializeCollapsible from 'ember-cli-materialize/components/materialize-collapsible';
 
-export default Ember.Component.extend({
-  tagName: 'li',
-  classNameBindings: 'class'
-});
+export default MaterializeCollapsible;

@@ -1,7 +1,3 @@
-import Ember from 'ember';
+import MaterializeCard from 'ember-cli-materialize/components/materialize-card';
 
-export default Ember.Component.extend({
-  tagName: 'div',
-  classNames: ['card'],
-  classNameBinding: 'class'
-});
+export default MaterializeCard;
