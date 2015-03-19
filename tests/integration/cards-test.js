@@ -136,34 +136,39 @@ test('Image Card should have actions', function(assert) {
 });
 
 
-// todo: get this working w/ phantomJS
-//test('Card Reveal should reveal and conceal content', function(assert) {
-//  visit('/cards').then(function() {
-//
-//    var activatorEle = find('#card-reveal > .card-content > .activator');
-//    var revealEle = find('#card-reveal > .card-reveal');
-//
-//    var doneReveal = assert.async();
-//    var doneConceal = assert.async();
-//
-//    // click to reveal
-//    click(activatorEle).then(function() {
-//
-//        setTimeout(function () {
-//          assert.equal(revealEle.attr('style'), 'transform: translateY(-100%);');
-//          doneReveal();
-//
-//          // click to conceal
-//          click(revealEle.find('> .card-title')).then(function () {
-//            setTimeout(function() {
-//              assert.equal(revealEle.attr('style'), 'transform: translateY(0px);');
-//              doneConceal();
-//            }, 1000);
-//          });
-//
-//        }, 1000);
-//
-//      });
-//
-//  });
-//});
+test('Card Reveal should reveal and conceal content', function(assert) {
+  visit('/cards').then(function() {
+
+    var doneReveal = assert.async();
+    var doneConceal = assert.async();
+
+    var activatorEle = find('#card-reveal>.card-content>.activator');
+    var revealEle = find('#card-reveal>.card-reveal');
+    var concealEle = revealEle.find('>.card-title');
+    var animationClass = 'velocity-animating';
+
+    // click to reveal
+    click(activatorEle).then(function() {
+      // should be animating...
+      assert.ok(revealEle.hasClass(animationClass));
+
+      // wait for animation to complete
+      setTimeout(function() {
+        assert.ok(!revealEle.hasClass(animationClass));
+        doneReveal();
+
+        // click to conceal
+        click(concealEle).then(function() {
+          assert.ok(revealEle.hasClass(animationClass));
+
+          // wait for animation to complete
+          setTimeout(function() {
+            assert.ok(!revealEle.hasClass(animationClass));
+            doneConceal();
+          }, 500);
+        });
+      }, 500);
+    });
+
+  });
+});

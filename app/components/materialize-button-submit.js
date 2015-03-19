@@ -1,8 +1,3 @@
-import materializeButton from './materialize-button';
+import MaterializeButtonSubmit from 'ember-cli-materialize/components/materialize-button-submit';
 
-export default materializeButton.extend({
-  layoutName: 'components/materialize-button',
-  tagName: 'button',
-  attributeBindings: ['type'],
-  type: 'submit'
-});
+export default MaterializeButtonSubmit;

@@ -6,7 +6,6 @@ import {
 moduleForComponent('materialize-button-submit', 'MaterializeButtonSubmitComponent', {
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
-  needs: ['template:components/materialize-button']
 });
 
 test('it renders', function(assert) {
@@ -22,7 +21,7 @@ test('it renders', function(assert) {
 });
 
 test('it is added to the page', function(assert) {
-  var component = this.subject();
+  this.subject();
   this.render();
 
   assert.ok($('button').length);

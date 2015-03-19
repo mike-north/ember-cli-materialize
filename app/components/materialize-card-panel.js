@@ -1,7 +1,3 @@
-import Ember from 'ember';
+import MaterializeCardPanel from 'ember-cli-materialize/components/materialize-card-panel';
 
-export default Ember.Component.extend({
-  tagName: 'div',
-  classNames: ['card-panel'],
-  classNameBinding: 'class'
-});
+export default MaterializeCardPanel;
