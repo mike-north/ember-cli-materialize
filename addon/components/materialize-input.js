@@ -27,13 +27,6 @@ export default Ember.Component.extend({
       labelSelector.addClass('active');
       labelSelector.trigger('validate');
     }
-    // add icon prefix if necessary
-    var icon = this.get('icon');
-    var iconSelector = this.$('>i');
-    if (Ember.isPresent(icon)) {
-      iconSelector.addClass(icon);
-      iconSelector.addClass('prefix');
-    }
   }
 });
 
