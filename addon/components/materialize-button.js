@@ -14,6 +14,7 @@ export default Ember.Component.extend({
   },
   tagName: 'a',
   classNameBindings: ['btn:waves-effect', 'isFlat::waves-light', 'isDisabled:disabled:waves-effect', 'buttonClass'],
+  attributeBindings: ['isDisabled:disabled'],
   text: null,
   icon: null,
   iconPosition: 'left',
