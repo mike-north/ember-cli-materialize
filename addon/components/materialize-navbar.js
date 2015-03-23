@@ -6,7 +6,9 @@ export default Ember.Component.extend({
     this._super();
     Ember.run.scheduleOnce('afterRender', this, function(){
       if(typeof Ember.$('.button-collapse').sideNav === 'function'){
-        Ember.$('.button-collapse').sideNav();
+        Ember.$('.button-collapse').sideNav({
+          closeOnClick: true
+        });
       }
     });
   },
