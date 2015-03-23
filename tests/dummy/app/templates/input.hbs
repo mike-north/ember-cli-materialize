@@ -1,0 +1,87 @@
+<div class="section index-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m9">
+                <h1 class="header">Input</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class='container'>
+    <div class="section">
+        <div class="intro">
+            <h4 class="col s12 header">The component supports the following options:</h4>
+            <ul>
+                <li>label, default value <span class="default-value badge">null</span></li>
+                <li>icon, default value <span class="default-value badge">null</span></li>
+                <li>value, default value <span class="default-value badge">null</span></li>
+                <li>required, default value <span class="default-value badge">false</span></li>
+                <li>readonly, default value <span class="default-value badge">false</span></li>
+                <li>disabled, default value <span class="default-value badge">false</span></li>
+                <li>maxlength, default value <span class="default-value badge">null</span></li>
+                <li>pattern, default value <span class="default-value badge">null</span></li>
+                <li>validate, default value <span class="default-value badge">false</span></li>
+                <li>autocomplete, default value <span class="default-value badge">null</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h4 class="col s12 header">Input</h4>
+        <div class="button-example">
+            <br/>
+            {{materialize-input value="Hi Mom" label='Example'}}
+
+            <pre class=" language-markup">
+<code class=" col s12 language-markup">
+    <span>&#123;&#123;</span>materialize-input value="Hi Mom" label="Example"<span>&#125;&#125;</span>
+</code>
+      </pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <h4 class="col s12 header">Input with Icon</h4>
+        <div class="button-example">
+            <br/>
+          {{materialize-input value="Hi Mom" label='Example' icon="mdi-action-face-unlock"}}
+
+            <pre class=" language-markup">
+<code class=" col s12 language-markup">
+    <span>&#123;&#123;</span>materialize-input value="Hi Mom" label="Example" icon="mdi-action-face-unlock"<span>&#125;&#125;</span>
+</code>
+      </pre>
+        </div>
+    </div>
+
+
+    <div class="section">
+        <h4 class="col s12 header">Validations</h4>
+      <p>
+          Validations can be performed using HTML5 browser validation by passing validate=true to the component
+          or you can take advantage of the ember-validations addon w/out additional configuration of the component.
+          The following example simulates ember-validations style validation using an observer on the controller's name
+          property.
+      </p>
+        <div class="button-example">
+            <br/>
+            {{materialize-input value=name label='Name'}}
+
+<pre class=" language-markup">
+<code class=" col s12 language-markup">
+<span>&#123;&#123;</span>materialize-input value=name label="Name"<span>&#125;&#125;</span>
+
+// controller example
+nameDidChange: function() {
+  if (!Ember.isPresent(this.get('name'))) {
+    this.set('errors', { name: ['This field is required'] });
+  } else {
+    this.set('errors', { name: [] });
+  }
+}.observes('name')
+</code>
+</pre>
+        </div>
+    </div>
+</div>
+

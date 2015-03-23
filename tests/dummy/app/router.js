@@ -10,6 +10,7 @@ Router.map(function() {
   this.route("navbar");
   this.route("cards");
   this.route("collapsible");
+  this.route("input");
 });
 
 export default Router;
