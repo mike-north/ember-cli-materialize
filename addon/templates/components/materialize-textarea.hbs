@@ -1,0 +1,10 @@
+{{#if icon}}
+    <i {{bind-attr class="icon :prefix"}}></i>
+{{/if}}
+{{textarea id=id value=value name=name required=required readonly=readonly disabled=disabled maxlength=maxlength
+    class="materialize-textarea"}}
+<label {{bind-attr for=id}}>{{label}}</label>
+<small class="red-text">
+  {{#if errors}} {{errors.firstObject}} {{else}} &nbsp; {{/if}}
+</small>
+
