@@ -9,9 +9,12 @@
 </div>
 
 <div class='container'>
+
     <div class="section">
+        <h4 class="col s12 header">Input</h4>
+
         <div class="intro">
-            <h4 class="col s12 header">The component supports the following options:</h4>
+            <h5 class="col s12 header">The component supports the following options:</h5>
             <ul>
                 <li>label, default value <span class="default-value badge">null</span></li>
                 <li>icon, default value <span class="default-value badge">null</span></li>
@@ -25,9 +28,8 @@
                 <li>autocomplete, default value <span class="default-value badge">null</span></li>
             </ul>
         </div>
-    </div>
-    <div class="section">
-        <h4 class="col s12 header">Input</h4>
+
+
         <div class="button-example">
             <br/>
             {{materialize-input value="Hi Mom" label='Example'}}
@@ -83,5 +85,96 @@ nameDidChange: function() {
 </pre>
         </div>
     </div>
+
+    <div class="section">
+        <h4 class="col s12 header">Text Area</h4>
+        <div class="intro">
+            <h5 class="col s12 header">The component supports the following options:</h5>
+            <ul>
+                <li>label, default value <span class="default-value badge">null</span></li>
+                <li>icon, default value <span class="default-value badge">null</span></li>
+                <li>value, default value <span class="default-value badge">null</span></li>
+                <li>name, default value <span class="default-value badge">null</span></li>
+                <li>required, default value <span class="default-value badge">false</span></li>
+                <li>readonly, default value <span class="default-value badge">false</span></li>
+                <li>disabled, default value <span class="default-value badge">false</span></li>
+                <li>maxlength, default value <span class="default-value badge">null</span></li>
+                <li>validate, default value <span class="default-value badge">false</span></li>
+            </ul>
+        </div>
+        <div class="button-example">
+            <br/>
+
+            {{materialize-textarea label='Message' value=message icon="mdi-action-face-unlock"}}
+
+<pre class=" language-markup">
+<code class=" col s12 language-markup">
+&#123;&#123;materialize-textarea label='Message' value="The textarea will auto-grow as you type." icon="mdi-action-face-unlock"&#125;&#125;
+</code>
+</pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <h4 class="col s12 header">Select</h4>
+        <div class="intro">
+            <h5 class="col s12 header">The component supports the following options:</h5>
+            <ul>
+                <li>label, default value <span class="default-value badge">null</span></li>
+                <li>icon, default value <span class="default-value badge">null</span></li>
+                <li>prompt, default value <span class="default-value badge">null</span></li>
+                <li>content, default value <span class="default-value badge">null</span></li>
+                <li>value, default value <span class="default-value badge">null</span></li>
+                <li>optionValuePath, default value <span class="default-value badge">null</span></li>
+                <li>optionLabelPath, default value <span class="default-value badge">null</span></li>
+                <li>validate, default value <span class="default-value badge">false</span></li>
+            </ul>
+        </div>
+        <div class="button-example">
+            <br/>
+
+            {{materialize-select content=frameworks value=framework label="Framework" prompt="Please choose..."
+                optionLabelPath="content.value" optionValuePath="content"}}
+
+            <pre class=" language-markup">
+<code class=" col s12 language-markup">
+&#123;&#123;materialize-select content=frameworks value=framework label="Framework" prompt="Please choose..."
+  optionLabelPath="content.value" optionValuePath="content"&#125;&#125;
+</code>
+</pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <h4 class="col s12 header">Date Input</h4>
+        <div class="intro">
+            <h5 class="col s12 header">The component supports the following options:</h5>
+            <ul>
+                <li>label, default value <span class="default-value badge">null</span></li>
+                <li>icon, default value <span class="default-value badge">null</span></li>
+                <li>value, default value <span class="default-value badge">null</span></li>
+                <li>required, default value <span class="default-value badge">null</span></li>
+                <li>readonly, default value <span class="default-value badge">null</span></li>
+                <li>disabled, default value <span class="default-value badge">null</span></li>
+                <li>selectMonths, default value <span class="default-value badge">true</span></li>
+                <li>numberOfYears, default value <span class="default-value badge">15</span></li>
+                <li>min, default value <span class="default-value badge">null</span></li>
+                <li>max, default value <span class="default-value badge">null</span></li>
+                <li>validate, default value <span class="default-value badge">false</span></li>
+            </ul>
+        </div>
+
+        <div class="button-example">
+            <br/>
+            {{materialize-date-input label='Birthday' icon="mdi-action-face-unlock"}}
+
+<pre class=" language-markup">
+<code class=" col s12 language-markup">
+&#123;&#123;materialize-date-input label='Birthday' icon="mdi-action-face-unlock"&#125;&#125;
+</code>
+</pre>
+        </div>
+    </div>
+
 </div>
 

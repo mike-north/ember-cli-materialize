@@ -1,8 +1,8 @@
 import Ember from 'ember';
-import MaterializeInputField from './materialize-input-field';
-import layout from '../templates/components/materialize-input';
+import InputField from './materialize-input-field';
+import layout from '../templates/components/materialize-textarea';
 
-export default MaterializeInputField.extend({
+export default InputField.extend({
   layout: layout,
   didInsertElement: function() {
     this._super();
@@ -13,4 +13,3 @@ export default MaterializeInputField.extend({
     }
   }
 });
-
