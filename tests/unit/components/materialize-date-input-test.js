@@ -3,7 +3,8 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('materialize-input', 'MaterializeInput', {
+moduleForComponent('materialize-date-input', {
+  // specify the other units that are required for this test
 });
 
 test('it renders', function(assert) {
@@ -33,14 +34,14 @@ test('has a label', function(assert) {
 });
 
 test('has a value', function(assert) {
-  var value = 'My Input Value';
+  var value = '15 January, 1974';
   var component = this.subject({ value: value });
   this.render();
   assert.equal(component.$('>input').val(), value);
 });
 
 test('label is active with value', function(assert) {
-  var component = this.subject({ value: 'some text' });
+  var component = this.subject({ value: '15 January, 1974' });
   this.render();
   assert.ok(component.$('>label').hasClass('active'));
 });

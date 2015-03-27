@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import layout from '../templates/components/materialize-input';
 
 export default Ember.Component.extend({
   init: function() {
@@ -12,7 +11,7 @@ export default Ember.Component.extend({
         .connect(this);
     }
   },
-  layout: layout,
+  bindAttributes: ['disabled', 'readonly'],
   tagName: 'div',
   classNames: ['input-field'],
   validate: false,
@@ -21,12 +20,9 @@ export default Ember.Component.extend({
     return elementId + '-input';
   }),
   didInsertElement: function() {
-    // make sure the label moves when a value is bound.
-    var labelSelector = this.$('>label');
-    if (Ember.isPresent(this.get('value')) && !labelSelector.hasClass('active')) {
-      labelSelector.addClass('active');
-      labelSelector.trigger('validate');
+    // pad the errors element when an icon is present
+    if (Ember.isPresent(this.get('icon'))) {
+      this.$('>span').css('padding-left', '3rem');
     }
   }
 });
-
