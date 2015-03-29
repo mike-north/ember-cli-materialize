@@ -40,7 +40,7 @@ test('text test', function(assert) {
     component.set('text', 'Button');
   });
 
-  assert.equal(this.$().html().trim(), 'Button');
+  assert.equal(this.$().text().trim(), 'Button');
 });
 
 test('icon test', function(assert) {
