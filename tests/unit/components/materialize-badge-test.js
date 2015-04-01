@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 import {
   moduleForComponent,
   test
@@ -22,17 +24,17 @@ test('it renders', function(assert) {
 
 
 test('binding to the text property works', function(assert) {
-  expect(2);
+  assert.expect(2);
 
   var component = this.subject();
 
   this.render();
-  equal(component.$().text().trim(), '', 'By default the text property is empty');
+  assert.equal(component.$().text().trim(), '', 'By default the text property is empty');
 
   Ember.run(function () {
     component.set('text', 'Heisenberg');
     Ember.run.schedule('afterRender', function () {
-      equal(component.$().text().trim(), 'Heisenberg', 'Setting the text property updates the content of the badge');
+      assert.equal(component.$().text().trim(), 'Heisenberg', 'Setting the text property updates the content of the badge');
     });
   });
 });
