@@ -1,6 +1,7 @@
 # ember-cli-materialize
 
 [![Build Status](https://travis-ci.org/sgasser/ember-cli-materialize.svg)](https://travis-ci.org/sgasser/ember-cli-materialize)
+[![Code Climate](https://codeclimate.com/github/sgasser/ember-cli-materialize/badges/gpa.svg)](https://codeclimate.com/github/sgasser/ember-cli-materialize)
 
 An [ember-cli](http://www.ember-cli.com) addon for using [Materialize](http://materializecss.com/) (CSS Framework based on [Material Design](http://www.google.com/design/spec/material-design/introduction.html)) in Ember applications.
 
