@@ -13,9 +13,6 @@ An [ember-cli](http://www.ember-cli.com) addon for using [Materialize](http://ma
 * Imports [Materialize](http://materializecss.com/) sass (via [ember-cli-sass](https://www.npmjs.com/package/ember-cli-sass)) and fonts into your app.
 * It's a components library for all Materialize components
 
-## Changelog
-See [CHANGELOG file](https://github.com/sgasser/ember-cli-materialize/tree/master/CHANGELOG.md).
-
 ## Usage
 The [online demo](http://sgasser.github.io/ember-cli-materialize) demonstrates all components with all possible options.
 
@@ -32,17 +29,8 @@ $ ember serve
 
 ## Installation
 
-Using ember-cli 0.1.5:
 ```sh
 $ ember install:addon ember-cli-materialize
-```
-
-Using previous versions:
-```sh
-# install via npm
-$ npm install ember-cli-materialize --save-dev
-# make ember-cli fetch internal dependencies
-$ ember g ember-cli-materialize
 ```
 
 ## Contributing
