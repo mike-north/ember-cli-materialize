@@ -51,3 +51,10 @@ test('has an icon', function(assert) {
   this.render();
   assert.ok(component.$('>i').hasClass(icon));
 });
+
+test('has type password', function(assert) {
+  var type = 'password';
+  var component = this.subject({ type: type });
+  this.render();
+  assert.equal(component.$('>input').attr('type'), type);
+});

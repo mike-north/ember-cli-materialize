@@ -12,7 +12,7 @@
     "ember-qunit": "0.3.0",
     "ember-qunit-notifications": "0.0.7",
     "qunit": "~1.17.1",
-    "materialize": "4cee70e6740b20ee16ac013cd0ea0f33fe52853c"
+    "materialize": "~0.96.0"
   },
   "resolutions": {
     "jquery": "~1.11.1"
