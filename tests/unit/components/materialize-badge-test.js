@@ -10,7 +10,7 @@ moduleForComponent('materialize-badge', {
   // needs: ['component:foo', 'helper:bar']
 });
 
-test('it renders', function(assert) {
+test('badge renders', function(assert) {
   assert.expect(2);
 
   // Creates the component instance
@@ -23,7 +23,7 @@ test('it renders', function(assert) {
 });
 
 
-test('binding to the text property works', function(assert) {
+test('badge binding to the text property works', function(assert) {
   assert.expect(2);
 
   var component = this.subject();
