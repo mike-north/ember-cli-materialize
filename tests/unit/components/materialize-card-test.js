@@ -9,7 +9,7 @@ moduleForComponent('materialize-card', 'MaterializeCardComponent', {
 });
 
 
-test('it renders', function(assert) {
+test('card renders', function(assert) {
   // creates the component instance
   var component = this.subject();
   assert.equal(component._state, 'preRender');
@@ -20,31 +20,31 @@ test('it renders', function(assert) {
 });
 
 
-test('it is added to the page', function(assert) {
+test('card is added to the page', function(assert) {
   this.subject();
   this.render();
   assert.ok($('div').length);
 });
 
 
-test('is a DIV', function(assert) {
+test('card a DIV', function(assert) {
   this.subject();
   assert.equal('DIV', this.$().prop('tagName'));
 });
 
 
-test('has title properties', function(assert) {
+test('card has title properties', function(assert) {
   var component = this.subject({title: 'My Component', titleClass: 'green-text'});
   assert.equal('My Component', component.get('title'));
   assert.equal('green-text', component.get('titleClass'));
 });
 
-test('has an image', function(assert) {
+test('card has an image', function(assert) {
   var component = this.subject({image: 'images/ember.png'});
   assert.equal('images/ember.png', component.get('image'));
 });
 
-test('has passed classes', function(assert) {
+test('card has passed classes', function(assert) {
   this.subject({'classNames': "teal"});
 
   assert.ok(this.$().hasClass('card'));

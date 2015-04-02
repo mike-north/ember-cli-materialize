@@ -8,7 +8,7 @@ moduleForComponent('materialize-loader', {
   // needs: ['component:foo', 'helper:bar']
 });
 
-test('it renders', function(assert) {
+test('loader renders', function(assert) {
   assert.expect(2);
 
   // Creates the component instance

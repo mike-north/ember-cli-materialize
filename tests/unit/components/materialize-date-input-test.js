@@ -7,7 +7,7 @@ moduleForComponent('materialize-date-input', {
   // specify the other units that are required for this test
 });
 
-test('it renders', function(assert) {
+test('date input renders', function(assert) {
   assert.expect(2);
 
   // creates the component instance
@@ -20,33 +20,33 @@ test('it renders', function(assert) {
 });
 
 
-test('has class input-field', function(assert) {
+test('date input has class input-field', function(assert) {
   var component = this.subject();
   this.render();
   assert.ok(component.$().hasClass('input-field'));
 });
 
-test('has a label', function(assert) {
+test('date input has a label', function(assert) {
   var label = 'My Input';
   var component = this.subject({ label: label });
   this.render();
   assert.equal(component.$('>label').text(), label);
 });
 
-test('has a value', function(assert) {
+test('date input has a value', function(assert) {
   var value = '15 January, 1974';
   var component = this.subject({ value: value });
   this.render();
   assert.equal(component.$('>input').val(), value);
 });
 
-test('label is active with value', function(assert) {
+test('date input label is active with value', function(assert) {
   var component = this.subject({ value: '15 January, 1974' });
   this.render();
   assert.ok(component.$('>label').hasClass('active'));
 });
 
-test('has an icon', function(assert) {
+test('date input has an icon', function(assert) {
   var icon = 'mdi-action-face-unlock';
   var component = this.subject({ icon: icon });
   this.render();

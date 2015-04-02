@@ -8,7 +8,7 @@ moduleForComponent('materialize-collapsible', {
   // needs: ['component:foo', 'helper:bar']
 });
 
-test('it renders', function(assert) {
+test('collapsible renders', function(assert) {
   assert.expect(2);
 
   // creates the component instance
