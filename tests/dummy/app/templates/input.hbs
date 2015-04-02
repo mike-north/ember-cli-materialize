@@ -19,6 +19,7 @@
                 <li>label, default value <span class="default-value badge">null</span></li>
                 <li>icon, default value <span class="default-value badge">null</span></li>
                 <li>value, default value <span class="default-value badge">null</span></li>
+                <li>type, default value <span class="default-value badge">text</span></li>
                 <li>required, default value <span class="default-value badge">false</span></li>
                 <li>readonly, default value <span class="default-value badge">false</span></li>
                 <li>disabled, default value <span class="default-value badge">false</span></li>
@@ -51,6 +52,20 @@
             <pre class=" language-markup">
 <code class=" col s12 language-markup">
     <span>&#123;&#123;</span>materialize-input value="Hi Mom" label="Example" icon="mdi-action-face-unlock"<span>&#125;&#125;</span>
+</code>
+      </pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <h4 class="col s12 header">Input with type="password"</h4>
+        <div class="button-example">
+            <br/>
+            {{materialize-input value="test" label='Password' type="password"}}
+
+            <pre class=" language-markup">
+<code class=" col s12 language-markup">
+    <span>&#123;&#123;</span>materialize-input value="test" label="Password" type="password"<span>&#125;&#125;</span>
 </code>
       </pre>
         </div>
@@ -177,4 +192,3 @@ nameDidChange: function() {
     </div>
 
 </div>
-
