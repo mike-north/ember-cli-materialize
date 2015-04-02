@@ -4,6 +4,7 @@ import layout from '../templates/components/materialize-input';
 
 export default MaterializeInputField.extend({
   layout: layout,
+  type: 'text',
   didInsertElement: function() {
     this._super();
     // make sure the label moves when a value is bound.

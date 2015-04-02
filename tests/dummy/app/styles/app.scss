@@ -54,6 +54,7 @@ span.badge {
   }
   &.default-value {
     float: none;
+    position: inherit;
   }
 }
 .intro {
