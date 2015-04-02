@@ -6,7 +6,7 @@
 
 An [ember-cli](http://www.ember-cli.com) addon for using [Materialize](http://materializecss.com/) (CSS Framework based on [Material Design](http://www.google.com/design/spec/material-design/introduction.html)) in Ember applications.
 
-*Materialize Version 0.95.*
+*Materialize Version ~0.96.0
 
 ## Main features
 
