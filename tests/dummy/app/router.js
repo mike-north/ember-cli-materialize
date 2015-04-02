@@ -12,6 +12,7 @@ Router.map(function() {
   this.route("cards");
   this.route("collapsible");
   this.route("input");
+  this.route("loader");
   this.route("parallax");
 });
 
