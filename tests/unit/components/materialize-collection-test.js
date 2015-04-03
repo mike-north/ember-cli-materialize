@@ -9,8 +9,6 @@ moduleForComponent('materialize-collection', {
 });
 
 test('it renders', function(assert) {
-  assert.expect(2);
-
   // Creates the component instance
   var component = this.subject();
   assert.equal(component._state, 'preRender');
@@ -18,4 +16,23 @@ test('it renders', function(assert) {
   // Renders the component to the page
   this.render();
   assert.equal(component._state, 'inDOM');
+});
+
+
+test('it is added to the page', function(assert) {
+  this.subject();
+  this.render();
+  assert.ok($('ul').length);
+});
+
+test('is a UL', function(assert) {
+  this.subject();
+  assert.equal('UL', this.$().prop('tagName'));
+});
+
+
+test('it is defined to contain a header', function(assert) {
+  var component = this.subject({hasHeader: true});
+  this.render();
+  assert.ok(component.$().hasClass('with-header'));
 });

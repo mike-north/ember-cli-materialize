@@ -19,3 +19,14 @@ test('it renders', function(assert) {
   this.render();
   assert.equal(component._state, 'inDOM');
 });
+
+test('it is added to the page', function(assert) {
+  this.subject();
+  this.render();
+  assert.ok($('a').length);
+});
+
+test('is a A', function(assert) {
+  this.subject();
+  assert.equal('A', this.$().prop('tagName'));
+});

@@ -19,3 +19,26 @@ test('it renders', function(assert) {
   this.render();
   assert.equal(component._state, 'inDOM');
 });
+
+test('it is added to the page', function(assert) {
+  this.subject();
+  this.render();
+  assert.ok($('li').length);
+});
+
+test('is a LI', function(assert) {
+  this.subject();
+  assert.equal('LI', this.$().prop('tagName'));
+});
+
+test('it is set as active', function(assert) {
+  var component = this.subject({isActive: true});
+  this.render();
+  assert.ok(component.$().hasClass('active'));
+});
+
+test('it is set as header', function(assert) {
+  var component = this.subject({isHeader: true});
+  this.render();
+  assert.ok(component.$().hasClass('collection-header'));
+});
