@@ -65,4 +65,27 @@
             </pre>
         </div>
     </div>
+
+    <div class="section">
+        <h4 class="col s12 header">Headers</h4>
+
+        <div class="button-example">
+            <br/>
+            {{#materialize-collection hasHeader=true}}
+              {{#materialize-collection-item isHeader=true}}First element{{/materialize-collection-item}}
+              {{#materialize-collection-item}}Second element{{/materialize-collection-item}}
+              {{#materialize-collection-item}}Third element{{/materialize-collection-item}}
+            {{/materialize-collection}}
+
+            <pre class=" language-markup">
+<code class=" col s12 language-markup">
+    <span>&#123;&#123;#</span>materialize-collection hasHeader=true<span>&#125;&#125;</span>
+      <span>&#123;&#123;#</span>materialize-collection-item isHeader=true<span>&#125;&#125;</span>First element<span>&#123;&#123;</span>/materialize-collection-item<span>&#125;&#125;</span>
+      <span>&#123;&#123;#</span>materialize-collection-item<span>&#125;&#125;</span>Second element<span>&#123;&#123;</span>/materialize-collection-item<span>&#125;&#125;</span>
+      <span>&#123;&#123;#</span>materialize-collection-item<span>&#125;&#125;</span>Third element<span>&#123;&#123;</span>/materialize-collection-item<span>&#125;&#125;</span>
+    <span>&#123;&#123;</span>/materialize-collection<span>&#125;&#125;</span>
+</code>
+            </pre>
+        </div>
+    </div>
 </div>

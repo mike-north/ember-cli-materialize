@@ -1,1 +1,5 @@
-{{yield}}
+{{#if isHeader}}
+  <h4>{{yield}}</h4>
+{{else}}
+  {{yield}}
+{{/if}}

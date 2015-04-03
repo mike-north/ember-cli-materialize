@@ -5,6 +5,6 @@ export default Ember.Component.extend({
   layout: layout,
   tagName: 'li',
   isActive: false,
-  classNames: ['collection-item'],
-  classNameBindings: ['isActive:active'],
+  isHeader: false,
+  classNameBindings: ['isActive:active', 'isHeader:collection-header:collection-item'],
 });
