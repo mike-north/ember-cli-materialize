@@ -12,6 +12,7 @@ Router.map(function() {
   this.route("collapsible");
   this.route("input");
   this.route("parallax");
+  this.route("collections");
 });
 
 export default Router;
