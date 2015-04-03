@@ -8,7 +8,7 @@ moduleForComponent('materialize-parallax', {
   // needs: ['component:foo', 'helper:bar']
 });
 
-test('it renders', function(assert) {
+test('parallax renders', function(assert) {
   assert.expect(2);
 
   // creates the component instance
@@ -20,19 +20,19 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
-test('has class parallax-container', function(assert) {
+test('parallax has class parallax-container', function(assert) {
   var component = this.subject();
   this.render();
   assert.ok(component.$().hasClass('parallax-container'));
 });
 
-test('has div with class parallax', function(assert) {
+test('parallax has div with class parallax', function(assert) {
   var component = this.subject();
   this.render();
   assert.ok(component.$('>div').hasClass('parallax'));
 });
 
-test('has an image', function(assert) {
+test('parallax has an image', function(assert) {
   var component = this.subject();
   this.render();
   assert.ok(component.$('>div>img').length);

@@ -10,7 +10,7 @@ moduleForComponent('materialize-button', 'MaterializeButtonComponent', {
   // needs: ['component:foo', 'helper:bar']
 });
 
-test('it renders', function(assert) {
+test('button renders', function(assert) {
   assert.expect(2);
 
   // creates the component instance
@@ -22,7 +22,7 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
-test('it is added to the page', function(assert) {
+test('button is added to the page', function(assert) {
   var component = this.subject();
   this.render();
 
@@ -33,7 +33,7 @@ test('it is added to the page', function(assert) {
   assert.ok($('a').hasClass('btn'));
 });
 
-test('text test', function(assert) {
+test('button text test', function(assert) {
   var component = this.subject();
 
   Ember.run(function(){
@@ -43,7 +43,7 @@ test('text test', function(assert) {
   assert.equal(this.$().text().trim(), 'Button');
 });
 
-test('icon test', function(assert) {
+test('button icon test', function(assert) {
   var component = this.subject();
   this.render();
 
@@ -56,7 +56,7 @@ test('icon test', function(assert) {
   assert.ok($('i').hasClass('left'));
 });
 
-test('icon with position test', function(assert) {
+test('button icon with position test', function(assert) {
   var component = this.subject();
   this.render();
 
@@ -70,7 +70,7 @@ test('icon with position test', function(assert) {
   assert.ok($('i').hasClass('right'));
 });
 
-test('buttonType floating test', function(assert) {
+test('button buttonType floating test', function(assert) {
   var component = this.subject();
   this.render();
 
@@ -83,7 +83,7 @@ test('buttonType floating test', function(assert) {
   assert.ok($('a').hasClass('btn-floating'));
 });
 
-test('buttonType flat test', function(assert) {
+test('button buttonType flat test', function(assert) {
   var component = this.subject();
   this.render();
 
@@ -95,7 +95,7 @@ test('buttonType flat test', function(assert) {
   assert.ok($('a').hasClass('btn-flat'));
 });
 
-test('buttonType large test', function(assert) {
+test('button buttonType large test', function(assert) {
   var component = this.subject();
   this.render();
 
@@ -108,7 +108,7 @@ test('buttonType large test', function(assert) {
   assert.ok($('a').hasClass('btn-large'));
 });
 
-test('isDisabled test', function(assert) {
+test('button isDisabled test', function(assert) {
   var component = this.subject();
   this.render();
 

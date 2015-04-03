@@ -9,7 +9,7 @@ moduleForComponent('materialize-card-action', 'MaterializeCardActionComponent', 
 });
 
 
-test('it renders', function(assert) {
+test('card action renders', function(assert) {
   // creates the component instance
   var component = this.subject();
   assert.equal(component._state, 'preRender');
@@ -20,20 +20,20 @@ test('it renders', function(assert) {
 });
 
 
-test('it is added to the page', function(assert) {
+test('card action it is added to the page', function(assert) {
   this.subject();
   this.render();
   assert.ok($('div').length);
 });
 
 
-test('is a DIV', function(assert) {
+test('card action is a DIV', function(assert) {
   this.subject();
   assert.equal('DIV', this.$().prop('tagName'));
 });
 
 
-test('has passed classes', function(assert) {
+test('card action has passed classes', function(assert) {
   this.subject({'classNames': "teal"});
 
   assert.ok(this.$().hasClass('card-action'));

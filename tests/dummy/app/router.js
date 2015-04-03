@@ -6,11 +6,13 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route("badges");
   this.route("buttons");
   this.route("navbar");
   this.route("cards");
   this.route("collapsible");
   this.route("input");
+  this.route("loader");
   this.route("parallax");
   this.route("collections");
 });

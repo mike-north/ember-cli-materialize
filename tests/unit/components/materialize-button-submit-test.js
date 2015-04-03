@@ -8,7 +8,7 @@ moduleForComponent('materialize-button-submit', 'MaterializeButtonSubmitComponen
   // needs: ['component:foo', 'helper:bar']
 });
 
-test('it renders', function(assert) {
+test('button submit renders', function(assert) {
   assert.expect(2);
 
   // creates the component instance
@@ -20,7 +20,7 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
-test('it is added to the page', function(assert) {
+test('button submit is added to the page', function(assert) {
   this.subject();
   this.render();
 
