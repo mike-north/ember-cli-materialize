@@ -42,3 +42,37 @@ test('it is set as header', function(assert) {
   this.render();
   assert.ok(component.$().hasClass('collection-header'));
 });
+
+test('it has an image', function(assert) {
+  var image = 'images/ember.png';
+  var component = this.subject({ image: image });
+  this.render();
+  assert.equal(component.$('> img').attr('src'), image);
+});
+
+test('it has an image alt without image', function(assert) {
+  var imageAlt = 'This is a description';
+  var component = this.subject({ imageAlt: imageAlt });
+  this.render();
+  assert.equal(component.$('> img').attr('alt'), undefined);
+});
+
+test('it has an image alt with image', function(assert) {
+  var imageAlt = 'This is a description';
+  var component = this.subject({ imageAlt: imageAlt, image: 'images/ember.png' });
+  this.render();
+  assert.equal(component.$('> img').attr('alt'), imageAlt);
+});
+
+test('it has a title', function(assert) {
+  var title = 'Title';
+  var component = this.subject({ title: title });
+  this.render();
+  assert.equal(component.$('> span').html(), title);
+});
+
+test('is dismissable', function(assert) {
+  var component = this.subject({ isDismissable: true });
+  this.render();
+  assert.ok(component.$().hasClass('dismissable'));
+});

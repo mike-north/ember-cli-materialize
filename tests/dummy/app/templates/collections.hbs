@@ -10,12 +10,23 @@
 
 <div class='container'>
     <div class="section">
-        <h4 class="col s12 header">The component supports the following options:</h4>
+        <h4 class="col s12 header">The component supports the following option:</h4>
+        <div class="intro">
+            <ul>
+                <li>hasHeader, default value <span class="default-value badge">false</span></li>
+            </ul>
+        </div>
 
+        <h4 class="col s12 header">And the single component items supports the following options:</h4>
         <div class="intro">
             <ul>
                 <li>isActive, default value <span class="default-value badge">false</span></li>
+                <li>isHeader, default value <span class="default-value badge">false</span></li>
+                <li>isDismissable, default value <span class="default-value badge">false</span></li>
                 <li>linkTo, default value <span class="default-value badge">null</span></li>
+                <li>image, default value <span class="default-value badge">null</span></li>
+                <li>imageAlt, default value <span class="default-value badge">null</span></li>
+                <li>title, default value <span class="default-value badge">null</span></li>
             </ul>
         </div>
     </div>
@@ -121,6 +132,95 @@
         <span>&#123;&#123;#</span>materialize-collection-item-secondary linkTo='#!'<span>&#125;&#125;</span>&lt;i class="mdi-content-send"&gt;&lt;/i&gt;<span>&#123;&#123;</span>/materialize-collection-item-secondary<span>&#125;&#125;</span>
       <span>&#123;&#123;</span>/materialize-collection-item<span>&#125;&#125;</span>
       <span>&#123;&#123;#</span>materialize-collection-item<span>&#125;&#125;</span>
+        Third element
+        <span>&#123;&#123;#</span>materialize-collection-item-secondary linkTo='#!'<span>&#125;&#125;</span>&lt;i class="mdi-content-send"&gt;&lt;/i&gt;<span>&#123;&#123;</span>/materialize-collection-item-secondary<span>&#125;&#125;</span>
+      <span>&#123;&#123;</span>/materialize-collection-item<span>&#125;&#125;</span>
+    <span>&#123;&#123;</span>/materialize-collection<span>&#125;&#125;</span>
+</code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <h4 class="col s12 header">Image Content</h4>
+
+        <div class="button-example">
+            <br/>
+            {{#materialize-collection}}
+              {{#materialize-collection-item image="images/ember.png" imageAlt="Image description" title="A Title"}}
+                First line<br/>
+                Second line
+                {{#materialize-collection-item-secondary linkTo='#!'}}<i class="mdi-action-grade"></i>{{/materialize-collection-item-secondary}}
+              {{/materialize-collection-item}}
+              {{#materialize-collection-item image="images/ember-cli.png" imageAlt="" title="A second title"}}
+                First line<br/>
+                Second line
+                {{#materialize-collection-item-secondary linkTo='#!'}}<i class="mdi-action-grade"></i>{{/materialize-collection-item-secondary}}
+              {{/materialize-collection-item}}
+              {{#materialize-collection-item image="images/ember.png" imageAlt="Image description"}}
+                First line<br/>
+                Second line
+                {{#materialize-collection-item-secondary linkTo='#!'}}<i class="mdi-content-send"></i>{{/materialize-collection-item-secondary}}
+              {{/materialize-collection-item}}
+            {{/materialize-collection}}
+
+            <pre class=" language-markup">
+<code class=" col s12 language-markup">
+    <span>&#123;&#123;#</span>materialize-collection<span>&#125;&#125;</span>
+      <span>&#123;&#123;#</span>materialize-collection-item image="images/ember.png" imageAlt="Image description" title="A Title"<span>&#125;&#125;</span>
+        First line&lt;br/&gt;
+        Second line
+        <span>&#123;&#123;#</span>materialize-collection-item-secondary linkTo='#!'<span>&#125;&#125;</span>&lt;i class="mdi-action-grade"&gt;&lt;/i&gt;<span>&#123;&#123;</span>/materialize-collection-item-secondary<span>&#125;&#125;</span>
+      <span>&#123;&#123;</span>/materialize-collection-item<span>&#125;&#125;</span>
+      <span>&#123;&#123;#</span>materialize-collection-item image="images/ember-cli.png" imageAlt="" title="A second title"<span>&#125;&#125;</span>
+        First line&lt;br/&gt;
+        Second line
+        <span>&#123;&#123;#</span>materialize-collection-item-secondary linkTo='#!'<span>&#125;&#125;</span>&lt;i class="mdi-action-grade"&gt;&lt;/i&gt;<span>&#123;&#123;</span>/materialize-collection-item-secondary<span>&#125;&#125;</span>
+      <span>&#123;&#123;</span>/materialize-collection-item<span>&#125;&#125;</span>
+      <span>&#123;&#123;#</span>materialize-collection-item image="images/ember.png" imageAlt="Image description"<span>&#125;&#125;</span>
+        First line&lt;br/&gt;
+        Second line
+        <span>&#123;&#123;#</span>materialize-collection-item-secondary linkTo='#!'<span>&#125;&#125;</span>&lt;i class="mdi-content-send"&gt;&lt;/i&gt;<span>&#123;&#123;</span>/materialize-collection-item-secondary<span>&#125;&#125;</span>
+      <span>&#123;&#123;</span>/materialize-collection-item<span>&#125;&#125;</span>
+    <span>&#123;&#123;</span>/materialize-collection<span>&#125;&#125;</span>
+</code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <h4 class="col s12 header">Dismissable content</h4>
+        <p>This works only on touch devices.</p>
+
+        <div class="button-example">
+            <br/>
+            {{#materialize-collection}}
+              {{#materialize-collection-item isDismissable=true}}
+                First element
+                {{#materialize-collection-item-secondary linkTo='#!'}}<i class="mdi-content-send"></i>{{/materialize-collection-item-secondary}}
+              {{/materialize-collection-item}}
+              {{#materialize-collection-item isDismissable=true}}
+                Second element
+                {{#materialize-collection-item-secondary linkTo='#!'}}<i class="mdi-content-send"></i>{{/materialize-collection-item-secondary}}
+              {{/materialize-collection-item}}
+              {{#materialize-collection-item isDismissable=true}}
+                Third element
+                {{#materialize-collection-item-secondary linkTo='#!'}}<i class="mdi-content-send"></i>{{/materialize-collection-item-secondary}}
+              {{/materialize-collection-item}}
+            {{/materialize-collection}}
+
+            <pre class=" language-markup">
+<code class=" col s12 language-markup">
+    <span>&#123;&#123;#</span>materialize-collection<span>&#125;&#125;</span>
+      <span>&#123;&#123;#</span>materialize-collection-item isDismissable=true<span>&#125;&#125;</span>
+        First element
+        <span>&#123;&#123;#</span>materialize-collection-item-secondary linkTo='#!'<span>&#125;&#125;</span>&lt;i class="mdi-content-send"&gt;&lt;/i&gt;<span>&#123;&#123;</span>/materialize-collection-item-secondary<span>&#125;&#125;</span>
+      <span>&#123;&#123;</span>/materialize-collection-item<span>&#125;&#125;</span>
+      <span>&#123;&#123;#</span>materialize-collection-item isDismissable=true<span>&#125;&#125;</span>
+        Second element
+        <span>&#123;&#123;#</span>materialize-collection-item-secondary linkTo='#!'<span>&#125;&#125;</span>&lt;i class="mdi-content-send"&gt;&lt;/i&gt;<span>&#123;&#123;</span>/materialize-collection-item-secondary<span>&#125;&#125;</span>
+      <span>&#123;&#123;</span>/materialize-collection-item<span>&#125;&#125;</span>
+      <span>&#123;&#123;#</span>materialize-collection-item isDismissable=true<span>&#125;&#125;</span>
         Third element
         <span>&#123;&#123;#</span>materialize-collection-item-secondary linkTo='#!'<span>&#125;&#125;</span>&lt;i class="mdi-content-send"&gt;&lt;/i&gt;<span>&#123;&#123;</span>/materialize-collection-item-secondary<span>&#125;&#125;</span>
       <span>&#123;&#123;</span>/materialize-collection-item<span>&#125;&#125;</span>

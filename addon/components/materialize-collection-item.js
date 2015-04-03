@@ -6,5 +6,9 @@ export default Ember.Component.extend({
   tagName: 'li',
   isActive: false,
   isHeader: false,
-  classNameBindings: ['isActive:active', 'isHeader:collection-header:collection-item'],
+  isDismissable: false,
+  image: '',
+  imageAlt: '',
+  title: '',
+  classNameBindings: ['isActive:active', 'isHeader:collection-header:collection-item', 'image:avatar', 'isDismissable:dismissable'],
 });
