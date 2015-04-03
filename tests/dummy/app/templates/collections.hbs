@@ -88,4 +88,45 @@
             </pre>
         </div>
     </div>
+
+    <div class="section">
+        <h4 class="col s12 header">Secondary content</h4>
+
+        <div class="button-example">
+            <br/>
+            {{#materialize-collection}}
+              {{#materialize-collection-item}}
+                First element
+                {{#materialize-collection-item-secondary linkTo='#!'}}<i class="mdi-content-send"></i>{{/materialize-collection-item-secondary}}
+              {{/materialize-collection-item}}
+              {{#materialize-collection-item}}
+                Second element
+                {{#materialize-collection-item-secondary linkTo='#!'}}<i class="mdi-content-send"></i>{{/materialize-collection-item-secondary}}
+              {{/materialize-collection-item}}
+              {{#materialize-collection-item}}
+                Third element
+                {{#materialize-collection-item-secondary linkTo='#!'}}<i class="mdi-content-send"></i>{{/materialize-collection-item-secondary}}
+              {{/materialize-collection-item}}
+            {{/materialize-collection}}
+
+            <pre class=" language-markup">
+<code class=" col s12 language-markup">
+    <span>&#123;&#123;#</span>materialize-collection<span>&#125;&#125;</span>
+      <span>&#123;&#123;#</span>materialize-collection-item<span>&#125;&#125;</span>
+        First element
+        <span>&#123;&#123;#</span>materialize-collection-item-secondary linkTo='#!'<span>&#125;&#125;</span>&lt;i class="mdi-content-send"&gt;&lt;/i&gt;<span>&#123;&#123;</span>/materialize-collection-item-secondary<span>&#125;&#125;</span>
+      <span>&#123;&#123;</span>/materialize-collection-item<span>&#125;&#125;</span>
+      <span>&#123;&#123;#</span>materialize-collection-item<span>&#125;&#125;</span>
+        Second element
+        <span>&#123;&#123;#</span>materialize-collection-item-secondary linkTo='#!'<span>&#125;&#125;</span>&lt;i class="mdi-content-send"&gt;&lt;/i&gt;<span>&#123;&#123;</span>/materialize-collection-item-secondary<span>&#125;&#125;</span>
+      <span>&#123;&#123;</span>/materialize-collection-item<span>&#125;&#125;</span>
+      <span>&#123;&#123;#</span>materialize-collection-item<span>&#125;&#125;</span>
+        Third element
+        <span>&#123;&#123;#</span>materialize-collection-item-secondary linkTo='#!'<span>&#125;&#125;</span>&lt;i class="mdi-content-send"&gt;&lt;/i&gt;<span>&#123;&#123;</span>/materialize-collection-item-secondary<span>&#125;&#125;</span>
+      <span>&#123;&#123;</span>/materialize-collection-item<span>&#125;&#125;</span>
+    <span>&#123;&#123;</span>/materialize-collection<span>&#125;&#125;</span>
+</code>
+            </pre>
+        </div>
+    </div>
 </div>
