@@ -9,6 +9,7 @@ Router.map(function() {
   this.route("badges");
   this.route("buttons");
   this.route("navbar");
+  this.route("footer");
   this.route("cards");
   this.route("collapsible");
   this.route("input");
