@@ -13,7 +13,7 @@ export default Ember.Component.extend({
   classNames: ['footer-copyright'],
   date: function () {
     var returnDate;
-    if (this.get('startYear') == null || this.get('startYear') == new Date().getFullYear()) {
+    if (this.get('startYear') === null || this.get('startYear') === new Date().getFullYear()) {
       returnDate = new Date().getFullYear();
     } else {
       returnDate = this.get('startYear') + ' - ' + new Date().getFullYear();
