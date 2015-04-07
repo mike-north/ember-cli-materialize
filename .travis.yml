@@ -20,4 +20,4 @@ install:
   - bower install
 
 script:
-  - npm test
+  - ember try:testall
