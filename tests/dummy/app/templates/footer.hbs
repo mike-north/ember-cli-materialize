@@ -11,9 +11,10 @@
 <div class='container'>
     <div class="section">
         <div class="intro">
-            <h4 class="col s12 header">The component supports one option:</h4>
+            <h4 class="col s12 header">The component supports two options:</h4>
             <ul>
                 <li>text, default value <span class="default-value badge">null</span></li>
+                <li>startYear, default value <span class="default-value badge">null</span></li>
             </ul>
         </div>
     </div>
@@ -24,7 +25,7 @@
             {{#materialize-footer-content}}
                 <h5 class="white-text">Example Footer Content</h5>
             {{/materialize-footer-content}}
-            {{#materialize-copyright text='Copyright Text'}}
+            {{#materialize-copyright text='Copyright Text' startYear=2014}}
                 <a class="grey-text text-lighten-4 right" href="#!">More Example Content</a>
             {{/materialize-copyright}}
           {{/materialize-footer}}
@@ -34,7 +35,7 @@
                   <span>&#123;&#123;</span>#materialize-content<span>&#125;&#125;</span>
                     <span>&#60;</span>h5 class="white-text"<span>&#62;</span>Example Footer Content<span>&#60;</span>/h5<span>&#62;</span>
                   <span>&#123;&#123;</span>/materialize-content<span>&#125;&#125;</span>
-                  <span>&#123;&#123;</span>#materialize-copyright text='Copyright Text'<span>&#125;&#125;</span>
+                  <span>&#123;&#123;</span>#materialize-copyright text='Copyright Text' startYear=2014<span>&#125;&#125;</span>
                     <span>&#60;</span>a class="grey-text text-lighten-4 right" href="#!">More Example Content<span>&#60;</span>/a<span>&#62;</span>
                   <span>&#123;&#123;</span>/materialize-copyright<span>&#125;&#125;</span>
                 <span>&#123;&#123;</span>/materialize-footer<span>&#125;&#125;</span>
