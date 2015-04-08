@@ -10,22 +10,22 @@ export default Ember.Component.extend({
   color: null,
   classNameBindings: ['isBarType:progress:preloader-wrapper', 'active:active', 'size'],
 
-  isBarType: function () {
+  isBarType: Ember.computed('mode', function () {
     return ['determinate', 'indeterminate'].indexOf(this.get('mode')) >= 0;
-  }.property('mode'),
+  }),
 
-  isDeterminate: function () {
+  isDeterminate: Ember.computed('mode', function () {
     return ['determinate'].indexOf(this.get('mode'));
-  }.property('mode'),
+  }),
 
-  barStyle: function () {
+  barStyle: Ember.computed('mode', 'percent', function () {
     if (this.get('mode') === 'determinate') {
       var pct = this.get('percent');
       return `width: ${pct}%`;
     }
-  }.property('mode', 'percent'),
+  }),
 
-  barClassName: function () {
+  barClassName: Ember.computed('isBarType', 'mode', function () {
     var mode = this.get('mode');
     if (this.get('isBarType')) {
       return mode;
@@ -33,20 +33,20 @@ export default Ember.Component.extend({
     else {
       return null;
     }
-  }.property('isBarType', 'mode'),
+  }),
 
-  spinnerClassNames: function () {
+  spinnerClassNames: Ember.computed('color', 'isBarType', function () {
     if (!this.get('isBarType')) {
       var color = this.get('color');
       if (!color) {
-        return ['blue', 'red', 'green', 'yellow'].map((c) => (`spinner-layer spinner-${c}`));
+        new Ember.A(['blue', 'red', 'green', 'yellow'].map((c) => (`spinner-layer spinner-${c}`)));
       }
       else {
-        return [`spinner-layer spinner-${color}-only`];
+        return new Ember.A([`spinner-layer spinner-${color}-only`]);
       }
     }
     else {
-      return [];
+      return new Ember.A([]);
     }
-  }.property('color', 'isBarType')
+  })
 });

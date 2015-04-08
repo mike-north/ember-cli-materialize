@@ -13,12 +13,24 @@ module.exports = {
       }
     },
     {
+      name: 'ember-1.11.1',
+      dependencies: {
+        'ember': '1.11.1'
+      }
+    },
+    {
       name: 'ember-stable',
       dependencies: {
         'ember': 'components/ember#release'
       },
-      resolutions: { // Resolutions are only necessary when they do not match the version specified in `dependencies`
+      resolutions: {
         'ember': 'release'
+      }
+    },
+    {
+      name: 'ember-1.12.0-beta.1',
+      dependencies: {
+        'ember': '1.12.0-beta.1'
       }
     },
     {
@@ -26,8 +38,17 @@ module.exports = {
       dependencies: {
         'ember': 'components/ember#beta'
       },
-      resolutions: { // Resolutions are only necessary when they do not match the version specified in `dependencies`
+      resolutions: {
         'ember': 'beta'
+      }
+    },
+    {
+      name: 'ember-canary',
+      dependencies: {
+        'ember': 'components/ember#canary'
+      },
+      resolutions: {
+        'ember': 'canary'
       }
     }
   ]
