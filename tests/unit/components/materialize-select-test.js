@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import {
   moduleForComponent,
   test
@@ -35,7 +36,7 @@ test('select has a label', function(assert) {
 test('select label is active with value', function(assert) {
   var value = {id: 1, name: 'My Input Value'};
   var component = this.subject({
-    content: [value],
+    content: new Ember.A([value]),
     value: value,
     optionLabelPath: 'content.name',
     optionValuePath: 'content.id'

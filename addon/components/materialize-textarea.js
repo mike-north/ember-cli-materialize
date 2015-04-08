@@ -4,8 +4,9 @@ import layout from '../templates/components/materialize-textarea';
 
 export default InputField.extend({
   layout: layout,
+
   didInsertElement: function() {
-    this._super();
+    this._super(...arguments);
     // make sure the label moves when a value is bound.
     var labelSelector = this.$('>label');
     if (Ember.isPresent(this.get('value')) && !labelSelector.hasClass('active')) {

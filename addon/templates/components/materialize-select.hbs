@@ -1,6 +1,17 @@
 <label {{bind-attr id=id}} class="active">{{label}}</label>
-{{view "select" id=id content=content optionValuePath=optionValuePath optionLabelPath=optionLabelPath prompt=prompt
-    value=value classNameBindings="validate:validate: errors:invalid:valid"}}
+{{view "select"
+  id=id
+  content=content
+  optionValuePath=optionValuePath
+  optionLabelPath=optionLabelPath
+  prompt=prompt
+  value=value
+  class="validate:validate errors:invalid:valid"}}
+
 <small class="red-text">
-  {{#if errors}} {{errors.firstObject}} {{else}} &nbsp; {{/if}}
+  {{#if errors}}
+    {{errors.firstObject}}
+  {{else}}
+    &nbsp;
+  {{/if}}
 </small>

@@ -82,15 +82,15 @@
       </p>
         <div class="button-example">
             <br/>
-            {{materialize-input value=name label='Name'}}
+            {{materialize-input value=model.name label='Name'}}
 
 <pre class=" language-markup">
 <code class=" col s12 language-markup">
-<span>&#123;&#123;</span>materialize-input value=name label="Name"<span>&#125;&#125;</span>
+<span>&#123;&#123;</span>materialize-input value=model.name label="Name"<span>&#125;&#125;</span>
 
 // controller example
 nameDidChange: function() {
-  if (!Ember.isPresent(this.get('name'))) {
+  if (!Ember.isPresent(this.get('model.name'))) {
     this.set('errors', { name: ['This field is required'] });
   } else {
     this.set('errors', { name: [] });
