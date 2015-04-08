@@ -11,6 +11,8 @@ export default Ember.Component.extend({
   },
   layout: layout,
   classNames: ['footer-copyright'],
+  startYear: null,
+  text: null,
   date: function () {
     var returnDate;
     if (this.get('startYear') === null || this.get('startYear') === new Date().getFullYear()) {
