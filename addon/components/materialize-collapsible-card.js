@@ -6,11 +6,14 @@ export default Ember.Component.extend({
   tagName: 'ul',
   classNames: ['collapsible'],
   attributeBindings: ['data-collapsible'],
-  'data-collapsible': function() {
-    return (this.get('accordion')) ? 'accordion' : 'expandable';
-  }.property(),
   accordion: true,
+
+  'data-collapsible': Ember.computed(function() {
+    return (this.get('accordion')) ? 'accordion' : 'expandable';
+  }),
+
   didInsertElement: function() {
+    this._super(...arguments);
     var isAccordion = this.get('accordion');
     this.$().collapsible({ accordion : isAccordion });
   }

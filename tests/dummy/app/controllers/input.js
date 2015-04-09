@@ -1,15 +1,17 @@
 import Ember from 'ember';
 
-export default Ember.ObjectController.extend({
-  frameworks: [
+export default Ember.Controller.extend({
+  frameworks: new Ember.A([
       {id: 1, value: 'Materialize CSS'},
       {id: 2, value: 'Ember-CLI Materialize'}
-  ],
+  ]),
+
   errors: Ember.Object.create({
-    name: [],
-    framework: []
+    name: new Ember.A([]),
+    framework: new Ember.A([])
   }),
-  nameDidChange: function() {
+
+  nameDidChange: Ember.observer('name', function() {
     var errors = this.get('errors');
     var messages = [];
     if (!Ember.isPresent(this.get('name'))) {
@@ -17,8 +19,9 @@ export default Ember.ObjectController.extend({
     }
     errors.set('name', messages);
     this.set('errors', errors);
-  }.observes('name'),
-  frameworkDidChange: function() {
+  }),
+
+  frameworkDidChange: Ember.observer('framework', function() {
     var self = this;
     var errors = self.get('errors');
     Ember.run.later(function() {
@@ -29,5 +32,5 @@ export default Ember.ObjectController.extend({
       errors.set('framework', messages);
       self.set('errors', errors);
     }, 100);
-  }.observes('framework')
+  })
 });
