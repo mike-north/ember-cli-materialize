@@ -5,7 +5,9 @@ export default Ember.Component.extend({
   layout: layout,
   tagName: 'li',
   classNames: ['materialize-tabs-tab', 'tab'],
-
+  init: function () {
+    this._super(...arguments);
+  },
   _tabSet: Ember.computed(function () {
     return this.nearestWithProperty('___materializeTabs');
   }),

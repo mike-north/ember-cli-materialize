@@ -11,7 +11,7 @@
 <div class='container'>
   <div class="section">
     <div class="intro">
-      <h4 class="col s12 header">The component supports one option:</h4>
+      <h4 class="col s12 header">The component supports several options:</h4>
       <ul>
         <li>mode, default value <span class="default-value badge">indeterminate</span> - Loader mode (determinate, indeterminate, circular)</li>
 
@@ -26,9 +26,22 @@
       {{materialize-tabs
         content=basicTabsContent
         selected=basicTabsSelection}}
-
-
     </div>
+    <div class="tabs-example second-tabs-example">
+    {{materialize-tabs
+        content=alternateTabsContent
+        selected=basicTabsSelection
+        optionValuePath='key'
+        optionLabelPath='label'}}
+    </div>
+    <div class="tabs-example third-tabs-example">
+        {{#materialize-tabs
+          selected=basicTabsSelection}}
+          {{materialize-tabs-tab value='a' title="Sixth"}}
+          {{materialize-tabs-tab value='b' title="Seventh"}}
+          {{materialize-tabs-tab value='c' title="Eigth"}}
+        {{/materialize-tabs}}
+      </div>
   </div>
 
 

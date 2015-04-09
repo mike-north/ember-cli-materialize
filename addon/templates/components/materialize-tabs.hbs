@@ -1,5 +1,6 @@
-{{#each content as |tab|}}
+{{#each tab in _content}}
   {{materialize-tabs-tab title=tab.title value=tab.id}}
 {{/each}}
+{{yield}}
 <div class="indicator indicator1"></div>
 <div class="indicator indicator2"></div>

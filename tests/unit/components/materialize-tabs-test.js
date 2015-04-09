@@ -52,7 +52,7 @@ test('programatically setting selected tab', function (assert) {
 
   Ember.run.next(function () {
     component.set('selected', 'b');
-    Ember.run.next(function () {
+    Ember.run.schedule('afterRender', function () {
       assert.equal(component.$('.active').text().trim(), 'Second', 'Second tab is now selected');
     });
   });

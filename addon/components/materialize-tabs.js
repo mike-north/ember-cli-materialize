@@ -1,14 +1,18 @@
 import Ember from 'ember';
 import layout from '../templates/components/materialize-tabs';
+var map = Ember.EnumerableUtils.map;
 
 export default Ember.Component.extend({
   layout: layout,
   tagName: 'ul',
+  content: null,
   classNames: ['materialize-tabs', 'tabs'],
   ___materializeTabs: true,
   _tabComponents: null,
   numTabs: Ember.computed.alias('_tabComponents.length'),
   selected: null,
+  optionValuePath: 'id',
+  optionLabelPath: 'title',
 
   init: function () {
     this._super(...arguments);
@@ -36,17 +40,28 @@ export default Ember.Component.extend({
     }
   },
 
+  _content: Ember.computed('content.[]', 'optionLabelPath', 'optionValuePath', function () {
+    var lp = this.get('optionLabelPath');
+    var vp = this.get('optionValuePath');
+    return new Ember.A(map(this.get('content') || [], c => ({id: c[vp], title: c[lp]})));
+  }),
+
   didInsertElement: function () {
     this._super(...arguments);
-    if (this.get('selected') === null && this.get('content.length') > 0) {
-      this.set('selected', this.get('content')[0].id);
+    var tabComponents = this.get('_tabComponents');
+    if (this.get('selected') === null && tabComponents.length > 0) {
+      this.set('selected', tabComponents[tabComponents.length - 1].get('value'));
     }
     this._updateIndicatorPosition(false);
+    this.addObserver('selected', function () {
+      this._updateIndicatorPosition();
+    });
   },
+
+  _indicatorUpdater: null,
 
   _setActiveTab: function (tabComponent) {
     this.set('selected', tabComponent.get('value'));
-    this._updateIndicatorPosition();
   },
 
   registerTab: function (tabComponent) {
