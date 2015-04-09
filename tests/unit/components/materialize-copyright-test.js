@@ -82,8 +82,9 @@ test('copyright past startYear', function(assert) {
   // confirm the component's date is 'startYear - currentYear'
   Ember.run(function () {
     Ember.run.schedule('afterRender', function () {
+      var currentYear = new Date().getFullYear();
       assert.equal(component.get('date'),
-        new Date().getFullYear() - 1 + ' - ' + new Date().getFullYear(),
+        currentYear - 1 + ' - ' + currentYear,
         'Setting the startYear property to a year before the currentYear shows startYear - currentYear');
     });
   });
