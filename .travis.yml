@@ -1,5 +1,8 @@
 ---
 language: node_js
+node_js:
+  - "0.12"
+  - "iojs-v1.6.4"
 
 sudo: false
 
@@ -17,4 +20,4 @@ install:
   - bower install
 
 script:
-  - npm test
+  - ember try:testall

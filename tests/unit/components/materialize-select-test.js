@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import {
   moduleForComponent,
   test
@@ -7,7 +8,7 @@ moduleForComponent('materialize-select', {
   // specify the other units that are required for this test
 });
 
-test('it renders', function(assert) {
+test('select renders', function(assert) {
   assert.expect(2);
 
   // creates the component instance
@@ -19,23 +20,23 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
-test('has class input-field', function(assert) {
+test('select has class input-field', function(assert) {
   var component = this.subject();
   this.render();
   assert.ok(component.$().hasClass('input-field'));
 });
 
-test('has a label', function(assert) {
+test('select has a label', function(assert) {
   var label = 'My Input';
   var component = this.subject({ label: label });
   this.render();
   assert.equal(component.$('>label').text(), label);
 });
 
-test('label is active with value', function(assert) {
+test('select label is active with value', function(assert) {
   var value = {id: 1, name: 'My Input Value'};
   var component = this.subject({
-    content: [value],
+    content: new Ember.A([value]),
     value: value,
     optionLabelPath: 'content.name',
     optionValuePath: 'content.id'

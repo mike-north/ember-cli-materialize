@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: '<%= modulePrefix %>',
+    modulePrefix: '<%= dasherizedPackageName %>',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',

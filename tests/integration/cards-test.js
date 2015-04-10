@@ -18,71 +18,60 @@ module('Cards - Integration', {
 });
 
 
+function checkCardTitle (cardType, cardId) {
+  test(`${cardType} should have a title`, function(assert) {
+    visit('/cards').then(function() {
+      var titleEle = find(`#${cardId} > .card-content span`);
 
-test('Basic Card should have a title', function(assert) {
-  visit('/cards').then(function() {
-    var titleEle = find('#basic-card > .card-content span');
-
-    assert.ok(titleEle.hasClass('card-title'));
-    assert.equal(titleEle.text().trim(), 'Card Title');
+      assert.ok(titleEle.hasClass('card-title'));
+      assert.equal(titleEle.text().trim(), 'Card Title');
+    });
   });
-});
+}
 
-test('Image Card should have a title', function(assert) {
-  visit('/cards').then(function() {
-    var titleEle = find('#image-card > .card-content span');
+function checkCardContent (cardType, cardId) {
+  test(`${cardType} should have content`, function(assert) {
+    visit('/cards').then(function() {
+      var contentEle = find(`#${cardId} > .card-content`);
 
-    assert.ok(titleEle.hasClass('card-title'));
-    assert.equal(titleEle.text().trim(), 'Card Title');
+      assert.ok(contentEle.hasClass('card-content'));
+
+      var expected = "I am a very simple card. I am good at containing small bits of information.\n" +
+          "                            " +
+          "I am convenient because I require little markup to use effectively.";
+
+      // skip over the span containing the card title and get just the card content text.
+      var actual = contentEle.find('>span').next().text().trim();
+
+      assert.equal(actual, expected);
+
+    });
   });
-});
+}
 
-test('Card Reveal should have a title', function(assert) {
-  visit('/cards').then(function() {
-    var titleEle = find('#card-reveal > .card-content span');
+function checkCardActions (cardType, cardId) {
+  test(`${cardType} should have actions`, function(assert) {
+    visit('/cards').then(function() {
+      var actionEle = find(`#${cardId} > .card-action`);
 
-    assert.ok(titleEle.hasClass('card-title'));
-    assert.equal(titleEle.text().trim(), 'Card Title');
+      assert.ok(actionEle.hasClass('card-action'));
+    });
   });
-});
+}
 
+var cardFlavors = [
+  {type: 'Basic Card', id: 'basic-card'},
+  {type: 'Image Card', id: 'image-card'},
+  {type: 'Card Reveal', id: 'card-reveal'}
+];
 
-
-test('Basic Card should have content', function(assert) {
-  visit('/cards').then(function() {
-    var contentEle = find('#basic-card > .card-content');
-
-    assert.ok(contentEle.hasClass('card-content'));
-
-    var expected = "I am a very simple card. I am good at containing small bits of information.\n" +
-        "                            " +
-        "I am convenient because I require little markup to use effectively.";
-
-    // skip over the span containing the card title and get just the card content text.
-    var actual = contentEle.find('>span').next().text().trim();
-
-    assert.equal(actual, expected);
-
-  });
-});
-
-test('Image Card should have content', function(assert) {
-  visit('/cards').then(function() {
-    var contentEle = find('#image-card > .card-content');
-
-    assert.ok(contentEle.hasClass('card-content'));
-
-    var expected = "I am a very simple card. I am good at containing small bits of information.\n" +
-      "                            " +
-      "I am convenient because I require little markup to use effectively.";
-
-    // skip over the span containing the card title and get just the card content text.
-    var actual = contentEle.find('>span').next().text().trim();
-
-    assert.equal(actual, expected);
-
-  });
-});
+for (var i = 0; i < cardFlavors.length; i++) {
+  checkCardTitle(cardFlavors[i].type, cardFlavors[i].id);
+}
+checkCardContent(cardFlavors[0].type, cardFlavors[0].id);
+checkCardContent(cardFlavors[1].type, cardFlavors[1].id);
+checkCardActions(cardFlavors[0].type, cardFlavors[0].id);
+checkCardActions(cardFlavors[1].type, cardFlavors[1].id);
 
 test('Card Reveal should have content', function(assert) {
   visit('/cards').then(function() {
@@ -119,21 +108,6 @@ test('Card Reveal should have content', function(assert) {
 });
 
 
-test('Basic Card should have actions', function(assert) {
-  visit('/cards').then(function() {
-    var actionEle = find('#basic-card > .card-action');
-
-    assert.ok(actionEle.hasClass('card-action'));
-  });
-});
-
-test('Image Card should have actions', function(assert) {
-  visit('/cards').then(function() {
-    var actionEle = find('#image-card > .card-action');
-
-    assert.ok(actionEle.hasClass('card-action'));
-  });
-});
 
 
 test('Card Reveal should reveal and conceal content', function(assert) {

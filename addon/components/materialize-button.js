@@ -3,15 +3,6 @@ import layout from '../templates/components/materialize-button';
 
 export default Ember.Component.extend({
   layout: layout,
-  didInsertElement: function(){
-    this._super();
-    Ember.run.scheduleOnce('afterRender', this, function(){
-      var Waves = window.Waves || {};
-      if(typeof Waves.displayEffect === 'function'){
-        Waves.displayEffect();
-      }
-    });
-  },
   tagName: 'a',
   classNameBindings: ['btn:waves-effect', 'isFlat::waves-light', 'isDisabled:disabled:waves-effect', 'buttonClass'],
   attributeBindings: ['isDisabled:disabled'],
@@ -21,13 +12,22 @@ export default Ember.Component.extend({
   buttonType: null,
   isFlat: Ember.computed.equal('buttonType', 'flat'),
   isDisabled: false,
-  buttonClass: function(){
-    if(!this.get('buttonType')){
-      return 'btn';
-    } else {
-      return 'btn-' + this.get('buttonType');
-    }
-  }.property('buttonType'),
+
+  didInsertElement: function(){
+    this._super(...arguments);
+    Ember.run.scheduleOnce('afterRender', this, function(){
+      var Waves = window.Waves || {};
+      if(Ember.typeOf(Waves.displayEffect) === 'function'){
+        Waves.displayEffect();
+      }
+    });
+  },
+
+  buttonClass: Ember.computed('buttonType', function(){
+    var buttonType = this.get('buttonType');
+    return buttonType ? `btn-${buttonType}` : 'btn';
+  }),
+
   click: function(){
     this.sendAction();
   }

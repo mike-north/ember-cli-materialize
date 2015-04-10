@@ -4,8 +4,10 @@ import layout from '../templates/components/materialize-input';
 
 export default MaterializeInputField.extend({
   layout: layout,
+  type: 'text',
+
   didInsertElement: function() {
-    this._super();
+    this._super(...arguments);
     // make sure the label moves when a value is bound.
     var labelSelector = this.$('>label');
     if (Ember.isPresent(this.get('value')) && !labelSelector.hasClass('active')) {
@@ -13,4 +15,3 @@ export default MaterializeInputField.extend({
     }
   }
 });
-

@@ -1,11 +1,20 @@
 {{#if icon}}
     <i {{bind-attr class="icon :prefix"}}></i>
 {{/if}}
-{{input id=id value=value classNameBindings="validate:validate: errors.firstObject:invalid:valid" type="text"
-        required=required pattern=pattern maxlength=maxlength readonly=readonly disabled=disabled
-        autocomplete=autocomplete}}
+{{input id=id
+  value=value
+  classNameBindings="validate:validate: errors.firstObject:invalid:valid"
+  type=type
+  required=required
+  pattern=pattern
+  maxlength=maxlength
+  readonly=readonly
+  disabled=disabled
+  autocomplete=autocomplete
+  step=step
+  min=min
+  max=max}}
 <label {{bind-attr for=id}}>{{label}}</label>
 <small class="red-text">
   {{#if errors}} {{errors.firstObject}} {{else}} &nbsp; {{/if}}
 </small>
-

@@ -4,16 +4,17 @@ import layout from '../templates/components/materialize-select';
 
 export default MaterializeInputField.extend({
   layout: layout,
+
   didInsertElement: function() {
-    this._super();
+    this._super(...arguments);
     this.$('select').material_select();
   },
-  errorsDidChange: function() {
-    var self = this;
+
+  errorsDidChange: Ember.observer('errors', function() {
     var inputSelector = this.$('input');
     // monitor the select's validity and copy the appropriate validation class to the materialize input element.
-    Ember.run.later(function() {
-      var isValid = self.$('select').hasClass('valid');
+    Ember.run.later(this, function() {
+      var isValid = this.$('select').hasClass('valid');
       if (isValid) {
         inputSelector.removeClass('invalid');
         inputSelector.addClass('valid');
@@ -22,5 +23,5 @@ export default MaterializeInputField.extend({
         inputSelector.addClass('invalid');
       }
     }, 150);
-  }.observes('errors')
+  })
 });

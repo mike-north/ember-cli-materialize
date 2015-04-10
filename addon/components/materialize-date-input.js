@@ -7,14 +7,12 @@ export default MaterializeInput.extend({
   numberOfYears: 15,
   min: '',
   max: '',
+
   didInsertElement: function() {
-    this._super();
-    var self = this;
-    this.$('.datepicker').pickadate({
-      selectMonths: self.selectMonths,
-      selectYears: self.numberOfYears,
-      min: self.min,
-      max: self.max
-    });
+    this._super(...arguments);
+
+    var datePickerOptions = this.getProperties('selectMonths', 'numberOfYears', 'min', 'max');
+    datePickerOptions.selectYears = datePickerOptions.numberOfYears;
+    this.$('.datepicker').pickadate(datePickerOptions);
   }
 });
