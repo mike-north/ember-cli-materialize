@@ -1,0 +1,13 @@
+{{#if isHeader}}
+  <h4>{{yield}}</h4>
+{{else}}
+  {{#if image}}
+    <img class="circle" alt="{{imageAlt}}" src="{{image}}"/>
+  {{/if}}
+  {{#if title}}
+    <span class="title">{{title}}</span>
+    <p>{{yield}}</p>
+  {{else}}
+    {{yield}}
+  {{/if}}
+{{/if}}

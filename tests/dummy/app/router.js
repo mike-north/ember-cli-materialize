@@ -14,6 +14,7 @@ Router.map(function() {
   this.route("input");
   this.route("loader");
   this.route("parallax");
+  this.route("collections");
 });
 
 export default Router;
