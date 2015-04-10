@@ -119,3 +119,24 @@ test('Empty content - should render an empty UL', function (assert) {
   this.render();
   assert.equal(component.$('.materialize-tabs-tab').length, 0, 'No tabs should be rendered');
 });
+
+
+test('Col width - should result in the correct CSS classes', function (assert) {
+
+  assert.expect(3);
+
+  // Creates the component instance
+  var component = this.subject();
+  assert.equal(component.get('colWidth'), 2, 'Default col width is 2');
+  component.setProperties({
+    colWidth: 4,
+    content: new Ember.A([
+      {id: 'a', title: 'First'},
+      {id: 'b', title: 'Second'},
+      {id: 'c', title: 'Third'}
+    ])
+  });
+  this.render();
+  assert.equal(component.get('_tabComponents')[0].get('colWidth'), 4, 'Col width on tab set applies to tabs');
+  assert.equal(component.get('_tabComponents')[0].get('_colClass'), 's4', 'tab col class is correct');
+});

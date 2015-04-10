@@ -4,10 +4,15 @@ import layout from '../templates/components/materialize-tabs-tab';
 export default Ember.Component.extend({
   layout: layout,
   tagName: 'li',
-  classNames: ['materialize-tabs-tab', 'tab'],
-  init: function () {
-    this._super(...arguments);
-  },
+  classNames: ['materialize-tabs-tab', 'tab', 'col'],
+  classNameBindings: ['_colClass'],
+
+  colWidth: Ember.computed.alias('_tabSet.colWidth'),
+
+  _colClass: Ember.computed('colWidth', function () {
+    return 's' + this.get('colWidth');
+  }),
+
   _tabSet: Ember.computed(function () {
     return this.nearestWithProperty('___materializeTabs');
   }),

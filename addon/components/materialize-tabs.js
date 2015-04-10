@@ -4,15 +4,15 @@ var map = Ember.EnumerableUtils.map;
 
 export default Ember.Component.extend({
   layout: layout,
-  tagName: 'ul',
   content: null,
-  classNames: ['materialize-tabs', 'tabs'],
+  classNames: ['materialize-tabs', 'row'],
   ___materializeTabs: true,
   _tabComponents: null,
   numTabs: Ember.computed.alias('_tabComponents.length'),
   selected: null,
   optionValuePath: 'id',
   optionLabelPath: 'title',
+  colWidth: 2,
 
   init: function () {
     this._super(...arguments);
@@ -57,8 +57,6 @@ export default Ember.Component.extend({
       this._updateIndicatorPosition();
     });
   },
-
-  _indicatorUpdater: null,
 
   _setActiveTab: function (tabComponent) {
     this.set('selected', tabComponent.get('value'));
