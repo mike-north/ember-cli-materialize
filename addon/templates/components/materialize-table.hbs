@@ -1,15 +1,18 @@
 <thead>
   <tr>
     {{#each headerColumns as |column|}}
-      <th>
-        {{column.title}}
-      </th>
+      {{view 'ember-cli-materialize@materialize-table-header-cell'
+        column=column
+        width=column.width}}
     {{/each}}
   </tr>
 </thead>
 <tbody>
   {{#each content as |item|}}
-    {{view 'ember-cli-materialize@materialize-table-row-cells' table=this model=item content=columns}}
+    {{view 'ember-cli-materialize@materialize-table-row-cells'
+      table=this
+      model=item
+      content=columns}}
   {{/each}}
 </tbody>
 {{yield}}

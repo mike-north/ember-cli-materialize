@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import BaseCell from './materialize-table-cell-base';
 
-export default Ember.View.extend({
+export default BaseCell.extend({
   tagName: 'td',
   classNames: ['materialize-table-cell']
 });

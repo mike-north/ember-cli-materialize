@@ -32,11 +32,11 @@
     <div class="declarative-table-example">
 
     {{#materialize-table content=rows}}
+      {{#materialize-table-col title='Id' align="right" width=40}}
+        {{id}}
+      {{/materialize-table-col}}
       {{#materialize-table-col title='Name'}}
         {{link-to name 'table.show' id}}
-      {{/materialize-table-col}}
-      {{#materialize-table-col title='Id'}}
-        {{id}}
       {{/materialize-table-col}}
       {{#materialize-table-col title='Quantity'}}
         {{qty}}

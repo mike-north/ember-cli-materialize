@@ -5,6 +5,8 @@ import layout from '../templates/components/materialize-table-column';
 var get = Ember.get;
 var extend = Ember.$.extend;
 
+var defaultCellProperties = Ember.Object.create({align: 'left'});
+
 export default Ember.Component.extend({
   layout: layout,
   tagName: '',
@@ -14,7 +16,7 @@ export default Ember.Component.extend({
   init() {
     this._super(...arguments);
 
-    var props = get(this, 'props');
+    var props = extend({}, defaultCellProperties, get(this, 'props'));
 
     if (get(props, 'properties')) {
       props = extend(props, get(props, 'properties').value());
