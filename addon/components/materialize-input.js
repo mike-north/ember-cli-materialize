@@ -6,7 +6,7 @@ export default MaterializeInputField.extend({
   layout: layout,
   type: 'text',
 
-  didInsertElement: function() {
+  didInsertElement() {
     this._super(...arguments);
     // make sure the label moves when a value is bound.
     var labelSelector = this.$('>label');

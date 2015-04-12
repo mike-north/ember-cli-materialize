@@ -5,7 +5,7 @@ import { test } from 'ember-qunit';
 
 var App;
 
-module('Cards - Integration', {
+module('Acceptance - Cards', {
 
   setup: function() {
     App = startApp();

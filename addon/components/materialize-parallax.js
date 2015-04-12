@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   layout: layout,
   classNames: ['parallax-container'],
 
-  didInsertElement: function() {
+  didInsertElement() {
     this._super(...arguments);
     this.$('.parallax').parallax();
   }

@@ -5,7 +5,7 @@ import layout from '../templates/components/materialize-select';
 export default MaterializeInputField.extend({
   layout: layout,
 
-  didInsertElement: function() {
+  didInsertElement() {
     this._super(...arguments);
     this.$('select').material_select();
   },

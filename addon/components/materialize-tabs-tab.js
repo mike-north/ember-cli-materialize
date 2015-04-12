@@ -21,11 +21,11 @@ export default Ember.Component.extend({
     return this.get('_tabSet.selected') === this.get('value');
   }),
 
-  click: function () {
+  click() {
     this.trigger('tabClicked', this);
   },
 
-  didInsertElement: function () {
+  didInsertElement() {
     this._super(...arguments);
     var tabSet = this.get('_tabSet');
     if (!tabSet) {

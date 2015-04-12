@@ -20,33 +20,29 @@ export default Ember.Component.extend({
 
   barStyle: Ember.computed('mode', 'percent', function () {
     if (this.get('mode') === 'determinate') {
-      var pct = this.get('percent');
-      return `width: ${pct}%`;
-    }
-  }),
-
-  barClassName: Ember.computed('isBarType', 'mode', function () {
-    var mode = this.get('mode');
-    if (this.get('isBarType')) {
-      return mode;
+      return `width: ${this.get('percent')}%`;
     }
     else {
       return null;
     }
   }),
 
+  barClassName: Ember.computed('isBarType', 'mode', function () {
+    return this.get('isBarType') ? this.get('mode') : null;
+  }),
+
   spinnerClassNames: Ember.computed('color', 'isBarType', function () {
     if (!this.get('isBarType')) {
       var color = this.get('color');
       if (!color) {
-        new Ember.A(['blue', 'red', 'green', 'yellow'].map((c) => (`spinner-layer spinner-${c}`)));
+        return Ember.A(['blue', 'red', 'green', 'yellow'].map((c) => (`spinner-layer spinner-${c}`)));
       }
       else {
-        return new Ember.A([`spinner-layer spinner-${color}-only`]);
+        return Ember.A([`spinner-layer spinner-${color}-only`]);
       }
     }
     else {
-      return new Ember.A([]);
+      return Ember.A();
     }
   })
 });
