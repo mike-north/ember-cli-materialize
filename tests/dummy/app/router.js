@@ -15,6 +15,9 @@ Router.map(function() {
   this.route("loader");
   this.route("navbar");
   this.route("parallax");
+  this.resource("table", function () {
+    this.route("show", {path: ":id"});
+  });
   this.route("tabs");
 });
 
