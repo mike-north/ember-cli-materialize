@@ -22,9 +22,8 @@ export default SelectableItem.extend({
       the checked property doesn't two-way bind as expected when
       type="radio" is used
      */
-    this._radioChangeListener = function (jqEvt) {
-      this.set('isSelected', jqEvt.target.checked);
-    }.bind(this);
+    this._radioChangeListener = jqEvt => this.set('isSelected', jqEvt.target.checked);
+
     this.$('.selectable-item-input')
       .on('change', this._radioChangeListener);
 
