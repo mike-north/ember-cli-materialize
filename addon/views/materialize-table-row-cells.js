@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+var get = Ember.get;
+
 export default Ember.CollectionView.extend({
   tagName: 'tr',
   content: null, //column
@@ -13,15 +15,21 @@ export default Ember.CollectionView.extend({
 
     attrs.context = Ember.ObjectProxy.create({
         content: this.model,
-        column: attrs.column
+        column: attrs.column,
+        value: null
     });
 
-    attrs.context = Ember.$.extend(attrs.context, this.unwrapStream(Ember.get(attrs.content, 'properties')));
+    var unwrapped = this.unwrapStream(attrs.content.valuePath);
+    if (unwrapped) {
+      attrs.context.set('value', get(this.model, unwrapped));
+    }
+
+    attrs.context = Ember.$.extend(attrs.context, this.unwrapStream(get(attrs.content, 'properties')));
     return this._super(viewClass, attrs);
   },
 
   unwrapStream (bindPath) {
-    if(bindPath && Ember.get(bindPath, 'isStream') && bindPath.isStream) {
+    if(bindPath && get(bindPath, 'isStream') && bindPath.isStream) {
       return bindPath.value();
     }
     return bindPath;

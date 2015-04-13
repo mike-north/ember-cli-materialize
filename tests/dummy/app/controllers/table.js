@@ -12,5 +12,11 @@ export default Ember.Controller.extend({
     {id: 2, name: 'Pears', qty: 2},
     {id: 3, name: 'Grapes', qty: 3},
     {id: 4, name: 'Oranges', qty: 4}
+  ]),
+
+  columns: Ember.A([
+    {title: 'Id', valuePath: 'id', width: 40},
+    {title: 'Name', valuePath: 'name'},
+    {title: 'Quantity', valuePath: 'qty'}
   ])
 });
