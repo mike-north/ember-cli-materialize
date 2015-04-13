@@ -16,7 +16,7 @@ export default SelectableItem.extend({
     this._checkboxInitialization();
   },
 
-  _checkboxInitialization: function () {
+  _checkboxInitialization() {
     /*
       Workaround for a limitation of the {{input}} helper, where
       the checked property doesn't two-way bind as expected when
@@ -34,7 +34,7 @@ export default SelectableItem.extend({
       .prop('checked', this.get('isSelected'));
   },
 
-  willDestroyElement: function () {
+  willDestroyElement() {
     this.$('.selectable-item-input')
       .off('change', this._radioChangeListener);
   }

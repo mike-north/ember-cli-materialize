@@ -21,7 +21,7 @@ export default Ember.Component.extend({
     }
   },
 
-  isValueSelected: function (value) {
+  isValueSelected(value) {
     if (this.get('multiple')) {
       return indexOf(this.get('selection'), value) >= 0;
     }
@@ -30,7 +30,7 @@ export default Ember.Component.extend({
     }
   },
 
-  setValueSelection: function (value, select) {
+  setValueSelection(value, select) {
     if (select) {
       return this.addToSelection(value);
     }
@@ -39,7 +39,7 @@ export default Ember.Component.extend({
     }
   },
 
-  addToSelection: function (value) {
+  addToSelection(value) {
     if (this.get('multiple')) {
       this.get('selection').addObject(value);
     }
@@ -48,7 +48,7 @@ export default Ember.Component.extend({
     }
   },
 
-  removeFromSelection: function (value) {
+  removeFromSelection(value) {
     if (this.get('multiple')) {
       this.get('selection').removeObject(value);
     }
