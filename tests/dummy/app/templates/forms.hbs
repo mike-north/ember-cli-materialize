@@ -1,14 +1,15 @@
 <div class="section index-banner">
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m9">
-                <h1 class="header">Input</h1>
-            </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m9">
+        <h1 class="header">Forms</h1>
+      </div>
     </div>
+  </div>
 </div>
 
 <div class='container'>
+
 
     <div class="section">
         <h4 class="col s12 header">Input</h4>
@@ -190,5 +191,216 @@ nameDidChange: function() {
 </pre>
         </div>
     </div>
+
+
+  <div class="section">
+    <h4 class="col s12 header">Range</h4>
+    <div class="intro">
+      <h5 class="col s12 header">This component supports many options:</h5>
+      <ul>
+        <li>value, default value <span class="default-value badge">0</span></li>
+        <li>min, default value <span class="default-value badge">0</span></li>
+        <li>max, default value <span class="default-value badge">100</span></li>
+        <li>step, default value <span class="default-value badge">5</span></li>
+        <li>disabled, default value <span class="default-value badge">false</span></li>
+      </ul>
+    </div>
+    <div class="tabs-example">
+      <!-- Begin example -->
+      <form action="">
+        <div class="row">
+          <div class="col s12">
+            <p>
+              Value: {{rangeValue}}
+            </p>
+            {{materialize-range value=rangeValue min=50 name="My Range"}}
+          </div>
+        </div>
+      </form>
+      <!-- End example -->
+      <pre class=" language-markup">
+        <code class=" col s12 language-markup">
+    <span>&#123;&#123;</span>materialize-range value=rangeValue min=50<span>&#125;&#125;</span>
+        </code>
+      </pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h4 class="col s12 header">Checkbox</h4>
+    <div class="intro">
+      <h5 class="col s12 header">This component supports many options:</h5>
+      <ul>
+        <li>checked, default value <span class="default-value badge">false</span></li>
+        <li>name, default value <span class="default-value badge">null</span></li>
+        <li>disabled, default value <span class="default-value badge">false</span></li>
+      </ul>
+    </div>
+    <div class="checkbox-example">
+      <!-- Begin example -->
+      <form action="">
+        <div class="row">
+          <div class="col s12">
+            {{materialize-checkbox name="A single checkbox" checked=checkboxIsSelected}}
+          </div>
+        </div>
+      </form>
+      <!-- End example -->
+      <pre class=" language-markup">
+        <code class=" col s12 language-markup">
+    <span>&#123;&#123;</span>materialize-checkbox name="A single checkbox" checked=checkboxIsSelected<span>&#125;&#125;</span>
+        </code>
+      </pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h4 class="col s12 header">Switch</h4>
+    <div class="intro">
+      <h5 class="col s12 header">This component supports many options:</h5>
+      <ul>
+        <li>onLabel, default value <span class="default-value badge">On</span></li>
+        <li>offLabel, default value <span class="default-value badge">Off</span></li>
+        <li>checked, default value <span class="default-value badge">false</span></li>
+        <li>disabled, default value <span class="default-value badge">false</span></li>
+      </ul>
+    </div>
+    <div class="switch-example">
+      <!-- Begin example -->
+      <form action="">
+        <div class="row">
+          <div class="col s12">
+            <p>{{materialize-switch checked=switchValue}}</p>
+            <p>{{materialize-switch checked=switchValue onLabel="Enabled" offLabel="Disabled"}}</p>
+            <p>{{materialize-switch disabled=notSwitchValue checked=false}}</p>
+          </div>
+        </div>
+
+      </form>
+      <!-- End example -->
+      <pre class=" language-markup">
+        <code class=" col s12 language-markup">
+    <span>&#123;&#123;</span>materialize-switch checked=switchValue<span>&#125;&#125;</span>
+    <span>&#123;&#123;</span>materialize-switch checked=switchValue onLabel="Enabled" offLabel="Disabled"<span>&#125;&#125;</span>
+    <span>&#123;&#123;</span>materialize-switch checked=switchValue1 disabled=notSwitchValue<span>&#125;&#125;</span>
+        </code>
+      </pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h4 class="col s12 header">Checkbox, Radio button and Switch lists</h4>
+    <div class="tabs-example">
+      <div class="intro">
+        <h5 class="col s12 header">These components are all very similar, and support many options:</h5>
+        <ul>
+          <li>selection, default value <span class="default-value badge">null</span></li>
+          <li>content, default value <span class="default-value badge">null</span></li>
+          <li>optionValuePath, default value <span class="default-value badge">content</span></li>
+          <li>optionLabelPath, default value <span class="default-value badge">content</span></li>
+          <li>disabled, default value <span class="default-value badge">false</span></li>
+        </ul>
+      </div>
+
+
+      <!-- Begin example -->
+      <form action="">
+        <div class="row">
+          <div class="col s12">
+            <p>Selection: {{#each checkboxSelections as |str|}}
+            {{materialize-badge text=str class="default-value blue white-text"}}
+          {{/each}}
+           </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col l6 m6 s12">
+
+            {{materialize-checkboxes
+              selection=checkboxSelections
+              content=checkboxChoices
+              optionValuePath='id'
+              optionLabelPath='label'}}
+
+          </div>
+          <div class="col l6 m6 s12">
+            {{materialize-switches
+              selection=checkboxSelections
+              content=checkboxChoices
+              optionValuePath='id'
+              optionLabelPath='label'}}
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <p>Selection: {{materialize-badge text=radioSelection class="default-value blue white-text"}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col l6 m6 s12">
+            {{#materialize-radios
+              selection=radioSelection
+              optionValuePath='id'
+              optionLabelPath='text'}}
+              <p>{{materialize-radio value=1 name="One"}}</p>
+                <p>{{materialize-radio value=2 name="Two"}}</p>
+              {{/materialize-radios}}
+          </div>
+          <div class="col l6 m6 s12">
+            {{#materialize-switches
+              multiple=false
+              selection=radioSelection
+              optionValuePath='id'
+              optionLabelPath='text'}}
+                <p>{{materialize-switch value=1 name="One"}}</p>
+                <p>{{materialize-switch value=2 name="Two"}}</p>
+              {{/materialize-switches}}
+          </div>
+        </div>
+
+      </form>
+      <!-- End example -->
+      <p>Pass an array of selection choices to either of these three helpers, with a "selection" binding that should be either a singular value or an array, depending on whether the group allows single or multiple selection</p>
+      <pre class=" language-markup">
+        <code class=" col s12 language-markup">
+    <span>&#123;&#123;</span>materialize-checkboxes
+        selection=checkboxSelections
+        content=checkboxChoices
+        optionValuePath='id'
+        optionLabelPath='label'<span>&#125;&#125;</span>
+
+    <span>&#123;&#123;</span>materialize-radios
+        selection=radioSelection
+        content=radioChoices
+        optionValuePath='id'
+        optionLabelPath='text'<span>&#125;&#125;</span>
+
+    <span>&#123;&#123;</span>materialize-switches
+        multiple=false
+        selection=radioSelection
+        content=radioChoices
+        optionValuePath='id'
+        optionLabelPath='text'<span>&#125;&#125;</span>
+
+        </code>
+      </pre>
+      <p>Alternatively, declarative syntax is available</p>
+      <pre class="language-markup">
+        <code class="col s12 language-markup">
+    <span>&#123;&#123;</span>#materialize-switches
+        multiple=false
+        selection=radioSelection<span>&#125;&#125;</span>
+
+        &lt;p&gt;<span>&#123;&#123;</span>materialize-switch value=1 name="One"<span>&#125;&#125;</span>&lt;/p&gt;
+        &lt;p&gt;<span>&#123;&#123;</span>materialize-switch value=2 name="Two"<span>&#125;&#125;</span>&lt;/p&gt;
+
+    <span>&#123;&#123;</span>/materialize-switches<span>&#125;&#125;</span>
+        </code>
+      </pre>
+    </div>
+  </div>
+
+
 
 </div>

@@ -93,13 +93,8 @@ test('copyright past startYear', function(assert) {
 });
 
 test('copyright future startYear', function(assert) {
-  try {
-    // get the component to test
-    // set the startYear greater than the currentYear
+  assert.throws(function () {
     var component = this.subject({startYear: new Date().getFullYear() + 1});
     this.render();
-  } catch(e) {
-    // confirm an assertion failure
-    assert.ok(e);
-  }
+  }.bind(this), /Property startYear must be less than or equal to the current year/);
 });
