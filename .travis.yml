@@ -1,14 +1,21 @@
 ---
 language: node_js
+
 node_js:
-  - "0.12"
-  - "iojs"
+  - "0.12.2"
 
 sudo: false
 
 cache:
   directories:
     - node_modules
+
+env:
+  matrix:
+    - EMBER_TRY_SCENARIO=ember-1.10
+    - EMBER_TRY_SCENARIO=ember-release
+    - EMBER_TRY_SCENARIO=ember-beta
+    - EMBER_TRY_SCENARIO=ember-canary
 
 before_install:
   - mkdir travis-phantomjs
@@ -24,4 +31,4 @@ install:
   - bower install
 
 script:
-  - ember try:testall
+  - ./travis-ci-ember-try.sh
