@@ -64,8 +64,8 @@ export default Ember.Component.extend({
 
   registerTab: function (tabComponent) {
     this.get('_tabComponents').addObject(tabComponent);
-    tabComponent.on('tabClicked', function (tab) {
+    tabComponent.on('tabClicked', this, function (tab) {
       this._setActiveTab(tab);
-    }.bind(this));
+    });
   }
 });
