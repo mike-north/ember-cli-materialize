@@ -16,5 +16,11 @@ export default Ember.Component.extend({
     this._super(...arguments);
     var isAccordion = this.get('accordion');
     this.$().collapsible({ accordion : isAccordion });
+  },
+
+  willDestroyElement: function() {
+    var $panel_headers = this.$().find('> li > .collapsible-header');
+    this.$().off('click.collapse', '.collapsible-header');
+    $panel_headers.off('click.collapse');
   }
 });

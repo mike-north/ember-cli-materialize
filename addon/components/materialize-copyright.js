@@ -22,5 +22,5 @@ export default Ember.Component.extend({
       returnDate = this.get('startYear') + ' - ' + currentYear;
     }
     return returnDate;
-  }).property()
+  }).readOnly()
 });
