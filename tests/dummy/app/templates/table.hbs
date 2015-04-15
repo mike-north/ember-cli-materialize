@@ -1,0 +1,200 @@
+<div class="section index-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m9">
+        <h1 class="header">Table</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='container'>
+  <div class="section">
+    <div class="intro">
+      <h4 class="col s12 header">The materalize-table component supports one option.</h4>
+      <ul>
+        <li>content, default value <span class="default-value badge">[]</span></li>
+      </ul>
+    </div>
+    <div class="intro">
+      <h4 class="col s12 header">The materalize-table-col component supports many options</h4>
+      <ul>
+        <li>title, default value <span class="default-value badge">null</span></li>
+        <li>cellView, default value <span class="default-value badge">A simple cell view</span></li>
+        <li>width, default value <span class="default-value badge">null</span></li>
+        <li>align, default value <span class="default-value badge">left</span></li>
+        <li>properties, default value <span class="default-value badge">left</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="section">
+    <h4 class="col s12 header">Declarative Example</h4>
+    <div class="declarative-table-example">
+
+    {{#materialize-table content=rows}}
+      {{#materialize-table-col title='Id' align="right" width=40}}
+        {{id}}
+      {{/materialize-table-col}}
+      {{#materialize-table-col title='Name'}}
+        {{link-to name 'table.show' id}}
+      {{/materialize-table-col}}
+      {{#materialize-table-col title='Quantity'}}
+        {{qty}}
+      {{/materialize-table-col}}
+    {{/materialize-table}}
+
+      <pre class=" language-markup">
+        <code class=" col s12 language-markup">
+  <span>&#123;&#123;</span>#materialize-table content=rows<span>&#125;&#125;</span>
+      <span>&#123;&#123;</span>#materialize-table-col header="Name"<span>&#125;&#125;</span>
+          <span>&#123;&#123;</span>link-to name 'table.show' id<span>&#125;&#125;</span>
+      <span>&#123;&#123;</span>/materialize-table-col<span>&#125;&#125;</span>
+      <span>&#123;&#123;</span>#materialize-table-col header="Id"<span>&#125;&#125;</span>
+          <span>&#123;&#123;</span>id<span>&#125;&#125;</span>
+      <span>&#123;&#123;</span>/materialize-table-col<span>&#125;&#125;</span>
+      <span>&#123;&#123;</span>#materialize-table-col header="Qty"<span>&#125;&#125;</span>
+          <span>&#123;&#123;</span>qty<span>&#125;&#125;</span>
+      <span>&#123;&#123;</span>/materialize-table-col<span>&#125;&#125;</span>
+  <span>&#123;&#123;</span>/materialize-table<span>&#125;&#125;</span>
+        </code>
+      </pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h4 class="col s12 header">Imperitive Example</h4>
+    <div class="imperitive-table-example">
+
+    {{#materialize-table content=rows}}
+      {{#each columns as |column|}}
+        {{#materialize-table-col properties=column}}
+          {{value}}
+        {{/materialize-table-col}}
+      {{/each}}
+    {{/materialize-table}}
+      <pre class=" language-markup">
+        <code class=" col s12 language-markup">
+  import Ember from 'ember';
+
+  export default Ember.Controller.extend({
+
+    rows: Ember.A([
+      {id: 1, name: 'Apples', qty: 6, width: 40},
+      {id: 2, name: 'Pears', qty: 2},
+      {id: 3, name: 'Grapes', qty: 3},
+      {id: 4, name: 'Oranges', qty: 4}
+    ]),
+
+    columns: Ember.A([
+      {title: 'Id', valuePath: 'id'},
+      {title: 'Name', valuePath: 'name'},
+      {title: 'Quantity', valuePath: 'qty'}
+    ])
+
+  });
+        </code>
+      </pre>
+
+      <pre class=" language-markup">
+        <code class=" col s12 language-markup">
+  <span>&#123;&#123;</span>#materialize-table content=rows<span>&#125;&#125;</span>
+      <span>&#123;&#123;</span>#each columns as |column|<span>&#125;&#125;</span>
+        <span>&#123;&#123;</span>#materialize-table-col properties=column<span>&#125;&#125;</span>
+            <span>&#123;&#123;</span>value<span>&#125;&#125;</span>
+        <span>&#123;&#123;</span>/materialize-table-col<span>&#125;&#125;</span>
+      <span>&#123;&#123;</span>/each<span>&#125;&#125;</span>
+  <span>&#123;&#123;</span>/materialize-table<span>&#125;&#125;</span>
+        </code>
+      </pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h4 class="col s12 header">Styling Examples - Bordered</h4>
+    <div class="imperitive-table-example">
+
+    {{#materialize-table content=rows class="bordered"}}
+      {{#each columns as |column|}}
+        {{#materialize-table-col properties=column}}
+          {{value}}
+        {{/materialize-table-col}}
+      {{/each}}
+    {{/materialize-table}}
+      <pre class=" language-markup">
+
+        <code class=" col s12 language-markup">
+  <span>&#123;&#123;</span>#materialize-table content=rows class="bordered"<span>&#125;&#125;</span>
+     ...
+  <span>&#123;&#123;</span>/materialize-table<span>&#125;&#125;</span>
+        </code>
+      </pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h4 class="col s12 header">Styling Examples - Striped</h4>
+    <div class="imperitive-table-example">
+
+    {{#materialize-table content=rows class="striped"}}
+      {{#each columns as |column|}}
+        {{#materialize-table-col properties=column}}
+          {{value}}
+        {{/materialize-table-col}}
+      {{/each}}
+    {{/materialize-table}}
+      <pre class=" language-markup">
+
+        <code class=" col s12 language-markup">
+  <span>&#123;&#123;</span>#materialize-table content=rows class="striped"<span>&#125;&#125;</span>
+     ...
+  <span>&#123;&#123;</span>/materialize-table<span>&#125;&#125;</span>
+        </code>
+      </pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h4 class="col s12 header">Styling Examples - Hoverable</h4>
+    <div class="imperitive-table-example">
+
+    {{#materialize-table content=rows class="hoverable"}}
+      {{#each columns as |column|}}
+        {{#materialize-table-col properties=column}}
+          {{value}}
+        {{/materialize-table-col}}
+      {{/each}}
+    {{/materialize-table}}
+      <pre class=" language-markup">
+
+        <code class=" col s12 language-markup">
+  <span>&#123;&#123;</span>#materialize-table content=rows class="hoverable"<span>&#125;&#125;</span>
+     ...
+  <span>&#123;&#123;</span>/materialize-table<span>&#125;&#125;</span>
+        </code>
+      </pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h4 class="col s12 header">Styling Examples - Responsive</h4>
+    <div class="imperitive-table-example">
+
+    {{#materialize-table content=rows class="responsive-table"}}
+      {{#each columns as |column|}}
+        {{#materialize-table-col properties=column}}
+          {{value}}
+        {{/materialize-table-col}}
+      {{/each}}
+    {{/materialize-table}}
+      <pre class=" language-markup">
+
+        <code class=" col s12 language-markup">
+  <span>&#123;&#123;</span>#materialize-table content=rows class="responsive-table"<span>&#125;&#125;</span>
+     ...
+  <span>&#123;&#123;</span>/materialize-table<span>&#125;&#125;</span>
+        </code>
+      </pre>
+    </div>
+  </div>
+
+</div>
