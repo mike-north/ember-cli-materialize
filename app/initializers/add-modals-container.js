@@ -1,5 +1,4 @@
-
-export default function(container, application){
+export function initialize (container, application){
   var rootEl = document.querySelector(application.rootElement);
   var modalContainerEl = document.createElement('div');
   var emberModalDialog = application.emberModalDialog || {};
@@ -14,3 +13,8 @@ export default function(container, application){
                      'destinationElementId',
                      'config:modals-container-id');
 }
+
+export default {
+  name: 'add-modals-container',
+  initialize: initialize
+};
