@@ -2,6 +2,7 @@ $button-color: #e51c23;
 
 @import 'materialize';
 @import 'code';
+@import "ember-modal-dialog/ember-modal-structure";
 
 nav {
   background-color: #fff;
