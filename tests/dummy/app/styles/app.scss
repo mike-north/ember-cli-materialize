@@ -47,7 +47,7 @@ a {
   color: $button-color;
 }
 
-span.badge {
+.badge {
   &.new {
     color: color('materialize-red', 'base');
     background-color: #fff
