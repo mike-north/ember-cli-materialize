@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
       this.set('modalIsOpen', false);
     },
     agree() {
-      alert('agree');
+      window.alert('agree');
       this.set('modalIsOpen', false);
     }
   }
