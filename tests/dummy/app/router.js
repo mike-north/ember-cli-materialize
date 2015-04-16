@@ -14,6 +14,7 @@ Router.map(function() {
   this.route("input");
   this.route("loader");
   this.route("navbar");
+  this.route("pagination");
   this.route("parallax");
   this.route("tabs");
 });

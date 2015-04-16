@@ -1,0 +1,17 @@
+<li {{bind-attr class=decrementClass}}>
+  <a {{action 'oneBack'}}  class='decrement'>
+    <i class="mdi-navigation-chevron-left"></i>
+  </a>
+</li>
+{{#each _pages as |page|}}
+  <li {{bind-attr class=page.cssClass}}>
+    <a {{action 'gotoPage' page.val}}>
+      {{page.val}}
+    </a>
+  </li>
+{{/each}}
+<li {{bind-attr class=incrementClass}}>
+  <a {{action 'oneFwd'}}  class='increment'>
+    <i class="mdi-navigation-chevron-right"></i>
+  </a>
+</li>
