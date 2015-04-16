@@ -14,5 +14,13 @@ export default MaterializeInput.extend({
     var datePickerOptions = this.getProperties('selectMonths', 'numberOfYears', 'min', 'max');
     datePickerOptions.selectYears = datePickerOptions.numberOfYears;
     this.$('.datepicker').pickadate(datePickerOptions);
+  },
+
+  willDestroyElement: function() {
+    var $pickadate = this.$('.datepicker').data('pickadate');
+
+    if ($pickadate) {
+      $pickadate.stop();
+    }
   }
 });
