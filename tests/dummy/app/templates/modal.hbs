@@ -11,29 +11,48 @@
 <div class='container'>
     <div class="section">
         <div class="intro">
-            <h4 class="col s12 header">The component supports two options:</h4>
+            <h4 class="col s12 header">The component supports one options:</h4>
             <ul>
-                <li>text, default value <span class="default-value badge">null</span></li>
-                <li>startYear, default value <span class="default-value badge">null</span></li>
+                <li>close, default value<span class="default-value badge">close</span> - action called by hitting "esc" key or clicking on overlay</li>
             </ul>
         </div>
     </div>
     <div class="section">
-        <h4 class="col s12 header">Copyright</h4>
+        <h4 class="col s12 header">Modal</h4>
         <div class="modal-example">
-        {{#materialize-button action='openModal'}}Open modal{{/materialize-button}}
+        {{#materialize-button action='openModal' class="open-modal-button"}}Open modal{{/materialize-button}}
         {{#if modalIsOpen}}
-        {{#materialize-modal close='closeModal'}}
+        {{#materialize-modal close='closeModal' class="test-modal"}}
           <div class="modal-content">
             <h4>Hello Modal</h4>
             <p>Oh hai there!</p>
           </div>
           <div class="modal-footer">
-            <a class=" modal-action modal-close waves-effect waves-green btn-flat" {{action 'agree'}}>Agree</a>
-            <a class=" modal-action modal-close waves-effect waves-green btn-flat" {{action 'closeModal'}}>Cancel</a>
+            <a class="modal-action modal-close waves-effect waves-green btn-flat agree-button" {{action 'agree'}}>Agree</a>
+            <a class="modal-action modal-close waves-effect waves-green btn-flat cancel-button" {{action 'closeModal'}}>Cancel</a>
           </div>
         {{/materialize-modal}}
         {{/if}}
         </div>
+        <pre class=" language-markup">
+          <code class=" col s12 language-markup">
+            <span>&#123;&#123;</span>#materialize-dialog action="closeModal"<span>&#125;&#125;</span>
+              &lt;div class="modal-content"&gt;
+                &lt;h4&gt;Hello Modal&lt;/h4&gt;
+                &lt;p&gt;Oh hai there!&lt;/p&gt;
+              &lt;/div&gt;
+              &lt;div class="modal-footer"&gt;
+                &lt;a class="modal-action modal-close waves-effect waves-green btn-flat"
+                    &#123;&#123;action 'agree'&#125;&#125;&gt;
+                  Agree
+                &lt;/a&gt;
+                &lt;a class="modal-action modal-close waves-effect waves-green btn-flat"
+                    &#123;&#123;action 'closeModal'&#125;&#125;&gt;
+                  Cancel
+                &lt;/a&gt;
+              &lt;/div&gt;
+            <span>&#123;&#123;</span>/materialize-dialog<span>&#125;&#125;</span>
+          </code>
+        </pre>
     </div>
 </div>

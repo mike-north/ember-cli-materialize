@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  modalIsOpen: true,
+  modalIsOpen: false,
   actions: {
     openModal() {
       this.set('modalIsOpen', true);
