@@ -12,7 +12,7 @@ export default Ember.Component.extend({
     return (this.get('accordion')) ? 'accordion' : 'expandable';
   }),
 
-  didInsertElement: function() {
+  didInsertElement() {
     this._super(...arguments);
     var isAccordion = this.get('accordion');
     this.$().collapsible({ accordion : isAccordion });

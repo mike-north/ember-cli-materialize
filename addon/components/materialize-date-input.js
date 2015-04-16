@@ -8,7 +8,7 @@ export default MaterializeInput.extend({
   min: '',
   max: '',
 
-  didInsertElement: function() {
+  didInsertElement() {
     this._super(...arguments);
 
     var datePickerOptions = this.getProperties('selectMonths', 'numberOfYears', 'min', 'max');

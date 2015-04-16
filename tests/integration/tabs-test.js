@@ -5,7 +5,7 @@ import { test } from 'ember-qunit';
 
 var App;
 
-module('Tabs - Integration', {
+module('Acceptance - Tabs', {
   setup: function() {
     App = startApp();
   },
@@ -24,7 +24,5 @@ test('Basic Example - One set of tabs should be rendered, with three tabs', func
     assert.equal(find('.basic-tabs-example .materialize-tabs .materialize-tabs-tab:nth-child(3) a').text().trim(), 'Third', 'Label of third tab is "Third"');
 
     assert.equal(find('.basic-tabs-example .materialize-tabs .materialize-tabs-tab:first-child .active').length, 1, 'First tab is initially selected');
-
-
   });
 });

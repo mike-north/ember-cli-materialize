@@ -11,10 +11,11 @@ Router.map(function() {
   this.route("cards");
   this.route("collapsible");
   this.route("copyright");
-  this.route("input");
+  this.route("forms");
   this.route("loader");
   this.route("modal");
   this.route("navbar");
+  this.route("pagination");
   this.route("parallax");
   this.route("tabs");
 });

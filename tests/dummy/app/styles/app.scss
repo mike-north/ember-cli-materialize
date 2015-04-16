@@ -47,7 +47,7 @@ a {
   color: $button-color;
 }
 
-span.badge {
+.badge {
   &.new {
     color: color('materialize-red', 'base');
     background-color: #fff
@@ -65,5 +65,18 @@ span.badge {
 @each $mdi-icon-name, $mdi-icon-value in $mdi-list-icons {
   .#{$mdi-prefix}#{$mdi-icon-name}:before {
     content: "\""+ $mdi-icon-value +"\"";
+  }
+}
+
+// Qunit test runner style fixes
+#qunit-testrunner-toolbar {
+  [type="checkbox"] + label {
+    margin-left: 25px;
+    &:before {
+      left: -20px;
+    }
+  }
+  #qunit-modulefilter {
+    display: inherit;
   }
 }
