@@ -27,6 +27,22 @@ $ npm install && bower install
 $ ember serve
 ```
 
+### Configuration
+Using **SASS** makes configuring the color scheme simple. Just make sure you import `components/color` and `components/variables` before `materialize` like the example below.
+
+```scss
+// Example app.scss
+@import 'components/color';
+@import 'components/variables';
+
+// Custom color settings go here
+$primary-color: color("pink", "lighten-2");
+
+@import 'materialize';
+```
+See the materialize docs on sass variables [here](http://materializecss.com/color.html).
+
+
 ## Installation
 
 ```sh
