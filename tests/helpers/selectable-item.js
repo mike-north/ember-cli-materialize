@@ -4,6 +4,19 @@ import {
   test
 } from 'ember-qunit';
 
+export function selectableItemHasRequiredParts() {
+  test('has required DOM elements', function (assert) {
+    assert.expect(3);
+
+    var component = this.subject();
+    this.render();
+
+    assert.equal(component.$().hasClass('materialize-selectable-item'), true, 'has materialize-selectable-item class on top-level element');
+    assert.equal(component.$('input.materialize-selectable-item-input').length > 0, true, 'has materialize-selectable-item-input on input');
+    assert.equal(component.$('label.materialize-selectable-item-label').length > 0, true, 'has materialize-selectable-item-label on label');
+  });
+}
+
 export function disabledStateTest () {
 
   test('disabled state', function(assert) {
@@ -28,8 +41,25 @@ export function disabledStateTest () {
   });
 }
 
-export function selectTest() {
+export function selectTest(params={}) {
   test('clicking changes its state', function(assert) {
+    assert.expect(2);
+
+    var component = this.subject(params);
+    component.set('checked', false);
+    this.render();
+
+    assert.equal(component.get('checked'), false, 'Initially un-checked');
+
+    component.$('input').click();
+    assert.equal(component.get('checked'), true, 'After clicking, is checked');
+
+  });
+
+}
+
+export function selectByLabelTest() {
+  test('clicking on label changes its state', function(assert) {
     assert.expect(2);
 
     var component = this.subject();
@@ -37,8 +67,7 @@ export function selectTest() {
 
     this.render();
     assert.equal(component.get('checked'), false, 'Initially un-checked');
-
-    component.$('input').click();
+    component.$('label').click();
     assert.equal(component.get('checked'), true, 'After clicking, is checked');
   });
 
@@ -95,13 +124,12 @@ export function initialSelectionTest(selection) {
     // Renders the component to the page
     this.render();
 
-
     var shouldBeSelected = Ember.isArray(selection) ? selection : Ember.A([selection]);
     var actuallySelected = component.$('input:checked').map(function (idx,e) {
       var parentElement = Ember.$(e).closest('.materialize-selectable-item');
       return parentElement.find('.materialize-selectable-item-label').text().trim();
     }).toArray();
-    assert.equal(shouldBeSelected.join(''), actuallySelected.join(''), 'initial selection is correct');
+    assert.equal(actuallySelected.join(''), shouldBeSelected.join(''), 'initial selection is correct');
 
   });
 }

@@ -3,7 +3,8 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   checked: null,
   classNames: ['materialize-selectable-item'],
-  _checked: Ember.computed('group.selection', 'group.selection.[]', function (key, val) {
+
+  _checked: Ember.computed('checked', 'group.selection', 'group.selection.[]', function (key, val) {
     var group = this.get('group');
     if (!group) {
       if (arguments.length <= 1) {
@@ -31,12 +32,10 @@ export default Ember.Component.extend({
 
   isSelected: Ember.computed.alias('_checked'),
   _setupLabel() {
-    var $input = this.$('.selectable-item-input')[0];
+    var $input = this.$('.materialize-selectable-item-input')[0];
 
     var inputId = $input ? $input.id : null;
-    if (inputId) {
-      this.$('.selectable-item-label').attr('for', inputId);
-    }
+    this.$('.materialize-selectable-item-label').attr('for', inputId);
   },
 
   didInsertElement() {

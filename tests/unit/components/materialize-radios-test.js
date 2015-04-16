@@ -13,7 +13,7 @@ import {
 
 moduleForComponent('materialize-radios', {
   // Specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar']
+  needs: ['component:materialize-radio', 'component:radio-button']
 });
 
 test('it renders', function(assert) {
@@ -28,6 +28,6 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
-// disabledGroupTest();
-// groupItemsRenderTest();
-// initialSelectionTest('bbb');
+disabledGroupTest();
+groupItemsRenderTest();
+initialSelectionTest('bbb');

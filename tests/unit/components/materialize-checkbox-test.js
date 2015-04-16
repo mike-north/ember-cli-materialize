@@ -7,7 +7,9 @@ import {
 import {
   disabledStateTest,
   selectTest,
-  labelTest
+  labelTest,
+  selectByLabelTest,
+  selectableItemHasRequiredParts
 } from '../../helpers/selectable-item';
 
 moduleForComponent('materialize-checkbox', {
@@ -27,6 +29,8 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
+selectableItemHasRequiredParts();
 selectTest();
+selectByLabelTest();
 disabledStateTest();
 labelTest();
