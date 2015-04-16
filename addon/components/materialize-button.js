@@ -13,7 +13,7 @@ export default Ember.Component.extend({
   isFlat: Ember.computed.equal('buttonType', 'flat'),
   isDisabled: false,
 
-  didInsertElement: function(){
+  didInsertElement(){
     this._super(...arguments);
     Ember.run.scheduleOnce('afterRender', this, function(){
       var Waves = window.Waves || {};
@@ -28,7 +28,7 @@ export default Ember.Component.extend({
     return buttonType ? `btn-${buttonType}` : 'btn';
   }),
 
-  click: function(){
+  click() {
     this.sendAction();
   }
 });

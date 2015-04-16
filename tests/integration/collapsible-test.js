@@ -5,7 +5,7 @@ import { test } from 'ember-qunit';
 
 var App;
 
-module('Collapsible - Integration', {
+module('Acceptance - Collapsible', {
   setup: function() {
     App = startApp();
   },
@@ -14,39 +14,13 @@ module('Collapsible - Integration', {
   }
 });
 
-
-test('Accordion should have 3 headers', function(assert) {
+test('Collapsible basic tests', function(assert) {
   visit('/collapsible').then(function() {
-    assert.equal(find('#accordion>li').length, 3);
-  });
-});
-
-test('Expandable should have 3 headers', function(assert) {
-  visit('/collapsible').then(function() {
-    assert.equal(find('#expandable>li').length, 3);
-  });
-});
-
-test('Preselected should have 3 headers', function(assert) {
-  visit('/collapsible').then(function() {
-    assert.equal(find('#preselected>li').length, 3);
-  });
-});
-
-test('Accordion should not have an active collapsible', function(assert) {
-  visit('/collapsible').then(function() {
-    assert.equal(find('#accordion>li>.active').length, 0);
-  });
-});
-
-test('Expandable should not have an active collapsible', function(assert) {
-  visit('/collapsible').then(function() {
-    assert.equal(find('#expandable>li>.active').length, 0);
-  });
-});
-
-test('Preselected should have an active collapsible', function(assert) {
-  visit('/collapsible').then(function() {
-    assert.equal(find('#preselected>li>.active').length, 1);
+    assert.equal(find('#accordion>li').length, 3, 'Accordion should have 3 headers');
+    assert.equal(find('#expandable>li').length, 3, 'Expandable should have 3 headers');
+    assert.equal(find('#preselected>li').length, 3, 'Preselected should have 3 headers');
+    assert.equal(find('#accordion>li>.active').length, 0, 'Accordion should not have an active collapsible');
+    assert.equal(find('#expandable>li>.active').length, 0, 'Expandable should not have an active collapsible');
+    assert.equal(find('#preselected>li>.active').length, 1, 'Preselected should have an active collapsible');
   });
 });

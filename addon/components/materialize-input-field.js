@@ -6,9 +6,12 @@ export default Ember.Component.extend({
   classNames: ['input-field'],
   validate: false,
 
-  init: function() {
+  init() {
     this._super(...arguments);
     // bind validation errors
+    //TODO: This is private API usage, which may bite us when glimmer arrives
+    //  We should find some less brittle way of introspecting the binding path,
+    //  or propose a framework modification to support this in the long term
     var propertyPath = this.get('valueBinding._label');
     if (Ember.isPresent(propertyPath)) {
       Ember.Binding.from('targetObject.errors.' + propertyPath)
@@ -17,7 +20,7 @@ export default Ember.Component.extend({
     }
   },
 
-  didInsertElement: function() {
+  didInsertElement() {
     this._super(...arguments);
     // pad the errors element when an icon is present
     if (Ember.isPresent(this.get('icon'))) {
@@ -26,8 +29,7 @@ export default Ember.Component.extend({
   },
 
   id: Ember.computed(function() {
-    var elementId = this.get('elementId');
-    return elementId + '-input';
+    return `${this.get('elementId')}-input`;
   })
 
 });

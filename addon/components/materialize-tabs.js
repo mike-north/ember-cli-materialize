@@ -14,12 +14,12 @@ export default Ember.Component.extend({
   optionLabelPath: 'title',
   colWidth: 2,
 
-  init: function () {
+  init() {
     this._super(...arguments);
-    this.set('_tabComponents', new Ember.A([]));
+    this.set('_tabComponents', Ember.A([]));
   },
 
-  _updateIndicatorPosition: function (animate=true) {
+  _updateIndicatorPosition(animate=true) {
     var tabComponent = this.get('_tabComponents').filterBy('value', this.get('selected'))[0];
     var tabSetRect = this.element.getBoundingClientRect();
     if (tabComponent) {
@@ -41,31 +41,33 @@ export default Ember.Component.extend({
   },
 
   _content: Ember.computed('content.[]', 'optionLabelPath', 'optionValuePath', function () {
-    var lp = this.get('optionLabelPath');
-    var vp = this.get('optionValuePath');
-    return new Ember.A(map(this.get('content') || [], c => ({id: c[vp], title: c[lp]})));
+    var labelPath = this.get('optionLabelPath');
+    var valuePath = this.get('optionValuePath');
+    return new Ember.A(map(this.get('content') || [], contentItem => ({id: contentItem[valuePath], title: contentItem[labelPath]})));
   }),
 
-  didInsertElement: function () {
+  didInsertElement() {
     this._super(...arguments);
     var tabComponents = this.get('_tabComponents');
     if (this.get('selected') === null && tabComponents.length > 0) {
       this.set('selected', tabComponents[tabComponents.length - 1].get('value'));
     }
     this._updateIndicatorPosition(false);
-    this.addObserver('selected', function () {
-      this._updateIndicatorPosition();
-    });
+    this._indicatorUpdater = () => this._updateIndicatorPosition();
+    this.addObserver('selected', this._indicatorUpdater);
   },
 
-  _setActiveTab: function (tabComponent) {
+  willDestroyElement() {
+    this._super(...arguments);
+    this.removeObserver('selected', this._indicatorUpdater);
+  },
+
+  _setActiveTab(tabComponent) {
     this.set('selected', tabComponent.get('value'));
   },
 
-  registerTab: function (tabComponent) {
+  registerTab(tabComponent) {
     this.get('_tabComponents').addObject(tabComponent);
-    tabComponent.on('tabClicked', this, function (tab) {
-      this._setActiveTab(tab);
-    });
+    tabComponent.on('tabClicked', tab => this._setActiveTab(tab));
   }
 });
