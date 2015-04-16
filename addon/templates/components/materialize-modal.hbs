@@ -1,6 +1,6 @@
 {{#ember-wormhole to=destinationElementId}}
   {{#if hasOverlay}}
-    <div {{bind-attr class="overlayClassNamesString translucentOverlay:translucent overlay-class"}} {{action 'close'}}></div>
+    <div id="lean-overlay" {{bind-attr class="overlayClassNamesString translucentOverlay:translucent overlay-class"}} {{action 'close'}} style="opacity: 0.5; display: block; z-index: 49;"></div>
   {{/if}}
   {{#ember-modal-dialog-positioned-container classNameBindings="containerClassNamesString container-class"
                                 alignment=alignment

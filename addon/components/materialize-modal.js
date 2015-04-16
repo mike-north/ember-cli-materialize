@@ -6,7 +6,11 @@ export default YappModal.extend({
   layout: layout,
   destinationElementId: "materialize-modal-root-element",
   acceptsKeyResponder: true,
-  overlayClassNames: ['lean-modal'],
+  overlayId: 'lean-modal',
+  attributeBindings: ['style:inlineStyle'],
+  inlineStyle: Ember.computed(function() {
+      return 'z-index: 1000;';
+  }),
   didInsertElement() {
     this._super(...arguments);
     this.becomeKeyResponder();
