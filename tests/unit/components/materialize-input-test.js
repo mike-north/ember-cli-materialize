@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('materialize-input', 'MaterializeInput', {
+moduleForComponent('md-input', 'MaterializeInput', {
 });
 
 test('input renders', function(assert) {

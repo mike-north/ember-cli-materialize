@@ -4,7 +4,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('materialize-select', {
+moduleForComponent('md-select', {
   // specify the other units that are required for this test
 });
 

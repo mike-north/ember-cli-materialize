@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('materialize-textarea', {
+moduleForComponent('md-textarea', {
   // specify the other units that are required for this test
 });
 

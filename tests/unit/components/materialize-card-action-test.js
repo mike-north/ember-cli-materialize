@@ -5,7 +5,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('materialize-card-action', 'MaterializeCardActionComponent', {
+moduleForComponent('md-card-action', 'MaterializeCardActionComponent', {
 });
 
 

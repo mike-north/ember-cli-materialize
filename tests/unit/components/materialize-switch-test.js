@@ -12,7 +12,7 @@ import {
 } from '../../helpers/selectable-item';
 
 
-moduleForComponent('materialize-switch', {
+moduleForComponent('md-switch', {
   // Specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
 });

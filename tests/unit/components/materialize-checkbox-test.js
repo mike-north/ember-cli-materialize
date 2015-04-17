@@ -12,7 +12,7 @@ import {
   selectableItemHasRequiredParts
 } from '../../helpers/selectable-item';
 
-moduleForComponent('materialize-checkbox', {
+moduleForComponent('md-check', {
   // Specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
 });

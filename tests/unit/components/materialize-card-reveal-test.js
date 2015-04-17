@@ -5,7 +5,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('materialize-card-reveal', 'MaterializeCardRevealComponent', {
+moduleForComponent('md-card-reveal', 'MaterializeCardRevealComponent', {
 });
 
 

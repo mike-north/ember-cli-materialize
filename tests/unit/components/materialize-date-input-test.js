@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('materialize-date-input', {
+moduleForComponent('md-input-date', {
   // specify the other units that are required for this test
 });
 
