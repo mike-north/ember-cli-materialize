@@ -28,31 +28,31 @@
 
             <div class="row">
                 <div class="col s12 m7">
-                    {{#materialize-card title="Card Title" id="basic-card"}}
-                        {{#materialize-card-content}}
+                    {{#md-card title="Card Title" id="basic-card"}}
+                        {{#md-card-content}}
                             I am a very simple card. I am good at containing small bits of information.
                             I am convenient because I require little markup to use effectively.
-                        {{/materialize-card-content}}
-                        {{#materialize-card-action}}
+                        {{/md-card-content}}
+                        {{#md-card-action}}
                             {{#link-to "cards"}}Link 1{{/link-to}}
                             {{#link-to "cards"}}Link 2{{/link-to}}
-                        {{/materialize-card-action}}
-                    {{/materialize-card}}
+                        {{/md-card-action}}
+                    {{/md-card}}
                 </div>
             </div>
 
             <pre class=" language-markup">
 <code class=" col s12 language-markup">
-&#123;&#123;#materialize-card title="Card Title"&#125;&#125;
-  &#123;&#123;#materialize-card-content&#125;&#125;
+&#123;&#123;#md-card title="Card Title"&#125;&#125;
+  &#123;&#123;#md-card-content&#125;&#125;
       I am a very simple card. I am good at containing small bits of information.
       I am convenient because I require little markup to use effectively.
-  &#123;&#123;/materialize-card-content&#125;&#125;
-  &#123;&#123;#materialize-card-action&#125;&#125;
+  &#123;&#123;/md-card-content&#125;&#125;
+  &#123;&#123;#md-card-action&#125;&#125;
     &#123;&#123;#link-to "cards"&#125;&#125;Link 1&#123;&#123;/link-to&#125;&#125;
     &#123;&#123;#link-to "cards"&#125;&#125;Link 2&#123;&#123;/link-to&#125;&#125;
-  &#123;&#123;/materialize-card-action&#125;&#125;
-&#123;&#123;/materialize-card}}
+  &#123;&#123;/md-card-action&#125;&#125;
+&#123;&#123;/md-card}}
 </code>
       </pre>
         </div>
@@ -64,31 +64,31 @@
 
             <div class="row">
                 <div class="col s12 m7">
-                    {{#materialize-card title="Card Title" titleClass="orange-text" image="images/ember.png" id="image-card"}}
-                        {{#materialize-card-content}}
+                    {{#md-card title="Card Title" titleClass="orange-text" image="images/ember.png" id="image-card"}}
+                        {{#md-card-content}}
                             I am a very simple card. I am good at containing small bits of information.
                             I am convenient because I require little markup to use effectively.
-                        {{/materialize-card-content}}
-                        {{#materialize-card-action}}
+                        {{/md-card-content}}
+                        {{#md-card-action}}
                             {{#link-to "cards"}}Link 1{{/link-to}}
                             {{#link-to "cards"}}Link 2{{/link-to}}
-                        {{/materialize-card-action}}
-                    {{/materialize-card}}
+                        {{/md-card-action}}
+                    {{/md-card}}
                 </div>
             </div>
 
             <pre class="language-markup">
 <code class=" col s12 language-markup">
-&#123;&#123;#materialize-card title="Card Title" titleClass="orange-text" image="images/ember.png"&#125;&#125;
-  &#123;&#123;#materialize-card-content&#125;&#125;
+&#123;&#123;#md-card title="Card Title" titleClass="orange-text" image="images/ember.png"&#125;&#125;
+  &#123;&#123;#md-card-content&#125;&#125;
       I am a very simple card. I am good at containing small bits of information.
       I am convenient because I require little markup to use effectively.
-  &#123;&#123;/materialize-card-content&#125;&#125;
-  &#123;&#123;#materialize-card-action&#125;&#125;
+  &#123;&#123;/md-card-content&#125;&#125;
+  &#123;&#123;#md-card-action&#125;&#125;
     &#123;&#123;#link-to "cards"&#125;&#125;Link 1&#123;&#123;/link-to&#125;&#125;
     &#123;&#123;#link-to "cards"&#125;&#125;Link 2&#123;&#123;/link-to&#125;&#125;
-  &#123;&#123;/materialize-card-action&#125;&#125;
-&#123;&#123;/materialize-card&#125;&#125;
+  &#123;&#123;/md-card-action&#125;&#125;
+&#123;&#123;/md-card&#125;&#125;
 </code>
       </pre>
         </div>
@@ -100,27 +100,27 @@
 
             <div class="row">
                 <div class="col s12 m7">
-                  {{#materialize-card title="Card Title" image="images/ember-cli.png" activator=true id="card-reveal"}}
-                    {{#materialize-card-content}}
+                  {{#md-card title="Card Title" image="images/ember-cli.png" activator=true id="card-reveal"}}
+                    {{#md-card-content}}
                       {{#link-to "cards"}}This is a Link{{/link-to}}
-                    {{/materialize-card-content}}
-                    {{#materialize-card-reveal}}
+                    {{/md-card-content}}
+                    {{#md-card-reveal}}
                         Here is some more information about this product that is only revealed once clicked on.
-                    {{/materialize-card-reveal}}
-                  {{/materialize-card}}
+                    {{/md-card-reveal}}
+                  {{/md-card}}
                 </div>
             </div>
 
             <pre class="language-markup">
 <code class=" col s12 language-markup">
-&#123;&#123;#materialize-card title="Card Title" image="images/ember-cli.png" activator=true&#125;&#125;
-  &#123;&#123;#materialize-card-content&#125;&#125;
+&#123;&#123;#md-card title="Card Title" image="images/ember-cli.png" activator=true&#125;&#125;
+  &#123;&#123;#md-card-content&#125;&#125;
     &#123;&#123;#link-to "cards"&#125;&#125;This is a Link&#123;&#123;/link-to&#125;&#125;
-  &#123;&#123;/materialize-card-content&#125;&#125;
-  &#123;&#123;#materialize-card-reveal&#125;&#125;
+  &#123;&#123;/md-card-content&#125;&#125;
+  &#123;&#123;#md-card-reveal&#125;&#125;
       Here is some more information about this product that is only revealed once clicked on.
-  &#123;&#123;/materialize-card-reveal&#125;&#125;
-&#123;&#123;/materialize-card}}
+  &#123;&#123;/md-card-reveal&#125;&#125;
+&#123;&#123;/md-card}}
 </code>
       </pre>
         </div>
@@ -133,23 +133,23 @@
 
             <div class="row">
                 <div class="col s12 m5">
-                  {{#materialize-card-panel class="teal" bodyClass="white-text" id="card-panel"}}
+                  {{#md-card-panel class="teal" bodyClass="white-text" id="card-panel"}}
                       I am a very simple card.
                       I am good at containing small bits of information.
                       I am convenient because I require little markup to use effectively.
                       I am similar to what is called a panel in other frameworks.
-                  {{/materialize-card-panel}}
+                  {{/md-card-panel}}
                 </div>
             </div>
 
             <pre class="language-markup">
 <code class=" col s12 language-markup">
-&#123;&#123;#materialize-card-panel class="teal" bodyClass="white-text"&#125;&#125;
+&#123;&#123;#md-card-panel class="teal" bodyClass="white-text"&#125;&#125;
     I am a very simple card.
     I am good at containing small bits of information.
     I am convenient because I require little markup to use effectively.
     I am similar to what is called a panel in other frameworks.
-&#123;&#123;/materialize-card-panel&#125;&#125;
+&#123;&#123;/md-card-panel&#125;&#125;
 </code>
       </pre>
         </div>

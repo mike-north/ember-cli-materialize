@@ -20,7 +20,9 @@ module('Acceptance - Cards', {
 
 function checkCardTitle (cardType, cardId) {
   test(`${cardType} should have a title`, function(assert) {
-    visit('/cards').then(function() {
+    visit('/cards');
+
+    andThen(function() {
       var titleEle = find(`#${cardId} > .card-content span`);
 
       assert.ok(titleEle.hasClass('card-title'));
@@ -31,7 +33,9 @@ function checkCardTitle (cardType, cardId) {
 
 function checkCardContent (cardType, cardId) {
   test(`${cardType} should have content`, function(assert) {
-    visit('/cards').then(function() {
+    visit('/cards');
+
+    andThen(function() {
       var contentEle = find(`#${cardId} > .card-content`);
 
       assert.ok(contentEle.hasClass('card-content'));
@@ -51,7 +55,9 @@ function checkCardContent (cardType, cardId) {
 
 function checkCardActions (cardType, cardId) {
   test(`${cardType} should have actions`, function(assert) {
-    visit('/cards').then(function() {
+    visit('/cards');
+
+    andThen(function() {
       var actionEle = find(`#${cardId} > .card-action`);
 
       assert.ok(actionEle.hasClass('card-action'));
@@ -74,7 +80,9 @@ checkCardActions(cardFlavors[0].type, cardFlavors[0].id);
 checkCardActions(cardFlavors[1].type, cardFlavors[1].id);
 
 test('Card Reveal should have content', function(assert) {
-  visit('/cards').then(function() {
+  visit('/cards');
+
+  andThen(function() {
     var contentEle = find('#card-reveal > .card-content');
 
     assert.ok(contentEle.hasClass('card-content'));
@@ -89,7 +97,9 @@ test('Card Reveal should have content', function(assert) {
 
 
 test('Card Reveal should have content', function(assert) {
-  visit('/cards').then(function() {
+  visit('/cards');
+
+  andThen(function() {
     var contentEle = find('#card-panel > span');
 
     assert.ok(contentEle.hasClass('white-text'));
@@ -111,7 +121,9 @@ test('Card Reveal should have content', function(assert) {
 
 
 test('Card Reveal should reveal and conceal content', function(assert) {
-  visit('/cards').then(function() {
+  visit('/cards');
+
+  andThen(function() {
 
     var doneReveal = assert.async();
     var doneConceal = assert.async();
