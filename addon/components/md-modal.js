@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import YappModal from 'ember-modal-dialog/components/modal-dialog';
-import layout from '../templates/components/materialize-modal';
+import layout from '../templates/components/md-modal';
 
 export default YappModal.extend({
   layout: layout,

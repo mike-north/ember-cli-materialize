@@ -1,3 +1,10 @@
-import materializeModal from 'ember-cli-materialize/components/materialize-modal';
+import Ember from 'ember';
+import MaterializeModal from './md-modal';
 
-export default materializeModal;
+export default MaterializeModal.extend({
+  init() {
+    this._super(...arguments);
+    Ember.deprecate("{{materialize-modal}} has been deprecated. Please use {{md-modal}} instead", false, {url: "https://github.com/sgasser/ember-cli-materialize/issues/67"});
+  }
+});
+

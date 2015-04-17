@@ -20,9 +20,9 @@
     <div class="section">
         <h4 class="col s12 header">Modal</h4>
         <div class="modal-example">
-        {{#materialize-button action='openModal' class="open-modal-button"}}Open modal{{/materialize-button}}
+        {{#md-btn action='openModal' class="open-modal-button"}}Open modal{{/md-btn}}
         {{#if modalIsOpen}}
-        {{#materialize-modal close='closeModal' class="test-modal"}}
+        {{#md-modal close='closeModal' class="test-modal"}}
           <div class="modal-content">
             <h4>Hello Modal</h4>
             <p>Oh hai there!</p>
@@ -31,12 +31,12 @@
             <a class="modal-action modal-close waves-effect waves-green btn-flat agree-button" {{action 'agree'}}>Agree</a>
             <a class="modal-action modal-close waves-effect waves-green btn-flat cancel-button" {{action 'closeModal'}}>Cancel</a>
           </div>
-        {{/materialize-modal}}
+        {{/md-modal}}
         {{/if}}
         </div>
         <pre class=" language-markup">
           <code class=" col s12 language-markup">
-            <span>&#123;&#123;</span>#materialize-dialog action="closeModal"<span>&#125;&#125;</span>
+            <span>&#123;&#123;</span>#md-dialog action="closeModal"<span>&#125;&#125;</span>
               &lt;div class="modal-content"&gt;
                 &lt;h4&gt;Hello Modal&lt;/h4&gt;
                 &lt;p&gt;Oh hai there!&lt;/p&gt;
@@ -51,7 +51,7 @@
                   Cancel
                 &lt;/a&gt;
               &lt;/div&gt;
-            <span>&#123;&#123;</span>/materialize-dialog<span>&#125;&#125;</span>
+            <span>&#123;&#123;</span>/md-dialog<span>&#125;&#125;</span>
           </code>
         </pre>
     </div>
