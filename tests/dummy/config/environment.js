@@ -14,6 +14,9 @@ module.exports = function(environment) {
     },
 
     APP: {
+      emberModalDialog: {
+        modalRootElementId: 'materialize-modal-root-element'
+      }
       // Here you can pass flags/options to your application instance
       // when it is created
     },

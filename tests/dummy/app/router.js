@@ -13,6 +13,7 @@ Router.map(function() {
   this.route("copyright");
   this.route("forms");
   this.route("loader");
+  this.route("modal");
   this.route("navbar");
   this.route("pagination");
   this.route("parallax");
