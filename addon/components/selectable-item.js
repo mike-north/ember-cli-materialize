@@ -1,36 +1,34 @@
 import Ember from 'ember';
+import computed from 'ember-new-computed';
 
 export default Ember.Component.extend({
   checked: null,
   classNames: ['materialize-selectable-item'],
 
-  _checked: Ember.computed('checked', 'group.selection', 'group.selection.[]', function (key, val) {
-    var group = this.get('group');
-    if (!group) {
-      if (arguments.length <= 1) {
+  _checked: computed('checked', 'group.selection', 'group.selection.[]', {
+    get() {
+      var group = this.get('group');
+      if (!group) {
         return this.get('checked');
       }
       else {
-        this.set('checked', val);
-        return val;
-      }
-    }
-    else {
-      // Operate in the context of a group. The group owns
-      // the selection state
-      if (arguments.length <= 1) {
-        // get
         return group.isValueSelected(this.get('value'));
       }
-      else {
-        //set
-        group.setValueSelection(this.get('value'), val);
-        return !!val;
+    },
+    set (key, val) {
+      var group = this.get('group');
+      if (!group) {
+        this.set('checked', val);
       }
+      else {
+        group.setValueSelection(this.get('value'), val);
+      }
+      return !!val;
     }
   }),
 
   isSelected: Ember.computed.alias('_checked'),
+
   _setupLabel() {
     var $input = this.$('.materialize-selectable-item-input')[0];
 
