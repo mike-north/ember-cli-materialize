@@ -1,8 +1,9 @@
 import Ember from 'ember';
-import layout from '../templates/components/materialize-card';
+import layout from '../templates/components/md-card-panel';
 
 export default Ember.Component.extend({
   layout: layout,
-  classNames: ['card'],
+  classNames: ['card-panel'],
   classNameBinding: 'class'
 });
+

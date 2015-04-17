@@ -1,6 +1,6 @@
 import Ember from 'ember';
-import SelectableItem from './materialize-selectable-item';
-import layout from '../templates/components/materialize-radio';
+import SelectableItem from './selectable-item';
+import layout from '../templates/components/md-radio';
 
 export default SelectableItem.extend({
   layout: layout,

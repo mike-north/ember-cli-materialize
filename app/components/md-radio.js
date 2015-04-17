@@ -1,3 +1,3 @@
-import materializeRadio from 'ember-cli-materialize/components/materialize-radio';
+import materializeRadio from 'ember-cli-materialize/components/md-radio';
 
 export default materializeRadio;

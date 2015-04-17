@@ -1,6 +1,6 @@
 import Ember from 'ember';
-import SelectableItem from './materialize-selectable-item';
-import layout from '../templates/components/materialize-switch';
+import SelectableItem from './selectable-item';
+import layout from '../templates/components/md-switch';
 
 export default SelectableItem.extend({
   layout: layout,

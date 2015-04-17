@@ -1,9 +1,10 @@
 import Ember from 'ember';
-import InputField from './materialize-input-field';
-import layout from '../templates/components/materialize-textarea';
+import MaterializeInputField from './md-input-field';
+import layout from '../templates/components/md-input';
 
-export default InputField.extend({
+export default MaterializeInputField.extend({
   layout: layout,
+  type: 'text',
 
   didInsertElement() {
     this._super(...arguments);

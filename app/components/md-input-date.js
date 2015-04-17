@@ -1,3 +1,3 @@
-import materializeDateInput from 'ember-cli-materialize/components/materialize-date-input';
+import materializeDateInput from 'ember-cli-materialize/components/md-input-date';
 
 export default materializeDateInput;

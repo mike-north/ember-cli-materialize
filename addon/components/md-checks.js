@@ -1,5 +1,5 @@
-import SelectableItemGroup from './materialize-selectable-item-group';
-import CheckboxComponent from './materialize-checkbox';
+import SelectableItemGroup from './selectable-item-group';
+import CheckboxComponent from './md-check';
 import GroupSelectableItemMixin from '../mixins/group-selectable-item';
 
 

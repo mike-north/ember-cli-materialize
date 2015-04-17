@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import layout from '../templates/components/materialize-range';
+import layout from '../templates/components/md-range';
 
 export default Ember.Component.extend({
   min: 0,

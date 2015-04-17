@@ -1,3 +1,3 @@
-import MaterializeCollapsibleCard from 'ember-cli-materialize/components/materialize-collapsible-card';
+import MaterializeCollapsibleCard from 'ember-cli-materialize/components/md-card-collapsible';
 
 export default MaterializeCollapsibleCard;

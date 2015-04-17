@@ -1,5 +1,5 @@
-import MaterializeInput from './materialize-input';
-import layout from '../templates/components/materialize-date-input';
+import MaterializeInput from './md-input';
+import layout from '../templates/components/md-input-date';
 
 export default MaterializeInput.extend({
   layout: layout,

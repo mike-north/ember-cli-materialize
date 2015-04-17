@@ -1,3 +1,3 @@
-import materializeBadge from 'ember-cli-materialize/components/materialize-badge';
+import materializeBadge from 'ember-cli-materialize/components/md-badge';
 
 export default materializeBadge;

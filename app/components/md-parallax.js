@@ -1,3 +1,3 @@
-import materializeParallax from 'ember-cli-materialize/components/materialize-parallax';
+import materializeParallax from 'ember-cli-materialize/components/md-parallax';
 
 export default materializeParallax;

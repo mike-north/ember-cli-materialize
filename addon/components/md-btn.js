@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import layout from '../templates/components/materialize-button';
+import layout from '../templates/components/md-btn';
 
 export default Ember.Component.extend({
   layout: layout,

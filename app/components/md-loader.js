@@ -1,3 +1,3 @@
-import materializeLoader from 'ember-cli-materialize/components/materialize-loader';
+import materializeLoader from 'ember-cli-materialize/components/md-loader';
 
 export default materializeLoader;

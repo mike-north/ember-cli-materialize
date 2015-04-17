@@ -1,3 +1,3 @@
-import materializeTabs from 'ember-cli-materialize/components/materialize-tabs';
+import materializeTabs from 'ember-cli-materialize/components/md-tabs';
 
 export default materializeTabs;

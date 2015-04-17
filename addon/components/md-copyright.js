@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import layout from '../templates/components/materialize-copyright';
+import layout from '../templates/components/md-copyright';
 
 export default Ember.Component.extend({
   init: function() {

@@ -1,3 +1,3 @@
-import MaterializeNavBar from 'ember-cli-materialize/components/materialize-navbar';
+import MaterializeNavBar from 'ember-cli-materialize/components/md-navbar';
 
 export default MaterializeNavBar;

@@ -1,3 +1,3 @@
-import MaterializeCard from 'ember-cli-materialize/components/materialize-card';
+import MaterializeCard from 'ember-cli-materialize/components/md-card';
 
 export default MaterializeCard;

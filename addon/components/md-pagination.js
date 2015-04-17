@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import layout from '../templates/components/materialize-pagination';
+import layout from '../templates/components/md-pagination';
 
 export default Ember.Component.extend({
   min: 1,

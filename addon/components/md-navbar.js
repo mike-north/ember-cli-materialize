@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import layout from '../templates/components/materialize-navbar';
+import layout from '../templates/components/md-navbar';
 
 export default Ember.Component.extend({
   tagName: 'nav',

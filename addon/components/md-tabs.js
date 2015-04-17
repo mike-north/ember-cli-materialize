@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import layout from '../templates/components/materialize-tabs';
+import layout from '../templates/components/md-tabs';
 var map = Ember.EnumerableUtils.map;
 
 export default Ember.Component.extend({

@@ -1,3 +1,3 @@
-import MaterializeButton from 'ember-cli-materialize/components/materialize-button';
+import MaterializeButton from 'ember-cli-materialize/components/md-btn';
 
 export default MaterializeButton;

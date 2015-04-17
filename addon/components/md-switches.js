@@ -1,6 +1,6 @@
-import SelectableItemGroup from './materialize-selectable-item-group';
+import SelectableItemGroup from './selectable-item-group';
 import GroupSelectableItemMixin from '../mixins/group-selectable-item';
-import SwitchComponent from './materialize-switch';
+import SwitchComponent from './md-switch';
 
 var GroupSwitchComponent = SwitchComponent.extend(GroupSelectableItemMixin, { });
 

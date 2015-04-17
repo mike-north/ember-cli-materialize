@@ -1,6 +1,6 @@
 import Ember from 'ember';
-import MaterializeInputField from './materialize-input-field';
-import layout from '../templates/components/materialize-select';
+import MaterializeInputField from './md-input-field';
+import layout from '../templates/components/md-select';
 
 export default MaterializeInputField.extend({
   layout: layout,

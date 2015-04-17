@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import layout from '../templates/components/materialize-selectable-item-group';
+import layout from '../templates/components/selectable-item-group';
 
 var get = Ember.get,
   map = Ember.EnumerableUtils.map,

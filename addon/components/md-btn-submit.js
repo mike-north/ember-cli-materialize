@@ -1,4 +1,4 @@
-import materializeButton from './materialize-button';
+import materializeButton from './md-btn';
 
 export default materializeButton.extend({
   layoutName: 'components/materialize-button',

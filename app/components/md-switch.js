@@ -1,3 +1,3 @@
-import materializeSwitch from 'ember-cli-materialize/components/materialize-switch';
+import materializeSwitch from 'ember-cli-materialize/components/md-switch';
 
 export default materializeSwitch;

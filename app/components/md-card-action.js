@@ -1,3 +1,3 @@
-import MaterializeCardAction from 'ember-cli-materialize/components/materialize-card-action';
+import MaterializeCardAction from 'ember-cli-materialize/components/md-card-action';
 
 export default MaterializeCardAction;

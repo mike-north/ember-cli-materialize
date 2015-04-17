@@ -1,3 +1,3 @@
-import materializeRange from 'ember-cli-materialize/components/materialize-range';
+import materializeRange from 'ember-cli-materialize/components/md-range';
 
 export default materializeRange;
