@@ -1,3 +1,9 @@
-import MaterializeButton from 'ember-cli-materialize/components/materialize-button';
+import Ember from 'ember';
+import MaterializeButton from './md-btn';
 
-export default MaterializeButton;
+export default MaterializeButton.extend({
+  init() {
+    this._super(...arguments);
+    Ember.deprecate("{{materialize-button}} has been deprecated. Please use {{md-btn}} instead", false, {url: "https://github.com/sgasser/ember-cli-materialize/issues/67"});
+  }
+});

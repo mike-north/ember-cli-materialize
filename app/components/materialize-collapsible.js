@@ -1,3 +1,9 @@
-import MaterializeCollapsible from 'ember-cli-materialize/components/materialize-collapsible';
+import Ember from 'ember';
+import MaterializeCollapsible from './md-collapsible';
 
-export default MaterializeCollapsible;
+export default MaterializeCollapsible.extend({
+  init() {
+    this._super(...arguments);
+    Ember.deprecate("{{materialize-collapsible}} has been deprecated. Please use {{md-collapsible}} instead", false, {url: "https://github.com/sgasser/ember-cli-materialize/issues/67"});
+  }
+});

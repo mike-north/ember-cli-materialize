@@ -1,3 +1,9 @@
-import MaterializeCollapsibleCard from 'ember-cli-materialize/components/materialize-collapsible-card';
+import Ember from 'ember';
+import MaterializeCollapsibleCard from './md-card-collapsible';
 
-export default MaterializeCollapsibleCard;
+export default MaterializeCollapsibleCard.extend({
+  init() {
+    this._super(...arguments);
+    Ember.deprecate("{{materialize-collapsible-card}} has been deprecated. Please use {{md-card-collapsible}} instead", false, {url: "https://github.com/sgasser/ember-cli-materialize/issues/67"});
+  }
+});
