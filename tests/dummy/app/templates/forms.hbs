@@ -182,7 +182,7 @@ nameDidChange: function() {
 
         <div class="input-example">
             <br/>
-            {{md-date-input label='Birthday' icon="mdi-action-face-unlock"}}
+            {{md-input-date label='Birthday' icon="mdi-action-face-unlock"}}
 
 <pre class=" language-markup">
 <code class=" col s12 language-markup">
@@ -241,14 +241,14 @@ nameDidChange: function() {
       <form action="">
         <div class="row">
           <div class="col s12">
-            {{md-checkbox name="A single checkbox" checked=checkboxIsSelected}}
+            {{md-check name="A single checkbox" checked=checkboxIsSelected}}
           </div>
         </div>
       </form>
       <!-- End example -->
       <pre class=" language-markup">
         <code class=" col s12 language-markup">
-    <span>&#123;&#123;</span>md-checkbox name="A single checkbox" checked=checkboxIsSelected<span>&#125;&#125;</span>
+    <span>&#123;&#123;</span>md-check name="A single checkbox" checked=checkboxIsSelected<span>&#125;&#125;</span>
         </code>
       </pre>
     </div>
@@ -316,7 +316,7 @@ nameDidChange: function() {
         <div class="row">
           <div class="col l6 m6 s12">
 
-            {{md-checkboxes
+            {{md-checks
               selection=checkboxSelections
               content=checkboxChoices
               optionValuePath='id'
@@ -364,7 +364,7 @@ nameDidChange: function() {
       <p>Pass an array of selection choices to either of these three helpers, with a "selection" binding that should be either a singular value or an array, depending on whether the group allows single or multiple selection</p>
       <pre class=" language-markup">
         <code class=" col s12 language-markup">
-    <span>&#123;&#123;</span>md-checkboxes
+    <span>&#123;&#123;</span>md-checks
         selection=checkboxSelections
         content=checkboxChoices
         optionValuePath='id'
