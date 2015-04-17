@@ -35,4 +35,4 @@ install:
   - bower install
 
 script:
-  - echo "====== Running Scenario: $E_SCENARIO ======"; ember try $E_SCENARIO test
+  - ember try $E_SCENARIO test
