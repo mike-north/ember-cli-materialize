@@ -29,6 +29,8 @@
     "ember-disable-prototype-extensions": "^1.0.0",
     "ember-export-application-global": "^1.0.2",
     "ember-new-computed": "1.0.0",
+    "ember-key-responder": "0.2.1",
+    "ember-modal-dialog": "0.3.0",
     "ember-radio-button": "1.0.4",
     "ember-try": "0.0.3",
     "liquid-fire": "git+ssh://git@github.com:ef4/liquid-fire.git#8fcefd057478ab6852d7b8b3fc8526aa5079553c"
