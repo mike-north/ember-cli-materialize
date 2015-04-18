@@ -11,9 +11,9 @@ import {
 } from '../../helpers/selectable-item';
 
 
-moduleForComponent('materialize-radios', {
+moduleForComponent('md-radios', {
   // Specify the other units that are required for this test
-  needs: ['component:materialize-radio', 'component:radio-button']
+  needs: ['component:md-radio', 'component:radio-button']
 });
 
 test('it renders', function(assert) {

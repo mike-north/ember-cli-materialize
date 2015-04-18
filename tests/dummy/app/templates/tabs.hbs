@@ -23,16 +23,16 @@
   <div class="section">
     <h4 class="col s12 header">Basic Usage</h4>
     <p>Creating a basic set of tabs is simple, and you have several syntax options to choose from.
-    First, you can pass an array of tabs to the <code>&#123;&#123;materialize-tabs&#125;&#125;</code> component:</p>
+    First, you can pass an array of tabs to the <code>&#123;&#123;md-tabs&#125;&#125;</code> component:</p>
     <div class="tabs-example basic-tabs-example z-depth-1">
-      {{materialize-tabs
+      {{md-tabs
         content=basicTabsContent
         selected=basicTabsSelection}}
     </div>
 
     <pre class=" language-markup">
       <code class=" col s8 language-markup">
-  <span>&#123;&#123;</span>materialize-tabs
+  <span>&#123;&#123;</span>md-tabs
       content=tabSet
       selected=selectedTabId<span>&#125;&#125;</span>
       </code>
@@ -49,7 +49,7 @@
     <p>If you wish to use different key and value properties, you may specify some additional options</p>
        <div class="tabs-example second-tabs-example z-depth-1">
 
-    {{materialize-tabs
+    {{md-tabs
         content=alternateTabsContent
         selected=basicTabsSelection
         optionValuePath='key'
@@ -57,7 +57,7 @@
         </div>
     <pre class=" language-markup">
       <code class=" col s8 language-markup">
-  <span>&#123;&#123;</span>materialize-tabs
+  <span>&#123;&#123;</span>md-tabs
       content=tabSet
       selected=selectedTabId
       optionValuePath='key'
@@ -67,20 +67,20 @@
     <h4 class="col s12 header">Alternate Syntax</h4>
     <p>The following syntax allows for more granular control over the particulars of each tab</p>
     <div class="tabs-example third-tabs-example z-depth-1">
-        {{#materialize-tabs
+        {{#md-tabs
           selected=basicTabsSelection}}
-          {{materialize-tabs-tab value='a' title="Sixth"}}
-          {{materialize-tabs-tab value='b' title="Seventh"}}
-          {{materialize-tabs-tab value='c' title="Eighth"}}
-        {{/materialize-tabs}}
+          {{md-tab value='a' title="Sixth"}}
+          {{md-tab value='b' title="Seventh"}}
+          {{md-tab value='c' title="Eighth"}}
+        {{/md-tabs}}
     </div>
     <pre class=" language-markup">
       <code class=" col s8 language-markup">
-  <span>&#123;&#123;</span>#materialize-tabs selected=selectedTabId<span>&#125;&#125;</span>
-      <span>&#123;&#123;</span>materialize-tabs-tab value='a' title='Sixth'<span>&#125;&#125;</span>
-      <span>&#123;&#123;</span>materialize-tabs-tab value='b' title='Seventh'<span>&#125;&#125;</span>
-      <span>&#123;&#123;</span>materialize-tabs-tab value='c' title='Eighth'<span>&#125;&#125;</span>
-  <span>&#123;&#123;</span>/materialize-tabs<span>&#125;&#125;</span>
+  <span>&#123;&#123;</span>#md-tabs selected=selectedTabId<span>&#125;&#125;</span>
+      <span>&#123;&#123;</span>md-tab value='a' title='Sixth'<span>&#125;&#125;</span>
+      <span>&#123;&#123;</span>md-tab value='b' title='Seventh'<span>&#125;&#125;</span>
+      <span>&#123;&#123;</span>md-tab value='c' title='Eighth'<span>&#125;&#125;</span>
+  <span>&#123;&#123;</span>/md-tabs<span>&#125;&#125;</span>
       </code>
     </pre>
   </div>

@@ -1,0 +1,17 @@
+import Ember from 'ember';
+import MaterializeInputField from './md-input-field';
+import layout from '../templates/components/md-input';
+
+export default MaterializeInputField.extend({
+  layout: layout,
+  type: 'text',
+
+  didInsertElement() {
+    this._super(...arguments);
+    // make sure the label moves when a value is bound.
+    var labelSelector = this.$('>label');
+    if (Ember.isPresent(this.get('value')) && !labelSelector.hasClass('active')) {
+      labelSelector.addClass('active');
+    }
+  }
+});

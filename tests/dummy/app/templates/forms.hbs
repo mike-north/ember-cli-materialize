@@ -34,11 +34,11 @@
 
         <div class="input-example">
             <br/>
-            {{materialize-input value="Hi Mom" label='Example'}}
+            {{md-input value="Hi Mom" label='Example'}}
 
             <pre class=" language-markup">
 <code class=" col s12 language-markup">
-    <span>&#123;&#123;</span>materialize-input value="Hi Mom" label="Example"<span>&#125;&#125;</span>
+    <span>&#123;&#123;</span>md-input value="Hi Mom" label="Example"<span>&#125;&#125;</span>
 </code>
       </pre>
         </div>
@@ -48,11 +48,11 @@
         <h4 class="col s12 header">Input with Icon</h4>
         <div class="input-example">
             <br/>
-          {{materialize-input value="Hi Mom" label='Example' icon="mdi-action-face-unlock"}}
+          {{md-input value="Hi Mom" label='Example' icon="mdi-action-face-unlock"}}
 
             <pre class=" language-markup">
 <code class=" col s12 language-markup">
-    <span>&#123;&#123;</span>materialize-input value="Hi Mom" label="Example" icon="mdi-action-face-unlock"<span>&#125;&#125;</span>
+    <span>&#123;&#123;</span>md-input value="Hi Mom" label="Example" icon="mdi-action-face-unlock"<span>&#125;&#125;</span>
 </code>
       </pre>
         </div>
@@ -62,11 +62,11 @@
         <h4 class="col s12 header">Input with type="password"</h4>
         <div class="input-example">
             <br/>
-            {{materialize-input value="test" label='Password' type="password"}}
+            {{md-input value="test" label='Password' type="password"}}
 
             <pre class=" language-markup">
 <code class=" col s12 language-markup">
-    <span>&#123;&#123;</span>materialize-input value="test" label="Password" type="password"<span>&#125;&#125;</span>
+    <span>&#123;&#123;</span>md-input value="test" label="Password" type="password"<span>&#125;&#125;</span>
 </code>
       </pre>
         </div>
@@ -83,11 +83,11 @@
       </p>
         <div class="input-example">
             <br/>
-            {{materialize-input value=model.name label='Name'}}
+            {{md-input value=model.name label='Name'}}
 
 <pre class=" language-markup">
 <code class=" col s12 language-markup">
-<span>&#123;&#123;</span>materialize-input value=model.name label="Name"<span>&#125;&#125;</span>
+<span>&#123;&#123;</span>md-input value=model.name label="Name"<span>&#125;&#125;</span>
 
 // controller example
 nameDidChange: function() {
@@ -121,11 +121,11 @@ nameDidChange: function() {
         <div class="input-example">
             <br/>
 
-            {{materialize-textarea label='Message' value=message icon="mdi-action-face-unlock"}}
+            {{md-textarea label='Message' value=message icon="mdi-action-face-unlock"}}
 
 <pre class=" language-markup">
 <code class=" col s12 language-markup">
-&#123;&#123;materialize-textarea label='Message' value="The textarea will auto-grow as you type." icon="mdi-action-face-unlock"&#125;&#125;
+&#123;&#123;md-textarea label='Message' value="The textarea will auto-grow as you type." icon="mdi-action-face-unlock"&#125;&#125;
 </code>
 </pre>
         </div>
@@ -149,12 +149,12 @@ nameDidChange: function() {
         <div class="input-example">
             <br/>
 
-            {{materialize-select content=frameworks value=framework label="Framework" prompt="Please choose..."
+            {{md-select content=frameworks value=framework label="Framework" prompt="Please choose..."
                 optionLabelPath="content.value" optionValuePath="content"}}
 
             <pre class=" language-markup">
 <code class=" col s12 language-markup">
-&#123;&#123;materialize-select content=frameworks value=framework label="Framework" prompt="Please choose..."
+&#123;&#123;md-select content=frameworks value=framework label="Framework" prompt="Please choose..."
   optionLabelPath="content.value" optionValuePath="content"&#125;&#125;
 </code>
 </pre>
@@ -182,11 +182,11 @@ nameDidChange: function() {
 
         <div class="input-example">
             <br/>
-            {{materialize-date-input label='Birthday' icon="mdi-action-face-unlock"}}
+            {{md-input-date label='Birthday' icon="mdi-action-face-unlock"}}
 
 <pre class=" language-markup">
 <code class=" col s12 language-markup">
-&#123;&#123;materialize-date-input label='Birthday' icon="mdi-action-face-unlock"&#125;&#125;
+&#123;&#123;md-input-date label='Birthday' icon="mdi-action-face-unlock"&#125;&#125;
 </code>
 </pre>
         </div>
@@ -213,14 +213,14 @@ nameDidChange: function() {
             <p>
               Value: {{rangeValue}}
             </p>
-            {{materialize-range value=rangeValue min=50 name="My Range"}}
+            {{md-range value=rangeValue min=50 name="My Range"}}
           </div>
         </div>
       </form>
       <!-- End example -->
       <pre class=" language-markup">
         <code class=" col s12 language-markup">
-    <span>&#123;&#123;</span>materialize-range value=rangeValue min=50<span>&#125;&#125;</span>
+    <span>&#123;&#123;</span>md-range value=rangeValue min=50<span>&#125;&#125;</span>
         </code>
       </pre>
     </div>
@@ -241,14 +241,14 @@ nameDidChange: function() {
       <form action="">
         <div class="row">
           <div class="col s12">
-            {{materialize-checkbox name="A single checkbox" checked=checkboxIsSelected}}
+            {{md-check name="A single checkbox" checked=checkboxIsSelected}}
           </div>
         </div>
       </form>
       <!-- End example -->
       <pre class=" language-markup">
         <code class=" col s12 language-markup">
-    <span>&#123;&#123;</span>materialize-checkbox name="A single checkbox" checked=checkboxIsSelected<span>&#125;&#125;</span>
+    <span>&#123;&#123;</span>md-check name="A single checkbox" checked=checkboxIsSelected<span>&#125;&#125;</span>
         </code>
       </pre>
     </div>
@@ -270,9 +270,9 @@ nameDidChange: function() {
       <form action="">
         <div class="row">
           <div class="col s12">
-            <p>{{materialize-switch checked=switchValue}}</p>
-            <p>{{materialize-switch checked=switchValue onLabel="Enabled" offLabel="Disabled"}}</p>
-            <p>{{materialize-switch disabled=notSwitchValue checked=false}}</p>
+            <p>{{md-switch checked=switchValue}}</p>
+            <p>{{md-switch checked=switchValue onLabel="Enabled" offLabel="Disabled"}}</p>
+            <p>{{md-switch disabled=notSwitchValue checked=false}}</p>
           </div>
         </div>
 
@@ -280,9 +280,9 @@ nameDidChange: function() {
       <!-- End example -->
       <pre class=" language-markup">
         <code class=" col s12 language-markup">
-    <span>&#123;&#123;</span>materialize-switch checked=switchValue<span>&#125;&#125;</span>
-    <span>&#123;&#123;</span>materialize-switch checked=switchValue onLabel="Enabled" offLabel="Disabled"<span>&#125;&#125;</span>
-    <span>&#123;&#123;</span>materialize-switch checked=switchValue1 disabled=notSwitchValue<span>&#125;&#125;</span>
+    <span>&#123;&#123;</span>md-switch checked=switchValue<span>&#125;&#125;</span>
+    <span>&#123;&#123;</span>md-switch checked=switchValue onLabel="Enabled" offLabel="Disabled"<span>&#125;&#125;</span>
+    <span>&#123;&#123;</span>md-switch checked=switchValue1 disabled=notSwitchValue<span>&#125;&#125;</span>
         </code>
       </pre>
     </div>
@@ -308,7 +308,7 @@ nameDidChange: function() {
         <div class="row">
           <div class="col s12">
             <p>Selection: {{#each checkboxSelections as |str|}}
-            {{materialize-badge text=str class="default-value blue white-text"}}
+            {{md-badge text=str class="default-value blue white-text"}}
           {{/each}}
            </p>
           </div>
@@ -316,7 +316,7 @@ nameDidChange: function() {
         <div class="row">
           <div class="col l6 m6 s12">
 
-            {{materialize-checkboxes
+            {{md-checks
               selection=checkboxSelections
               content=checkboxChoices
               optionValuePath='id'
@@ -324,7 +324,7 @@ nameDidChange: function() {
 
           </div>
           <div class="col l6 m6 s12">
-            {{materialize-switches
+            {{md-switches
               selection=checkboxSelections
               content=checkboxChoices
               optionValuePath='id'
@@ -334,28 +334,28 @@ nameDidChange: function() {
         </div>
         <div class="row">
           <div class="col s12">
-            <p>Selection: {{materialize-badge text=radioSelection class="default-value blue white-text"}}</p>
+            <p>Selection: {{md-badge text=radioSelection class="default-value blue white-text"}}</p>
           </div>
         </div>
         <div class="row">
           <div class="col l6 m6 s12">
-            {{#materialize-radios
+            {{#md-radios
               selection=radioSelection
               optionValuePath='id'
               optionLabelPath='text'}}
-              <p>{{materialize-radio value=1 name="One"}}</p>
-                <p>{{materialize-radio value=2 name="Two"}}</p>
-              {{/materialize-radios}}
+              <p>{{md-radio value=1 name="One"}}</p>
+                <p>{{md-radio value=2 name="Two"}}</p>
+              {{/md-radios}}
           </div>
           <div class="col l6 m6 s12">
-            {{#materialize-switches
+            {{#md-switches
               multiple=false
               selection=radioSelection
               optionValuePath='id'
               optionLabelPath='text'}}
-                <p>{{materialize-switch value=1 name="One"}}</p>
-                <p>{{materialize-switch value=2 name="Two"}}</p>
-              {{/materialize-switches}}
+                <p>{{md-switch value=1 name="One"}}</p>
+                <p>{{md-switch value=2 name="Two"}}</p>
+              {{/md-switches}}
           </div>
         </div>
 
@@ -364,19 +364,19 @@ nameDidChange: function() {
       <p>Pass an array of selection choices to either of these three helpers, with a "selection" binding that should be either a singular value or an array, depending on whether the group allows single or multiple selection</p>
       <pre class=" language-markup">
         <code class=" col s12 language-markup">
-    <span>&#123;&#123;</span>materialize-checkboxes
+    <span>&#123;&#123;</span>md-checks
         selection=checkboxSelections
         content=checkboxChoices
         optionValuePath='id'
         optionLabelPath='label'<span>&#125;&#125;</span>
 
-    <span>&#123;&#123;</span>materialize-radios
+    <span>&#123;&#123;</span>md-radios
         selection=radioSelection
         content=radioChoices
         optionValuePath='id'
         optionLabelPath='text'<span>&#125;&#125;</span>
 
-    <span>&#123;&#123;</span>materialize-switches
+    <span>&#123;&#123;</span>md-switches
         multiple=false
         selection=radioSelection
         content=radioChoices
@@ -388,14 +388,14 @@ nameDidChange: function() {
       <p>Alternatively, declarative syntax is available</p>
       <pre class="language-markup">
         <code class="col s12 language-markup">
-    <span>&#123;&#123;</span>#materialize-switches
+    <span>&#123;&#123;</span>#md-switches
         multiple=false
         selection=radioSelection<span>&#125;&#125;</span>
 
-        &lt;p&gt;<span>&#123;&#123;</span>materialize-switch value=1 name="One"<span>&#125;&#125;</span>&lt;/p&gt;
-        &lt;p&gt;<span>&#123;&#123;</span>materialize-switch value=2 name="Two"<span>&#125;&#125;</span>&lt;/p&gt;
+        &lt;p&gt;<span>&#123;&#123;</span>md-switch value=1 name="One"<span>&#125;&#125;</span>&lt;/p&gt;
+        &lt;p&gt;<span>&#123;&#123;</span>md-switch value=2 name="Two"<span>&#125;&#125;</span>&lt;/p&gt;
 
-    <span>&#123;&#123;</span>/materialize-switches<span>&#125;&#125;</span>
+    <span>&#123;&#123;</span>/md-switches<span>&#125;&#125;</span>
         </code>
       </pre>
     </div>

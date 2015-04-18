@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('materialize-input-field', {
+moduleForComponent('md-input-field', {
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
 });

@@ -1,3 +1,9 @@
-import MaterializeButtonSubmit from 'ember-cli-materialize/components/materialize-button-submit';
+import Ember from 'ember';
+import MaterializeButtonSubmit from './md-btn-submit';
 
-export default MaterializeButtonSubmit;
+export default MaterializeButtonSubmit.extend({
+  init() {
+    this._super(...arguments);
+    Ember.deprecate("{{materialize-button-submit}} has been deprecated. Please use {{md-btn-submit}} instead", false, {url: "https://github.com/sgasser/ember-cli-materialize/issues/67"});
+  }
+});

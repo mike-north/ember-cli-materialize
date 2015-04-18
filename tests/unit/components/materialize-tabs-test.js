@@ -5,9 +5,9 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('materialize-tabs', {
+moduleForComponent('md-tabs', {
   // Specify the other units that are required for this test
-  needs: ['component:materialize-tabs-tab']
+  needs: ['component:md-tab']
 });
 
 test('it renders', function(assert) {
