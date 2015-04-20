@@ -1,10 +1,13 @@
 import Ember from 'ember';
+import computed from 'ember-new-computed';
 
 export default Ember.Component.extend({
+  classNames: ['input-field'],
 
   bindAttributes: ['disabled', 'readonly'],
-  classNames: ['input-field'],
   validate: false,
+
+  errorsPath: 'errors',
 
   init() {
     this._super(...arguments);
@@ -14,7 +17,7 @@ export default Ember.Component.extend({
     //  or propose a framework modification to support this in the long term
     var propertyPath = this.get('valueBinding._label');
     if (Ember.isPresent(propertyPath)) {
-      Ember.Binding.from('targetObject.errors.' + propertyPath)
+      Ember.Binding.from(`targetObject.${this.get('errorsPath')}.${propertyPath}`)
         .to('errors')
         .connect(this);
     }
@@ -24,12 +27,21 @@ export default Ember.Component.extend({
     this._super(...arguments);
     // pad the errors element when an icon is present
     if (Ember.isPresent(this.get('icon'))) {
-      this.$('>span').css('padding-left', '3rem');
+      this.$('> span').css('padding-left', '3rem');
     }
   },
 
-  id: Ember.computed(function() {
-    return `${this.get('elementId')}-input`;
-  })
+  id: computed('elementId', {
+    get() {
+      return `${this.get('elementId')}-input`;
+    }
+  }),
+
+  _setupLabel() {
+    var labelSelector = this.$('> label');
+    if (Ember.isPresent(this.get('value')) && !labelSelector.hasClass('active')) {
+      labelSelector.addClass('active');
+    }
+  }
 
 });

@@ -7,12 +7,20 @@ export default Ember.Component.extend({
 
   didInsertElement() {
     this._super(...arguments);
-    Ember.run.scheduleOnce('afterRender', this, function(){
-      if(Ember.typeOf(Ember.$('.button-collapse').sideNav) === 'function'){
-        this.$('.button-collapse').sideNav({
-          closeOnClick: true
-        });
-      }
-    });
+    //TODO: is this scheduling necessary?
+    Ember.run.scheduleOnce('afterRender', this, this._setupNavbar);
+  },
+
+  _setupNavbar() {
+    if(Ember.typeOf(Ember.$('.button-collapse').sideNav) === 'function'){
+      this.$('.button-collapse').sideNav({
+        closeOnClick: true
+      });
+    }
   }
+
+  //TODO: Unregister any listeners that $.sideNav() puts in place
+  // _teardownNavbar() {
+  //
+  // }
 });

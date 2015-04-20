@@ -1,11 +1,14 @@
 import Ember from 'ember';
 import layout from '../templates/components/md-tabs';
+import computed from 'ember-new-computed';
+
 var map = Ember.EnumerableUtils.map;
 
 export default Ember.Component.extend({
   layout: layout,
-  content: null,
   classNames: ['materialize-tabs', 'row'],
+
+  content: null,
   ___materializeTabs: true,
   _tabComponents: null,
   numTabs: Ember.computed.alias('_tabComponents.length'),
@@ -17,6 +20,28 @@ export default Ember.Component.extend({
   init() {
     this._super(...arguments);
     this.set('_tabComponents', Ember.A([]));
+  },
+
+  didInsertElement() {
+    this._super(...arguments);
+    this._setInitialTabSelection();
+    this._updateIndicatorPosition(false);
+
+    // An observer to update indicator position when tabs change
+    this._indicatorUpdater = () => this._updateIndicatorPosition();
+    this.addObserver('selected', this._indicatorUpdater);
+  },
+
+  willDestroyElement() {
+    this._super(...arguments);
+    this.removeObserver('selected', this._indicatorUpdater);
+  },
+
+  _setInitialTabSelection() {
+    var tabComponents = this.get('_tabComponents');
+    if (this.get('selected') === null && tabComponents.length > 0) {
+      this.set('selected', tabComponents[tabComponents.length - 1].get('value'));
+    }
   },
 
   _updateIndicatorPosition(animate=true) {
@@ -40,27 +65,14 @@ export default Ember.Component.extend({
     }
   },
 
-  _content: Ember.computed('content.[]', 'optionLabelPath', 'optionValuePath', function () {
-    var labelPath = this.get('optionLabelPath');
-    var valuePath = this.get('optionValuePath');
-    return new Ember.A(map(this.get('content') || [], contentItem => ({id: contentItem[valuePath], title: contentItem[labelPath]})));
+  _content: computed('content.[]', 'optionLabelPath', 'optionValuePath', {
+    get() {
+      var labelPath = this.get('optionLabelPath');
+      var valuePath = this.get('optionValuePath');
+      return new Ember.A(map(this.get('content') || [], contentItem => ({id: contentItem[valuePath], title: contentItem[labelPath]})));
+    }
   }),
 
-  didInsertElement() {
-    this._super(...arguments);
-    var tabComponents = this.get('_tabComponents');
-    if (this.get('selected') === null && tabComponents.length > 0) {
-      this.set('selected', tabComponents[tabComponents.length - 1].get('value'));
-    }
-    this._updateIndicatorPosition(false);
-    this._indicatorUpdater = () => this._updateIndicatorPosition();
-    this.addObserver('selected', this._indicatorUpdater);
-  },
-
-  willDestroyElement() {
-    this._super(...arguments);
-    this.removeObserver('selected', this._indicatorUpdater);
-  },
 
   _setActiveTab(tabComponent) {
     this.set('selected', tabComponent.get('value'));

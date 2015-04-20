@@ -1,14 +1,17 @@
 import Ember from 'ember';
 import layout from '../templates/components/selectable-item-group';
+import computed from 'ember-new-computed';
 
 var get = Ember.get,
   map = Ember.EnumerableUtils.map,
   indexOf = Ember.EnumerableUtils.indexOf;
 
 export default Ember.Component.extend({
+  layout: layout,
+
   content: null,
   selection: null,
-  layout: layout,
+
   optionValuePath: 'content',
   optionLabelPath: 'content',
   multiple: false,
@@ -57,25 +60,39 @@ export default Ember.Component.extend({
     }
   },
 
-  _valuePath: Ember.computed('optionValuePath', function () {
-    var optionValuePath = get(this, 'optionValuePath');
-    return optionValuePath.replace(/^content\.?/, '');
+  _valuePath: computed('optionValuePath',  {
+    get() {
+      var optionValuePath = get(this, 'optionValuePath');
+      return optionValuePath.replace(/^content\.?/, '');
+    }
   }),
 
-  _labelPath: Ember.computed('optionLabelPath', function () {
-    var optionLabelPath = get(this, 'optionLabelPath');
-    return optionLabelPath.replace(/^content\.?/, '');
+  _labelPath: computed('optionLabelPath',  {
+    get() {
+      var optionLabelPath = get(this, 'optionLabelPath');
+      return optionLabelPath.replace(/^content\.?/, '');
+    }
   }),
 
-  _content: Ember.computed('content.[]', '_valuePath', '_labelPath',function () {
-    var valuePath = get(this, '_valuePath');
-    var labelPath = get(this, '_labelPath');
-    var content = get(this, 'content') || Ember.A([]);
+  _content: computed('content.[]', '_valuePath', '_labelPath', {
+    get() {
+      var valuePath = get(this, '_valuePath');
+      var labelPath = get(this, '_labelPath');
+      var content = get(this, 'content') || Ember.A([]);
 
-    if (valuePath && labelPath) {
-      return Ember.A(map(content, function (el) { return {value: get(el, valuePath), label: get(el, labelPath)}; }));
-    } else {
-      return Ember.A(map(content, function (el) { return {value: el, label: el}; }));
+      if (valuePath && labelPath) {
+        return Ember.A(
+          map(content, el => {
+            return {value: get(el, valuePath), label: get(el, labelPath)};
+          })
+        );
+      } else {
+        return Ember.A(
+          map(content, el => {
+            return {value: el, label: el};
+          })
+        );
+      }
     }
   })
 });
