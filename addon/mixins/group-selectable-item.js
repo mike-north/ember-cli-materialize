@@ -1,7 +1,9 @@
 import Ember from 'ember';
 
+var alias = Ember.computed.alias;
+
 export default Ember.Mixin.create({
-  name: Ember.computed.alias('content.label'),
-  value: Ember.computed.alias('content.value'),
-  disabled: Ember.computed.alias('group.disabled')
+  name: alias('content.label'),
+  value: alias('content.value'),
+  disabled: alias('group.disabled')
 });

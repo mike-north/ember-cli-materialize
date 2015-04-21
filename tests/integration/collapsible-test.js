@@ -15,7 +15,9 @@ module('Acceptance - Collapsible', {
 });
 
 test('Collapsible basic tests', function(assert) {
-  visit('/collapsible').then(function() {
+  visit('/collapsible');
+
+  andThen(function() {
     assert.equal(find('#accordion>li').length, 3, 'Accordion should have 3 headers');
     assert.equal(find('#expandable>li').length, 3, 'Expandable should have 3 headers');
     assert.equal(find('#preselected>li').length, 3, 'Preselected should have 3 headers');

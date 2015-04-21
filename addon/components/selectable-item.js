@@ -41,7 +41,9 @@ export default Ember.Component.extend({
     this._setupLabel();
   },
 
-  group: Ember.computed(function () {
-    return this.nearestWithProperty('__materializeSelectableItemGroup');
+  group: computed({
+    get() {
+      return this.nearestWithProperty('__materializeSelectableItemGroup');
+    }
   })
 });

@@ -3,5 +3,6 @@ import layout from '../templates/components/md-checkbox';
 
 export default SelectableItem.extend({
   layout: layout,
+
   classNames: ['materialize-checkbox']
 });

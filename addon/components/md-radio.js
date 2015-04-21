@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import SelectableItem from './selectable-item';
 import layout from '../templates/components/md-radio';
+import computed from 'ember-new-computed';
 
 export default SelectableItem.extend({
   layout: layout,
@@ -10,9 +11,11 @@ export default SelectableItem.extend({
 
   className: ['materialize-radio'],
 
-  checked: Ember.computed('groupValue', 'value', function () {
-    return this.get('groupValue') === this.get('value');
-  }).readOnly(),
+  checked: computed('groupValue', 'value', {
+    get() {
+      return this.get('groupValue') === this.get('value');
+    }
+  }),
 
   didInsertElement() {
     this._super(...arguments);

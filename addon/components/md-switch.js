@@ -1,15 +1,19 @@
-import Ember from 'ember';
 import SelectableItem from './selectable-item';
 import layout from '../templates/components/md-switch';
+import computed from 'ember-new-computed';
 
 export default SelectableItem.extend({
   layout: layout,
+
+  classNames: ['switch', 'materialize-switch'],
+
   offLabel: 'Off',
   onLabel: 'On',
   disabled: false,
 
-  classNames: ['switch', 'materialize-switch'],
-  _labelClass: Ember.computed('name', function () {
-    return this.get('name') ? 'right' : '';
+  _labelClass: computed('name', {
+    get() {
+      return this.get('name') ? 'right' : '';
+    }
   })
 });

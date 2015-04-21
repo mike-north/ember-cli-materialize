@@ -1,6 +1,6 @@
-import materializeButton from './md-btn';
+import MaterializeButton from './md-btn';
 
-export default materializeButton.extend({
+export default MaterializeButton.extend({
   layoutName: 'components/materialize-button',
   tagName: 'button',
   attributeBindings: ['type'],
