@@ -1,8 +1,11 @@
 import Ember from "ember";
+import computed from 'ember-new-computed';
 
 function asJSON(propKey) {
-  return new Ember.computed(propKey,propKey + '.[]', function () {
-    return JSON.stringify(this.get(propKey));
+  return new computed(propKey,propKey + '.[]', {
+    get() {
+      return JSON.stringify(this.get(propKey));
+    }
   });
 }
 
@@ -39,6 +42,15 @@ export default Ember.Controller.extend({
       self.set('errors', errors);
     }, 100);
   }),
+
+  dateValue: '15 January, 1974',
+  ageFromDate: computed('dateValue',{
+    get() {
+      var d = new Date(this.get('dateValue'));
+      return new Date().getFullYear() - d.getFullYear();
+    }
+  }),
+
   rangeValue: 64,
   switchValue1: true,
   notSwitchValue: Ember.computed.not('switchValue'),

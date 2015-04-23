@@ -182,11 +182,11 @@ nameDidChange: function() {
 
         <div class="input-example">
             <br/>
-            {{md-input-date label='Birthday' icon="mdi-action-face-unlock"}}
-
+            {{md-input-date label='Birthday' icon="mdi-action-face-unlock" value=dateValue}}
+            <p>If you were born on {{dateValue}}, you are about <span class="badge white-text purple" style="position: inherit">{{ageFromDate}}</span> years old.</p>
 <pre class=" language-markup">
 <code class=" col s12 language-markup">
-&#123;&#123;md-input-date label='Birthday' icon="mdi-action-face-unlock"&#125;&#125;
+&#123;&#123;md-input-date label='Birthday' icon="mdi-action-face-unlock" value=dateValue&#125;&#125;
 </code>
 </pre>
         </div>
