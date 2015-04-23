@@ -33,7 +33,7 @@
     "ember-modal-dialog": "0.3.0",
     "ember-radio-button": "1.0.4",
     "ember-try": "0.0.3",
-    "liquid-fire": "git+ssh://git@github.com:ef4/liquid-fire.git#8fcefd057478ab6852d7b8b3fc8526aa5079553c"
+    "liquid-fire": "https://github.com/ef4/liquid-fire.git#8fcefd057478ab6852d7b8b3fc8526aa5079553c"
   },
   "description": "An ember-cli addon for using Materialize (CSS Framework based on Material Design) in Ember applications.",
   "keywords": [
