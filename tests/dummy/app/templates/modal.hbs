@@ -36,7 +36,11 @@
         </div>
         <pre class=" language-markup">
           <code class=" col s12 language-markup">
-            <span>&#123;&#123;</span>#md-dialog action="closeModal"<span>&#125;&#125;</span>
+            <span class="code-comment"><span>&#123;&#123;</span>!-- in app/templates/application.hbs --<span>&#125;&#125;</span></span>
+            <span>&#123;&#123;</span>md-modal-container<span>&#125;&#125;</span>
+
+            <span class="code-comment"><span>&#123;&#123;</span>!-- in app/templates/my-view.hbs --<span>&#125;&#125;</span></span>
+            <span>&#123;&#123;</span>#md-modal action="closeModal"<span>&#125;&#125;</span>
               &lt;div class="modal-content"&gt;
                 &lt;h4&gt;Hello Modal&lt;/h4&gt;
                 &lt;p&gt;Oh hai there!&lt;/p&gt;
@@ -51,7 +55,7 @@
                   Cancel
                 &lt;/a&gt;
               &lt;/div&gt;
-            <span>&#123;&#123;</span>/md-dialog<span>&#125;&#125;</span>
+            <span>&#123;&#123;</span>/md-modal<span>&#125;&#125;</span>
           </code>
         </pre>
     </div>
