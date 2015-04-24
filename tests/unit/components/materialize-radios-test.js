@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 import {
   moduleForComponent,
   test
@@ -27,6 +29,18 @@ test('it renders', function(assert) {
   this.render();
   assert.equal(component._state, 'inDOM');
 });
+
+test('simple array test', function (assert) {
+  var component = this.subject({
+    content: Ember.A(['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan']),
+    selection: 'Harry Morgan'
+  });
+  this.render();
+
+  assert.deepEqual(this.$('label').toArray().map(x => Ember.$(x).text().trim()), ['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan'], 'Choices are valid');
+  assert.equal(this.$('input[type="radio"]')[2].checked, true, 'Third radio is checked');
+});
+
 
 disabledGroupTest();
 groupItemsRenderTest();

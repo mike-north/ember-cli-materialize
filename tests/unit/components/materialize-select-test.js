@@ -44,3 +44,20 @@ test('select label is active with value', function(assert) {
   this.render();
   assert.ok(component.$('>label').hasClass('active'));
 });
+
+test('select creates the correct choices from a simple content array', function(assert) {
+
+  var component = this.subject({
+    content: new Ember.A(['Walter White', 'Jesee Pinkman', 'Gus Freng']),
+    value: 'Jesee Pinkman'
+  });
+  this.render();
+  assert.equal(component.$('input').val(), 'Jesee Pinkman', 'Initially selected value is correct');
+
+  assert.deepEqual(
+    this.$('.dropdown-content li span').toArray().map(x => x.innerText),
+    ['Walter White', 'Jesee Pinkman', 'Gus Freng'],
+    'Choices are valid'
+  );
+
+});

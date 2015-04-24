@@ -5,6 +5,9 @@ import layout from '../templates/components/md-select';
 export default MaterializeInputField.extend({
   layout: layout,
 
+  optionLabelPath: 'content',
+  optionValuePath: 'content',
+
   didInsertElement() {
     this._super(...arguments);
     this._setupSelect();

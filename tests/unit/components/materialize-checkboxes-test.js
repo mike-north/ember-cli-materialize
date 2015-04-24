@@ -29,6 +29,17 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
+test('simple array test', function (assert) {
+  var component = this.subject({
+    content: Ember.A(['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan']),
+    selection: Ember.A(['Harry Morgan'])
+  });
+  this.render();
+  assert.deepEqual(this.$('label').toArray().map(x => Ember.$(x).text()), ['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan'], 'Choices are valid');
+  assert.equal(this.$('input[type="checkbox"]')[2].checked, true, 'Third checkbox is checked');
+});
+
+
 disabledGroupTest();
 groupItemsRenderTest();
 initialSelectionTest(Ember.A(['bbb', 'ccc']));
