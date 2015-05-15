@@ -12,5 +12,8 @@
     "loader.js": "ember-cli/loader.js#3.2.0",
     "materialize": "~0.96.1",
     "qunit": "~1.17.1"
+  },
+  "resolutions": {
+    "jquery": "^1.11.1"
   }
 }
