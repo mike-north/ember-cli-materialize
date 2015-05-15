@@ -3,7 +3,7 @@ import Application from '../../app';
 import Router from '../../router';
 import config from '../../config/environment';
 
-Ember.ENV.RAISE_ON_DEPRECATION = true;
+// Ember.ENV.RAISE_ON_DEPRECATION = true;
 
 export default function startApp(attrs) {
   var application;

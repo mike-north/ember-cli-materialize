@@ -6,6 +6,7 @@ import {
 } from 'ember-qunit';
 
 moduleForComponent('md-navbar', 'MaterializeNavbarComponent', {
+  unit: true
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
 });

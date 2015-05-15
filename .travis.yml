@@ -2,7 +2,7 @@
 language: node_js
 
 node_js:
-  - "0.12.2"
+  - "0.12"
 
 sudo: false
 
@@ -11,15 +11,17 @@ cache:
     - node_modules
 
 env:
-  - E_SCENARIO=ember-1.10
-  - E_SCENARIO=ember-release
-  - E_SCENARIO=ember-beta
-  - E_SCENARIO=ember-canary
+  - EMBER_TRY_SCENARIO=default
+  - EMBER_TRY_SCENARIO=ember-1.11.3
+  - EMBER_TRY_SCENARIO=ember-release
+  - EMBER_TRY_SCENARIO=ember-beta
+  - EMBER_TRY_SCENARIO=ember-canary
 
 matrix:
   fast_finish: true
   allow_failures:
-    - env: E_SCENARIO=ember-canary
+    - env: EMBER_TRY_SCENARIO=ember-beta
+    - env: EMBER_TRY_SCENARIO=ember-canary
 
 before_install:
   - mkdir travis-phantomjs
@@ -35,4 +37,4 @@ install:
   - bower install
 
 script:
-  - ember try $E_SCENARIO test
+  - ember try $EMBER_TRY_SCENARIO test

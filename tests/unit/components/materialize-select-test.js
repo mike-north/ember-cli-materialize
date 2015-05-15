@@ -5,6 +5,7 @@ import {
 } from 'ember-qunit';
 
 moduleForComponent('md-select', {
+  unit: true
   // specify the other units that are required for this test
 });
 

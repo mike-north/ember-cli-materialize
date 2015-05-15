@@ -4,6 +4,7 @@ import {
 } from 'ember-qunit';
 
 moduleForComponent('md-input-date', {
+  unit: true
   // specify the other units that are required for this test
 });
 

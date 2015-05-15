@@ -4,6 +4,7 @@ import {
 } from 'ember-qunit';
 
 moduleForComponent('md-input-field', {
+  unit: true
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
 });

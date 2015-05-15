@@ -7,7 +7,6 @@
     "$",
     "-Promise",
     "define",
-    "module",
     "console",
     "visit",
     "exists",

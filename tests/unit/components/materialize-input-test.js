@@ -4,6 +4,7 @@ import {
 } from 'ember-qunit';
 
 moduleForComponent('md-input', 'MaterializeInput', {
+  unit: true
 });
 
 test('input renders', function(assert) {
