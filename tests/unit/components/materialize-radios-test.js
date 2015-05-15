@@ -14,6 +14,7 @@ import {
 
 
 moduleForComponent('md-radios', {
+  unit: true,
   // Specify the other units that are required for this test
   needs: ['component:md-radio', 'component:radio-button']
 });

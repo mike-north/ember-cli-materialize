@@ -21,18 +21,6 @@
 
     {{content-for 'body'}}
     {{content-for 'test-body'}}
-
-    <script>
-      // PhantomJS doesn't support bind until 2.x
-      // todo: once upgraded to 2.x, this should be removed.
-      Function.prototype.bind = Function.prototype.bind || function (thisp) {
-        var fn = this;
-        return function () {
-          return fn.apply(thisp, arguments);
-        };
-      };
-    </script>
-
     <script src="assets/vendor.js"></script>
     <script src="assets/test-support.js"></script>
     <script src="assets/dummy.js"></script>

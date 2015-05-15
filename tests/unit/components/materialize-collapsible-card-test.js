@@ -4,6 +4,7 @@ import {
 } from 'ember-qunit';
 
 moduleForComponent('md-card-collapsible', {
+  unit: true
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
 });

@@ -6,6 +6,7 @@ import {
 } from 'ember-qunit';
 
 moduleForComponent('md-card-reveal', 'MaterializeCardRevealComponent', {
+  unit: true
 });
 
 
