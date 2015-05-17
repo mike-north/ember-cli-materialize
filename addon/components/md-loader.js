@@ -28,7 +28,8 @@ export default Ember.Component.extend({
   barStyle: computed('mode', 'percent', {
     get() {
       if (this.get('mode') === 'determinate') {
-        return `width: ${this.get('percent')}%`;
+        var percent = parseInt(this.get('percent'), 10);
+        return ("width: " + percent + '%').htmlSafe();
       }
       else {
         return null;
