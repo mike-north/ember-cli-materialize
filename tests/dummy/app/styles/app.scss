@@ -3,19 +3,9 @@ $button-color: #e51c23;
 @import 'materialize';
 @import 'code';
 
-nav {
-  background-color: #fff;
-  position: relative;
-}
-
-nav .brand-logo,
-nav ul a,
-nav a {
-  color: $button-color;
-}
 
 .index-banner {
-  background-color: color('materialize-red', 'lighten-2');
+  background-color: color('deep-orange', 'darken-2');
 }
 .index-banner .container {
   position: relative;
@@ -31,17 +21,14 @@ nav a {
 }
 .github-commit {
   padding: 14px 0;
-  height: 36px;
+  height: 60px;
   line-height: 36px;
   background-color: #5c5757;
   color: #e6e6e6;
   font-size: 0.9rem;
 }
 
-.header {
-  color: color('materialize-red', 'lighten-2');
-  font-weight: 300;
-}
+
 
 a {
   color: $button-color;
@@ -80,7 +67,26 @@ a {
     display: inherit;
   }
 }
-
+.brand-logo {
+  white-space: nowrap;
+}
 .code-comment {
   color: #aaa;
+}
+.ember-logo {
+  height: 48px;
+  padding-top: 15px;
+}
+.top-nav-container {
+  float: right;
+  max-width: calc(100% - 260px);
+  overflow-y: scroll;
+  box-shadow: inset -10px 0 20px rgba(255,255,255,0.7), inset 10px 0 20px rgba(255,255,255,0.7);
+  ul {
+    white-space: nowrap;
+    li {
+      float: none;
+      display: inline-block;
+    }
+  }
 }
