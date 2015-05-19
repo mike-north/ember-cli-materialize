@@ -41,10 +41,58 @@
   <div class="section">
     <h4 class="col s12 header">Floating</h4>
     <div class="button-example">
-      {{md-btn icon='mdi-action-favorite' action='debug' buttonType='floating'}}
+      {{md-btn icon='mdi-action-favorite' action='debug' buttonType='floating' class='btn-large'}}
       <pre class=" language-markup">
         <code class=" col s12 language-markup">
-          <span>&#123;&#123;</span>md-btn icon='mdi-action-favorite' action='debug' buttonType='floating'<span>&#125;&#125;</span>
+  <span>&#123;&#123;</span>md-btn icon='mdi-action-favorite' action='debug'
+           buttonType='floating' class="btn-large"<span>&#125;&#125;</span>
+        </code>
+      </pre>
+    </div>
+  </div>
+  <div class="section">
+    <h4 class="col s12 header">Floating Group</h4>
+    <div class="button-example">
+      <div class="fixed-action-btn" style="position: relative; display: inline-block; right: 0; bottom: 0">
+        {{md-btn icon='mdi-content-add' action='debug' buttonType='floating' class='btn-large lime darken-2'}}
+        <ul>
+          <li>{{md-btn icon='mdi-action-class' action='debug' buttonType='floating' class='indigo'}}</li>
+          <li>
+            {{md-btn icon='mdi-action-grade' action='debug' buttonType='floating' class='deep-purple'}}
+          </li>
+          <li>
+          {{md-btn icon='mdi-action-redeem' action='debug' buttonType='floating' class='green'}}
+          </li>
+          <li>
+          {{md-btn icon='mdi-alert-warning' action='debug' buttonType='floating' class='amber darken-3'}}
+          </li>
+        </ul>
+      </div>
+
+      <pre class=" language-markup">
+        <code class=" col s12 language-markup">
+  <span>&lt;</span>div class="fixed-action-btn"<span>&gt;</span>
+    <span>&#123;&#123;</span>md-btn icon='mdi-content-add' action='debug'
+           buttonType='floating' class='btn-large lime darken-2'<span>&#125;&#125;</span>
+    <span>&lt;</span>ul<span>&gt;</span>
+      <span>&lt;</span>li<span>&gt;</span>
+        <span>&#123;&#123;</span>md-btn icon='mdi-action-class' action='debug'
+           buttonType='floating' class="indigo"<span>&#125;&#125;</span>
+      <span>&lt;</span>li<span>&gt;</span>
+      <span>&lt;</span>li<span>&gt;</span>
+        <span>&#123;&#123;</span>md-btn icon='mdi-action-grade' action='debug'
+           buttonType='floating' class="deep-purple"<span>&#125;&#125;</span>
+      <span>&lt;</span>li<span>&gt;</span>
+      <span>&lt;</span>li<span>&gt;</span>
+        <span>&#123;&#123;</span>md-btn icon='mdi-action-redeem' action='debug'
+           buttonType='floating' class="green"<span>&#125;&#125;</span>
+      <span>&lt;</span>li<span>&gt;</span>
+      <span>&lt;</span>li<span>&gt;</span>
+        <span>&#123;&#123;</span>md-btn icon='mdi-action-warning' action='debug'
+           buttonType='floating' class="amber darken-3"<span>&#125;&#125;</span>
+      <span>&lt;</span>li<span>&gt;</span>
+    <span>&lt;</span>/ul<span>&gt;</span>
+  <span>&lt;</span>/div<span>&gt;</span>
         </code>
       </pre>
     </div>
