@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-materialize",
-  "version": "0.13.6",
+  "version": "0.13.7",
   "directories": {
     "doc": "doc",
     "test": "tests"
