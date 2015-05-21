@@ -20,14 +20,24 @@
   <div class="section">
     <h4 class="col s12 header">Navbar with mobile collapse button</h4>
     <div class="navbar-example">
-      {{#md-navbar name='Example'}}
-        <li>{{#link-to 'navbar'}}Navbar{{/link-to}}</li>
+      {{#md-navbar name='Example' class='indigo'}}
+        {{#link-to 'navbar' tagName='li'}}
+          <a>Navbar</a>
+        {{/link-to}}
+        {{#link-to 'tabs' tagName='li'}}
+          <a>Tabs</a>
+        {{/link-to}}
       {{/md-navbar}}
 
       <pre class=" language-markup">
         <code class=" col s12 language-markup">
-          <span>&#123;&#123;</span>#md-navbar name='Example'<span>&#125;&#125;</span>
-            <span>&#60;</span>li<span>&#62;</span><span>&#123;&#123;</span>#link-to 'navbar'<span>&#125;&#125;</span>Navbar<span>&#123;&#123;</span>/link-to<span>&#125;&#125;</span><span>&#60;</span>/li<span>&#62;</span>
+          <span>&#123;&#123;</span>#md-navbar name='Example' class='indigo'<span>&#125;&#125;</span>
+            <span>&#123;&#123;</span>#link-to 'navbar' tagName='li'<span>&#125;&#125;</span>
+              <span>&#60;</span>a<span>&#62;</span>Navbar<span>&#60;</span>/a<span>&#62;</span>
+            <span>&#123;&#123;</span>/link-to<span>&#125;&#125;</span>
+            <span>&#123;&#123;</span>#link-to 'tabs' tagName='li'<span>&#125;&#125;</span>
+              <span>&#60;</span>a<span>&#62;</span>Tabs<span>&#60;</span>/a<span>&#62;</span>
+            <span>&#123;&#123;</span>/link-to<span>&#125;&#125;</span>
           <span>&#123;&#123;</span>/md-navbar<span>&#125;&#125;</span>
         </code>
       </pre>
