@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('md-btn-submit', 'MaterializeButtonSubmitComponent', {
+moduleForComponent('md-btn-submit', 'component:md-btn-submit', {
   unit: true
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']

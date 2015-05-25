@@ -40,6 +40,11 @@ export default Ember.Component.extend({
   _setInitialTabSelection() {
     var tabComponents = this.get('_tabComponents');
     if (this.get('selected') === null && tabComponents.length > 0) {
+      var emberParsingRegex = /^([0-9]+)\.([0-9]+)\.([0-9]+)/;
+      var versionParts = emberParsingRegex.exec(Ember.VERSION);
+      if (parseInt(versionParts[1], 10) > 1 || parseInt(versionParts[2], 10) >= 13) {
+        tabComponents.reverse();
+      }
       this.set('selected', tabComponents[tabComponents.length - 1].get('value'));
     }
   },

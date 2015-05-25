@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('md-input', 'MaterializeInput', {
+moduleForComponent('md-input', {
   unit: true
 });
 
