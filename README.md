@@ -46,7 +46,7 @@ See the materialize docs on sass variables [here](http://materializecss.com/colo
 ## Installation
 
 ```sh
-$ ember install:addon ember-cli-materialize
+$ ember install ember-cli-materialize
 ```
 
 ## Contributing
