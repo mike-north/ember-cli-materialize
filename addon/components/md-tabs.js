@@ -50,7 +50,7 @@ export default Ember.Component.extend({
     if (!this.element) {
       return;
     }
-    var tabComponent = (this.get('_tabComponents') || []).filter(item => get(item, 'value') === this.get('selected'))[0];
+    var tabComponent = filter((this.get('_tabComponents') || []), item => get(item, 'value') === this.get('selected'))[0];
     var tabSetRect = this.element.getBoundingClientRect();
     if (tabComponent) {
       var tabRect = tabComponent.element.getBoundingClientRect();
