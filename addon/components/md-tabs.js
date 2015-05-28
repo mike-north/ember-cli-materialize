@@ -3,6 +3,8 @@ import layout from '../templates/components/md-tabs';
 import computed from 'ember-new-computed';
 
 var map = Ember.EnumerableUtils.map;
+var filter = Ember.EnumerableUtils.filter;
+var get = Ember.get;
 
 export default Ember.Component.extend({
   layout: layout,
@@ -26,16 +28,11 @@ export default Ember.Component.extend({
     this._super(...arguments);
     this._setInitialTabSelection();
     this._updateIndicatorPosition(false);
-
-    // An observer to update indicator position when tabs change
-    this._indicatorUpdater = () => this._updateIndicatorPosition();
-    this.addObserver('selected', this._indicatorUpdater);
   },
 
-  willDestroyElement() {
-    this._super(...arguments);
-    this.removeObserver('selected', this._indicatorUpdater);
-  },
+  _indicatorUpdater: Ember.observer('selected', 'content.[]', '_tabComponents.[]', function () {
+    Ember.run.debounce(this, this._updateIndicatorPosition, 100);
+  }),
 
   _setInitialTabSelection() {
     var tabComponents = this.get('_tabComponents');
@@ -50,7 +47,10 @@ export default Ember.Component.extend({
   },
 
   _updateIndicatorPosition(animate=true) {
-    var tabComponent = this.get('_tabComponents').filterBy('value', this.get('selected'))[0];
+    if (!this.element) {
+      return;
+    }
+    var tabComponent = (this.get('_tabComponents') || []).filter(item => get(item, 'value') === this.get('selected'))[0];
     var tabSetRect = this.element.getBoundingClientRect();
     if (tabComponent) {
       var tabRect = tabComponent.element.getBoundingClientRect();
