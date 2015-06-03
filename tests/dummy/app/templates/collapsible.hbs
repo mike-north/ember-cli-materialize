@@ -162,40 +162,31 @@
         <h4 class="col s12 header">Action Section</h4>
         <div class="collapsible-example">
 
-          {{#md-card-collapsible id="preselected"}}
-            {{#md-collapsible icon="mdi-image-filter-drama" title="One" action="clicked" model="dog"}}
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
+          {{#md-card-collapsible id="action-selection"}}
+            {{#md-collapsible icon="mdi-image-filter-drama" title="Cloud" action="clicked" model="cloud"}}
+              O misty eye of the mountain below
             {{/md-collapsible}}
-            {{#md-collapsible icon="mdi-maps-place" title="Two" active=true action="clicked" model="cat"}}
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
+            {{#md-collapsible icon="mdi-maps-place" title="Marker" action="clicked" model="marker"}}
+              keep careful watch of my brothers' souls
             {{/md-collapsible}}
-            {{#md-collapsible icon="mdi-social-whatshot" title="Three" action="clicked" model="bat"}}
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
+            {{#md-collapsible icon="mdi-social-whatshot" title="Fire" action="clicked" model="fire"}}
+              and should the sky be filled with fire and smoke, keep watching over [indecipherable]
             {{/md-collapsible}}
           {{/md-card-collapsible}}
-
+          <h4>
+            active collapisble:<span id="selected-action">{{activeSlide}}</span>
+          </h4>
             <pre class="language-markup">
 <code class=" col s12 language-markup">
 &#123;&#123;#md-card-collapsible&#125;&#125;
-  &#123;&#123;#md-collapsible icon="mdi-image-filter-drama" title="One"&#125;&#125;
-    Lorem ipsum dolor sit amet.
+  &#123;&#123;#md-collapsible icon="mdi-image-filter-drama" title="One" action="clicked" model="cloud"&#125;&#125;
+    O misty eye of the mountain below
   &#123;&#123;/md-collapsible&#125;&#125;
-  &#123;&#123;#md-collapsible icon="mdi-maps-place" title="Two" active=true&#125;&#125;
-    Lorem ipsum dolor sit amet.
+  &#123;&#123;#md-collapsible icon="mdi-maps-place" title="Two" action="clicked" model="marker"&#125;&#125;
+    keep careful watch of my brothers' souls
   &#123;&#123;/md-collapsible&#125;&#125;
-  &#123;&#123;#md-collapsible icon="mdi-social-whatshot" title="Three"&#125;&#125;
-    Lorem ipsum dolor sit amet.
+  &#123;&#123;#md-collapsible icon="mdi-social-whatshot" title="Three" action="clicked" model="fire"&#125;&#125;
+    and should the sky be filled with fire and smoke, keep watching over [indecipherable]
   &#123;&#123;/md-collapsible&#125;&#125;
 &#123;&#123;/md-card-collapsible&#125;&#125;
 </code>
