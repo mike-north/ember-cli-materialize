@@ -17,6 +17,8 @@
                 <li>icon, default value <span class="default-value badge">null</span></li>
                 <li>accordion, default value <span class="default-value badge">true</span></li>
                 <li>active, default value <span class="default-value badge">null</span></li>
+                <li>action, default value <span class="default-value badge">null</span></li>
+                <li>model, default value <span class="default-value badge">null</span></li>
             </ul>
         </div>
     </div>
@@ -132,6 +134,51 @@
                 laboris nisi ut aliquip ex ea commodo consequat.
             {{/md-collapsible}}
             {{#md-collapsible icon="mdi-social-whatshot" title="Three"}}
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat.
+            {{/md-collapsible}}
+          {{/md-card-collapsible}}
+
+            <pre class="language-markup">
+<code class=" col s12 language-markup">
+&#123;&#123;#md-card-collapsible&#125;&#125;
+  &#123;&#123;#md-collapsible icon="mdi-image-filter-drama" title="One"&#125;&#125;
+    Lorem ipsum dolor sit amet.
+  &#123;&#123;/md-collapsible&#125;&#125;
+  &#123;&#123;#md-collapsible icon="mdi-maps-place" title="Two" active=true&#125;&#125;
+    Lorem ipsum dolor sit amet.
+  &#123;&#123;/md-collapsible&#125;&#125;
+  &#123;&#123;#md-collapsible icon="mdi-social-whatshot" title="Three"&#125;&#125;
+    Lorem ipsum dolor sit amet.
+  &#123;&#123;/md-collapsible&#125;&#125;
+&#123;&#123;/md-card-collapsible&#125;&#125;
+</code>
+      </pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <h4 class="col s12 header">Action Section</h4>
+        <div class="collapsible-example">
+
+          {{#md-card-collapsible id="preselected"}}
+            {{#md-collapsible icon="mdi-image-filter-drama" title="One" action="clicked" model="dog"}}
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat.
+            {{/md-collapsible}}
+            {{#md-collapsible icon="mdi-maps-place" title="Two" active=true action="clicked" model="cat"}}
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat.
+            {{/md-collapsible}}
+            {{#md-collapsible icon="mdi-social-whatshot" title="Three" action="clicked" model="bat"}}
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                 labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                 laboris nisi ut aliquip ex ea commodo consequat.
