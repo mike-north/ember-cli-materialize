@@ -1,31 +1,25 @@
-<nav>
-  <div class="nav-wrapper white">
+<div class="navbar-fixed">
+<nav class="demo-page-nav">
+  <div class="nav-wrapper ">
     <div class="container">
       <a href="#!" class="brand-logo deep-orange-text text-darken-2">
         <img class="ember-logo hide-on-med-and-down" src="images/ember.svg" />
         Materialize
       </a>
       <a href="#" data-activates="mobile-demo" class="button-collapse deep-orange-text text-darken-2"><i class="mdi-navigation-menu"></i></a>
-      <div class="hide-on-med-and-down top-nav-container">
-          <ul class="top-links">
-            {{#each demoSections as |section|}}
-                {{#link-to section.route activeClass='active' tagName='li'}}
-                  <a class="deep-orange-text text-darken-2">{{section.name}}</a>
-                {{/link-to}}
-            {{/each}}
-          </ul>
-      </div>
+
     </div>
-    <ul class="side-nav" id="mobile-demo">
+
+  </div>
+</nav>
+</div>
+ <ul class="side-nav fixed demo-page-submenu" id="mobile-demo">
       {{#each demoSections as |section|}}
           {{#link-to section.route activeClass='active' tagName='li'}}
             <a class="deep-orange-text text-darken-2">{{section.name}}</a>
           {{/link-to}}
       {{/each}}
     </ul>
-  </div>
-</nav>
-
 <main>
   {{outlet}}
 </main>
