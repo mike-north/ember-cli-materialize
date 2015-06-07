@@ -96,3 +96,33 @@ a {
   right: 0;
   bottom: 0;
 }
+
+ header, main, footer {
+    padding-left: 240px;
+  }
+
+  @media only screen and (max-width : 992px) {
+    header, main, footer {
+      padding-left: 0;
+    }
+  }
+.demo-page-nav {
+
+  .nav-wrapper {
+    background: color('deep-orange', 'lighten-4');
+    @extend .z-depth-2;
+    z-index: 1000;
+  }
+  .container {
+    padding-left: 240px;
+  }
+}
+
+.demo-page-submenu {
+  li:first-child {
+    margin-top: 75px;
+  }
+}
+.navbar-fixed {
+  z-index: 10000;
+}
