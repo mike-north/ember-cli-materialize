@@ -12,6 +12,11 @@ import {
 } from '../../helpers/selectable-item';
 
 
+import {
+  deselectForSingleSelectionTest,
+} from '../../helpers/selectable-item-group';
+
+
 moduleForComponent('md-switches', {
   unit: true
   // Specify the other units that are required for this test
@@ -43,3 +48,5 @@ test('simple array test', function (assert) {
 disabledGroupTest();
 groupItemsRenderTest();
 initialSelectionTest(Ember.A(['bbb', 'ccc']));
+
+deselectForSingleSelectionTest();
