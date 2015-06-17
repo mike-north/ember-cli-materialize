@@ -5,20 +5,21 @@ $button-color: #e51c23;
 
 
 .index-banner {
-  background-color: color('deep-orange', 'darken-2');
-}
-.index-banner .container {
-  position: relative;
-}
-.index-banner .header {
-  color: #fff;
-}
-.index-banner h4 {
+  background-color: color('grey', 'lighten-2');
+  .container {
+    position: relative;
+    .header {
+      color: color('deep-orange', 'base');
+    }
+  }
+  h4 {
   margin-bottom: 40px;
+  }
+  a{
+    color: #fff;
+  }
 }
-.index-banner a{
-  color: #fff;
-}
+
 .github-commit {
   padding: 14px 0;
   height: 60px;
@@ -67,8 +68,9 @@ a {
     display: inherit;
   }
 }
-.brand-logo {
+nav .brand-logo {
   white-space: nowrap;
+  padding-left: 20px;
 }
 .code-comment {
   color: #aaa;
@@ -97,24 +99,19 @@ a {
   bottom: 0;
 }
 
- header, main, footer {
+ main, footer {
     padding-left: 240px;
   }
 
   @media only screen and (max-width : 992px) {
-    header, main, footer {
+    main, footer {
       padding-left: 0;
     }
   }
 .demo-page-nav {
 
   .nav-wrapper {
-    background: color('deep-orange', 'lighten-4');
-    @extend .z-depth-2;
     z-index: 1000;
-  }
-  .container {
-    padding-left: 240px;
   }
 }
 
