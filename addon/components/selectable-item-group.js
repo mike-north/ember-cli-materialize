@@ -56,7 +56,9 @@ export default Ember.Component.extend({
       this.get('selection').removeObject(value);
     }
     else {
-      throw new Error('removeFromSelection is not supported in single-selection mode');
+      if (this.get('selection') === value) {
+        this.set('selection', null);
+      }
     }
   },
 
