@@ -1,7 +1,7 @@
 {{#if icon}}
     <i {{bind-attr class="icon :prefix"}}></i>
 {{/if}}
-<input type="date" {{bind-atrr id=id}} {{bind-attr class="validate:validate: errors:invalid:valid :datepicker"}}
+<input type="date" {{bind-attr id=id}} {{bind-attr class="validate:validate: errors:invalid:valid :datepicker"}}
     {{bind-attr data-value=value}} {{bind-attr required=required}} {{bind-attr readonly=readonly}}
     {{bind-attr disabled=disabled}}/>
 <label {{bind-attr for=id}}>{{label}}</label>
