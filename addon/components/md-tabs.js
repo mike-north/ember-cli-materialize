@@ -11,7 +11,7 @@ export default Ember.Component.extend({
   classNames: ['materialize-tabs', 'row'],
 
   content: null,
-  ___materializeTabs: true,
+  ___materializeTabs: 'yes',
   _tabComponents: null,
   numTabs: Ember.computed.alias('_tabComponents.length'),
   selected: null,

@@ -3,6 +3,6 @@ export default Ember.View.extend({
 
   didInsertElement() {
     this._super(...arguments);
-    this.$('nav .button-collapse').sideNav();
+    this.$('.demo-button-collapse').sideNav();
   }
 });

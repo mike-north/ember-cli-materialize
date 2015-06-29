@@ -4,11 +4,13 @@
     <ul class='right hide-on-med-and-down'>
       {{yield}}
     </ul>
-    <ul id='nav-mobile' class='side-nav'>
-      {{yield}}
-    </ul>
+
   </div>
-  {{#link-to 'index' class='button-collapse' data-activates='nav-mobile'}}
+  <a class='button-collapse' {{bind-attr data-activates=_sideNavId}}>
+
     <i class='mdi-navigation-menu'></i>
-  {{/link-to}}
+  </a>
 </div>
+<ul {{bind-attr id=_sideNavId}} class='side-nav'>
+  {{yield}}
+</ul>
