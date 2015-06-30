@@ -40,3 +40,20 @@ install:
 
 script:
   - ember try $EMBER_TRY_SCENARIO test
+
+after_success:
+# Remove the downloaded copy of phantomJS
+- rm -rf travis-phantomjs
+# Add a remote, authenticating via an OAuth token (encrypted via "travis secure")
+- git remote add deploy https://$GH_TOKEN:x-oauth-basic@github.com/truenorth/ember-cli-materialize.git 2>&1 >/dev/null
+# Download all branches from this new remote (really the same remote, but different auth)
+- git fetch deploy
+# Check out a local copy of "master", but don't switch to it yet
+- git branch $GH_DEST_BRANCH deploy/$GH_DEST_BRANCH
+# Set up some required git config stuff (more env variables encrypted via "travis secure")
+- git config user.name $GIT_NAME
+- git config user.email $GIT_EMAIL
+# Generate the github pages. When this command is finished I'll be on "master" branch with a
+# new commit already made (but not pushed)
+# Push the new commit
+- /bin/bash lib/try-generate-pages.sh 2>&1 >/dev/null
