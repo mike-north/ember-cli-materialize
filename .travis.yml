@@ -21,7 +21,6 @@ env:
 matrix:
   fast_finish: true
   allow_failures:
-    - env: EMBER_TRY_SCENARIO=ember-release
     - env: EMBER_TRY_SCENARIO=ember-beta
     - env: EMBER_TRY_SCENARIO=ember-canary
 
@@ -45,7 +44,7 @@ after_success:
 # Remove the downloaded copy of phantomJS
 - rm -rf travis-phantomjs
 # Add a remote, authenticating via an OAuth token (encrypted via "travis secure")
-- git remote add deploy https://$GH_TOKEN:x-oauth-basic@github.com/truenorth/ember-cli-materialize.git 2>&1 >/dev/null
+- git remote add deploy https://$GH_TOKEN:x-oauth-basic@github.com/truenorth/ember-cli-materialize.git 
 # Download all branches from this new remote (really the same remote, but different auth)
 - git fetch deploy
 # Check out a local copy of "master", but don't switch to it yet
@@ -56,4 +55,4 @@ after_success:
 # Generate the github pages. When this command is finished I'll be on "master" branch with a
 # new commit already made (but not pushed)
 # Push the new commit
-- /bin/bash lib/try-generate-pages.sh 2>&1 >/dev/null
+- /bin/bash lib/try-generate-pages.sh 
