@@ -10,11 +10,20 @@
     "build": "ember build",
     "test": "ember try:testall"
   },
-  "repository": "https://github.com/sgasser/ember-cli-materialize",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/truenorth/ember-cli-materialize"
+  },
+  "bugs": {
+    "https://github.com/truenorth/ember-cli-materialize/issues"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "Stefan Gasser",
+  "author": "Mike North <michael.l.north@gmail.com> (http://mike.works)",
+  "contributors": [{
+    "name": "Stefan Gasser"
+  }],
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
@@ -51,6 +60,6 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoURL": "https://sgasser.github.io/ember-cli-materialize/"
+    "demoURL": "https://mike.works/ember-cli-materialize/"
   }
 }
