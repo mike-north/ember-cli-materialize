@@ -15,7 +15,7 @@
     "url": "https://github.com/truenorth/ember-cli-materialize"
   },
   "bugs": {
-    "https://github.com/truenorth/ember-cli-materialize/issues"
+    "url": "https://github.com/truenorth/ember-cli-materialize/issues"
   },
   "engines": {
     "node": ">= 0.10.0"
