@@ -1,9 +1,11 @@
 # ember-cli-materialize
 
 [![Build Status](https://travis-ci.org/truenorth/ember-cli-materialize.svg?branch=master)](https://travis-ci.org/truenorth/ember-cli-materialize)
+[![npm version](https://badge.fury.io/js/ember-cli-materialize.svg)](http://badge.fury.io/js/ember-cli-materialize)
 [![Code Climate](https://codeclimate.com/github/truenorth/ember-cli-materialize/badges/gpa.svg)](https://codeclimate.com/github/truenorth/ember-cli-materialize)
 [![Ember Observer Score](http://emberobserver.com/badges/ember-cli-materialize.svg)](http://emberobserver.com/addons/ember-cli-materialize)
 [![Dependency Status](https://david-dm.org/truenorth/ember-cli-materialize.svg)](https://david-dm.org/truenorth/ember-cli-materialize)
+[![devDependency Status](https://david-dm.org/truenorth/ember-cli-materialize/dev-status.svg)](https://david-dm.org/truenorth/ember-cli-materialize#info=devDependencies)
 
 An [ember-cli](http://www.ember-cli.com) addon for using [Materialize](http://materializecss.com/) (CSS Framework based on [Material Design](http://www.google.com/design/spec/material-design/introduction.html)) in Ember applications.
 
