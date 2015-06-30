@@ -10,6 +10,10 @@ cache:
   directories:
     - node_modules
 
+branches:
+  only:
+    - master
+
 env:
   - EMBER_TRY_SCENARIO=ember-1.10
   - EMBER_TRY_SCENARIO=ember-1.11
@@ -56,3 +60,10 @@ after_success:
 # new commit already made (but not pushed)
 # Push the new commit
 - /bin/bash lib/try-generate-pages.sh 
+
+deploy:
+  provider: npm
+  email: NPM_EMAIL
+  api_key: NPM_TOKEN
+  on:
+    tags: true
