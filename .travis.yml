@@ -10,10 +10,6 @@ cache:
   directories:
     - node_modules
 
-branches:
-  only:
-    - master
-
 env:
   - EMBER_TRY_SCENARIO=ember-1.10
   - EMBER_TRY_SCENARIO=ember-1.11
