@@ -13,6 +13,7 @@ export default Ember.Component.extend({
 
   didInsertElement() {
     this._super(...arguments);
+    this.notifyPropertyChange('_tabSet');
     this._registerTab();
   },
 
@@ -28,6 +29,9 @@ export default Ember.Component.extend({
 
   _tabSet: computed({
     get() {
+      if (this.get('_state') === 'preRender') {
+        return null;
+      }
       return this.nearestWithProperty('___materializeTabs');
     }
   }),
@@ -40,9 +44,23 @@ export default Ember.Component.extend({
 
   _registerTab() {
     var tabSet = this.get('_tabSet');
+    /**
+      This is a hack for a case where nearestWithProperty doesn't
+      work properly in Ember 1.13. Will remove in a future version
+      as the glimmer composability story improves
+    */
+
     if (!tabSet) {
-      throw new Error('materialize-tabs-tab cannot be used outside the context of a materialize-tabs');
+      var backupTabSet = this.$().closest('.materialize-tabs')[0];
+      if (backupTabSet) {
+        tabSet = this.get('_viewRegistry')[backupTabSet.id];
+      }
     }
-    tabSet.registerTab(this);
+    if (this.get('_state') !== 'preRender') {
+      if (tabSet === undefined) {
+        throw new Error('materialize-tabs-tab cannot be used outside the context of a materialize-tabs');
+      }
+      tabSet.registerTab(this);
+    }
   }
 });

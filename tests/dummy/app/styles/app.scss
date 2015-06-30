@@ -5,7 +5,7 @@ $button-color: #e51c23;
 
 
 .index-banner {
-  background-color: color('grey', 'lighten-2');
+  background-color: color('grey', 'lighten-3');
   .container {
     position: relative;
     .header {
@@ -13,10 +13,10 @@ $button-color: #e51c23;
     }
   }
   h4 {
-  margin-bottom: 40px;
+    margin-bottom: 40px;
   }
   a{
-    color: #fff;
+    color: color('deep-orange', 'base');
   }
 }
 
@@ -49,12 +49,12 @@ a {
   font-size: 1.2em;
 }
 
-/* FIXME: Workaround for https://github.com/Dogfalo/materialize/issues/1079 */
-@each $mdi-icon-name, $mdi-icon-value in $mdi-list-icons {
-  .#{$mdi-prefix}#{$mdi-icon-name}:before {
-    content: "\""+ $mdi-icon-value +"\"";
-  }
-}
+// /* FIXME: Workaround for https://github.com/Dogfalo/materialize/issues/1079 */
+// @each $mdi-icon-name, $mdi-icon-value in $mdi-list-icons {
+//   .#{$mdi-prefix}#{$mdi-icon-name}:before {
+//     content: "\""+ $mdi-icon-value +"\"";
+//   }
+// }
 
 // Qunit test runner style fixes
 #qunit-testrunner-toolbar {

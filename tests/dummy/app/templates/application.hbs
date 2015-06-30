@@ -6,24 +6,25 @@
           <img class="ember-logo hide-on-med-and-down" src="images/ember-white.svg" />
           Materialize
         </a>
-        <a href="#" data-activates="mobile-demo" class="button-collapse deep-orange-text text-darken-2"><i class="mdi-navigation-menu"></i></a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse demo-button-collapse deep-orange-text text-darken-2"><i class="mdi-navigation-menu"></i></a>
       </div>
     </div>
   </nav>
 </div>
- <ul class="side-nav fixed demo-page-submenu" id="mobile-demo">
-    {{#each demoSections as |section|}}
-        {{#link-to section.route activeClass='active' tagName='li'}}
-          {{link-to section.name section.route class="deep-orange-text text-darken-2"}}
-        {{/link-to}}
-    {{/each}}
-  </ul>
+<ul class="side-nav fixed demo-page-submenu" id="mobile-demo">
+  {{#each demoSections as |section|}}
+    {{#link-to section.route activeClass='active' tagName='li'}}
+      {{link-to section.name section.route class="deep-orange-text text-darken-2"}}
+    {{/link-to}}
+  {{/each}}
+</ul>
+
 <main>
   {{outlet}}
 </main>
+
 {{md-modal-container}}
 
 <footer class="page-footer deep-orange darken-2">
-
   {{#md-copyright text='Copyright Text' startYear=2014}}<a class="grey-text text-lighten-4 right" href="#!">More Links</a>{{/md-copyright}}
 </footer>
