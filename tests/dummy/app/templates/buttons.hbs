@@ -1,162 +1,47 @@
-<div class="section index-banner">
-  <div class="container">
-    <div class="row">
-      <div class="col s12 m9">
-        <h1 class="header">Buttons</h1>
-      </div>
-    </div>
-  </div>
-</div>
+{{example-header title="Buttons"}}
 
 <div class='container'>
-  <div class="section">
-    <div class="intro">
-        <h4 class="col s12 header">The component supports many options:</h4>
-        <ul>
-          <li>text, default value <span class="default-value badge">null</span></li>
-          <li>action, default value <span class="default-value badge">null</span></li>
-          <li>icon, default value <span class="default-value badge">null</span></li>
-          <li>iconPosition, default value <span class="default-value badge">left</span></li>
-          <li>buttonType, default value <span class="default-value badge">null</span></li>
-          <li>isDisabled, default value <span class="default-value badge">false</span></li>
-        </ul>
-      </div>
-  </div>
+  {{#options-panel}}
+    {{component-option optionId="text"}}
+    {{component-option optionId="action"}}
+    {{component-option optionId="icon"}}
+    {{component-option optionId="iconPosition" default="left"}}
+    {{component-option optionId="buttonType"}}
+    {{component-option optionId="isDisabled" default="false"}}
+  {{/options-panel}}
+
   <div class="section">
     <h4 class="col s12 header">Raised</h4>
-    <div class="button-example">
-      {{md-btn text='Button' action='debug' class='indigo darken-2'}}
-      {{md-btn text='Button' icon='mdi-action-favorite' action='debug' class='deep-purple darken-3'}}
-      {{md-btn text='Button' icon='mdi-action-favorite' iconPosition='right' action='debug' class='yellow deep-purple-text text-darken-3'}}
-
-      <pre class=" language-markup">
-        <code class=" col s12 language-markup">
-          <span>&#123;&#123;</span>md-btn text='Button' action='debug' class='indigo darken-2'<span>&#125;&#125;</span>
-          <span>&#123;&#123;</span>md-btn text='Button' icon='mdi-action-favorite' action='debug' class='deep-purple darken-3'<span>&#125;&#125;</span>
-          <span>&#123;&#123;</span>md-btn text='Button' icon='mdi-action-favorite' iconPosition='right' action='debug' class='yellow deep-purple-text text-darken-3'<span>&#125;&#125;</span>
-        </code>
-      </pre>
-    </div>
+    {{example-snippet snippet='buttons-raised' class="button-example"}}
   </div>
+
   <div class="section">
     <h4 class="col s12 header">Floating</h4>
-    <div class="button-example">
-      {{md-btn icon='mdi-action-favorite' action='debug' buttonType='floating' class='btn-large'}}
-      <pre class=" language-markup">
-        <code class=" col s12 language-markup">
-  <span>&#123;&#123;</span>md-btn icon='mdi-action-favorite' action='debug'
-           buttonType='floating' class="btn-large"<span>&#125;&#125;</span>
-        </code>
-      </pre>
-    </div>
+    {{example-snippet snippet='buttons-floating' class="button-example"}}
   </div>
+
   <div class="section">
     <h4 class="col s12 header">Floating Group</h4>
-    <div class="button-example">
-      {{#md-fixed-btns
-        class="fixed-btns-example"
-        btnIcon="mdi-content-add"
-        btnClass="btn-large lime darken-2"
-        action="firstAction"
-        actionArgs="0"}}
-          {{md-fixed-btn
-            btnClass="indigo"
-            btnIcon="mdi-action-class"
-            action="anotherAction"
-            actionArgs="1"}}
-          {{md-fixed-btn
-            btnClass="deep-purple"
-            btnIcon="mdi-content-grade"
-            action="anotherAction"
-            actionArgs="abc"}}
-          {{md-fixed-btn
-            btnClass="green"
-            btnIcon="mdi-action-redeem"
-            action="anotherAction"
-            actionArgs=myData}}
-          {{md-fixed-btn
-            btnClass="green"
-            btnIcon="mdi-alert-warning"
-            action="anotherAction"}}
-      {{/md-fixed-btns}}
-
-      <pre class=" language-markup">
-        <code class=" col s12 language-markup">
-<span>&#123;&#123;</span>#md-fixed-btns
-  btnIcon="mdi-content-add"
-  btnClass="btn-large lime darken-2"
-  action="firstAction"
-  actionArgs="0"<span>&#125;&#125;</span>
-
-    <span>&#123;&#123;</span>md-fixed-btn
-      btnClass="indigo"
-      btnIcon="mdi-action-class"
-      action="anotherAction"
-      actionArgs="1"<span>&#125;&#125;</span>
-
-    <span>&#123;&#123;</span>md-fixed-btn
-      btnClass="deep-purple"
-      btnIcon="mdi-content-grade"
-      action="anotherAction"
-      actionArgs="abc"<span>&#125;&#125;</span>
-
-    <span>&#123;&#123;</span>md-fixed-btn
-      btnClass="green"
-      btnIcon="mdi-action-redeem"
-      action="anotherAction"
-      actionArgs=myData<span>&#125;&#125;</span>
-
-    <span>&#123;&#123;</span>md-fixed-btn
-      btnClass="green"
-      btnIcon="mdi-alert-warning"
-      action="anotherAction"<span>&#125;&#125;</span>
-<span>&#123;&#123;</span>/md-fixed-btns<span>&#125;&#125;</span>
-        </code>
-      </pre>
-    </div>
+    {{example-snippet snippet='buttons-floating-group' class="button-example"}}
   </div>
+
   <div class="section">
     <h4 class="col s12 header">Flat</h4>
-    <div class="button-example">
-      {{md-btn text='Flat button' action='debug' buttonType='flat'}}
-      <pre class=" language-markup">
-        <code class=" col s12 language-markup">
-          <span>&#123;&#123;</span>md-btn text='Flat button' action='debug' buttonType='flat'<span>&#125;&#125;</span>
-        </code>
-      </pre>
-    </div>
+    {{example-snippet snippet='buttons-flat'}}
   </div>
+
   <div class="section">
     <h4 class="col s12 header">Submit</h4>
-    <div class="button-example">
-      {{md-btn-submit icon='mdi-content-send' iconPosition='right' text='Submit'}}
-      <pre class=" language-markup">
-        <code class=" col s12 language-markup">
-          <span>&#123;&#123;</span>md-btn-submit icon='mdi-content-send' iconPosition='right' text='Submit'<span>&#125;&#125;</span>
-        </code>
-      </pre>
-    </div>
+    {{example-snippet snippet='buttons-submit'}}
   </div>
+
   <div class="section">
     <h4 class="col s12 header">Large</h4>
-    <div class="button-example">
-      {{md-btn text='Large button' action='debug' buttonType='large' class='deep-orange darken-2 white-text'}}
-      <pre class=" language-markup">
-        <code class=" col s12 language-markup">
-          <span>&#123;&#123;</span>md-btn text='Large button' action='debug' buttonType='large' class='deep-orange darken-2 white-text'<span>&#125;&#125;</span>
-        </code>
-      </pre>
-    </div>
+    {{example-snippet snippet='buttons-large'}}
   </div>
+
   <div class="section">
     <h4 class="col s12 header">Disabled</h4>
-    <div class="button-example">
-      {{md-btn text='Disabled button' isDisabled=true}}
-      <pre class=" language-markup">
-        <code class=" col s12 language-markup">
-          <span>&#123;&#123;</span>md-btn text='Disabled button' isDisabled=true<span>&#125;&#125;</span>
-        </code>
-      </pre>
-    </div>
+    {{example-snippet snippet='buttons-disabled'}}
   </div>
 </div>

@@ -1,0 +1,14 @@
+{{#md-card title="Card Title"
+    image="images/ember-cli.png"
+    activator=true
+    id="card-reveal"}}
+
+    {{#md-card-content}}
+        {{#link-to "cards"}}This is a Link{{/link-to}}
+    {{/md-card-content}}
+
+    {{#md-card-reveal}}
+        Here is some more information about this product that is only revealed once clicked on.
+    {{/md-card-reveal}}
+
+{{/md-card}}

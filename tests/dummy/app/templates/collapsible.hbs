@@ -1,197 +1,37 @@
-<div class="section index-banner">
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m9">
-                <h1 class="header">Collapsible</h1>
-            </div>
-        </div>
-    </div>
-</div>
+{{example-header title="Collapsible"}}
 
 <div class='container'>
-    <div class="section">
-        <div class="intro">
-            <h4 class="col s12 header">The component supports the following options:</h4>
-            <ul>
-                <li>title, default value <span class="default-value badge">null</span></li>
-                <li>icon, default value <span class="default-value badge">null</span></li>
-                <li>accordion, default value <span class="default-value badge">true</span></li>
-                <li>active, default value <span class="default-value badge">null</span></li>
-                <li>action, default value <span class="default-value badge">null</span></li>
-                <li>model, default value <span class="default-value badge">null</span></li>
-            </ul>
-        </div>
-    </div>
+
+    {{#options-panel}}
+        {{component-option optionId="title" }}
+        {{component-option optionId="icon" }}
+        {{component-option optionId="accordion" default="true"}}
+        {{component-option optionId="active" }}
+        {{component-option optionId="action" }}
+        {{component-option optionId="model" }}
+    {{/options-panel}}
+
     <div class="section">
         <h4 class="col s12 header">Accordion</h4>
-        <div class="collapsible-example">
-
-            {{#md-card-collapsible id="accordion"}}
-              {{#md-collapsible icon="mdi-image-filter-drama" title="One"}}
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                  minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-              {{/md-collapsible}}
-              {{#md-collapsible icon="mdi-maps-place" title="Two"}}
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-              {{/md-collapsible}}
-              {{#md-collapsible icon="mdi-social-whatshot" title="Three"}}
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-              {{/md-collapsible}}
-            {{/md-card-collapsible}}
-
-            <pre class=" language-markup">
-<code class=" col s12 language-markup">
-&#123;&#123;#md-card-collapsible&#125;&#125;
-  &#123;&#123;#md-collapsible icon="mdi-image-filter-drama" title="One"&#125;&#125;
-    Lorem ipsum dolor sit amet.
-  &#123;&#123;/md-collapsible&#125;&#125;
-  &#123;&#123;#md-collapsible icon="mdi-maps-place" title="Two"&#125;&#125;
-    Lorem ipsum dolor sit amet.
-  &#123;&#123;/md-collapsible&#125;&#125;
-  &#123;&#123;#md-collapsible icon="mdi-social-whatshot" title="Three"&#125;&#125;
-    Lorem ipsum dolor sit amet.
-  &#123;&#123;/md-collapsible&#125;&#125;
-&#123;&#123;/md-card-collapsible}}
-</code>
-      </pre>
-        </div>
+        {{example-snippet snippet='collapsible-accordion' class='accordion-example'}}
     </div>
 
     <div class="section">
         <h4 class="col s12 header">Expandable</h4>
-        <div class="collapsible-example">
-
-            {{#md-card-collapsible accordion=false id="expandable"}}
-              {{#md-collapsible icon="mdi-image-filter-drama" title="One"}}
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                  minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-              {{/md-collapsible}}
-              {{#md-collapsible icon="mdi-maps-place" title="Two"}}
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-              {{/md-collapsible}}
-              {{#md-collapsible icon="mdi-social-whatshot" title="Three"}}
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-              {{/md-collapsible}}
-            {{/md-card-collapsible}}
-
-            <pre class="language-markup">
-<code class=" col s12 language-markup">
-&#123;&#123;#md-card-collapsible accordion=false&#125;&#125;
-  &#123;&#123;#md-collapsible icon="mdi-image-filter-drama" title="One"&#125;&#125;
-    Lorem ipsum dolor sit amet.
-  &#123;&#123;/md-collapsible&#125;&#125;
-  &#123;&#123;#md-collapsible icon="mdi-maps-place" title="Two"&#125;&#125;
-    Lorem ipsum dolor sit amet.
-  &#123;&#123;/md-collapsible&#125;&#125;
-  &#123;&#123;#md-collapsible icon="mdi-social-whatshot" title="Three"&#125;&#125;
-    Lorem ipsum dolor sit amet.
-  &#123;&#123;/md-collapsible&#125;&#125;
-&#123;&#123;/md-card-collapsible&#125;&#125;
-</code>
-      </pre>
-        </div>
+        {{example-snippet snippet='collapsible-expandable' class='expandable-example'}}
     </div>
-
 
     <div class="section">
         <h4 class="col s12 header">Preselected Section</h4>
-        <div class="collapsible-example">
-
-          {{#md-card-collapsible id="preselected"}}
-            {{#md-collapsible icon="mdi-image-filter-drama" title="One"}}
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
-            {{/md-collapsible}}
-            {{#md-collapsible icon="mdi-maps-place" title="Two" active=true}}
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
-            {{/md-collapsible}}
-            {{#md-collapsible icon="mdi-social-whatshot" title="Three"}}
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
-            {{/md-collapsible}}
-          {{/md-card-collapsible}}
-
-            <pre class="language-markup">
-<code class=" col s12 language-markup">
-&#123;&#123;#md-card-collapsible&#125;&#125;
-  &#123;&#123;#md-collapsible icon="mdi-image-filter-drama" title="One"&#125;&#125;
-    Lorem ipsum dolor sit amet.
-  &#123;&#123;/md-collapsible&#125;&#125;
-  &#123;&#123;#md-collapsible icon="mdi-maps-place" title="Two" active=true&#125;&#125;
-    Lorem ipsum dolor sit amet.
-  &#123;&#123;/md-collapsible&#125;&#125;
-  &#123;&#123;#md-collapsible icon="mdi-social-whatshot" title="Three"&#125;&#125;
-    Lorem ipsum dolor sit amet.
-  &#123;&#123;/md-collapsible&#125;&#125;
-&#123;&#123;/md-card-collapsible&#125;&#125;
-</code>
-      </pre>
-        </div>
+        {{example-snippet snippet='collapsible-preselected' class='preselected-example'}}
     </div>
 
     <div class="section">
         <h4 class="col s12 header">Action Section</h4>
-        <div class="collapsible-example">
-
-          {{#md-card-collapsible id="action-selection"}}
-            {{#md-collapsible icon="mdi-image-filter-drama" title="Cloud" action="clicked" model="cloud"}}
-              O misty eye of the mountain below
-            {{/md-collapsible}}
-            {{#md-collapsible icon="mdi-maps-place" title="Marker" action="clicked" model="marker"}}
-              keep careful watch of my brothers' souls
-            {{/md-collapsible}}
-            {{#md-collapsible icon="mdi-social-whatshot" title="Fire" action="clicked" model="fire"}}
-              and should the sky be filled with fire and smoke, keep watching over [indecipherable]
-            {{/md-collapsible}}
-          {{/md-card-collapsible}}
-          <h4>
-            active collapisble:<span id="selected-action">{{activeSlide}}</span>
-          </h4>
-            <pre class="language-markup">
-<code class=" col s12 language-markup">
-&#123;&#123;#md-card-collapsible&#125;&#125;
-  &#123;&#123;#md-collapsible icon="mdi-image-filter-drama" title="One" action="clicked" model="cloud"&#125;&#125;
-    O misty eye of the mountain below
-  &#123;&#123;/md-collapsible&#125;&#125;
-  &#123;&#123;#md-collapsible icon="mdi-maps-place" title="Two" action="clicked" model="marker"&#125;&#125;
-    keep careful watch of my brothers' souls
-  &#123;&#123;/md-collapsible&#125;&#125;
-  &#123;&#123;#md-collapsible icon="mdi-social-whatshot" title="Three" action="clicked" model="fire"&#125;&#125;
-    and should the sky be filled with fire and smoke, keep watching over [indecipherable]
-  &#123;&#123;/md-collapsible&#125;&#125;
-&#123;&#123;/md-card-collapsible&#125;&#125;
-</code>
-      </pre>
-        </div>
+        {{#if lastClicked}}
+            <p>Last slide clicked: <span class="selected-action">{{lastClicked}}</span></p>
+        {{/if}}
+        {{example-snippet snippet='collapsible-action' class='action-selection-example'}}
     </div>
 
 </div>

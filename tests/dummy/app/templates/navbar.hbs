@@ -1,46 +1,13 @@
-<div class="section index-banner">
-  <div class="container">
-    <div class="row">
-      <div class="col s12 m9">
-        <h1 class="header">Navbar</h1>
-      </div>
-    </div>
-  </div>
-</div>
+{{example-header title="Navbar"}}
 
 <div class='container'>
-  <div class="section">
-    <div class="intro">
-      <h4 class="col s12 header">The component supports one option:</h4>
-      <ul>
-        <li>name, default value <span class="default-value badge">null</span></li>
-      </ul>
-    </div>
-  </div>
+  {{#options-panel}}
+    {{component-option optionId="name"}}
+  {{/options-panel}}
+
+
   <div class="section">
     <h4 class="col s12 header">Navbar with mobile collapse button</h4>
-    <div class="navbar-example">
-      {{#md-navbar name='Example' class='indigo'}}
-        {{#link-to 'navbar' tagName='li'}}
-          <a>Navbar</a>
-        {{/link-to}}
-        {{#link-to 'tabs' tagName='li'}}
-          <a>Tabs</a>
-        {{/link-to}}
-      {{/md-navbar}}
-
-      <pre class=" language-markup">
-        <code class=" col s12 language-markup">
-          <span>&#123;&#123;</span>#md-navbar name='Example' class='indigo'<span>&#125;&#125;</span>
-            <span>&#123;&#123;</span>#link-to 'navbar' tagName='li'<span>&#125;&#125;</span>
-              <span>&#60;</span>a<span>&#62;</span>Navbar<span>&#60;</span>/a<span>&#62;</span>
-            <span>&#123;&#123;</span>/link-to<span>&#125;&#125;</span>
-            <span>&#123;&#123;</span>#link-to 'tabs' tagName='li'<span>&#125;&#125;</span>
-              <span>&#60;</span>a<span>&#62;</span>Tabs<span>&#60;</span>/a<span>&#62;</span>
-            <span>&#123;&#123;</span>/link-to<span>&#125;&#125;</span>
-          <span>&#123;&#123;</span>/md-navbar<span>&#125;&#125;</span>
-        </code>
-      </pre>
-    </div>
+    {{example-snippet snippet='navbar-basic' class='navbar-example'}}
   </div>
 </div>

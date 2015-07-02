@@ -1,6 +1,7 @@
+<header>
 <div class="navbar-fixed">
   <nav class="demo-page-nav deep-orange">
-    <div class="nav-wrapper z-depth-2">
+    <div class="nav-wrapper">
       <div class="container-fluid">
         <a href="#!" class="brand-logo white-text">
           <img class="ember-logo hide-on-med-and-down" src="images/ember-white.svg" />
@@ -11,6 +12,7 @@
     </div>
   </nav>
 </div>
+</header>
 <ul class="side-nav fixed demo-page-submenu" id="mobile-demo">
   {{#each demoSections as |section|}}
     {{#link-to section.route activeClass='active' tagName='li'}}
@@ -18,13 +20,12 @@
     {{/link-to}}
   {{/each}}
 </ul>
-
 <main>
   {{outlet}}
 </main>
 
 {{md-modal-container}}
 
-<footer class="page-footer deep-orange darken-2">
+<footer class="page-footer demo-footer deep-orange darken-2">
   {{#md-copyright text='Copyright Text' startYear=2014}}<a class="grey-text text-lighten-4 right" href="#!">More Links</a>{{/md-copyright}}
 </footer>

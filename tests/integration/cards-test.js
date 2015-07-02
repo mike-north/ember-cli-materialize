@@ -40,13 +40,10 @@ function checkCardContent (cardType, cardId) {
 
       assert.ok(contentEle.hasClass('card-content'));
 
-      var expected = "I am a very simple card. I am good at containing small bits of information.\n" +
-          "                            " +
-          "I am convenient because I require little markup to use effectively.";
+      var expected = "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.";
 
       // skip over the span containing the card title and get just the card content text.
-      var actual = contentEle.find('>span').next().text().trim();
-
+      var actual = contentEle.find('>span').next().text().trim().replace(/[\s\n]+/g, ' ');
       assert.equal(actual, expected);
 
     });
@@ -104,13 +101,12 @@ test('Card Reveal should have content', function(assert) {
 
     assert.ok(contentEle.hasClass('white-text'));
 
-    var expected = "I am a very simple card.\n" +
-      "                      I am good at containing small bits of information.\n" +
-      "                      I am convenient because I require little markup to use effectively.\n" +
-      "                      I am similar to what is called a panel in other frameworks.";
+    var expected = "I am a very simple card. I am good at containing small bits of information. " +
+      "I am convenient because I require little markup to use effectively. " +
+      "I am similar to what is called a panel in other frameworks.";
 
     // skip over the span containing the card title and get just the card content text.
-    var actual = contentEle.text().trim();
+    var actual = contentEle.text().trim().replace(/[\s\n]+/g, ' ');
 
     assert.equal(actual, expected);
 
