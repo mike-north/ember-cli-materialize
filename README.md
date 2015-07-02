@@ -11,6 +11,17 @@ An [ember-cli](http://www.ember-cli.com) addon for using [Materialize](http://ma
 
 *Materialize Version ~0.97.0
 
+This addon is continuiously integrated against the following framework versions
+
+Version | Failures Allowed
+--------|-------------------
+`~1.10.0` | No
+`~1.11.0` | No
+`~1.12.0` | No
+components/ember#release | No
+components/ember#beta | No
+components/ember#canary | No
+
 ## Main features
 
 * Imports [Materialize](http://materializecss.com/) sass (via [ember-cli-sass](https://www.npmjs.com/package/ember-cli-sass)) and fonts into your app.
