@@ -1,0 +1,6 @@
+{{#if _hasHeader}}
+  {{view headerView}}
+{{/if}}
+{{#each content as |item|}}
+  {{yield item}}
+{{/each}}

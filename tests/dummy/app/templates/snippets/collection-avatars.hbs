@@ -1,0 +1,10 @@
+{{#md-collection content=content as |item|}}
+  <div class='collection-item avatar'>
+    <i class="circle green mdi-action-favorite"></i>
+    <span class="title">{{item.name}}</span>
+    <p>A character from the TV series "Breaking Bad"</p>
+    {{#link-to item.route class='secondary-content'}}
+      <i class="mdi-action-favorite"></i>
+    {{/link-to}}
+  </div>
+{{/md-collection}}
