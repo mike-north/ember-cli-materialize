@@ -2,9 +2,7 @@ import Ember from 'ember';
 import layout from '../templates/components/selectable-item-group';
 import computed from 'ember-new-computed';
 
-var get = Ember.get,
-  map = Ember.EnumerableUtils.map,
-  indexOf = Ember.EnumerableUtils.indexOf;
+var get = Ember.get;
 
 export default Ember.Component.extend({
   layout: layout,
@@ -26,7 +24,7 @@ export default Ember.Component.extend({
 
   isValueSelected(value) {
     if (this.get('multiple')) {
-      return indexOf(this.get('selection'), value) >= 0;
+      return this.get('selection').indexOf(value) >= 0;
     }
     else {
       return this.get('selection') === value;
@@ -84,13 +82,13 @@ export default Ember.Component.extend({
 
       if (valuePath && labelPath) {
         return Ember.A(
-          map(content, el => {
+          content.map(el => {
             return {value: get(el, valuePath), label: get(el, labelPath)};
           })
         );
       } else {
         return Ember.A(
-          map(content, el => {
+          content.map(el => {
             return {value: el, label: el};
           })
         );

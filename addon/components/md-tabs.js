@@ -2,8 +2,6 @@ import Ember from 'ember';
 import layout from '../templates/components/md-tabs';
 import computed from 'ember-new-computed';
 
-var map = Ember.EnumerableUtils.map;
-var filter = Ember.EnumerableUtils.filter;
 var get = Ember.get;
 
 export default Ember.Component.extend({
@@ -50,7 +48,7 @@ export default Ember.Component.extend({
     if (!this.element) {
       return;
     }
-    var tabComponent = filter((this.get('_tabComponents') || []), item => get(item, 'value') === this.get('selected'))[0];
+    var tabComponent = (this.get('_tabComponents') || []).filter(item => get(item, 'value') === this.get('selected'))[0];
     var tabSetRect = this.element.getBoundingClientRect();
     if (tabComponent) {
       var tabRect = tabComponent.element.getBoundingClientRect();
@@ -74,7 +72,7 @@ export default Ember.Component.extend({
     get() {
       var labelPath = this.get('optionLabelPath');
       var valuePath = this.get('optionValuePath');
-      return new Ember.A(map(this.get('content') || [], contentItem => ({id: contentItem[valuePath], title: contentItem[labelPath]})));
+      return new Ember.A((this.get('content') || []).map(contentItem => ({id: contentItem[valuePath], title: contentItem[labelPath]})));
     }
   }),
 
