@@ -18,6 +18,7 @@ Router.map(function() {
   this.route("pagination");
   this.route("parallax");
   this.route("tabs");
+  this.route("collection");
 });
 
 export default Router;

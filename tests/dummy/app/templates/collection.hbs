@@ -1,0 +1,42 @@
+{{example-header title="Collection"}}
+
+<div class='container'>
+    {{#options-panel}}
+      {{component-option optionId="content" required=true description="Iterable collection"}}
+      {{component-option optionId="header" description="Header text"}}
+      {{component-option optionId="headerView" description="Header view (string or view class)"}}
+    {{/options-panel}}
+
+    <p>For the following examples, let's say we have an array like this</p>
+    {{code-snippet name='collection-route.js'}}
+
+    <div class="section">
+      <h4 class="col s12 header">Basic Collection</h4>
+      {{example-snippet snippet='collection-basic' class='basic-collection-example' content=content}}
+    </div>
+    <div class="section">
+      <h4 class="col s12 header">Links</h4>
+      {{example-snippet snippet='collection-links' class='links-collection-example' content=content}}
+    </div>
+    <div class="section">
+      <h4 class="col s12 header">Simple Collection Header</h4>
+      {{example-snippet snippet='collection-header' class='simple-header-collection-example' content=content}}
+    </div>
+    <div class="section">
+      <h4 class="col s12 header">Custom Collection Header</h4>
+      <p>First you need to create a view</p>
+      {{code-snippet name='custom-collection-header.js'}}
+      <p>And a template for the header view</p>
+      {{code-snippet name='my-custom-header.hbs'}}
+      <p>You can then pass this view to the collection</p>
+      {{example-snippet snippet='collection-header-custom' class='custom-header-collection-example' content=content}}
+    </div>
+    <div class="section">
+      <h4 class="col s12 header">Secondary Content</h4>
+      {{example-snippet snippet='collection-secondary-content' class='secondary-content-collection-example' content=content}}
+    </div>
+    <div class="section">
+      <h4 class="col s12 header">Avatars</h4>
+      {{example-snippet snippet='collection-avatars' class='avatars-collection-example' content=content}}
+    </div>
+</div>

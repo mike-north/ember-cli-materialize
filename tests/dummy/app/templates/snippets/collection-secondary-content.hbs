@@ -1,0 +1,8 @@
+{{#md-collection content=content as |item|}}
+  <div class='collection-item'>
+    {{item.name}}
+    {{#link-to item.route class='secondary-content'}}
+      <i class="mdi-action-favorite"></i>
+    {{/link-to}}
+  </div>
+{{/md-collection}}
