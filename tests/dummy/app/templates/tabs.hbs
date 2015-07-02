@@ -1,89 +1,34 @@
-<div class="section index-banner">
-  <div class="container">
-    <div class="row">
-      <div class="col s12 m9">
-        <h1 class="header">Tabs</h1>
-      </div>
-    </div>
-  </div>
-</div>
+{{example-header title="Tabs"}}
 
 <div class='container'>
-  <div class="section">
-    <div class="intro">
-      <h4 class="col s12 header">The component supports several options:</h4>
-      <ul>
-        <li>content, default value <span class="default-value badge">[]</span> -  tabs array</li>
-        <li>selected, default value <span class="default-value badge">null</span> -  selected tab id</li>
-        <li>colWidth, default value <span class="default-value badge">2</span> -  width of tabs, in grid columns</li>
-      </ul>
-    </div>
-  </div>
+
+  {{#options-panel}}
+
+    {{component-option optionId="content" default="[]" description="tabs array"}}
+    {{component-option optionId="selected" description="selected tab id"}}
+    {{component-option optionId="colWidth" default="2" description="width of tabs, in grid columns"}}
+  {{/options-panel}}
 
   <div class="section">
     <h4 class="col s12 header">Basic Usage</h4>
-    <p>Creating a basic set of tabs is simple, and you have several syntax options to choose from.
+   <p>Creating a basic set of tabs is simple, and you have several syntax options to choose from.
     First, you can pass an array of tabs to the <code>&#123;&#123;md-tabs&#125;&#125;</code> component:</p>
-    <div class="tabs-example basic-tabs-example z-depth-1">
-      {{md-tabs
-        content=basicTabsContent
-        selected=basicTabsSelection}}
-    </div>
-
-    <pre class=" language-markup">
-      <code class=" col s8 language-markup">
-  <span>&#123;&#123;</span>md-tabs
-      content=tabSet
-      selected=selectedTabId<span>&#125;&#125;</span>
-      </code>
-    </pre>
+    {{example-snippet snippet='tabs-basic' class='basic-tabs-example' basicTabsContent=basicTabsContent basicTabsSelection=basicTabsSelection exampleFrameClass='z-depth-1'}}
     <p>By default, the structure of the array of tabs is expected to look like this</p>
 
     <pre class=" language-markup">
-    <code class=" col s8 language-markup">
-    [ {id: 'a', title: 'First'},
-      {id: 'b', title: 'Second'},
-      {id: 'c', title: 'Third'} ]
-    </code>
+      <code class=" col s8 language-markup">
+      [ {id: 'a', title: 'First'},
+        {id: 'b', title: 'Second'},
+        {id: 'c', title: 'Third'} ]
+      </code>
     </pre>
     <p>If you wish to use different key and value properties, you may specify some additional options</p>
-       <div class="tabs-example second-tabs-example z-depth-1">
 
-    {{md-tabs
-        content=alternateTabsContent
-        selected=basicTabsSelection
-        optionValuePath='key'
-        optionLabelPath='label'}}
-        </div>
-    <pre class=" language-markup">
-      <code class=" col s8 language-markup">
-  <span>&#123;&#123;</span>md-tabs
-      content=tabSet
-      selected=selectedTabId
-      optionValuePath='key'
-      optionLabelPath='label'<span>&#125;&#125;</span>
-      </code>
-    </pre>
+      {{example-snippet snippet='tabs-optionpaths' class='second-tabs-example' alternateTabsContent=alternateTabsContent basicTabsSelection=basicTabsSelection exampleFrameClass='z-depth-1'}}
+
     <h4 class="col s12 header">Alternate Syntax</h4>
     <p>The following syntax allows for more granular control over the particulars of each tab</p>
-    <div class="tabs-example third-tabs-example z-depth-1">
-        {{#md-tabs
-          selected=basicTabsSelection}}
-          {{md-tab value='a' title="Sixth"}}
-          {{md-tab value='b' title="Seventh"}}
-          {{md-tab value='c' title="Eighth"}}
-        {{/md-tabs}}
-    </div>
-    <pre class=" language-markup">
-      <code class=" col s8 language-markup">
-  <span>&#123;&#123;</span>#md-tabs selected=selectedTabId<span>&#125;&#125;</span>
-      <span>&#123;&#123;</span>md-tab value='a' title='Sixth'<span>&#125;&#125;</span>
-      <span>&#123;&#123;</span>md-tab value='b' title='Seventh'<span>&#125;&#125;</span>
-      <span>&#123;&#123;</span>md-tab value='c' title='Eighth'<span>&#125;&#125;</span>
-  <span>&#123;&#123;</span>/md-tabs<span>&#125;&#125;</span>
-      </code>
-    </pre>
+    {{example-snippet snippet='tabs-declarative' class='third-tabs-example' basicTabsSelection=basicTabsSelection exampleFrameClass='z-depth-1'}}
   </div>
-
-
 </div>

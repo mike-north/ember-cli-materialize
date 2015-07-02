@@ -1,76 +1,32 @@
-<div class="section index-banner">
-  <div class="container">
-    <div class="row">
-      <div class="col s12 m9">
-        <h1 class="header">Forms</h1>
-      </div>
-    </div>
-  </div>
-</div>
+{{example-header title="Forms"}}
+
 
 <div class='container'>
 
-
     <div class="section">
         <h4 class="col s12 header">Input</h4>
-
-        <div class="intro">
-            <h5 class="col s12 header">The component supports the following options:</h5>
-            <ul>
-                <li>label, default value <span class="default-value badge">null</span></li>
-                <li>icon, default value <span class="default-value badge">null</span></li>
-                <li>value, default value <span class="default-value badge">null</span></li>
-                <li>type, default value <span class="default-value badge">text</span></li>
-                <li>required, default value <span class="default-value badge">false</span></li>
-                <li>readonly, default value <span class="default-value badge">false</span></li>
-                <li>disabled, default value <span class="default-value badge">false</span></li>
-                <li>maxlength, default value <span class="default-value badge">null</span></li>
-                <li>pattern, default value <span class="default-value badge">null</span></li>
-                <li>validate, default value <span class="default-value badge">false</span></li>
-                <li>autocomplete, default value <span class="default-value badge">null</span></li>
-            </ul>
-        </div>
-
-
-        <div class="input-example">
-            <br/>
-            {{md-input value="Hi Mom" label='Example'}}
-
-            <pre class=" language-markup">
-<code class=" col s12 language-markup">
-    <span>&#123;&#123;</span>md-input value="Hi Mom" label="Example"<span>&#125;&#125;</span>
-</code>
-      </pre>
-        </div>
+        {{#options-panel header=''}}
+            {{component-option optionId="label"}}
+            {{component-option optionId="icon"}}
+            {{component-option optionId="value"}}
+            {{component-option optionId="type" default="text"}}
+            {{component-option optionId="required" default="false"}}
+            {{component-option optionId="readonly" default="false"}}
+            {{component-option optionId="disabled" default="false"}}
+            {{component-option optionId="maxlength"}}
+            {{component-option optionId="pattern"}}
+            {{component-option optionId="validate" default="false"}}
+            {{component-option optionId="autocomplete"}}
+        {{/options-panel}}
+        <h5>Basic Input</h5>
+        {{example-snippet snippet='input-basic' class='input-example'}}
+        <h5>Input With Icon</h5>
+        {{example-snippet snippet='input-with-icon' class='input-example'}}
+        <h5>Typed Inputs</h5>
+        {{example-snippet snippet='input-types' class='input-example'}}
     </div>
 
-    <div class="section">
-        <h4 class="col s12 header">Input with Icon</h4>
-        <div class="input-example">
-            <br/>
-          {{md-input value="Hi Mom" label='Example' icon="mdi-action-face-unlock"}}
 
-            <pre class=" language-markup">
-<code class=" col s12 language-markup">
-    <span>&#123;&#123;</span>md-input value="Hi Mom" label="Example" icon="mdi-action-face-unlock"<span>&#125;&#125;</span>
-</code>
-      </pre>
-        </div>
-    </div>
-
-    <div class="section">
-        <h4 class="col s12 header">Input with type="password"</h4>
-        <div class="input-example">
-            <br/>
-            {{md-input value="test" label='Password' type="password"}}
-
-            <pre class=" language-markup">
-<code class=" col s12 language-markup">
-    <span>&#123;&#123;</span>md-input value="test" label="Password" type="password"<span>&#125;&#125;</span>
-</code>
-      </pre>
-        </div>
-    </div>
 
 
     <div class="section">
@@ -81,326 +37,128 @@
           The following example simulates ember-validations style validation using an observer on the controller's name
           property.
       </p>
-        <div class="input-example">
-            <br/>
-            {{md-input value=model.name label='Name'}}
-
-<pre class=" language-markup">
-<code class=" col s12 language-markup">
-<span>&#123;&#123;</span>md-input value=model.name label="Name"<span>&#125;&#125;</span>
-
-// controller example
-nameDidChange: function() {
-  if (!Ember.isPresent(this.get('model.name'))) {
-    this.set('errors', { name: ['This field is required'] });
-  } else {
-    this.set('errors', { name: [] });
-  }
-}.observes('name')
-</code>
-</pre>
-        </div>
+      {{example-snippet snippet='form-validation-basic' model=model errors=errors}}
+      {{code-snippet name='form-validation-basic.js'}}
     </div>
-
     <div class="section">
         <h4 class="col s12 header">Text Area</h4>
-        <div class="intro">
-            <h5 class="col s12 header">The component supports the following options:</h5>
-            <ul>
-                <li>label, default value <span class="default-value badge">null</span></li>
-                <li>icon, default value <span class="default-value badge">null</span></li>
-                <li>value, default value <span class="default-value badge">null</span></li>
-                <li>name, default value <span class="default-value badge">null</span></li>
-                <li>required, default value <span class="default-value badge">false</span></li>
-                <li>readonly, default value <span class="default-value badge">false</span></li>
-                <li>disabled, default value <span class="default-value badge">false</span></li>
-                <li>maxlength, default value <span class="default-value badge">null</span></li>
-                <li>validate, default value <span class="default-value badge">false</span></li>
-            </ul>
-        </div>
-        <div class="input-example">
-            <br/>
-
-            {{md-textarea label='Message' value=message icon="mdi-action-face-unlock"}}
-
-<pre class=" language-markup">
-<code class=" col s12 language-markup">
-&#123;&#123;md-textarea label='Message' value="The textarea will auto-grow as you type." icon="mdi-action-face-unlock"&#125;&#125;
-</code>
-</pre>
-        </div>
+        {{#options-panel header=''}}
+          {{component-option optionId="label" }}
+          {{component-option optionId="icon" }}
+          {{component-option optionId="value" }}
+          {{component-option optionId="name" }}
+          {{component-option optionId="required" default="false"}}
+          {{component-option optionId="readonly" default="false"}}
+          {{component-option optionId="disabled" default="false"}}
+          {{component-option optionId="maxlength" }}
+          {{component-option optionId="validate" default="false"}}
+        {{/options-panel}}
+        <h5>Basic Textarea</h5>
+        {{example-snippet snippet='textarea-basic' class='input-example' message=message}}
     </div>
-
     <div class="section">
         <h4 class="col s12 header">Select</h4>
-        <div class="intro">
-            <h5 class="col s12 header">The component supports the following options:</h5>
-            <ul>
-                <li>label, default value <span class="default-value badge">null</span></li>
-                <li>icon, default value <span class="default-value badge">null</span></li>
-                <li>prompt, default value <span class="default-value badge">null</span></li>
-                <li>content, default value <span class="default-value badge">null</span></li>
-                <li>value, default value <span class="default-value badge">null</span></li>
-                <li>optionValuePath, default value <span class="default-value badge">null</span></li>
-                <li>optionLabelPath, default value <span class="default-value badge">null</span></li>
-                <li>validate, default value <span class="default-value badge">false</span></li>
-            </ul>
-        </div>
-        <div class="input-example">
-            <br/>
+        {{#options-panel header=''}}
+            {{component-option optionId="label" }}
+            {{component-option optionId="icon" }}
+            {{component-option optionId="prompt" }}
+            {{component-option optionId="content" }}
+            {{component-option optionId="value" }}
+            {{component-option optionId="optionValuePath" }}
+            {{component-option optionId="optionLabelPath" }}
+            {{component-option optionId="validate" default="false"}}
+        {{/options-panel}}
+        <h5>Basic Select</h5>
+        {{example-snippet snippet='select-basic' class='input-example' framework=framework frameworks=frameworks}}
+    </div>
+    <div class="section">
+        <h4 class="col s12 header">Date Input</h4>
+        {{#options-panel header=''}}
+            {{component-option optionId="label" }}
+            {{component-option optionId="icon" }}
+            {{component-option optionId="value" }}
+            {{component-option optionId="required" }}
+            {{component-option optionId="readonly" }}
+            {{component-option optionId="disabled" }}
+            {{component-option optionId="selectMonths" default="true"}}
+            {{component-option optionId="numberOfYears" default="15"}}
+            {{component-option optionId="min" }}
+            {{component-option optionId="max" }}
+            {{component-option optionId="validate" default="false"}}
+        {{/options-panel}}
+        <h5>Date Input</h5>
+        {{example-snippet snippet='input-date-basic' class='input-example' dateValue=dateValue}}
+        <p>If you were born on {{dateValue}}, you are about <span class="badge white-text purple" style="position: inherit">{{ageFromDate}}</span> years old.</p>
 
-            {{md-select content=frameworks value=framework label="Framework" prompt="Please choose..."
-                optionLabelPath="content.value" optionValuePath="content"}}
-
-            <pre class=" language-markup">
-<code class=" col s12 language-markup">
-&#123;&#123;md-select content=frameworks value=framework label="Framework" prompt="Please choose..."
-  optionLabelPath="content.value" optionValuePath="content"&#125;&#125;
-</code>
-</pre>
-        </div>
+    </div>
+    <div class="section">
+        <h4 class="col s12 header">Range Input</h4>
+        {{#options-panel header=''}}
+          {{component-option optionId="value" default=0}}
+          {{component-option optionId="min" default=0}}
+          {{component-option optionId="max" default=100}}
+          {{component-option optionId="step" default=5}}
+          {{component-option optionId="disabled" default=false}}
+        {{/options-panel}}
+        <h5>Range Input</h5>
+        {{example-snippet snippet='input-range-basic' class='input-example' rangeValue=rangeValue}}
+    </div>
+    <div class="section">
+        <h4 class="col s12 header">Checkbox</h4>
+        {{#options-panel header=''}}
+          {{component-option optionId="checked" default="false"}}
+          {{component-option optionId="name" }}
+          {{component-option optionId="disabled" default="false"}}
+        {{/options-panel}}
+        <h5>Checkbox</h5>
+        {{example-snippet snippet='input-check-basic' class='checkbox-example' checkboxIsSelected=checkboxIsSelected}}
     </div>
 
     <div class="section">
-        <h4 class="col s12 header">Date Input</h4>
-        <div class="intro">
-            <h5 class="col s12 header">The component supports the following options:</h5>
-            <ul>
-                <li>label, default value <span class="default-value badge">null</span></li>
-                <li>icon, default value <span class="default-value badge">null</span></li>
-                <li>value, default value <span class="default-value badge">null</span></li>
-                <li>required, default value <span class="default-value badge">null</span></li>
-                <li>readonly, default value <span class="default-value badge">null</span></li>
-                <li>disabled, default value <span class="default-value badge">null</span></li>
-                <li>selectMonths, default value <span class="default-value badge">true</span></li>
-                <li>numberOfYears, default value <span class="default-value badge">15</span></li>
-                <li>min, default value <span class="default-value badge">null</span></li>
-                <li>max, default value <span class="default-value badge">null</span></li>
-                <li>validate, default value <span class="default-value badge">false</span></li>
-            </ul>
-        </div>
-
-        <div class="input-example">
-            <br/>
-            {{md-input-date label='Birthday' icon="mdi-action-face-unlock" value=dateValue}}
-            <p>If you were born on {{dateValue}}, you are about <span class="badge white-text purple" style="position: inherit">{{ageFromDate}}</span> years old.</p>
-<pre class=" language-markup">
-<code class=" col s12 language-markup">
-&#123;&#123;md-input-date label='Birthday' icon="mdi-action-face-unlock" value=dateValue&#125;&#125;
-</code>
-</pre>
-        </div>
+        <h4 class="col s12 header">Switch</h4>
+        {{#options-panel header=''}}
+          {{component-option optionId="onLabel" default="On"}}
+          {{component-option optionId="offLabel" default="Off"}}
+          {{component-option optionId="checked" default="false"}}
+          {{component-option optionId="disabled" default="false"}}
+        {{/options-panel}}
+        <h5>Switch</h5>
+        {{example-snippet snippet='input-switch-basic' class='switch-example' switchValue=switchValue notSwitchValue=notSwitchValue}}
     </div>
+    <div class="section">
+        <h4 class="col s12 header">Checkbox, Radio button and Switch lists</h4>
+        {{#options-panel header=''}}
+          {{component-option optionId="selection" default="null"}}
+          {{component-option optionId="content" default="null"}}
+          {{component-option optionId="optionValuePath" default="content"}}
+          {{component-option optionId="optionLabelPath" default="content"}}
+          {{component-option optionId="disabled" default="false"}}
+        {{/options-panel}}
 
-
-  <div class="section">
-    <h4 class="col s12 header">Range</h4>
-    <div class="intro">
-      <h5 class="col s12 header">This component supports many options:</h5>
-      <ul>
-        <li>value, default value <span class="default-value badge">0</span></li>
-        <li>min, default value <span class="default-value badge">0</span></li>
-        <li>max, default value <span class="default-value badge">100</span></li>
-        <li>step, default value <span class="default-value badge">5</span></li>
-        <li>disabled, default value <span class="default-value badge">false</span></li>
-      </ul>
-    </div>
-    <div class="tabs-example">
-      <!-- Begin example -->
-      <form action="">
-        <div class="row">
-          <div class="col s12">
-            <p>
-              Value: {{rangeValue}}
-            </p>
-            {{md-range value=rangeValue min=50 name="My Range"}}
-          </div>
-        </div>
-      </form>
-      <!-- End example -->
-      <pre class=" language-markup">
-        <code class=" col s12 language-markup">
-    <span>&#123;&#123;</span>md-range value=rangeValue min=50<span>&#125;&#125;</span>
-        </code>
-      </pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h4 class="col s12 header">Checkbox</h4>
-    <div class="intro">
-      <h5 class="col s12 header">This component supports many options:</h5>
-      <ul>
-        <li>checked, default value <span class="default-value badge">false</span></li>
-        <li>name, default value <span class="default-value badge">null</span></li>
-        <li>disabled, default value <span class="default-value badge">false</span></li>
-      </ul>
-    </div>
-    <div class="checkbox-example">
-      <!-- Begin example -->
-      <form action="">
-        <div class="row">
-          <div class="col s12">
-            {{md-check name="A single checkbox" checked=checkboxIsSelected}}
-          </div>
-        </div>
-      </form>
-      <!-- End example -->
-      <pre class=" language-markup">
-        <code class=" col s12 language-markup">
-    <span>&#123;&#123;</span>md-check name="A single checkbox" checked=checkboxIsSelected<span>&#125;&#125;</span>
-        </code>
-      </pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h4 class="col s12 header">Switch</h4>
-    <div class="intro">
-      <h5 class="col s12 header">This component supports many options:</h5>
-      <ul>
-        <li>onLabel, default value <span class="default-value badge">On</span></li>
-        <li>offLabel, default value <span class="default-value badge">Off</span></li>
-        <li>checked, default value <span class="default-value badge">false</span></li>
-        <li>disabled, default value <span class="default-value badge">false</span></li>
-      </ul>
-    </div>
-    <div class="switch-example">
-      <!-- Begin example -->
-      <form action="">
-        <div class="row">
-          <div class="col s12">
-            <p>{{md-switch checked=switchValue}}</p>
-            <p>{{md-switch checked=switchValue onLabel="Enabled" offLabel="Disabled"}}</p>
-            <p>{{md-switch disabled=notSwitchValue checked=false}}</p>
-          </div>
-        </div>
-
-      </form>
-      <!-- End example -->
-      <pre class=" language-markup">
-        <code class=" col s12 language-markup">
-    <span>&#123;&#123;</span>md-switch checked=switchValue<span>&#125;&#125;</span>
-    <span>&#123;&#123;</span>md-switch checked=switchValue onLabel="Enabled" offLabel="Disabled"<span>&#125;&#125;</span>
-    <span>&#123;&#123;</span>md-switch checked=switchValue1 disabled=notSwitchValue<span>&#125;&#125;</span>
-        </code>
-      </pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h4 class="col s12 header">Checkbox, Radio button and Switch lists</h4>
-    <div class="tabs-example">
-      <div class="intro">
-        <h5 class="col s12 header">These components are all very similar, and support many options:</h5>
-        <ul>
-          <li>selection, default value <span class="default-value badge">null</span></li>
-          <li>content, default value <span class="default-value badge">null</span></li>
-          <li>optionValuePath, default value <span class="default-value badge">content</span></li>
-          <li>optionLabelPath, default value <span class="default-value badge">content</span></li>
-          <li>disabled, default value <span class="default-value badge">false</span></li>
-        </ul>
-      </div>
-
-
-      <!-- Begin example -->
-      <form action="">
-        <div class="row">
-          <div class="col s12">
-            <p>Selection: {{#each checkboxSelections as |str|}}
+        <h5>Multi-Select Switch List</h5>
+        <p>Selection:
+          {{#each checkboxSelections as |str|}}
             {{md-badge text=str class="default-value blue white-text"}}
           {{/each}}
-           </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col l6 m6 s12">
+        </p>
+        {{example-snippet snippet='input-switch-list' class='checkbox-example' checkboxChoices=checkboxChoices checkboxSelections=checkboxSelections}}
 
-            {{md-checks
-              selection=checkboxSelections
-              content=checkboxChoices
-              optionValuePath='id'
-              optionLabelPath='label'}}
+        <h5>Single-Select Switch List</h5>
+        <p>Selection: {{md-badge text=radioSelection class="default-value blue white-text"}}</p>
+        {{example-snippet snippet='input-switch-list-exclusive' class='checkbox-example' radioSelection=radioSelection}}
 
-          </div>
-          <div class="col l6 m6 s12">
-            {{md-switches
-              selection=checkboxSelections
-              content=checkboxChoices
-              optionValuePath='id'
-              optionLabelPath='label'}}
+        <h5>Checkbox List</h5>
+        <p>Selection:
+          {{#each checkboxSelections as |str|}}
+            {{md-badge text=str class="default-value blue white-text"}}
+          {{/each}}
+        </p>
+        {{example-snippet snippet='input-check-list' class='checkbox-example' checkboxChoices=checkboxChoices checkboxSelections=checkboxSelections}}
 
-          </div>
-        </div>
-        <div class="row">
-          <div class="col s12">
-            <p>Selection: {{md-badge text=radioSelection class="default-value blue white-text"}}</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col l6 m6 s12">
-            {{#md-radios
-              selection=radioSelection
-              optionValuePath='id'
-              optionLabelPath='text'}}
-              <p>{{md-radio value=1 name="One"}}</p>
-                <p>{{md-radio value=2 name="Two"}}</p>
-              {{/md-radios}}
-          </div>
-          <div class="col l6 m6 s12">
-            {{#md-switches
-              multiple=false
-              selection=radioSelection
-              optionValuePath='id'
-              optionLabelPath='text'}}
-                <p>{{md-switch value=1 name="One"}}</p>
-                <p>{{md-switch value=2 name="Two"}}</p>
-              {{/md-switches}}
-          </div>
-        </div>
+        <h5>Radio List</h5>
+        <p>Selection: {{md-badge text=radioSelection class="default-value blue white-text"}}</p>
 
-      </form>
-      <!-- End example -->
-      <p>Pass an array of selection choices to either of these three helpers, with a "selection" binding that should be either a singular value or an array, depending on whether the group allows single or multiple selection</p>
-      <pre class=" language-markup">
-        <code class=" col s12 language-markup">
-    <span>&#123;&#123;</span>md-checks
-        selection=checkboxSelections
-        content=checkboxChoices
-        optionValuePath='id'
-        optionLabelPath='label'<span>&#125;&#125;</span>
-
-    <span>&#123;&#123;</span>md-radios
-        selection=radioSelection
-        content=radioChoices
-        optionValuePath='id'
-        optionLabelPath='text'<span>&#125;&#125;</span>
-
-    <span>&#123;&#123;</span>md-switches
-        multiple=false
-        selection=radioSelection
-        content=radioChoices
-        optionValuePath='id'
-        optionLabelPath='text'<span>&#125;&#125;</span>
-
-        </code>
-      </pre>
-      <p>Alternatively, declarative syntax is available</p>
-      <pre class="language-markup">
-        <code class="col s12 language-markup">
-    <span>&#123;&#123;</span>#md-switches
-        multiple=false
-        selection=radioSelection<span>&#125;&#125;</span>
-
-        &lt;p&gt;<span>&#123;&#123;</span>md-switch value=1 name="One"<span>&#125;&#125;</span>&lt;/p&gt;
-        &lt;p&gt;<span>&#123;&#123;</span>md-switch value=2 name="Two"<span>&#125;&#125;</span>&lt;/p&gt;
-
-    <span>&#123;&#123;</span>/md-switches<span>&#125;&#125;</span>
-        </code>
-      </pre>
+        {{example-snippet snippet='input-radio-list' class='checkbox-example' radioSelection=radioSelection}}
     </div>
-  </div>
-
-
 
 </div>

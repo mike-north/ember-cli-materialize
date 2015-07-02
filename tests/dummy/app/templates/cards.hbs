@@ -1,159 +1,34 @@
-<div class="section index-banner">
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m9">
-                <h1 class="header">Cards</h1>
-            </div>
-        </div>
-    </div>
-</div>
+{{example-header title="Cards"}}
 
 <div class='container'>
-    <div class="section">
-        <div class="intro">
-            <h4 class="col s12 header">The component supports the following options:</h4>
-            <ul>
-                <li>title, default value <span class="default-value badge">null</span></li>
-                <li>titleClass, default value <span class="default-value badge">black-text</span></li>
-                <li>class, default value <span class="default-value badge">null</span></li>
-                <li>image, default value <span class="default-value badge">null</span></li>
-                <li>activator, default value <span class="default-value badge">null</span></li>
-                <li>bodyClass, default value <span class="default-value badge">null</span></li>
-            </ul>
-        </div>
-    </div>
+
+    {{#options-panel}}
+        {{component-option optionId="title"}}
+        {{component-option optionId="titleClass" default="black-text"}}
+        {{component-option optionId="class"}}
+        {{component-option optionId="image"}}
+        {{component-option optionId="activator"}}
+        {{component-option optionId="bodyClass"}}
+    {{/options-panel}}
+
     <div class="section">
         <h4 class="col s12 header">Basic Card</h4>
-        <div class="card-example">
-
-            <div class="row">
-                <div class="col s12 m7">
-                    {{#md-card title="Card Title" id="basic-card"}}
-                        {{#md-card-content}}
-                            I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.
-                        {{/md-card-content}}
-                        {{#md-card-action}}
-                            {{#link-to "cards"}}Link 1{{/link-to}}
-                            {{#link-to "cards"}}Link 2{{/link-to}}
-                        {{/md-card-action}}
-                    {{/md-card}}
-                </div>
-            </div>
-
-            <pre class=" language-markup">
-<code class=" col s12 language-markup">
-&#123;&#123;#md-card title="Card Title"&#125;&#125;
-  &#123;&#123;#md-card-content&#125;&#125;
-      I am a very simple card. I am good at containing small bits of information.
-      I am convenient because I require little markup to use effectively.
-  &#123;&#123;/md-card-content&#125;&#125;
-  &#123;&#123;#md-card-action&#125;&#125;
-    &#123;&#123;#link-to "cards"&#125;&#125;Link 1&#123;&#123;/link-to&#125;&#125;
-    &#123;&#123;#link-to "cards"&#125;&#125;Link 2&#123;&#123;/link-to&#125;&#125;
-  &#123;&#123;/md-card-action&#125;&#125;
-&#123;&#123;/md-card}}
-</code>
-      </pre>
-        </div>
+        {{example-snippet snippet='cards-basic' class='card-example' exampleFrameClass="col m8 s12"}}
     </div>
 
     <div class="section">
         <h4 class="col s12 header">Image Card</h4>
-        <div class="card-example">
-
-            <div class="row">
-                <div class="col s12 m7">
-                    {{#md-card title="Card Title" titleClass="orange-text" image="images/ember.png" id="image-card"}}
-                        {{#md-card-content}}
-                            I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.
-                        {{/md-card-content}}
-                        {{#md-card-action}}
-                            {{#link-to "cards"}}Link 1{{/link-to}}
-                            {{#link-to "cards"}}Link 2{{/link-to}}
-                        {{/md-card-action}}
-                    {{/md-card}}
-                </div>
-            </div>
-
-            <pre class="language-markup">
-<code class=" col s12 language-markup">
-&#123;&#123;#md-card title="Card Title" titleClass="orange-text" image="images/ember.png"&#125;&#125;
-  &#123;&#123;#md-card-content&#125;&#125;
-      I am a very simple card. I am good at containing small bits of information.
-      I am convenient because I require little markup to use effectively.
-  &#123;&#123;/md-card-content&#125;&#125;
-  &#123;&#123;#md-card-action&#125;&#125;
-    &#123;&#123;#link-to "cards"&#125;&#125;Link 1&#123;&#123;/link-to&#125;&#125;
-    &#123;&#123;#link-to "cards"&#125;&#125;Link 2&#123;&#123;/link-to&#125;&#125;
-  &#123;&#123;/md-card-action&#125;&#125;
-&#123;&#123;/md-card&#125;&#125;
-</code>
-      </pre>
-        </div>
+        {{example-snippet snippet='cards-image' class='card-example' exampleFrameClass="col m6 s12"}}
     </div>
 
     <div class="section">
         <h4 class="col s12 header">Card Reveal</h4>
-        <div class="card-example">
-
-            <div class="row">
-                <div class="col s12 m7">
-                  {{#md-card title="Card Title" image="images/ember-cli.png" activator=true id="card-reveal"}}
-                    {{#md-card-content}}
-                      {{#link-to "cards"}}This is a Link{{/link-to}}
-                    {{/md-card-content}}
-                    {{#md-card-reveal}}
-                        Here is some more information about this product that is only revealed once clicked on.
-                    {{/md-card-reveal}}
-                  {{/md-card}}
-                </div>
-            </div>
-
-            <pre class="language-markup">
-<code class=" col s12 language-markup">
-&#123;&#123;#md-card title="Card Title" image="images/ember-cli.png" activator=true&#125;&#125;
-  &#123;&#123;#md-card-content&#125;&#125;
-    &#123;&#123;#link-to "cards"&#125;&#125;This is a Link&#123;&#123;/link-to&#125;&#125;
-  &#123;&#123;/md-card-content&#125;&#125;
-  &#123;&#123;#md-card-reveal&#125;&#125;
-      Here is some more information about this product that is only revealed once clicked on.
-  &#123;&#123;/md-card-reveal&#125;&#125;
-&#123;&#123;/md-card}}
-</code>
-      </pre>
-        </div>
+        {{example-snippet snippet='cards-reveal' class='card-example' exampleFrameClass="col m6 s12"}}
     </div>
-
 
     <div class="section">
         <h4 class="col s12 header">Card Panel</h4>
-        <div class="card-example">
-
-            <div class="row">
-                <div class="col s12 m5">
-                  {{#md-card-panel class="teal" bodyClass="white-text" id="card-panel"}}
-                      I am a very simple card.
-                      I am good at containing small bits of information.
-                      I am convenient because I require little markup to use effectively.
-                      I am similar to what is called a panel in other frameworks.
-                  {{/md-card-panel}}
-                </div>
-            </div>
-
-            <pre class="language-markup">
-<code class=" col s12 language-markup">
-&#123;&#123;#md-card-panel class="teal" bodyClass="white-text"&#125;&#125;
-    I am a very simple card.
-    I am good at containing small bits of information.
-    I am convenient because I require little markup to use effectively.
-    I am similar to what is called a panel in other frameworks.
-&#123;&#123;/md-card-panel&#125;&#125;
-</code>
-      </pre>
-        </div>
+        {{example-snippet snippet='cards-panel' class='card-example' exampleFrameClass="col m8 s12"}}
     </div>
-
 
 </div>

@@ -1,0 +1,12 @@
+{{#if modalIsOpen}}
+    {{#md-modal close='closeModal' class="test-modal"}}
+        <div class="modal-content">
+            <h4>Hello Modal</h4>
+            <p>Oh hai there!</p>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-action modal-close waves-effect waves-green btn-flat agree-button" {{action 'agree'}}>Agree</a>
+            <a class="modal-action modal-close waves-effect waves-green btn-flat cancel-button" {{action 'closeModal'}}>Cancel</a>
+        </div>
+    {{/md-modal}}
+{{/if}}

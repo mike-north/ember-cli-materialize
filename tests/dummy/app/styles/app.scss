@@ -29,8 +29,6 @@ $button-color: #e51c23;
   font-size: 0.9rem;
 }
 
-
-
 a {
   color: $button-color;
 }
@@ -45,6 +43,7 @@ a {
     position: inherit;
   }
 }
+
 .intro {
   font-size: 1.2em;
 }
@@ -68,17 +67,21 @@ a {
     display: inherit;
   }
 }
+
 nav .brand-logo {
   white-space: nowrap;
   padding-left: 20px;
 }
+
 .code-comment {
   color: #aaa;
 }
+
 .ember-logo {
   height: 48px;
   padding-top: 15px;
 }
+
 .top-nav-container {
   float: right;
   max-width: calc(100% - 260px);
@@ -92,6 +95,7 @@ nav .brand-logo {
     }
   }
 }
+
 .fixed-btns-example {
   position: relative;
   display: inline-block;
@@ -99,19 +103,13 @@ nav .brand-logo {
   bottom: 0;
 }
 
- main, footer {
-    padding-left: 240px;
-  }
+header, main, footer.demo-footer {
+  padding-left: 240px;
+}
 
-  @media only screen and (max-width : 992px) {
-    main, footer {
-      padding-left: 0;
-    }
-  }
-.demo-page-nav {
-
-  .nav-wrapper {
-    z-index: 1000;
+@media only screen and (max-width : 992px) {
+  main, footer.demo-footer, header {
+    padding-left: 0;
   }
 }
 
@@ -120,6 +118,11 @@ nav .brand-logo {
     margin-top: 75px;
   }
 }
+
 .navbar-fixed {
   z-index: 10000;
+}
+.option-description {
+  font-size: 0.8rem;
+  margin-left: 40px;
 }

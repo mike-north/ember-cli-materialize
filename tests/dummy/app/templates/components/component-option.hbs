@@ -1,0 +1,12 @@
+<li>
+  {{optionId}},
+  {{#if required}}
+    {{#md-badge class='red darken-2 white-text'}}Required{{/md-badge}}
+  {{else}}
+    {{#md-badge class='grey lighten-2'}}Optional{{/md-badge}}
+  {{/if}}
+  default value <span class="default-value badge">{{if default default 'null'}}</span>
+  {{#if description}}
+    <p class='option-description grey-text'>{{description}}</p>
+  {{/if}}
+</li>

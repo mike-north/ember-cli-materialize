@@ -1,37 +1,13 @@
-<div class="section index-banner">
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m9">
-                <h1 class="header">Copyright</h1>
-            </div>
-        </div>
-    </div>
-</div>
+{{example-header title="Copyright"}}
 
 <div class='container'>
-    <div class="section">
-        <div class="intro">
-            <h4 class="col s12 header">The component supports two options:</h4>
-            <ul>
-                <li>text, default value <span class="default-value badge">null</span></li>
-                <li>startYear, default value <span class="default-value badge">null</span></li>
-            </ul>
-        </div>
-    </div>
+    {{#options-panel}}
+      {{component-option optionId="text"}}
+      {{component-option optionId="startYear"}}
+    {{/options-panel}}
+
     <div class="section">
         <h4 class="col s12 header">Copyright</h4>
-        <div class="copyright-example">
-          {{#md-copyright text='Copyright Text' startYear=2014}}
-              <a class="grey-text text-lighten-1 right" href="#!">More Links</a>
-          {{/md-copyright}}
-          <br>
-          <pre class=" language-markup">
-            <code class=" col s12 language-markup">
-              <span>&#123;&#123;</span>#md-copyright text='Copyright Text' startYear=2014<span>&#125;&#125;</span>
-                <span>&#60;</span>a class="grey-text text-lighten-1 right" href="#!">More Links<span>&#60;</span>/a<span>&#62;</span>
-              <span>&#123;&#123;</span>/md-copyright<span>&#125;&#125;</span>
-            </code>
-          </pre>
-        </div>
+        {{example-snippet snippet='copyright-basic' class='copyright-example'}}
     </div>
 </div>

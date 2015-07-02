@@ -1,85 +1,40 @@
-<div class="section index-banner">
-  <div class="container">
-    <div class="row">
-      <div class="col s12 m9">
-        <h1 class="header">Loader</h1>
-      </div>
-    </div>
-  </div>
-</div>
+{{example-header title="Loader"}}
+
 
 <div class='container'>
-  <div class="section">
-    <div class="intro">
-      <h4 class="col s12 header">The component supports one option:</h4>
-      <ul>
-        <li>mode, default value <span class="default-value badge">indeterminate</span> - Loader mode (determinate, indeterminate, circular)</li>
-        <li>percent, default value <span class="default-value badge">0</span> - Percent progress (determinate loader only)</li>
-        <li>active, default value <span class="default-value badge">true</span> - Whether the animation should be active or not (indeterminate loaders only)</li>
-        <li>color, default value <span class="default-value badge">null</span> - Circular loader color (null, yellow, blue, green, red). Setting this to null (default) will result in the color rotating</li>
-        <li>size, default value <span class="default-value badge">big</span> - Circular loader size (small, big)</li>
-      </ul>
-    </div>
-  </div>
+  {{#options-panel}}
+    {{component-option optionId="mode"
+      default="indeterminate"
+      description="Loader mode (determinate, indeterminate, circular)"}}
+    {{component-option optionId="percent"
+      default="0"
+      description="Percent progress (determinate loader only)"}}
+    {{component-option optionId="active"
+      default="true"
+      description="Whether the animation should be active or not (indeterminate loaders only)"}}
+    {{component-option optionId="color"
+      description="Circular loader color (null, yellow, blue, green, red). Setting this to null (default) will result in the color rotating"}}
+    {{component-option optionId="size"
+      default="big"
+      description="Circular loader size (small, big)"}}
+  {{/options-panel}}
 
   <!-- INDETERMINATE LOADER -->
   <div class="section">
     <h4 class="col s12 header">Indeterminate Loader</h4>
-    <div class="loader-example">
-      {{md-loader}}
-
-      <pre class=" language-markup">
-        <code class=" col s8 language-markup">
-          <span>&#123;&#123;</span>md-loader<span>&#125;&#125;</span>
-        </code>
-      </pre>
-    </div>
+    {{example-snippet snippet='progress-indeterminate' class='loader-example'}}
   </div>
 
   <!-- DETERMINATE LOADER -->
   <div class="section">
     <h4 class="col s12 header">Determinate Loader</h4>
-    <div class="loader-example">
-      <div class="row">
-        <div class="col s2">
-          {{md-input label="Percent" type="number" value=percent step=5 min=0 max=100}}
-        </div>
-        <div class="col s10">
-          {{md-loader mode="determinate" percent=percent}}
-        </div>
-      </div>
-
-      <pre class=" language-markup">
-        <code class=" col s12 language-markup">
-          <span>&#123;&#123;</span>md-loader mode="determinate"<span>&#125;&#125;</span>
-        </code>
-      </pre>
-    </div>
+    {{example-snippet snippet='progress-determinate' class='loader-example' percent=percent}}
   </div>
 
   <!-- CIRCULAR DETERMINATE LOADER -->
   <div class="section">
     <h4 class="col s12 header">Circular Indeterminate Loader</h4>
-    <div class="loader-example">
-      <div class="row">
-        <div class="col s2 center">{{md-loader mode="circular"}}</div>
-        <div class="col s2 center">{{md-loader mode="circular" size="small"}}</div>
-        <div class="col s2 center">{{md-loader mode="circular" color="blue"}}</div>
-        <div class="col s2 center">{{md-loader mode="circular" color="red"}}</div>
-        <div class="col s2 center">{{md-loader mode="circular" color="green"}}</div>
-        <div class="col s2 center">{{md-loader mode="circular" color="yellow"}}</div>
-      </div>
-
-      <pre class=" language-markup">
-        <code class=" col s12 language-markup">
-          <span>&#123;&#123;</span>md-loader mode="circular"<span>&#125;&#125;</span>
-          <span>&#123;&#123;</span>md-loader mode="circular" size="small"<span>&#125;&#125;</span>
-          <span>&#123;&#123;</span>md-loader mode="circular" color="blue"<span>&#125;&#125;</span>
-          <span>&#123;&#123;</span>md-loader mode="circular" color="red"<span>&#125;&#125;</span>
-          <span>&#123;&#123;</span>md-loader mode="circular" color="green"<span>&#125;&#125;</span>
-          <span>&#123;&#123;</span>md-loader mode="circular" color="yellow"<span>&#125;&#125;</span>
-        </code>
-      </pre>
-    </div>
+    {{example-snippet snippet='progress-circular' class='loader-example'}}
   </div>
+
 </div>

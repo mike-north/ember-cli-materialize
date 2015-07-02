@@ -18,32 +18,32 @@ module('Acceptance - Collapsible', {
 test('Collapsible basic tests', function(assert) {
 
   andThen(function() {
-    assert.equal(find('#accordion>li').length, 3, 'Accordion should have 3 headers');
-    assert.equal(find('#expandable>li').length, 3, 'Expandable should have 3 headers');
-    assert.equal(find('#preselected>li').length, 3, 'Preselected should have 3 headers');
-    assert.equal(find('#accordion>li>.active').length, 0, 'Accordion should not have an active collapsible');
-    assert.equal(find('#expandable>li>.active').length, 0, 'Expandable should not have an active collapsible');
-    assert.equal(find('#preselected>li>.active').length, 1, 'Preselected should have an active collapsible');
-    assert.equal(find('#action-selection>li').length, 3, 'Action selection should also have 3 headers');
+    assert.equal(find('.accordion-example ul > li').length, 3, 'Accordion should have 3 headers');
+    assert.equal(find('.expandable-example ul > li').length, 3, 'Expandable should have 3 headers');
+    assert.equal(find('.preselected-example ul >li').length, 3, 'Preselected should have 3 headers');
+    assert.equal(find('.accordion-example ul > li>.active').length, 0, 'Accordion should not have an active collapsible');
+    assert.equal(find('.expandable-example ul > li>.active').length, 0, 'Expandable should not have an active collapsible');
+    assert.equal(find('.preselected-example ul > li>.active').length, 1, 'Preselected should have an active collapsible');
+    assert.equal(find('.action-selection-example ul > li').length, 3, 'Action selection should also have 3 headers');
   });
-  
+
 });
 
 test('Action collapsible operations', function(assert){
   andThen(function(){
-    assert.equal(find("#selected-action").text(), "", "there should be no selected action");
+    assert.equal(find(".selected-action").text(), "", "there should be no selected action");
   });
 
-  click('#action-selection>li:first-child>.collapsible-header');
-  
+  click('.action-selection-example ul > li:first-child > .collapsible-header');
+
   andThen(function(){
-    assert.equal(find("#selected-action").text(), "cloud", "after clicking, we should have the correct selected action");
-    assert.equal(find('#action-selection>li>.active').length, 1, "we should have an activated tab");
+    assert.equal(find(".selected-action").text(), "cloud", "after clicking, we should have the correct selected action");
+    assert.equal(find('.action-selection-example ul > li > .active').length, 1, "we should have an activated tab");
   });
 
-  click('#action-selection>li:nth-child(2)>.collapsible-header');
+  click('.action-selection-example ul > li:nth-child(2) > .collapsible-header');
 
   andThen(function(){
-    assert.equal(find("#selected-action").text(), "marker", "clicking another header should fire the action again");
-  });  
+    assert.equal(find(".selected-action").text(), "marker", "clicking another header should fire the action again");
+  });
 });

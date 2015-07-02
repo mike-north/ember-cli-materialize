@@ -14,12 +14,13 @@ export default Ember.Controller.extend({
       {id: 1, value: 'Materialize CSS'},
       {id: 2, value: 'Ember-CLI Materialize'}
   ]),
-
+  message: "This is a long message. It might flow to the next line if I keep typing, so it's better suited to a textarea",
   errors: Ember.Object.create({
     name: new Ember.A([]),
     framework: new Ember.A([])
   }),
 
+  // BEGIN-SNIPPET form-validation-basic
   nameDidChange: Ember.observer('name', function() {
     var errors = this.get('errors');
     var messages = [];
@@ -29,6 +30,7 @@ export default Ember.Controller.extend({
     errors.set('name', messages);
     this.set('errors', errors);
   }),
+  // END-SNIPPET
 
   frameworkDidChange: Ember.observer('framework', function() {
     var self = this;
