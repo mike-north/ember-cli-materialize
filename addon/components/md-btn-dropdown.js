@@ -11,11 +11,11 @@ export default MaterializeButton.extend({
   attributeBindings: [
     'activates:data-activates', 'inDuration', 'outDuration', 'constrainWidth', 'hover', 'gutter', 'belowOrigin'
   ],
-  didInsertElement: function () {
+  didInsertElement() {
     this._super(...arguments);
     Ember.run.scheduleOnce('afterRender', this, this._setupDropdown);
   },
-  _setupDropdown: function () {
+  _setupDropdown() {
     Ember.assert("Required attribute 'activates' not specified on 'materialize/dropdown-button' component", !Ember.isNone(this.get('activates')));
 
     this.$().dropdown({
