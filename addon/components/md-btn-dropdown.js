@@ -1,7 +1,5 @@
 import Ember from 'ember';
 import MaterializeButton from './md-btn';
-import layout from '../templates/components/md-btn';
-import computed from 'ember-new-computed';
 
 export default MaterializeButton.extend({
   tagName: 'a',
