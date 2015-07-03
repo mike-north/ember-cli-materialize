@@ -1,3 +1,4 @@
+import MdSettings from 'ember-cli-materialize/services/md-settings';
 import Ember from 'ember';
 
 import {
@@ -45,7 +46,9 @@ test('button text test', function(assert) {
 });
 
 test('button icon test', function(assert) {
-  var component = this.subject();
+  var component = this.subject({
+    iconPosition: 'left'
+  });
   this.render();
 
   Ember.run(function(){
