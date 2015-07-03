@@ -1,15 +1,18 @@
 import Ember from 'ember';
+import UsesSettings from '../mixins/uses-settings';
 import layout from '../templates/components/md-loader';
 import computed from 'ember-new-computed';
 
-export default Ember.Component.extend({
+const { computed: { oneWay } } = Ember;
+
+export default Ember.Component.extend(UsesSettings, {
   layout: layout,
 
   classNameBindings: ['isBarType:progress:preloader-wrapper', 'active:active', 'size'],
 
-  mode: 'indeterminate',
+  mode: oneWay('_mdSettings.loaderMode'),
   percent: 0,
-  size: 'big',
+  size: oneWay('_mdSettings.loaderSize'),
   active: true,
   color: null,
 

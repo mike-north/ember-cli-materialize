@@ -1,8 +1,12 @@
+import Ember from 'ember';
+import UsesSettings from '../mixins/uses-settings';
 import YappModal from 'ember-modal-dialog/components/modal-dialog';
 import layout from '../templates/components/md-modal';
 import computed from 'ember-new-computed';
 
-export default YappModal.extend({
+const { computed: { oneWay } } = Ember;
+
+export default YappModal.extend(UsesSettings, {
   layout: layout,
 
   destinationElementId: "materialize-modal-root-element",
@@ -17,13 +21,13 @@ export default YappModal.extend({
     }
   }),
 
-  fixedFooter: false,
+  isFooterFixed: oneWay('_mdSettings.modalIsFooterFixed'),
 
   modalClassNames: ['modal', 'show'],
-  _modalClassString: computed('modalClassNames.@each', 'fixedFooter', {
+  _modalClassString: computed('modalClassNames.@each', 'isFooterFixed', {
     get() {
       let names = this.get('modalClassNames');
-      if (this.get('fixedFooter')) {
+      if (this.get('isFooterFixed')) {
         names.push('modal-fixed-footer');
       }
       return names.join(' ');

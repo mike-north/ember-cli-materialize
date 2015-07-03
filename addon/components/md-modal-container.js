@@ -1,7 +1,10 @@
 import Ember from 'ember';
+import UsesSettings from '../mixins/uses-settings';
 import layout from '../templates/components/md-modal-container';
 
-export default Ember.Component.extend({
-  modalContainerId: 'materialize-modal-root-element',
+const { computed: { oneWay } } = Ember;
+
+export default Ember.Component.extend(UsesSettings, {
+  modalContainerId: oneWay('_mdSettings.modalContainerId'),
   layout: layout
 });

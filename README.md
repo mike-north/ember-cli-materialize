@@ -35,6 +35,9 @@ $ ember serve
 ```
 
 ### Configuration
+
+#### Style
+
 Using **SASS** makes configuring the color scheme simple. Just make sure you import `components/color` and `components/variables` before `materialize` like the example below.
 
 ```scss
@@ -49,6 +52,25 @@ $primary-color: color("pink", "lighten-2");
 ```
 See the materialize docs on sass variables [here](http://materializecss.com/color.html).
 
+#### Defaults
+
+Some of the library's defaults can be set via your **config/environment.js** file
+
+```javascript
+module.exports = function(/* environment, appConfig */) {
+  var ENV = {
+    materializeDefaults: {
+      modalIsFooterFixed: false,
+      buttonIconPosition: 'left',
+      loaderSize:         'big',
+      loaderMode:         'indeterminate',
+      modalContainerId:   'materialize-modal-root-element'
+    },
+    ...
+  };
+}
+
+```
 
 ## Installation
 
