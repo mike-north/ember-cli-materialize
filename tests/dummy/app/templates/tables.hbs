@@ -1,0 +1,63 @@
+{{example-header title="Tables"}}
+
+<div class='container'>
+
+  {{#options-panel componentName='md-table'}}
+    {{component-option optionId="content" required=true description='an array of objects, each of which will become a row in the table'}}
+  {{/options-panel}}
+  {{#options-panel componentName='md-table-col'}}
+    {{component-option optionId="key" required=true default='valueBindingPath' description='a unique key for the column -- used to maintain a set of column models'}}
+    {{component-option optionId="row" required=true description="pass the row through each column, as it's yielded by the md-table component"}}
+
+    {{component-option optionId="header" default='valueBindingPath' description='column header text (or value)'}}
+    {{component-option optionId="valueBindingPath" description='the on each row object to render into the columns cells'}}
+
+    {{component-option optionId="headerView" default='ember-cli-materialize/views/default-column-view' description='Ember view to use to render the column header'}}
+
+  {{/options-panel}}
+  <div class="section">
+    <h4 class="col s12 header">Basic Table</h4>
+    {{example-snippet snippet='tables-basic' content=content class='basic-table'}}
+  </div>
+
+  <div class="section">
+    <h4 class="col s12 header">Bordered Table</h4>
+    {{example-snippet snippet='tables-bordered' content=content}}
+  </div>
+
+  <div class="section">
+    <h4 class="col s12 header">Striped Table</h4>
+    {{example-snippet snippet='tables-striped' content=content}}
+  </div>
+
+  <div class="section">
+    <h4 class="col s12 header">Hoverable Table</h4>
+    {{example-snippet snippet='tables-hoverable' content=content}}
+  </div>
+
+  <div class="section">
+    <h4 class="col s12 header">Centered Table</h4>
+    {{example-snippet snippet='tables-centered' content=content}}
+  </div>
+
+  <div class="section">
+    <h4 class="col s12 header">Responsive Table</h4>
+    {{example-snippet snippet='tables-responsive' content=content}}
+  </div>
+
+  <div class="section">
+    <h4 class="col s12 header">Customizing Cells</h4>
+    {{example-snippet snippet='tables-custom-cell' content=content class='custom-cells'}}
+  </div>
+
+  <div class="section">
+    <h4 class="col s12 header">Customizing Headers</h4>
+    <p>First you need to create a new column header view</p>
+    <b>app/views/my-column-header.js</b>
+    {{code-snippet name='my-column-header.js'}}
+    <b>app/templates/my-column-header.hbs</b>
+    {{code-snippet name='my-column-header.hbs'}}
+    <p>...and then you can pass this new column header view to one or more columns</p>
+    {{example-snippet snippet='tables-custom-header' content=content class='custom-headers'}}
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<thead>
+  <tr>
+    {{#each columnComponents as |column|}}
+      {{view column.headerView column=column}}
+    {{/each}}
+  </tr>
+</thead>
+<tbody>
+  {{#each content as |row|}}
+    <tr>
+      {{yield row}}
+    </tr>
+  {{/each}}
+</tbody>

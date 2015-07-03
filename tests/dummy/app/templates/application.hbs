@@ -16,7 +16,12 @@
 <ul class="side-nav fixed demo-page-submenu" id="mobile-demo">
   {{#each demoSections as |section|}}
     {{#link-to section.route activeClass='active' tagName='li'}}
-      {{link-to section.name section.route class="deep-orange-text text-darken-2"}}
+      {{#link-to section.route}}
+        {{section.name}}
+        {{#if section.new}}
+          {{#md-badge class='deep-orange lighten-1 new-badge right white-text'}}New{{/md-badge}}
+        {{/if}}
+      {{/link-to}}
     {{/link-to}}
   {{/each}}
 </ul>

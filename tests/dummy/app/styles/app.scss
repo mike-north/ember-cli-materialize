@@ -3,6 +3,11 @@ $button-color: #e51c23;
 @import 'materialize';
 @import 'code';
 
+span.new-badge {
+  padding-right: 15px;
+  padding-left: 10px;
+  margin-right: -20px;
+}
 
 .index-banner {
   background-color: color('grey', 'lighten-3');
@@ -114,8 +119,12 @@ header, main, footer.demo-footer {
 }
 
 .demo-page-submenu {
-  li:first-child {
-    margin-top: 75px;
+  li:hover,
+  li.active {
+    background-color: color('deep-orange', 'lighten-2');
+    a {
+      color: white;
+    }
   }
 }
 
