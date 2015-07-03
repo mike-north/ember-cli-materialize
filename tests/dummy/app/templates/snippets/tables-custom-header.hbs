@@ -1,0 +1,8 @@
+{{#md-table content=content as |row|}}
+  {{md-table-col row=row
+    valueBindingPath='id'
+    headerView='my-column-header'}}
+  {{md-table-col row=row
+    valueBindingPath='name'
+    headerView='my-column-header'}}
+{{/md-table}}

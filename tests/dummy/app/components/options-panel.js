@@ -1,5 +1,11 @@
 import Ember from 'ember';
+import computed from 'ember-new-computed';
 
 export default Ember.Component.extend({
-  header: 'The component supports many options:'
+  componentName: '',
+  header: computed('componentName', {
+    get() {
+      return `${this.get('componentName')} component options are:`;
+    }
+  })
 });

@@ -1,0 +1,17 @@
+<h5>Example 1</h5>
+
+{{#md-table content=content as |row|}}
+  {{md-table-col row=row valueBindingPath='id'}}
+  {{md-table-col row=row valueBindingPath='name'}}
+{{/md-table}}
+
+<h5>Example 2</h5>
+
+{{#md-table content=content as |row|}}
+  {{#md-table-col row=row key='id' header='Person Id'}}
+    {{row.id}}
+  {{/md-table-col}}
+  {{#md-table-col row=row key='name' header='Person Name'}}
+    {{row.name}}
+  {{/md-table-col}}
+{{/md-table}}
