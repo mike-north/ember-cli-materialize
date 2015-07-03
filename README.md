@@ -9,18 +9,11 @@
 
 An [ember-cli](http://www.ember-cli.com) addon for using [Materialize](http://materializecss.com/) (CSS Framework based on [Material Design](http://www.google.com/design/spec/material-design/introduction.html)) in Ember applications.
 
-*Materialize Version ~0.97.0
+**Ember 2.0 Friendly**
 
-This addon is continuiously integrated against the following framework versions
+*Materialize Version ~0.97.0*
 
-Version | Failures Allowed
---------|-------------------
-`~1.10.0` | No
-`~1.11.0` | No
-`~1.12.0` | No
-components/ember#release | No
-components/ember#beta | No
-components/ember#canary | No
+[![NPM](https://nodei.co/npm-dl/ember-cli-materialize.png?months=6)](https://nodei.co/npm/ember-cli-materialize/)
 
 ## Main features
 
@@ -62,6 +55,20 @@ See the materialize docs on sass variables [here](http://materializecss.com/colo
 ```sh
 $ ember install ember-cli-materialize
 ```
+
+## Testing
+
+This addon is continuiously integrated against the following framework versions
+
+Version | Failures Allowed
+--------|-------------------
+Ember `~1.10.0` | No
+Ember `~1.11.0` | No
+Ember `~1.12.0` | No
+components/ember#release | No
+components/ember#beta | No
+components/ember#canary | No
+
 
 ## Contributing
 See [CONTRIBUTING file](https://github.com/truenorth/ember-cli-materialize/tree/master/CONTRIBUTING.md).
