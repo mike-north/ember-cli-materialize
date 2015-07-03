@@ -27,6 +27,23 @@
   </div>
 
   <div class="section">
+    <h4 class="col s12 header">Dropdown</h4>
+    <p>Add a dropdown list to any button. Make sure that the activates attribute matches the id of targeted element.</p>
+
+    {{example-snippet snippet='buttons-dropdown' class="button-example"}}
+
+    {{#options-panel}}
+      {{component-option optionId="activates" required=true description="Should match the id of the dropdown target."}}
+      {{component-option optionId="hover" default="false" description="If true, the dropdown will open on hover."}}
+      {{component-option optionId="constrainWidth" default="true" description="If true, constrainWidth to the size of the dropdown activator."}}
+      {{component-option optionId="inDuration" default="300" description="The duration of the transition enter in milliseconds."}}
+      {{component-option optionId="outDuration" default="300" description="The duration of the transition out in milliseconds."}}
+      {{component-option optionId="gutter" default="0" description="This defines the spacing from the aligned edge."}}
+      {{component-option optionId="belowOrigin" default="false" description="If true, the dropdown will show below the activator."}}
+    {{/options-panel}}
+  </div>
+
+  <div class="section">
     <h4 class="col s12 header">Flat</h4>
     {{example-snippet snippet='buttons-flat'}}
   </div>
