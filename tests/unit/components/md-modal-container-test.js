@@ -26,7 +26,9 @@ test('it has the expected ID for md-modal to render into it', function(assert) {
   assert.expect(1);
 
   // Creates the component instance
-  var component = this.subject();
+  var component = this.subject({
+    modalContainerId: 'materialize-modal-root-element'
+  });
   // Renders the component to the page
   this.render();
   assert.equal(component.$('#materialize-modal-root-element').length, 1, '#materialize-modal-root-element should be in the DOM');

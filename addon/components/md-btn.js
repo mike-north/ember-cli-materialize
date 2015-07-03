@@ -1,15 +1,18 @@
 import Ember from 'ember';
+import UsesSettings from '../mixins/uses-settings';
 import layout from '../templates/components/md-btn';
 import computed from 'ember-new-computed';
 
-export default Ember.Component.extend({
+const { computed: { oneWay } } = Ember;
+
+export default Ember.Component.extend(UsesSettings, {
   layout: layout,
   tagName: 'a',
   classNameBindings: ['btn:waves-effect', 'isFlat::waves-light', 'isDisabled:disabled:waves-effect', 'buttonClass'],
   attributeBindings: ['isDisabled:disabled'],
   text: null,
   icon: null,
-  iconPosition: 'left',
+  iconPosition: oneWay('_mdSettings.buttonIconPosition'),
   buttonType: null,
   actionArg: null,
   isFlat: Ember.computed.equal('buttonType', 'flat'),
