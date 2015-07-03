@@ -11,6 +11,7 @@ export default Ember.Component.extend({
   icon: null,
   iconPosition: 'left',
   buttonType: null,
+  actionArg: null,
   isFlat: Ember.computed.equal('buttonType', 'flat'),
   isDisabled: false,
 
@@ -34,7 +35,7 @@ export default Ember.Component.extend({
   },
 
   click() {
-    this.sendAction();
+    this.sendAction('action', this.get('actionArg'));
   }
 });
 
