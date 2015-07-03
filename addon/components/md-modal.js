@@ -9,7 +9,8 @@ const { computed: { oneWay } } = Ember;
 export default YappModal.extend(UsesSettings, {
   layout: layout,
 
-  destinationElementId: "materialize-modal-root-element",
+  destinationElementId: oneWay('_mdSettings.modalContainerId'),
+
   acceptsKeyResponder: true,
   overlayId: 'lean-modal',
   attributeBindings: ['style:inlineStyle'],
