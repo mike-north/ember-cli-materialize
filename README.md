@@ -70,13 +70,13 @@ Some of the library's defaults can be set via your **config/environment.js** fil
 module.exports = function(/* environment, appConfig */) {
   var ENV = {
     materializeDefaults: {
-      modalIsFooterFixed: false,
-      buttonIconPosition: 'left',
-      loaderSize:         'big',
-      loaderMode:         'indeterminate',
-      modalContainerId:   'materialize-modal-root-element',
-      inDuration:         300,
-      outDuration:        300
+      modalIsFooterFixed:  false,
+      buttonIconPosition:  'left',
+      loaderSize:          'big',
+      loaderMode:          'indeterminate',
+      modalContainerId:    'materialize-modal-root-element',
+      dropdownInDuration:  300,
+      dropdownOutDuration: 300
     },
     ...
   };

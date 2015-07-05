@@ -24,8 +24,8 @@ export default MaterializeButton.extend({
     this.$().dropdown({
       hover: this.getWithDefault('hover', false) === 'true',
       constrainWidth: this.getWithDefault('constrainWidth', true) === 'true',
-      inDuration: this.getWithDefault('inDuration', that.get('_mdSettings.inDuration')),
-      outDuration: this.getWithDefault('outDuration', that.get('_mdSettings.outDuration')),
+      inDuration: this.getWithDefault('inDuration', that.get('_mdSettings.dropdownInDuration')),
+      outDuration: this.getWithDefault('outDuration', that.get('_mdSettings.dropdownOutDuration')),
       gutter: this.getWithDefault('gutter', 0),
       belowOrigin: this.getWithDefault('belowOrigin', false) === 'true'
     });

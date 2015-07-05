@@ -8,8 +8,8 @@ module.exports = function(/* environment, appConfig */) {
       buttonIconPosition: 'left',
       loaderSize: 'big',
       loaderMode: 'indeterminate',
-      inDuration: 300,
-      outDuration: 300
+      dropdownInDuration: 300,
+      dropdownOutDuration: 300
     }
   };
 };
