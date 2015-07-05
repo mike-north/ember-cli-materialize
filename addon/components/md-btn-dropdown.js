@@ -3,6 +3,8 @@ import layout from '../templates/components/md-btn-dropdown';
 import computed from 'ember-new-computed';
 import MaterializeButton from './md-btn';
 
+const { computed: { oneWay } } = Ember;
+
 export default MaterializeButton.extend({
   layout: layout,
   tagName: 'a',
@@ -23,8 +25,8 @@ export default MaterializeButton.extend({
     this.$().dropdown({
       hover: this.getWithDefault('hover', false) === 'true',
       constrainWidth: this.getWithDefault('constrainWidth', true) === 'true',
-      inDuration: this.getWithDefault('inDuration', 300),
-      outDuration: this.getWithDefault('outDuration', 300),
+      inDuration: this.getWithDefault('inDuration', oneWay('_mdSettings.inDuration')),
+      outDuration: this.getWithDefault('outDuration', oneWay('_mdSettings.outDuration')),
       gutter: this.getWithDefault('gutter', 0),
       belowOrigin: this.getWithDefault('belowOrigin', false) === 'true'
     });

@@ -74,7 +74,9 @@ module.exports = function(/* environment, appConfig */) {
       buttonIconPosition: 'left',
       loaderSize:         'big',
       loaderMode:         'indeterminate',
-      modalContainerId:   'materialize-modal-root-element'
+      modalContainerId:   'materialize-modal-root-element',
+      inDuration:         300,
+      outDuration:        300
     },
     ...
   };
