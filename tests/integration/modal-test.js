@@ -65,7 +65,7 @@ test('Modal is dismissed by clicking on background', function(assert) {
 
     andThen(function () {
       assert.equal(Ember.$('#materialize-modal-root-element .modal-content').length, 1, 'Modal is on the screen');
-      click(Ember.$('#lean-overlay'));
+      click(Ember.$('.ember-modal-overlay'));
 
       andThen(function () {
         assert.equal(Ember.$('#materialize-modal-root-element .modal-content').length, 0, 'Modal is on not the screen');
