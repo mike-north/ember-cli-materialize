@@ -1,4 +1,5 @@
 @import 'materialize';
+@import 'ember-cli-materialize';
 
 /* FIXME: Workaround for https://github.com/Dogfalo/materialize/issues/1079 */
 @each $mdi-icon-name, $mdi-icon-value in $mdi-list-icons {

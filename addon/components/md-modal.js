@@ -1,18 +1,14 @@
 import Ember from 'ember';
 import UsesSettings from '../mixins/uses-settings';
-import YappModal from 'ember-modal-dialog/components/modal-dialog';
 import layout from '../templates/components/md-modal';
 import computed from 'ember-new-computed';
 
 const { computed: { oneWay } } = Ember;
 
-export default YappModal.extend(UsesSettings, {
+export default Ember.Component.extend(UsesSettings, {
   layout: layout,
 
-  destinationElementId: oneWay('_mdSettings.modalContainerId'),
-
   acceptsKeyResponder: true,
-  overlayId: 'lean-modal',
   attributeBindings: ['style:inlineStyle'],
   concatenatedProperties: ['modalClassNames'],
 
@@ -47,6 +43,12 @@ export default YappModal.extend(UsesSettings, {
 
   cancel() {
     this.sendAction('close');
+  },
+
+  actions: {
+    closeModal() {
+      this.sendAction('close');
+    }
   }
 
 });
