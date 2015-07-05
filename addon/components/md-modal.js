@@ -6,13 +6,10 @@ import computed from 'ember-new-computed';
 
 const { computed: { oneWay } } = Ember;
 
-export default YappModal.extend(UsesSettings, {
+export default Ember.Component.extend(UsesSettings, {
   layout: layout,
 
-  destinationElementId: oneWay('_mdSettings.modalContainerId'),
-
   acceptsKeyResponder: true,
-  overlayId: 'lean-modal',
   attributeBindings: ['style:inlineStyle'],
   concatenatedProperties: ['modalClassNames'],
 
