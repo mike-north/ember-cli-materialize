@@ -49,6 +49,7 @@ Using **SASS** makes configuring the color scheme simple. Just make sure you imp
 $primary-color: color("pink", "lighten-2");
 
 @import 'materialize';
+@import 'ember-cli-materialize';
 ```
 See the materialize docs on sass variables [here](http://materializecss.com/color.html).
 
