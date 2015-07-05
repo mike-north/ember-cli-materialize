@@ -2,6 +2,7 @@ $button-color: #e51c23;
 
 @import 'materialize';
 @import 'code';
+@import 'ember-cli-materialize';
 
 span.new-badge {
   padding-right: 15px;
@@ -135,3 +136,4 @@ header, main, footer.demo-footer {
   font-size: 0.8rem;
   margin-left: 40px;
 }
+

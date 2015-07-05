@@ -1,12 +1,11 @@
-{{#ember-wormhole to=destinationElementId}}
-  {{#if hasOverlay}}
-    <div id="lean-overlay" {{bind-attr class="overlayClassNamesString translucentOverlay:translucent overlay-class"}} {{action 'close'}} style="opacity: 0.5; display: block; z-index: 49;"></div>
-  {{/if}}
-  {{#ember-modal-dialog-positioned-container classNameBindings="containerClassNamesString container-class"
-                                alignment=alignment
-                                alignmentTarget=alignmentTarget}}
+
+{{#modal-dialog
+alignment=alignment
+alignmentTarget=alignmentTarget
+hasOverlay=true
+translucentOverlay=true
+overlay-class='lean-modal'}}
   <div {{bind-attr class=_modalClassString}} style="display: block; opacity: 1; top: 10%;">
-    {{yield}}
+  {{yield}}
   </div>
-  {{/ember-modal-dialog-positioned-container}}
-{{/ember-wormhole}}
+{{/modal-dialog}}
