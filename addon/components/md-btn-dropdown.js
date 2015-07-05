@@ -21,12 +21,12 @@ export default MaterializeButton.extend({
     this.$().attr('data-activates', this.get('_dropdownContentId'));
 
     this.$().dropdown({
-      hover: this.getWithDefault('hover', false),
-      constrainWidth: this.getWithDefault('constrainWidth', true),
+      hover: this.getWithDefault('hover', false) === 'true',
+      constrainWidth: this.getWithDefault('constrainWidth', true) === 'true',
       inDuration: this.getWithDefault('inDuration', 300),
       outDuration: this.getWithDefault('outDuration', 300),
       gutter: this.getWithDefault('gutter', 0),
-      belowOrigin: this.getWithDefault('belowOrigin', false)
+      belowOrigin: this.getWithDefault('belowOrigin', false) === 'true'
     });
   },
   _dropdownContentId: computed({
