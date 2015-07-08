@@ -1,18 +1,19 @@
 {{#if emptySnippet}}
-<div class="row">
-  <div class="col s12">
-    You must provide a snippet parameter
+  <div class="row">
+    <div class="col s12">
+      You must provide a snippet parameter
+    </div>
   </div>
-</div>
 {{else}}
-<div class="row">
-  <div {{bind-attr class=exampleFrameClass}}>
-    {{partial partialName}}
+  <div class="row">
+    <div class="{{exampleFrameClass}}">
+      {{partial partialName}}
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col s12">
-    {{code-snippet name=snippetName}}
+
+  <div class="row">
+    <div class="col s12">
+      {{code-snippet name=snippetName}}
+    </div>
   </div>
-</div>
 {{/if}}

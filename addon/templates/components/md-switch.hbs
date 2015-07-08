@@ -1,8 +1,8 @@
 <span class="switch-label materialize-selectable-item-label">{{name}}</span>
-<label {{bind-attr class=_labelClass}}>
+
+<label class="{{_labelClass}}">
   <span class="offlabel">{{offLabel}}</span>
   {{input type="checkbox" disabled=disabled checked=isSelected}}
   <span class="lever"></span>
   <span class="onlabel">{{onLabel}}</span>
 </label>
-
