@@ -37,6 +37,7 @@
     "ember-cli-qunit": "0.3.14",
     "ember-cli-sass": "3.3.0",
     "ember-cli-uglify": "^1.0.1",
+    "ember-composability": "~0.0.1",
     "ember-code-snippet": "^1.1.0",
     "ember-disable-prototype-extensions": "^1.0.0",
     "ember-disable-proxy-controllers": "^1.0.0",

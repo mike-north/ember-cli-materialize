@@ -1,7 +1,10 @@
 import Ember from 'ember';
+import ChildComponentSupport from 'ember-composability/mixins/child-component-support';
+import SelectableItemGroup from './selectable-item-group';
 import computed from 'ember-new-computed';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(ChildComponentSupport, {
+  _parentComponentTypes: [SelectableItemGroup],
   checked: null,
   classNames: ['materialize-selectable-item'],
 
