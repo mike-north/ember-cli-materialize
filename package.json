@@ -22,12 +22,15 @@
     "node": ">= 0.10.0"
   },
   "author": "Mike North <michael.l.north@gmail.com> (http://mike.works)",
-  "contributors": [{
-    "name": "Stefan Gasser"
-  }],
+  "contributors": [
+    {
+      "name": "Stefan Gasser"
+    }
+  ],
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
+    "ember-anchor": "~0.0.2",
     "ember-cli": "1.13.1",
     "ember-cli-app-version": "0.3.3",
     "ember-cli-content-security-policy": "0.4.0",
@@ -37,8 +40,8 @@
     "ember-cli-qunit": "0.3.14",
     "ember-cli-sass": "3.3.0",
     "ember-cli-uglify": "^1.0.1",
-    "ember-composability": "~0.0.1",
     "ember-code-snippet": "^1.1.0",
+    "ember-composability": "~0.0.1",
     "ember-disable-prototype-extensions": "^1.0.0",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.2",

@@ -1,12 +1,18 @@
 {{#if modalIsOpen}}
     {{#md-modal close='closeModal' class="test-modal"}}
         <div class="modal-content">
-            <h4>Hello Modal</h4>
-            <p>Oh hai there!</p>
+            <h4>Ohai there!</h4>
+            <p>Star ember-cli-materialize if you love it on 
+            <a href="https://github.com/truenorth/ember-cli-materialize">github</a>!
+            </p>
         </div>
         <div class="modal-footer">
-            <a class="modal-action modal-close waves-effect waves-green btn-flat agree-button" {{action 'agree'}}>Agree</a>
-            <a class="modal-action modal-close waves-effect waves-green btn-flat cancel-button" {{action 'closeModal'}}>Cancel</a>
+            <a class="modal-action modal-close waves-effect waves-orange btn-flat agree-button" {{action 'agree'}}>
+                Done!
+            </a>
+            <a class="modal-action modal-close waves-effect waves-red btn-flat cancel-button" {{action 'closeModal'}}>
+                Cancel
+            </a>
         </div>
     {{/md-modal}}
 {{/if}}

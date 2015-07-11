@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
       this.set('modalIsOpen', false);
     },
     agree() {
-      window.alert('agree');
+      window.alert('Thanks for using ember-cli-materialize!');
       this.set('modalIsOpen', false);
     }
   }

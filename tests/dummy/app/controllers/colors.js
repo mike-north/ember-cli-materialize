@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import AnchorControllerSupport from 'ember-anchor/mixins/controller-support';
 
-export default Ember.Controller.extend({
+export default Ember.Controller.extend(AnchorControllerSupport, {
 	colorBases: Ember.A(['pink', 'red', 'deep-orange', 'orange', 'amber', 'yellow', 'light-green', 'green', 'teal', 'cyan', 'light-blue', 'blue', 'indigo', 'purple', 'deep-purple']),
 	boringColorBases: Ember.A(['brown', 'grey', 'blue-grey']),
 	colorVariants: Ember.A(['lighten-5', 'lighten-4', 'lighten-3', 'lighten-2', 'lighten-1', '', 'darken-1', 'darken-2', 'darken-3', 'darken-4']),
