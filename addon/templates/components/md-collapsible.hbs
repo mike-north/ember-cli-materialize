@@ -1,7 +1,11 @@
-<div {{bind-attr class=":collapsible-header active:active:"}} {{action "headerClicked"}}>
-    {{#if icon}}<i {{bind-attr class=icon}}></i>{{/if}}
-    {{title}}
+<div class="collapsible-header {{if active 'active'}}" {{action "headerClicked"}}>
+  {{#if icon}}
+    <i class="{{icon}}"></i>
+  {{/if}}
+
+  {{title}}
 </div>
+
 <div class="collapsible-body">
     <p>{{yield}}</p>
 </div>

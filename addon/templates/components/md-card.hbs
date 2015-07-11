@@ -1,7 +1,7 @@
 {{#if image}}
-    <div {{bind-attr class=":card-image activator:waves-effect: activator:waves-block: activator:waves-light:"}}>
-        <img {{bind-attr src=image}} {{bind-attr class="activator:activator:"}}/>
-    </div>
+  <div class="card-image {{if activator 'waves-effect'}} {{if activator 'waves-block'}} {{if activator 'waves-light'}}">
+    <img src="{{image}}" class="{{if activator 'activator'}}"/>
+  </div>
 {{/if}}
 
 {{yield}}
