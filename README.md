@@ -11,9 +11,18 @@ An [ember-cli](http://www.ember-cli.com) addon for using [Materialize](http://ma
 
 **Ember 2.0 Friendly**
 
-*Materialize Version ~0.97.0*
+**Materialize Version ~0.97.0**
 
 [![NPM](https://nodei.co/npm-dl/ember-cli-materialize.png?months=6)](https://nodei.co/npm/ember-cli-materialize/)
+
+### Which version do I use?
+
+Ember.js version | ember-cli-materialize version
+-----------------|--------------
+`< 1.10.0`       | Not supported
+`1.10.0 <= x <  1.11.0`| [`v0.16.4`](https://github.com/truenorth/ember-cli-materialize/tree/v0.16.4)
+`x >= 1.11.0` | [![npm version](https://badge.fury.io/js/ember-cli-materialize.svg)](http://badge.fury.io/js/ember-cli-materialize)
+
 
 ## Main features
 
