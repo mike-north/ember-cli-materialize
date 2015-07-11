@@ -7,6 +7,7 @@ export default Ember.Controller.extend({
     {name: 'Cards',       route: 'cards'},
     {name: 'Collapsible', route: 'collapsible'},
     {name: 'Collection',  route: 'collection', new: true},
+    {name: 'Colors',      route: 'colors', new: true},
     {name: 'Copyright',   route: 'copyright'},
     {name: 'Forms',       route: 'forms'},
     {name: 'Loader',      route: 'loader'},
