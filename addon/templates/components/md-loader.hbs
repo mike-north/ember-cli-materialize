@@ -1,8 +1,9 @@
 {{#if isBarType}}
-  <div {{bind-attr class=barClassName style=barStyle}}></div>
+  <div class="{{barClassName}}" style="{{barStyle}}"></div>
 {{/if}}
+
 {{#each spinnerClassName in spinnerClassNames}}
-  <div {{bind-attr class=spinnerClassName}}>
+  <div class="{{spinnerClassName}}">
     <div class="circle-clipper left">
       <div class="circle"></div>
     </div><div class="gap-patch">
