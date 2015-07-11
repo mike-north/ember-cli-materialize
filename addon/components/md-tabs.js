@@ -42,11 +42,7 @@ export default Ember.Component.extend(ParentComponentSupport, {
 
   tabComponents() {
     var tabComponents = this.get('composableChildren') || Ember.A();
-    var emberParsingRegex = /^([0-9]+)\.([0-9]+)\.([0-9]+)/;
-    var versionParts = emberParsingRegex.exec(Ember.VERSION);
-    if (parseInt(versionParts[1], 10) > 1 || parseInt(versionParts[2], 10) >= 13) {
-      tabComponents.reverse();
-    }
+    tabComponents.reverse();
     return tabComponents;
   },
 
