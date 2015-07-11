@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="row">
+		<div class="col s12">
+			<h2 class="deep-orange-text">Colors</h2>
+		</div>
+	</div>
+	<div class="row">
+		{{#each colors as |color|}}
+		<div class="col s12 m6 l6">
+			<h4 class="{{color.base}}-text">{{color.base}}</h4>
+			<div class="color-swatch-collection">
+				{{#each color.variants as |cv|}}
+				<div class="color-swatch {{color.base}} {{cv}} text-center">
+					&lt;div class="{{color.base}} {{cv}}"&gt;
+				</div>
+				{{/each}}
+			</div>
+		</div>
+		{{/each}}
+	</div>
+	<div class="row">
+		{{#each boringColors as |color|}}
+		<div class="col s12 m6 l6">
+			<h4>{{color.base}}</h4>
+			<div class="color-swatch-collection">
+				{{#each color.variants as |cv|}}
+				<div class="color-swatch {{color.base}} {{cv}} text-center">
+					&lt;div class="{{color.base}} {{cv}}"&gt;
+				</div>
+				{{/each}}
+			</div>
+		</div>
+		{{/each}}
+	</div>
+</div>

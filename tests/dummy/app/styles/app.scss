@@ -137,3 +137,18 @@ header, main, footer.demo-footer {
   margin-left: 40px;
 }
 
+.color-swatch-collection {
+
+  .color-swatch {
+    &[class*="darken"] {
+      color: white;
+    }
+    height: 40px;
+    line-height: 40px;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
