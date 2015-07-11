@@ -6,6 +6,7 @@ import computed from 'ember-new-computed';
 export default Ember.Component.extend(ChildComponentSupport, {
   _parentComponentTypes: [SelectableItemGroup],
   checked: null,
+  disabled: false,
   classNames: ['materialize-selectable-item'],
 
   _checked: computed('checked', 'group.selection', 'group.selection.[]', {

@@ -60,19 +60,7 @@ export default Ember.Component.extend(ParentComponentSupport, {
       }
     }
   },
-  _disabled: false,
-  disabled: computed('_disabled', {
-    get() {
-      return this.get('_disabled');
-    },
-    set(key, newVal) {
-      this.get('composableChildren').forEach(cc => {
-        cc.set('disabled', newVal);
-      });
-      this.set('_disabled', true);
-      return newVal;
-    }
-  }),
+  disabled: false,
 
   _valuePath: computed('optionValuePath',  {
     get() {
