@@ -6,7 +6,8 @@ export default Ember.Controller.extend({
     {name: 'Buttons',     route: 'buttons'},
     {name: 'Cards',       route: 'cards'},
     {name: 'Collapsible', route: 'collapsible'},
-    {name: 'Collection',  route: 'collection', new: true},
+    {name: 'Collection',  route: 'collection'},
+    {name: 'Colors',      route: 'colors', new: true},
     {name: 'Copyright',   route: 'copyright'},
     {name: 'Forms',       route: 'forms'},
     {name: 'Loader',      route: 'loader'},
@@ -14,7 +15,7 @@ export default Ember.Controller.extend({
     {name: 'Navbar',      route: 'navbar'},
     {name: 'Pagination',  route: 'pagination'},
     {name: 'Parallax',    route: 'parallax'},
-    {name: 'Tables',      route: 'tables', new: true},
+    {name: 'Tables',      route: 'tables'},
     {name: 'Tabs',        route: 'tabs'}
   ])
 });

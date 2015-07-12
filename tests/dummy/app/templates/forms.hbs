@@ -2,7 +2,6 @@
 
 
 <div class='container'>
-
     <div class="section">
         <h4 class="col s12 header">Input</h4>
         {{#options-panel header=''}}
@@ -88,7 +87,7 @@
         {{/options-panel}}
         <h5>Date Input</h5>
         {{example-snippet snippet='input-date-basic' class='input-example' dateValue=dateValue}}
-        <p>If you were born on {{dateValue}}, you are about <span class="badge white-text purple" style="position: inherit">{{ageFromDate}}</span> years old.</p>
+        <p>If you were born on {{dateValue}}, you are about <span class="badge white-text light-blue" style="position: inherit">{{ageFromDate}}</span> years old.</p>
 
     </div>
     <div class="section">
@@ -138,13 +137,13 @@
         <h5>Multi-Select Switch List</h5>
         <p>Selection:
           {{#each checkboxSelections as |str|}}
-            {{md-badge text=str class="default-value blue white-text"}}
+            {{md-badge text=str class="default-value light-blue white-text"}}
           {{/each}}
         </p>
         {{example-snippet snippet='input-switch-list' class='checkbox-example' checkboxChoices=checkboxChoices checkboxSelections=checkboxSelections}}
 
         <h5>Single-Select Switch List</h5>
-        <p>Selection: {{md-badge text=radioSelection class="default-value blue white-text"}}</p>
+        <p>Selection: {{md-badge text=radioSelection class="default-value light-blue white-text"}}</p>
         {{example-snippet snippet='input-switch-list-exclusive' class='checkbox-example' radioSelection=radioSelection}}
 
         <h5>Checkbox List</h5>
@@ -156,7 +155,7 @@
         {{example-snippet snippet='input-check-list' class='checkbox-example' checkboxChoices=checkboxChoices checkboxSelections=checkboxSelections}}
 
         <h5>Radio List</h5>
-        <p>Selection: {{md-badge text=radioSelection class="default-value blue white-text"}}</p>
+        <p>Selection: {{md-badge text=radioSelection class="default-value light-blue white-text"}}</p>
 
         {{example-snippet snippet='input-radio-list' class='checkbox-example' radioSelection=radioSelection}}
     </div>

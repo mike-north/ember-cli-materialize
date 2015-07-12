@@ -1,6 +1,7 @@
 {{#if icon}}
-    <i {{bind-attr class="icon :prefix"}}></i>
+  <i class="{{icon}} prefix"></i>
 {{/if}}
+
 {{input id=id
   value=value
   classNameBindings="validate:validate: errors.firstObject:invalid:valid"
@@ -14,7 +15,8 @@
   step=step
   min=min
   max=max}}
-<label {{bind-attr for=id}}>{{label}}</label>
+<label for="{{id}}">{{label}}</label>
+
 <small class="red-text">
   {{#if errors}} {{errors.firstObject}} {{else}} &nbsp; {{/if}}
 </small>

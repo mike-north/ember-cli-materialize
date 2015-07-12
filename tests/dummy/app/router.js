@@ -20,6 +20,7 @@ Router.map(function() {
   this.route("parallax");
   this.route("tables");
   this.route("tabs");
+  this.route("colors");
 });
 
 export default Router;
