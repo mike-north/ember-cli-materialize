@@ -51,39 +51,10 @@ test('programatically setting selected tab', function (assert) {
   this.render();
   assert.equal(component.$('.active').text().trim(), 'First', 'First tab is initially selected');
 
-  Ember.run.next(function () {
+  Ember.run(function () {
     component.set('selected', 'b');
     Ember.run.schedule('afterRender', function () {
       assert.equal(component.$('.active').text().trim(), 'Second', 'Second tab is now selected');
-    });
-  });
-});
-
-test('programatically adding tabs', function (assert) {
-
-  assert.expect(2);
-
-  // Creates the component instance
-  var component = this.subject();
-
-  component.setProperties({
-    content: new Ember.A([
-      {id: 'a', title: 'First'},
-      {id: 'b', title: 'Second'},
-      {id: 'c', title: 'Third'}
-    ]),
-    selected: 'a'
-  });
-  this.render();
-
-  assert.equal(Ember.$('.materialize-tabs-tab').length, 3, 'Three tabs initially');
-
-
-  Ember.run.next(this, function () {
-
-    component.get('content').addObject({id: 'd', title: 'Fourth'});
-    Ember.run.schedule('afterRender', function () {
-      assert.equal(Ember.$('.materialize-tabs-tab').length, 4, 'Four tabs now');
     });
   });
 });
@@ -138,6 +109,6 @@ test('Col width - should result in the correct CSS classes', function (assert) {
     ])
   });
   this.render();
-  assert.equal(component.get('_tabComponents')[0].get('colWidth'), 4, 'Col width on tab set applies to tabs');
-  assert.equal(component.get('_tabComponents')[0].get('_colClass'), 's4', 'tab col class is correct');
+  assert.equal(component.get('composableChildren')[0].get('colWidth'), 4, 'Col width on tab set applies to tabs');
+  assert.equal(component.get('composableChildren')[0].get('_colClass'), 's4', 'tab col class is correct');
 });

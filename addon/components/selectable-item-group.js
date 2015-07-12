@@ -1,10 +1,11 @@
 import Ember from 'ember';
+import ParentComponentSupport from 'ember-composability/mixins/parent-component-support';
 import layout from '../templates/components/selectable-item-group';
 import computed from 'ember-new-computed';
 
 var get = Ember.get;
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(ParentComponentSupport, {
   layout: layout,
 
   content: null,
@@ -59,6 +60,7 @@ export default Ember.Component.extend({
       }
     }
   },
+  disabled: false,
 
   _valuePath: computed('optionValuePath',  {
     get() {

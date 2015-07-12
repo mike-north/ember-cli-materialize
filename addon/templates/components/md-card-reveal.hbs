@@ -1,4 +1,4 @@
-<span {{bind-attr class=":card-title :grey-text :text-darken-4 activator:activator:"}}>
+<span class="card-title grey-text text-darken-4 {{if activator 'activator'}}">
   {{parentView.title}} <i class="mdi-navigation-close right"></i>
 </span>
 <p>{{yield}}</p>

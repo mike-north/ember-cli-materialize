@@ -1,9 +1,11 @@
 {{#if title}}
-    <span {{bind-attr class=":card-title activator:activator: cardTitleClass"}}>
-        {{title}}
-        {{#if activator}}
-            <i class="mdi-navigation-more-vert right"></i>
-        {{/if}}
-    </span>
+  <span class="card-title {{if activator 'activator'}} {{cardTitleClass}}">
+    {{title}}
+
+    {{#if activator}}
+      <i class="mdi-navigation-more-vert right"></i>
+    {{/if}}
+  </span>
 {{/if}}
+
 <p>{{yield}}</p>
