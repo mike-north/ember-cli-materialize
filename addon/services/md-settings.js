@@ -14,6 +14,10 @@ export default Ember.Service.extend({
   // Modal
   modalContainerId: oneWay('defaultModalContainerId'),
 
+  // Animation (Dropdown Button)
+  dropdownInDuration: oneWay('defaultDropdownInDuration'),
+  dropdownOutDuration: oneWay('defaultDropdownOutDuration'),
+
   init() {
     this._super(...arguments);
     this._setDefaults();

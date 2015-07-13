@@ -7,7 +7,9 @@ module.exports = function(/* environment, appConfig */) {
       modalContainerId: 'materialize-modal-root-element',
       buttonIconPosition: 'left',
       loaderSize: 'big',
-      loaderMode: 'indeterminate'
+      loaderMode: 'indeterminate',
+      dropdownInDuration: 300,
+      dropdownOutDuration: 300
     }
   };
 };
