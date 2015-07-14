@@ -1,8 +1,8 @@
 # Change Log
 
-## [Unreleased](https://github.com/truenorth/ember-cli-materialize/tree/HEAD)
+## [v0.17.2](https://github.com/truenorth/ember-cli-materialize/tree/v0.17.2) (2015-07-14)
 
-[Full Changelog](https://github.com/truenorth/ember-cli-materialize/compare/v0.17.1...HEAD)
+[Full Changelog](https://github.com/truenorth/ember-cli-materialize/compare/v0.17.1...v0.17.2)
 
 **Closed issues:**
 
