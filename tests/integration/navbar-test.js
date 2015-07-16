@@ -50,3 +50,20 @@ test('SideNav', assert => {
 
   });
 });
+
+test('Navbar Custom Home Route', assert => {
+  visit('/navbar');
+
+  window.QUnit.stop();
+
+  andThen(() => {
+    click('.navbar-custom-home a.brand-logo');
+  });
+
+  andThen(() => {
+    assert.equal('/navbar', currentURL(), 'Navbar can have a custom home route');
+
+    window.QUnit.start();
+  });
+});
+
