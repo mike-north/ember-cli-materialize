@@ -1,6 +1,6 @@
 <div class="col s12">
   <ul class="tabs">
-    {{#each tab in _content}}
+    {{#each _content as |tab|}}
       {{md-tab title=tab.title value=tab.id}}
     {{/each}}
     {{yield}}
