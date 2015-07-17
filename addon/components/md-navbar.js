@@ -5,6 +5,7 @@ import computed from 'ember-new-computed';
 export default Ember.Component.extend({
   tagName: 'nav',
   layout: layout,
+  homeRoute: 'index',
 
   didInsertElement() {
     this._super(...arguments);
