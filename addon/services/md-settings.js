@@ -1,7 +1,8 @@
 import Ember from 'ember';
 
-const { keys, getWithDefault, set, computed: { oneWay } } = Ember;
+const { getWithDefault, set, computed: { oneWay } } = Ember;
 const { classify } = Ember.String;
+var keys = Object.keys || Ember.keys;
 
 export default Ember.Service.extend({
   // Footer
