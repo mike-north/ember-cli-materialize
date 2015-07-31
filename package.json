@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-materialize",
   "description": "An ember-cli addon for using Materialize (CSS Framework based on Material Design) in Ember applications.",
-  "version": "0.17.2",
+  "version": "0.17.3",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -13,10 +13,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/truenorth/ember-cli-materialize"
+    "url": "https://github.com/mike-north/ember-cli-materialize"
   },
   "bugs": {
-    "url": "https://github.com/truenorth/ember-cli-materialize/issues"
+    "url": "https://github.com/mike-north/ember-cli-materialize/issues"
   },
   "engines": {
     "node": ">= 0.10.0"
@@ -45,7 +45,7 @@
     "ember-disable-prototype-extensions": "^1.0.0",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.2",
-    "ember-key-responder": "truenorth/ember-key-responder#try-scenarios",
+    "ember-key-responder": "mike-north/ember-key-responder#try-scenarios",
     "ember-legacy-views": "0.2.0",
     "ember-modal-dialog": "~0.7.5",
     "ember-new-computed": "~1.0.2",
