@@ -32,7 +32,7 @@ export default MaterializeButton.extend({
   },
   _dropdownContentId: computed({
     get() {
-      return `${this.get('element.id')}-dropdown-content`;
+      return `${this.get('elementId')}-dropdown-content`;
     }
   })
 });
