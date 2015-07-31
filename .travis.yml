@@ -42,7 +42,7 @@ after_success:
 # Remove the downloaded copy of phantomJS
 - rm -rf travis-phantomjs
 # Add a remote, authenticating via an OAuth token (encrypted via "travis secure")
-- git remote add deploy https://$GH_TOKEN:x-oauth-basic@github.com/truenorth/ember-cli-materialize.git
+- git remote add deploy https://$GH_TOKEN:x-oauth-basic@github.com/mike-north/ember-cli-materialize.git
 # Download all branches from this new remote (really the same remote, but different auth)
 - git fetch deploy
 # Check out a local copy of "master", but don't switch to it yet
