@@ -20,14 +20,13 @@ export default MaterializeButton.extend({
     // needed until the Materialize.dropdown plugin is replaced
     this.$().attr('data-activates', this.get('_dropdownContentId'));
 
-    var that = this;
     this.$().dropdown({
-      hover: this.getWithDefault('hover', false) === 'true',
-      constrainWidth: this.getWithDefault('constrainWidth', true) === 'true',
-      inDuration: this.getWithDefault('inDuration', that.get('_mdSettings.dropdownInDuration')),
-      outDuration: this.getWithDefault('outDuration', that.get('_mdSettings.dropdownOutDuration')),
+      hover: !!this.getWithDefault('hover', false),
+      constrainWidth: !!this.getWithDefault('constrainWidth', true),
+      inDuration: this.getWithDefault('inDuration', this.get('_mdSettings.dropdownInDuration')),
+      outDuration: this.getWithDefault('outDuration', this.get('_mdSettings.dropdownOutDuration')),
       gutter: this.getWithDefault('gutter', 0),
-      belowOrigin: this.getWithDefault('belowOrigin', false) === 'true'
+      belowOrigin: !!this.getWithDefault('belowOrigin', false)
     });
   },
   _dropdownContentId: computed({
