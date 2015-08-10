@@ -21,7 +21,7 @@ export default Ember.Component.extend(UsesSettings, {
   isFooterFixed: oneWay('_mdSettings.modalIsFooterFixed'),
 
   modalClassNames: ['modal', 'show'],
-  _modalClassString: computed('modalClassNames.@each', 'isFooterFixed', {
+  _modalClassString: computed('modalClassNames.[]', 'isFooterFixed', {
     get() {
       let names = this.get('modalClassNames');
       if (this.get('isFooterFixed')) {
