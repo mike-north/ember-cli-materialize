@@ -4,7 +4,7 @@ import computed from 'ember-new-computed';
 export default Ember.Component.extend({
   classNames: ['input-field'],
 
-  bindAttributes: ['disabled', 'readonly'],
+  bindAttributes: ['disabled', 'readonly', 'autofocus'],
   validate: false,
 
   errorsPath: 'errors',
