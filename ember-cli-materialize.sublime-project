@@ -3,7 +3,7 @@
 	[
 		{
 			"path": ".",
-			"folder_exclude_patterns": ["tmp", ".git", "node_modules", "bower_components"],
+			"folder_exclude_patterns": ["tmp", ".git", "bower_components"],
       "file_exclude_patterns": [".npmignore", ".ember-cli", ".bowerrc", ".watchmanconfig"]
 		}
 	]

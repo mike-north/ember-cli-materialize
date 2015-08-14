@@ -10,7 +10,7 @@ module.exports = {
   afterInstall: function() {
     return RSVP.all([
       this.addPackageToProject('ember-composability', '~0.0.3'),
-      this.addPackageToProject('ember-radio-button', '1.0.4'),
+      this.addPackageToProject('ember-radio-button', '1.0.7'),
       this.addPackageToProject('ember-new-computed', '~1.0.0'),
       this.addPackageToProject('ember-key-responder', '0.2.1'),
       this.addPackageToProject('ember-modal-dialog', '~0.7.5'),
