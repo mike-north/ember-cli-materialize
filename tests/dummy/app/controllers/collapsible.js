@@ -7,10 +7,10 @@ export default Controller.extend({
   actions: {
     clicked(tabModel) {
       this.set('lastClicked', tabModel);
-      if(tabModel === this.get("activeSlide")) {
-        this.set("activeSlide", null);
+      if(tabModel === this.get('activeSlide')) {
+        this.set('activeSlide', null);
       } else {
-        this.set("activeSlide", tabModel);
+        this.set('activeSlide', tabModel);
       }
     }
   }

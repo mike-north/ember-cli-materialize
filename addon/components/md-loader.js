@@ -15,15 +15,15 @@ export default Component.extend(UsesSettings, {
   active: true,
   color: null,
 
-  isBarType: computed('mode', function () {
+  isBarType: computed('mode', function() {
     return ['determinate', 'indeterminate'].indexOf(this.get('mode')) >= 0;
   }),
 
-  isDeterminate: computed('mode', function () {
+  isDeterminate: computed('mode', function() {
     return ['determinate'].indexOf(this.get('mode'));
   }),
 
-  barStyle: computed('mode', 'percent', function () {
+  barStyle: computed('mode', 'percent', function() {
     if (this.get('mode') === 'determinate') {
       return new Ember.Handlebars.SafeString(`width: ${parseInt(this.get('percent'), 10)}%`);
     }

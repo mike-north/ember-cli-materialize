@@ -11,14 +11,13 @@ export default Component.extend({
       const actionArgs = this.get('actionArgs');
       if (actionArgs) {
         this.sendAction('action', actionArgs || null);
-      }
-      else {
+      } else {
         this.sendAction('action');
       }
     }
   },
 
-  _btnClassString: computed('btnClass', function () {
-    return `${this.get('btnClass')} btn-floating ${this.get('large') ? 'btn-large' : ''}`;
+  _btnClassString: computed('btnClass', function() {
+    return `${this.get('btnClass')} btn-floating ${this.get('large') ? 'btn-large' : '' }`;
   })
 });

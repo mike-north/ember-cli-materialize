@@ -4,7 +4,7 @@ const { Controller, A } = Ember;
 
 export default Controller.extend({
 
-  myData: new A(["hello", "world"]),
+  myData: new A(['hello', 'world']),
 
   actions: {
     firstAction() {

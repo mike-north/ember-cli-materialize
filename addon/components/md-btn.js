@@ -17,7 +17,7 @@ export default Component.extend(UsesSettings, {
   isFlat: computed.equal('buttonType', 'flat'),
   isDisabled: false,
 
-  didInsertElement(){
+  didInsertElement() {
     this._super(...arguments);
     scheduleOnce('afterRender', this, this._setupWaves);
   },
@@ -29,7 +29,7 @@ export default Component.extend(UsesSettings, {
 
   _setupWaves() {
     const Waves = window.Waves || {};
-    if(typeOf(Waves.displayEffect) === 'function'){
+    if (typeOf(Waves.displayEffect) === 'function') {
       Waves.displayEffect();
     }
   },

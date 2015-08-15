@@ -13,7 +13,7 @@ export default Component.extend({
   init() {
     this._super(...arguments);
     // bind validation errors
-    //TODO: This is private API usage, which may bite us when glimmer arrives
+    // TODO: This is private API usage, which may bite us when glimmer arrives
     //  We should find some less brittle way of introspecting the binding path,
     //  or propose a framework modification to support this in the long term
     const propertyPath = this.get('valueBinding._label');
@@ -32,7 +32,7 @@ export default Component.extend({
     }
   },
 
-  id: computed('elementId', function () {
+  id: computed('elementId', function() {
     return `${this.get('elementId')}-input`;
   }),
 

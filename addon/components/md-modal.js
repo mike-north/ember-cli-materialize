@@ -11,14 +11,14 @@ export default Component.extend(UsesSettings, {
   attributeBindings: ['style:inlineStyle'],
   concatenatedProperties: ['modalClassNames'],
 
-  inlineStyle: computed(function () {
+  inlineStyle: computed(function() {
     return new Ember.Handlebars.SafeString('z-index: 1000;');
   }),
 
   isFooterFixed: oneWay('_mdSettings.modalIsFooterFixed'),
 
   modalClassNames: ['modal', 'show'],
-  _modalClassString: computed('modalClassNames.[]', 'isFooterFixed', function () {
+  _modalClassString: computed('modalClassNames.[]', 'isFooterFixed', function() {
     const names = this.get('modalClassNames');
     if (this.get('isFooterFixed')) {
       names.push('modal-fixed-footer');

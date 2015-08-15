@@ -13,7 +13,7 @@ export default Component.extend({
   titleClassBinding: 'parentView.titleClass',
   activatorBinding: 'parentView.activator',
 
-  cardTitleClass: computed('titleClass', function () {
+  cardTitleClass: computed('titleClass', function() {
     return this.get('titleClass') || 'black-text';
   })
 });

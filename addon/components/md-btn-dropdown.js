@@ -9,7 +9,7 @@ export default MaterializeButton.extend({
   layout,
   tagName: 'a',
   classNames: ['dropdown-button'],
-  icon: "mdi-navigation-expand-more",
+  icon: 'mdi-navigation-expand-more',
   iconPosition: 'right',
   attributeBindings: [
     'inDuration', 'outDuration', 'constrainWidth', 'hover', 'gutter', 'belowOrigin'

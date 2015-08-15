@@ -21,7 +21,7 @@ export default Component.extend({
   }),
   actions: {
     headerClicked() {
-      this.sendAction("action", this.get("actionArg"));
+      this.sendAction('action', this.get('actionArg'));
     }
   }
 });

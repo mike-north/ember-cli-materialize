@@ -17,7 +17,7 @@ module('Acceptance - Badges', {
 test('Load the demo page', function(assert) {
   visit('/badges');
 
-  andThen(function () {
+  andThen(function() {
     assert.ok(true, 'If this is passing, this page has no deprecation warnings');
   });
 });

@@ -19,7 +19,7 @@ module('Acceptance - Buttons', {
 test('Load the demo page', function(assert) {
   visit('/buttons');
 
-  andThen(function () {
+  andThen(function() {
     assert.ok(true, 'If this is passing, this page has no deprecation warnings');
   });
 });
@@ -30,13 +30,13 @@ test('Floating buttons should be exposed on hover', assert => {
 
   andThen(() => {
     const mainButton = find('.fixed-btns-example > a.btn-floating');
-    assert.equal($('.fixed-btns-example ul li:first-child a').css('opacity'), "0", 'Secondary buttons should be hidden before mouseover');
+    assert.equal($('.fixed-btns-example ul li:first-child a').css('opacity'), '0', 'Secondary buttons should be hidden before mouseover');
     Ember.$(mainButton).mouseover();
   });
 
   andThen(() => {
     setTimeout(() => {
-      assert.equal($('.fixed-btns-example ul li:first-child a').css('opacity'), "1", 'Secondary buttons should be shown after mouseover');
+      assert.equal($('.fixed-btns-example ul li:first-child a').css('opacity'), '1', 'Secondary buttons should be shown after mouseover');
       done();
     }, BUTTON_HOVER_TIMEOUT);
   });
@@ -49,7 +49,7 @@ test('Clicking the first floating button should fire an action', assert => {
 
   const oldAlert = window.alert;
 
-  window.alert = function (alertText) {
+  window.alert = function(alertText) {
     assert.equal(alertText, 'firstAction', 'firstAction is fired when primary button is clicked');
     window.alert = oldAlert;
     done();
@@ -67,14 +67,14 @@ test('Clicking a secondary floating button should fire a different action, and p
 
   andThen(() => {
     const mainButton = find('.fixed-btns-example > a.btn-floating');
-    assert.equal($('.fixed-btns-example ul li:first-child a').css('opacity'), "0", 'Secondary buttons should be hidden before mouseover');
+    assert.equal($('.fixed-btns-example ul li:first-child a').css('opacity'), '0', 'Secondary buttons should be hidden before mouseover');
     Ember.$(mainButton).mouseover();
   });
 
   andThen(() => {
     setTimeout(() => {
-      window.alert = function (alertText) {
-        assert.equal(alertText, 'anotherAction\narg: "1"', 'firstAction is fired when primary button is clicked');
+      window.alert = function(alertText) {
+        assert.equal(alertText, `anotherAction\narg: "1"`, 'firstAction is fired when primary button is clicked');
         window.alert = oldAlert;
         done();
       };
