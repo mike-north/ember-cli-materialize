@@ -1,5 +1,85 @@
 # Change Log
 
+## [v0.17.4](https://github.com/mike-north/ember-cli-materialize/tree/v0.17.4) (2015-08-15)
+
+[Full Changelog](https://github.com/mike-north/ember-cli-materialize/compare/v0.17.3...v0.17.4)
+
+**Closed issues:**
+
+- md-modal computed property with @each leaf causing assertion failure in canary [\#202](https://github.com/mike-north/ember-cli-materialize/issues/202)
+
+- Installation of the addon breaks auto-generated tests [\#199](https://github.com/mike-north/ember-cli-materialize/issues/199)
+
+- How can i use the md-input small validation message with ember-validations? [\#198](https://github.com/mike-north/ember-cli-materialize/issues/198)
+
+- Remove {{bind-attr}} [\#168](https://github.com/mike-north/ember-cli-materialize/issues/168)
+
+**Merged pull requests:**
+
+- Style/Testing Cleanup [\#206](https://github.com/mike-north/ember-cli-materialize/pull/206) ([mike-north](https://github.com/mike-north))
+
+- \[Canary\] Replaced '@each' computed property with '\[\]' \(fixes \#202\) [\#203](https://github.com/mike-north/ember-cli-materialize/pull/203) ([mdehoog](https://github.com/mdehoog))
+
+- Switched md-btn-dropdown boolean attributes to use booleans [\#200](https://github.com/mike-north/ember-cli-materialize/pull/200) ([mdehoog](https://github.com/mdehoog))
+
+- Using elementId in dropdown instead of element.id [\#196](https://github.com/mike-north/ember-cli-materialize/pull/196) ([unmanbearpig](https://github.com/unmanbearpig))
+
+- Fixed closeModal action name \(fixes \#193\) [\#194](https://github.com/mike-north/ember-cli-materialize/pull/194) ([mdehoog](https://github.com/mdehoog))
+
+## [v0.17.3](https://github.com/mike-north/ember-cli-materialize/tree/v0.17.3) (2015-07-31)
+
+[Full Changelog](https://github.com/mike-north/ember-cli-materialize/compare/v0.17.2...v0.17.3)
+
+**Closed issues:**
+
+- Modal only closes if close action is called 'closeModal' [\#193](https://github.com/mike-north/ember-cli-materialize/issues/193)
+
+- No placeholder option for md-input [\#188](https://github.com/mike-north/ember-cli-materialize/issues/188)
+
+- Recent changes to validations? [\#186](https://github.com/mike-north/ember-cli-materialize/issues/186)
+
+- Switch and Check seem to have issue with missing ember-composability  [\#181](https://github.com/mike-north/ember-cli-materialize/issues/181)
+
+**Merged pull requests:**
+
+- Add ember-legacy-views [\#190](https://github.com/mike-north/ember-cli-materialize/pull/190) ([mike-north](https://github.com/mike-north))
+
+- Remove Ember.keys deprecation warning [\#189](https://github.com/mike-north/ember-cli-materialize/pull/189) ([mdehoog](https://github.com/mdehoog))
+
+- Observer timing issues [\#187](https://github.com/mike-north/ember-cli-materialize/pull/187) ([brandonparsons](https://github.com/brandonparsons))
+
+- Make dat homeRoute customizable!!! [\#185](https://github.com/mike-north/ember-cli-materialize/pull/185) ([rtablada](https://github.com/rtablada))
+
+- input type should be tel [\#184](https://github.com/mike-north/ember-cli-materialize/pull/184) ([basz](https://github.com/basz))
+
+- Deprecation fixes - convert each-in to each-as [\#180](https://github.com/mike-north/ember-cli-materialize/pull/180) ([mike-north](https://github.com/mike-north))
+
+## [v0.17.2](https://github.com/mike-north/ember-cli-materialize/tree/v0.17.2) (2015-07-14)
+
+[Full Changelog](https://github.com/mike-north/ember-cli-materialize/compare/v0.17.1...v0.17.2)
+
+**Closed issues:**
+
+- Error on new project: unbound variable $mdi-list-icons [\#171](https://github.com/mike-north/ember-cli-materialize/issues/171)
+
+**Merged pull requests:**
+
+- Fix leftover "disabled" debug legend on checkbox [\#182](https://github.com/mike-north/ember-cli-materialize/pull/182) ([LexLythius](https://github.com/LexLythius))
+
+- fix-anchor [\#179](https://github.com/mike-north/ember-cli-materialize/pull/179) ([ladyleet](https://github.com/ladyleet))
+
+- Removed blueprint temporary fix for materialize.css that is no longer [\#177](https://github.com/mike-north/ember-cli-materialize/pull/177) ([mnannola](https://github.com/mnannola))
+
+- Feature/md btn dropdown [\#162](https://github.com/mike-north/ember-cli-materialize/pull/162) ([basz](https://github.com/basz))
+
+## [v0.17.1](https://github.com/mike-north/ember-cli-materialize/tree/v0.17.1) (2015-07-12)
+
+[Full Changelog](https://github.com/mike-north/ember-cli-materialize/compare/v0.17.0...v0.17.1)
+
+**Merged pull requests:**
+
+- Ember-composability [\#175](https://github.com/mike-north/ember-cli-materialize/pull/175) ([mike-north](https://github.com/mike-north))
+
 ## [v0.17.2](https://github.com/truenorth/ember-cli-materialize/tree/v0.17.2) (2015-07-14)
 
 [Full Changelog](https://github.com/truenorth/ember-cli-materialize/compare/v0.17.1...v0.17.2)
