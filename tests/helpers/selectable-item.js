@@ -8,7 +8,7 @@ export function selectableItemHasRequiredParts() {
   test('has required DOM elements', function (assert) {
     assert.expect(3);
 
-    var component = this.subject();
+    const component = this.subject();
     this.render();
 
     assert.equal(component.$().hasClass('materialize-selectable-item'), true, 'has materialize-selectable-item class on top-level element');
@@ -23,7 +23,7 @@ export function disabledStateTest () {
     assert.expect(3);
 
     // Creates the component instance
-    var component = this.subject();
+    const component = this.subject();
     component.set('checked', false);
     // Renders the component to the page
     this.render();
@@ -45,7 +45,7 @@ export function selectTest(params={}) {
   test('clicking changes its state', function(assert) {
     assert.expect(2);
 
-    var component = this.subject(params);
+    const component = this.subject(params);
     component.set('checked', false);
     this.render();
 
@@ -62,7 +62,7 @@ export function selectByLabelTest() {
   test('clicking on label changes its state', function(assert) {
     assert.expect(2);
 
-    var component = this.subject();
+    const component = this.subject();
     component.set('checked', false);
 
     this.render();
@@ -77,7 +77,7 @@ export function labelTest() {
   test('component label', function(assert) {
     assert.expect(2);
 
-    var component = this.subject();
+    const component = this.subject();
     component.set('name', 'Heisenberg');
     this.render();
 
@@ -95,9 +95,9 @@ export function labelTest() {
 export function groupItemsRenderTest() {
   test('items render', function(assert) {
     assert.expect(2);
-    var choices = Ember.A(['aaa','bbb', 'ccc', 'ddd', 'eee']);
+    const choices = Ember.A(['aaa','bbb', 'ccc', 'ddd', 'eee']);
     // Creates the component instance
-    var component = this.subject({
+    const component = this.subject({
       content: choices,
       selection: null
     });
@@ -114,9 +114,9 @@ export function groupItemsRenderTest() {
 export function initialSelectionTest(selection) {
   test('initial selection is correct', function(assert) {
     assert.expect(1);
-    var choices = Ember.A(['aaa','bbb', 'ccc', 'ddd', 'eee']);
+    const choices = Ember.A(['aaa','bbb', 'ccc', 'ddd', 'eee']);
     // Creates the component instance
-    var component = this.subject({
+    const component = this.subject({
       content: choices,
       selection: selection
     });
@@ -124,9 +124,9 @@ export function initialSelectionTest(selection) {
     // Renders the component to the page
     this.render();
 
-    var shouldBeSelected = Ember.isArray(selection) ? selection : Ember.A([selection]);
-    var actuallySelected = component.$('input:checked').map(function (idx,e) {
-      var parentElement = Ember.$(e).closest('.materialize-selectable-item');
+    const shouldBeSelected = Ember.isArray(selection) ? selection : Ember.A([selection]);
+    const actuallySelected = component.$('input:checked').map(function (idx,e) {
+      const parentElement = Ember.$(e).closest('.materialize-selectable-item');
       return parentElement.find('.materialize-selectable-item-label').text().trim();
     }).toArray();
     assert.equal(actuallySelected.join(''), shouldBeSelected.join(''), 'initial selection is correct');
@@ -136,9 +136,9 @@ export function initialSelectionTest(selection) {
 
 export function disabledGroupTest() {
   test('disabling group disables all inputs', function(assert) {
-    var choices = Ember.A(['aaa','bbb', 'ccc', 'ddd', 'eee']);
+    const choices = Ember.A(['aaa','bbb', 'ccc', 'ddd', 'eee']);
     // Creates the component instance
-    var component = this.subject({
+    const component = this.subject({
       content: choices,
       selection: null
     });

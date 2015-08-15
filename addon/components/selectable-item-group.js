@@ -1,12 +1,11 @@
 import Ember from 'ember';
 import ParentComponentSupport from 'ember-composability/mixins/parent-component-support';
 import layout from '../templates/components/selectable-item-group';
-import computed from 'ember-new-computed';
 
-var get = Ember.get;
+const { get, Component, A, computed } = Ember;
 
-export default Ember.Component.extend(ParentComponentSupport, {
-  layout: layout,
+export default Component.extend(ParentComponentSupport, {
+  layout,
 
   content: null,
   selection: null,
@@ -62,39 +61,33 @@ export default Ember.Component.extend(ParentComponentSupport, {
   },
   disabled: false,
 
-  _valuePath: computed('optionValuePath',  {
-    get() {
-      var optionValuePath = get(this, 'optionValuePath');
-      return optionValuePath.replace(/^content\.?/, '');
-    }
+  _valuePath: computed('optionValuePath', function () {
+    const optionValuePath = get(this, 'optionValuePath');
+    return optionValuePath.replace(/^content\.?/, '');
   }),
 
-  _labelPath: computed('optionLabelPath',  {
-    get() {
-      var optionLabelPath = get(this, 'optionLabelPath');
-      return optionLabelPath.replace(/^content\.?/, '');
-    }
+  _labelPath: computed('optionLabelPath', function() {
+    const optionLabelPath = get(this, 'optionLabelPath');
+    return optionLabelPath.replace(/^content\.?/, '');
   }),
 
-  _content: computed('content.[]', '_valuePath', '_labelPath', {
-    get() {
-      var valuePath = get(this, '_valuePath');
-      var labelPath = get(this, '_labelPath');
-      var content = get(this, 'content') || Ember.A([]);
+  _content: computed('content.[]', '_valuePath', '_labelPath', function() {
+    const valuePath = get(this, '_valuePath');
+    const labelPath = get(this, '_labelPath');
+    const content = get(this, 'content') || Ember.A([]);
 
-      if (valuePath && labelPath) {
-        return Ember.A(
-          content.map(el => {
-            return {value: get(el, valuePath), label: get(el, labelPath)};
-          })
-        );
-      } else {
-        return Ember.A(
-          content.map(el => {
-            return {value: el, label: el};
-          })
-        );
-      }
+    if (valuePath && labelPath) {
+      return new A(
+        content.map(el => {
+          return {value: get(el, valuePath), label: get(el, labelPath)};
+        })
+      );
+    } else {
+      return new A(
+        content.map(el => {
+          return {value: el, label: el};
+        })
+      );
     }
   })
 });

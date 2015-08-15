@@ -1,7 +1,9 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
-  demoSections: Ember.A([
+const { A, Controller } = Ember;
+
+export default Controller.extend({
+  demoSections: new A([
     {name: 'Badges',      route: 'badges'},
     {name: 'Buttons',     route: 'buttons'},
     {name: 'Cards',       route: 'cards'},

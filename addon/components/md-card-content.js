@@ -1,9 +1,10 @@
 import Ember from 'ember';
 import layout from '../templates/components/md-card-content';
-import computed from 'ember-new-computed';
 
-export default Ember.Component.extend({
-  layout: layout,
+const { Component, computed } = Ember;
+
+export default Component.extend({
+  layout,
 
   classNames: ['card-content'],
 
@@ -12,11 +13,8 @@ export default Ember.Component.extend({
   titleClassBinding: 'parentView.titleClass',
   activatorBinding: 'parentView.activator',
 
-  cardTitleClass: computed('titleClass',{
-    get() {
-      var clz = this.get('titleClass');
-      return (clz) ? clz : 'black-text';
-    }
+  cardTitleClass: computed('titleClass', function () {
+    return this.get('titleClass') || 'black-text';
   })
 });
 

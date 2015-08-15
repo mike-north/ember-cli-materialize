@@ -2,7 +2,9 @@ import Ember from 'ember';
 import layout from '../templates/components/md-copyright';
 import computed from 'ember-new-computed';
 
-export default Ember.Component.extend({
+const { Component } = Ember;
+
+export default Component.extend({
   layout: layout,
   classNames: ['footer-copyright'],
 
@@ -18,11 +20,11 @@ export default Ember.Component.extend({
 
   date: computed({
     get() {
-      var currentYear = new Date().getFullYear();
-      var startYear = this.get('startYear');
+      const currentYear = new Date().getFullYear();
+      const startYear = this.get('startYear');
 
       if (startYear === null || startYear === currentYear) {
-        return '' + currentYear;
+        return `${currentYear}`;
       } else {
         return `${startYear} - ${currentYear}`;
       }

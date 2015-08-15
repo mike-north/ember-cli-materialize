@@ -2,7 +2,7 @@ import MaterializeInputField from './md-input-field';
 import layout from '../templates/components/md-input';
 
 export default MaterializeInputField.extend({
-  layout: layout,
+  layout,
   type: 'text',
 
   didInsertElement() {

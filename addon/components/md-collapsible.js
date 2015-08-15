@@ -2,10 +2,10 @@ import Ember from 'ember';
 import layout from '../templates/components/md-collapsible';
 import computed from 'ember-new-computed';
 
-const { deprecate } = Ember;
+const { deprecate, Component } = Ember;
 
-export default Ember.Component.extend({
-  layout: layout,
+export default Component.extend({
+  layout,
   tagName: 'li',
   classNameBindings: ['class'],
   actionArg: null,

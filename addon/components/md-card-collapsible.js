@@ -2,8 +2,10 @@ import Ember from 'ember';
 import layout from '../templates/components/md-card-collapsible';
 import computed from 'ember-new-computed';
 
-export default Ember.Component.extend({
-  layout: layout,
+const { Component } = Ember;
+
+export default Component.extend({
+  layout,
   tagName: 'ul',
   classNames: ['collapsible'],
   attributeBindings: ['data-collapsible'],
@@ -21,11 +23,12 @@ export default Ember.Component.extend({
   },
 
   _setupCollapsible() {
-    this.$().collapsible({ accordion : this.get('accordion') });
+    const accordion = this.get('accordion');
+    this.$().collapsible({ accordion });
   },
 
   _teardownCollapsible() {
-    var $panel_headers = this.$('> li > .collapsible-header');
+    const $panel_headers = this.$('> li > .collapsible-header');
     this.$().off('click.collapse', '.collapsible-header');
     $panel_headers.off('click.collapse');
   },

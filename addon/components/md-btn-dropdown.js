@@ -3,8 +3,10 @@ import layout from '../templates/components/md-btn-dropdown';
 import computed from 'ember-new-computed';
 import MaterializeButton from './md-btn';
 
+const { run: { scheduleOnce } } = Ember;
+
 export default MaterializeButton.extend({
-  layout: layout,
+  layout,
   tagName: 'a',
   classNames: ['dropdown-button'],
   icon: "mdi-navigation-expand-more",
@@ -12,10 +14,12 @@ export default MaterializeButton.extend({
   attributeBindings: [
     'inDuration', 'outDuration', 'constrainWidth', 'hover', 'gutter', 'belowOrigin'
   ],
+
   didInsertElement() {
     this._super(...arguments);
-    Ember.run.scheduleOnce('afterRender', this, this._setupDropdown);
+    scheduleOnce('afterRender', this, this._setupDropdown);
   },
+
   _setupDropdown() {
     // needed until the Materialize.dropdown plugin is replaced
     this.$().attr('data-activates', this.get('_dropdownContentId'));

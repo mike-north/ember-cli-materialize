@@ -3,13 +3,13 @@ import Ember from 'ember';
 import startApp from '../../tests/helpers/start-app';
 import { module, test } from 'qunit';
 
-var App;
+let App;
 
 module('Acceptance - Badges', {
-  setup: function() {
+  setup() {
     App = startApp();
   },
-  teardown: function() {
+  teardown() {
     Ember.run(App, 'destroy');
   }
 });

@@ -8,7 +8,7 @@ export function deselectForSingleSelectionTest() {
   test('deselecting checkbox works with multiple=false', function(assert) {
     assert.expect(6);
 
-    var component = this.subject();
+    const component = this.subject();
     component.set('content', ['a', 'b', 'c']);
     component.set('multiple', false);
     component.setValueSelection('b', true);
