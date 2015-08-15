@@ -2,14 +2,13 @@ import Ember from 'ember';
 import ChildComponentSupport from 'ember-composability/mixins/child-component-support';
 import MdTabs from './md-tabs';
 import layout from '../templates/components/md-tab';
-import computed from 'ember-new-computed';
 
-const { computed: { oneWay } } = Ember;
+const { Component, computed, computed: { oneWay } } = Ember;
 
-export default Ember.Component.extend(ChildComponentSupport, {
+export default Component.extend(ChildComponentSupport, {
   _parentComponentTypes: [MdTabs],
   tagName: 'li',
-  layout: layout,
+  layout,
 
   classNames: ['materialize-tabs-tab', 'tab', 'col'],
   classNameBindings: ['_colClass'],
@@ -20,10 +19,8 @@ export default Ember.Component.extend(ChildComponentSupport, {
     this.get('composableParent').send('tabClicked', this);
   },
 
-  _colClass: computed('colWidth', {
-    get() {
-      return `s${this.get('colWidth')}`;
-    }
+  _colClass: computed('colWidth', function() {
+    return `s${this.get('colWidth')}`;
   })
 
 });

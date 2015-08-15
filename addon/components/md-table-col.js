@@ -4,11 +4,11 @@ import computed from 'ember-new-computed';
 import Table from './md-table';
 import DefaultColumnHeaderView from 'ember-cli-materialize/views/default-column-header';
 
-const { get, computed: { oneWay } } = Ember;
+const { Component, get, computed: { oneWay } } = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: 'td',
-  layout: layout,
+  layout,
   valueBindingPath: null,
   headerView: DefaultColumnHeaderView,
   header: oneWay('valueBindingPath'),

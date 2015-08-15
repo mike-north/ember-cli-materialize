@@ -42,7 +42,6 @@ test('Floating buttons should be exposed on hover', assert => {
   });
 });
 
-
 test('Clicking the first floating button should fire an action', assert => {
   visit('/buttons');
   const done = assert.async();

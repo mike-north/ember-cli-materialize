@@ -15,7 +15,7 @@ test('copyright renders', function(assert) {
   assert.expect(2);
 
   // creates the component instance
-  var component = this.subject();
+  const component = this.subject();
   assert.equal(component._state, 'preRender');
 
   // renders the component to the page
@@ -26,19 +26,19 @@ test('copyright renders', function(assert) {
 test('copyright binding to the text property works', function(assert) {
   assert.expect(2);
 
-  var component = this.subject();
-  var currentYear = new Date().getFullYear();
+  const component = this.subject();
+  const currentYear = new Date().getFullYear();
 
   this.render();
   assert.equal(component.$().text().trim(),
-    '\u00A9 ' + currentYear,
+    `\u00A9 ${currentYear}`,
     'By default the text property is empty');
 
-  Ember.run(function () {
+  Ember.run(function() {
     component.set('text', 'Copyright Text');
-    Ember.run.schedule('afterRender', function () {
+    Ember.run.schedule('afterRender', function() {
       assert.equal(component.$().text().trim(),
-        '\u00A9 ' + currentYear + ' Copyright Text',
+        `\u00A9 ${currentYear} Copyright Text`,
         'Setting the text property updates the content of the copyright component');
     });
   });
@@ -46,12 +46,12 @@ test('copyright binding to the text property works', function(assert) {
 
 test('copyright null startYear', function(assert) {
   // get the component to test
-  var component = this.subject();
+  const component = this.subject();
   this.render();
 
   // confirm the component's date is 'currentYear'
-  Ember.run(function () {
-    Ember.run.schedule('afterRender', function () {
+  Ember.run(function() {
+    Ember.run.schedule('afterRender', function() {
       assert.equal(component.get('date'),
         new Date().getFullYear(),
         'Not setting the startYear property just shows the currentYear');
@@ -62,13 +62,13 @@ test('copyright null startYear', function(assert) {
 test('copyright current startYear', function(assert) {
   // get the component to test
   // set the startYear equal to the currentYear
-  var currentYear = new Date().getFullYear();
-  var component = this.subject({startYear: currentYear});
+  const currentYear = new Date().getFullYear();
+  const component = this.subject({ startYear: currentYear });
   this.render();
 
   // confirm the component's date is 'currentYear'
-  Ember.run(function () {
-    Ember.run.schedule('afterRender', function () {
+  Ember.run(function() {
+    Ember.run.schedule('afterRender', function() {
       assert.equal(component.get('date'),
         currentYear,
         'Setting the startYear property to the same year as the currentYear just shows the currentYear');
@@ -79,15 +79,15 @@ test('copyright current startYear', function(assert) {
 test('copyright past startYear', function(assert) {
   // get the component to test
   // set the startYear a year less than the currentYear
-  var currentYear = new Date().getFullYear();
-  var component = this.subject({startYear: currentYear - 1});
+  const currentYear = new Date().getFullYear();
+  const component = this.subject({ startYear: currentYear - 1 });
   this.render();
 
   // confirm the component's date is 'startYear - currentYear'
-  Ember.run(function () {
-    Ember.run.schedule('afterRender', function () {
+  Ember.run(function() {
+    Ember.run.schedule('afterRender', function() {
       assert.equal(component.get('date'),
-        currentYear - 1 + ' - ' + currentYear,
+        `${currentYear - 1} - ${currentYear}`,
         'Setting the startYear property to a year before the currentYear shows startYear - currentYear');
     });
   });
@@ -95,7 +95,7 @@ test('copyright past startYear', function(assert) {
 
 test('copyright future startYear', function(assert) {
   assert.throws(() => {
-    this.subject({startYear: new Date().getFullYear() + 1});
+    this.subject({ startYear: new Date().getFullYear() + 1 });
     this.render();
   }, /Property startYear must be less than or equal to the current year/);
 });

@@ -3,14 +3,14 @@ import Ember from 'ember';
 import startApp from '../../tests/helpers/start-app';
 import { module, test } from 'qunit';
 
-var App;
+let App;
 
 module('Acceptance - Collapsible', {
-  setup: function() {
+  setup() {
     App = startApp();
     visit('/collapsible');
   },
-  teardown: function() {
+  teardown() {
     Ember.run(App, 'destroy');
   }
 });
@@ -29,21 +29,21 @@ test('Collapsible basic tests', function(assert) {
 
 });
 
-test('Action collapsible operations', function(assert){
-  andThen(function(){
-    assert.equal(find(".selected-action").text(), "", "there should be no selected action");
+test('Action collapsible operations', function(assert) {
+  andThen(function() {
+    assert.equal(find('.selected-action').text(), '', 'there should be no selected action');
   });
 
   click('.action-selection-example ul > li:first-child > .collapsible-header');
 
-  andThen(function(){
-    assert.equal(find(".selected-action").text(), "cloud", "after clicking, we should have the correct selected action");
-    assert.equal(find('.action-selection-example ul > li > .active').length, 1, "we should have an activated tab");
+  andThen(function() {
+    assert.equal(find('.selected-action').text(), 'cloud', 'after clicking, we should have the correct selected action');
+    assert.equal(find('.action-selection-example ul > li > .active').length, 1, 'we should have an activated tab');
   });
 
   click('.action-selection-example ul > li:nth-child(2) > .collapsible-header');
 
-  andThen(function(){
-    assert.equal(find(".selected-action").text(), "marker", "clicking another header should fire the action again");
+  andThen(function() {
+    assert.equal(find('.selected-action').text(), 'marker', 'clicking another header should fire the action again');
   });
 });

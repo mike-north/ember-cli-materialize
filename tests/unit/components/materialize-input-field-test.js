@@ -13,7 +13,7 @@ test('input field renders', function(assert) {
   assert.expect(2);
 
   // creates the component instance
-  var component = this.subject();
+  const component = this.subject();
   assert.equal(component._state, 'preRender');
 
   // renders the component to the page
@@ -22,35 +22,34 @@ test('input field renders', function(assert) {
 });
 
 test('input field has class input-field', function(assert) {
-  var component = this.subject();
+  const component = this.subject();
   this.render();
   assert.ok(component.$().hasClass('input-field'));
 });
 
-
 test('input field has class input-field', function(assert) {
-  var component = this.subject();
+  const component = this.subject();
   this.render();
   assert.ok(component.$().hasClass('input-field'));
 });
 
 test('input field has a label', function(assert) {
-  var label = 'My Input';
-  var component = this.subject({ label: label });
+  const label = 'My Input';
+  const component = this.subject({ label });
   this.render();
   assert.equal(component.get('label'), label);
 });
 
 test('input field has a value', function(assert) {
-  var value = 'My Input Value';
-  var component = this.subject({ value: value });
+  const value = 'My Input Value';
+  const component = this.subject({ value });
   this.render();
   assert.equal(component.get('value'), value);
 });
 
 test('input field has an icon', function(assert) {
-  var icon = 'mdi-action-face-unlock';
-  var component = this.subject({ icon: icon });
+  const icon = 'mdi-action-face-unlock';
+  const component = this.subject({ icon });
   this.render();
   assert.equal(component.get('icon'), icon);
 });

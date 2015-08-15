@@ -15,7 +15,7 @@ export default Component.extend({
   },
 
   _setupNavbar() {
-    if (typeOf(Ember.$('.button-collapse').sideNav) === 'function'){
+    if (typeOf(Ember.$('.button-collapse').sideNav) === 'function') {
       this.notifyPropertyChange('_sideNavId');
       this.$('.button-collapse').sideNav({
         closeOnClick: true

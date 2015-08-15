@@ -3,7 +3,7 @@ import DefaultCollectionHeader from 'ember-cli-materialize/views/default-collect
 import layout from '../templates/snippets/my-custom-header';
 
 export default DefaultCollectionHeader.extend({
-  classNames: ['deep-purple'],
-  layout: layout
+  layout,
+  classNames: ['deep-purple']
 });
 // END-SNIPPET

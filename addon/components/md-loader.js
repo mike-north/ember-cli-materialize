@@ -26,8 +26,7 @@ export default Component.extend(UsesSettings, {
   barStyle: computed('mode', 'percent', function() {
     if (this.get('mode') === 'determinate') {
       return new Ember.Handlebars.SafeString(`width: ${parseInt(this.get('percent'), 10)}%`);
-    }
-    else {
+    } else {
       return new Ember.Handlebars.SafeString('');
     }
   }),
@@ -38,16 +37,14 @@ export default Component.extend(UsesSettings, {
 
   spinnerClassNames: computed('color', 'isBarType', function() {
     if (!this.get('isBarType')) {
-      var color = this.get('color');
+      const color = this.get('color');
       if (!color) {
         return Ember.A(['blue', 'red', 'green', 'yellow']
           .map(c => (`spinner-layer spinner-${c}`)));
-      }
-      else {
+      } else {
         return Ember.A([`spinner-layer spinner-${color}-only`]);
       }
-    }
-    else {
+    } else {
       return Ember.A();
     }
   })

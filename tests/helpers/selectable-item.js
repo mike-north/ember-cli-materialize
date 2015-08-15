@@ -102,12 +102,11 @@ export function groupItemsRenderTest() {
       selection: null
     });
 
-
     // Renders the component to the page
     this.render();
 
     assert.equal(component.$('.materialize-selectable-item .materialize-selectable-item-label').length, choices.length, `${choices} items rendered`);
-    assert.equal(component.$('.materialize-selectable-item .materialize-selectable-item-label').text().replace(/[\s\n]/g,''), choices.join(''), 'All choice labels are present');
+    assert.equal(component.$('.materialize-selectable-item .materialize-selectable-item-label').text().replace(/[\s\n]/g, ''), choices.join(''), 'All choice labels are present');
   });
 }
 
@@ -118,14 +117,14 @@ export function initialSelectionTest(selection) {
     // Creates the component instance
     const component = this.subject({
       content: choices,
-      selection: selection
+      selection
     });
 
     // Renders the component to the page
     this.render();
 
     const shouldBeSelected = Ember.isArray(selection) ? selection : Ember.A([selection]);
-    const actuallySelected = component.$('input:checked').map(function(idx,e) {
+    const actuallySelected = component.$('input:checked').map((idx, e) => {
       const parentElement = Ember.$(e).closest('.materialize-selectable-item');
       return parentElement.find('.materialize-selectable-item-label').text().trim();
     }).toArray();
@@ -144,7 +143,7 @@ export function disabledGroupTest() {
     });
     this.render();
     assert.equal(component.$('input:disabled').length, 0, 'No inputs are initially disabled');
-    Ember.run(function () {
+    Ember.run(function() {
       component.set('disabled', true);
       Ember.run.schedule('afterRender', function() {
         assert.equal(component.$('input:disabled').length, 5, 'All inputs are disabled when group is disabled');

@@ -15,22 +15,21 @@ export default Component.extend({
   tagName: 'ul',
 
   windowRange: computed('min', 'max', 'range', 'current', function() {
-    //TODO: this should be broken out into a util, so that it can be tested independently
+    // TODO: this should be broken out into a util, so that it can be tested independently
     const max = this.get('max');
     const min = this.get('min');
     const range = this.get('range');
     const current = this.get('current');
 
-    const middle = Math.floor((max - min)/2);
-    let low = Math.max(min, current - Math.floor(range/2));
-    let high = Math.min(max, current + Math.floor(range/2));
+    const middle = Math.floor((max - min) / 2);
+    let low = Math.max(min, current - Math.floor(range / 2));
+    let high = Math.min(max, current + Math.floor(range / 2));
 
-    if (high-low < range-1) {
+    if (high - low < range - 1) {
       if (current <= middle) {
-        high = Math.min(max, low + range-1);
-      }
-      else {
-        low = Math.max(min, high - (range-1));
+        high = Math.min(max, low + range - 1);
+      } else {
+        low = Math.max(min, high - (range - 1));
       }
     }
     return {
@@ -43,8 +42,8 @@ export default Component.extend({
       const a = Ember.A();
       const winRange = this.get('windowRange');
       const current = this.get('current');
-      for (let i = winRange.low; i <= winRange.high; i +=1) {
-        a.addObject({val: i, cssClass: (current === i ? 'active' : 'waves-effect')});
+      for (let i = winRange.low; i <= winRange.high; i += 1) {
+        a.addObject({ val: i, cssClass: (current === i ? 'active' : 'waves-effect') });
       }
       return a;
     }

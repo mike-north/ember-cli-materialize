@@ -3,7 +3,7 @@ import layout from '../templates/components/md-switch';
 import computed from 'ember-new-computed';
 
 export default SelectableItem.extend({
-  layout: layout,
+  layout,
 
   classNames: ['switch', 'materialize-switch'],
 

@@ -2,7 +2,7 @@ import InputField from './md-input-field';
 import layout from '../templates/components/md-textarea';
 
 export default InputField.extend({
-  layout: layout,
+  layout,
 
   didInsertElement() {
     this._super(...arguments);

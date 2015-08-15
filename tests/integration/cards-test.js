@@ -6,19 +6,15 @@ import { module, test } from 'qunit';
 let App;
 
 module('Acceptance - Cards', {
-
-  setup: function() {
+  setup() {
     App = startApp();
   },
-
-  teardown: function() {
+  teardown() {
     Ember.run(App, 'destroy');
   }
-
 });
 
-
-function checkCardTitle (cardType, cardId) {
+function checkCardTitle(cardType, cardId) {
   test(`${cardType} should have a title`, function(assert) {
     visit('/cards');
 
@@ -31,7 +27,7 @@ function checkCardTitle (cardType, cardId) {
   });
 }
 
-function checkCardContent (cardType, cardId) {
+function checkCardContent(cardType, cardId) {
   test(`${cardType} should have content`, function(assert) {
     visit('/cards');
 
@@ -40,7 +36,7 @@ function checkCardContent (cardType, cardId) {
 
       assert.ok(contentEle.hasClass('card-content'));
 
-      const expected = "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.";
+      const expected = `I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.`;
 
       // skip over the span containing the card title and get just the card content text.
       const actual = contentEle.find('>span').next().text().trim().replace(/[\s\n]+/g, ' ');
@@ -50,7 +46,7 @@ function checkCardContent (cardType, cardId) {
   });
 }
 
-function checkCardActions (cardType, cardId) {
+function checkCardActions(cardType, cardId) {
   test(`${cardType} should have actions`, function(assert) {
     visit('/cards');
 
@@ -63,9 +59,9 @@ function checkCardActions (cardType, cardId) {
 }
 
 const cardFlavors = [
-  {type: 'Basic Card', id: 'basic-card'},
-  {type: 'Image Card', id: 'image-card'},
-  {type: 'Card Reveal', id: 'card-reveal'}
+  { type: 'Basic Card',   id: 'basic-card' },
+  { type: 'Image Card',   id: 'image-card' },
+  { type: 'Card Reveal',  id: 'card-reveal' }
 ];
 
 for (let i = 0; i < cardFlavors.length; i++) {
@@ -87,11 +83,10 @@ test('Card Reveal should have content', function(assert) {
     // skip over the span containing the card title and get just the card content text.
     const actual = contentEle.find('>span').next().text().trim();
 
-    assert.equal(actual, "This is a Link");
+    assert.equal(actual, 'This is a Link');
 
   });
 });
-
 
 test('Card Reveal should have content', function(assert) {
   visit('/cards');
@@ -101,9 +96,9 @@ test('Card Reveal should have content', function(assert) {
 
     assert.ok(contentEle.hasClass('white-text'));
 
-    const expected = "I am a very simple card. I am good at containing small bits of information. " +
-      "I am convenient because I require little markup to use effectively. " +
-      "I am similar to what is called a panel in other frameworks.";
+    const expected = 'I am a very simple card. I am good at containing small bits of information. ' +
+      'I am convenient because I require little markup to use effectively. ' +
+      'I am similar to what is called a panel in other frameworks.';
 
     // skip over the span containing the card title and get just the card content text.
     const actual = contentEle.text().trim().replace(/[\s\n]+/g, ' ');
@@ -112,9 +107,6 @@ test('Card Reveal should have content', function(assert) {
 
   });
 });
-
-
-
 
 test('Card Reveal should reveal and conceal content', function(assert) {
   visit('/cards');
@@ -151,6 +143,5 @@ test('Card Reveal should reveal and conceal content', function(assert) {
         });
       }, 500);
     });
-
   });
 });

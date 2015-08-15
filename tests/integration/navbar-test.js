@@ -3,7 +3,7 @@ import Ember from 'ember';
 import startApp from '../../tests/helpers/start-app';
 import { module, test } from 'qunit';
 
-var App;
+let App;
 
 module('Acceptance - Navbar', {
   setup() {
@@ -21,7 +21,7 @@ test('Load the demo page', assert => {
     assert.ok(true, 'If this is passing, this page has no deprecation warnings');
 
     assert.equal(Ember.$('.navbar-example nav').length, 1, 'Navbar is in the DOM');
-    assert.equal(Ember.$('.navbar-example nav .brand-logo').text(), "Example", "name is rendered in .brand-info");
+    assert.equal(Ember.$('.navbar-example nav .brand-logo').text(), 'Example', 'name is rendered in .brand-info');
 
   });
 });
@@ -38,9 +38,9 @@ test('SideNav', assert => {
 
   andThen(() => {
     setTimeout(() => {
-      assert.equal(Ember.$('.navbar-example .side-nav').css('left'), '0px', "SideNav is open");
+      assert.equal(Ember.$('.navbar-example .side-nav').css('left'), '0px', 'SideNav is open');
       setTimeout(() => {
-        Ember.$("#sidenav-overlay").click();
+        Ember.$('#sidenav-overlay').click();
         setTimeout(() => {
           assert.equal(Ember.$('.navbar-example .side-nav').css('left'), '-250px');
           window.QUnit.start();

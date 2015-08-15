@@ -18,15 +18,14 @@ export default Component.extend(ParentComponentSupport, {
   init() {
     this._super(...arguments);
     if (this.get('selection') === null && !!this.get('multiple')) {
-      this.set('selection', Ember.A());
+      this.set('selection', new A([]));
     }
   },
 
   isValueSelected(value) {
     if (this.get('multiple')) {
       return this.get('selection').indexOf(value) >= 0;
-    }
-    else {
+    } else {
       return this.get('selection') === value;
     }
   },
@@ -34,8 +33,7 @@ export default Component.extend(ParentComponentSupport, {
   setValueSelection(value, select) {
     if (select) {
       return this.addToSelection(value);
-    }
-    else {
+    } else {
       return this.removeFromSelection(value);
     }
   },
@@ -43,8 +41,7 @@ export default Component.extend(ParentComponentSupport, {
   addToSelection(value) {
     if (this.get('multiple')) {
       this.get('selection').addObject(value);
-    }
-    else {
+    } else {
       this.set('selection', value);
     }
   },
@@ -52,8 +49,7 @@ export default Component.extend(ParentComponentSupport, {
   removeFromSelection(value) {
     if (this.get('multiple')) {
       this.get('selection').removeObject(value);
-    }
-    else {
+    } else {
       if (this.get('selection') === value) {
         this.set('selection', null);
       }
@@ -61,7 +57,7 @@ export default Component.extend(ParentComponentSupport, {
   },
   disabled: false,
 
-  _valuePath: computed('optionValuePath', function () {
+  _valuePath: computed('optionValuePath', function() {
     const optionValuePath = get(this, 'optionValuePath');
     return optionValuePath.replace(/^content\.?/, '');
   }),
@@ -74,18 +70,18 @@ export default Component.extend(ParentComponentSupport, {
   _content: computed('content.[]', '_valuePath', '_labelPath', function() {
     const valuePath = get(this, '_valuePath');
     const labelPath = get(this, '_labelPath');
-    const content = get(this, 'content') || Ember.A([]);
+    const content = get(this, 'content') || new A([]);
 
     if (valuePath && labelPath) {
       return new A(
         content.map(el => {
-          return {value: get(el, valuePath), label: get(el, labelPath)};
+          return { value: get(el, valuePath), label: get(el, labelPath) };
         })
       );
     } else {
       return new A(
         content.map(el => {
-          return {value: el, label: el};
+          return { value: el, label: el };
         })
       );
     }
