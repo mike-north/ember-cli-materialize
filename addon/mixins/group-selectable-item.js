@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
-var alias = Ember.computed.alias;
+const { Mixin, computed: { alias } } = Ember;
 
-export default Ember.Mixin.create({
+export default Mixin.create({
   name: alias('content.label'),
   value: alias('content.value'),
   disabled: false

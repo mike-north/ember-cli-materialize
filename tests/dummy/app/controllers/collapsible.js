@@ -1,14 +1,16 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+const { Controller } = Ember;
+
+export default Controller.extend({
   lastClicked: null,
   actions: {
     clicked(tabModel) {
       this.set('lastClicked', tabModel);
-      if(tabModel === this.get("activeSlide")) {
-        this.set("activeSlide", null);
+      if (tabModel === this.get('activeSlide')) {
+        this.set('activeSlide', null);
       } else {
-        this.set("activeSlide", tabModel);
+        this.set('activeSlide', tabModel);
       }
     }
   }

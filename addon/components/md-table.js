@@ -1,11 +1,13 @@
 import Ember from 'ember';
 import layout from '../templates/components/md-table';
-import computed from 'ember-new-computed';
 
-export default Ember.Component.extend({
+const { A, Component, computed } = Ember;
+
+export default Component.extend({
   tagName: 'table',
-  layout: layout,
+  layout,
   columns: null,
+
   init() {
     this._super(...arguments);
     this.set('columns', Ember.A());
@@ -16,14 +18,12 @@ export default Ember.Component.extend({
     if (existingColumn) {
       return;
     } else {
-      this.get('columns').addObject({key, column});
+      this.get('columns').addObject({ key, column });
     }
   },
 
-  columnComponents: computed('columns.@each.key', {
-    get() {
-      return Ember.A(this.get('columns').mapBy('column'));
-    }
+  columnComponents: computed('columns.@each.key', function() {
+    return new A(this.get('columns').mapBy('column'));
   }),
 
   unregisterColumn(key) {

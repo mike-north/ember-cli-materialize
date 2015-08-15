@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/mike-north/ember-cli-materialize.svg?branch=master)](https://travis-ci.org/mike-north/ember-cli-materialize)
 [![npm version](https://badge.fury.io/js/ember-cli-materialize.svg)](http://badge.fury.io/js/ember-cli-materialize)
 [![Code Climate](https://codeclimate.com/github/mike-north/ember-cli-materialize/badges/gpa.svg)](https://codeclimate.com/github/mike-north/ember-cli-materialize)
+[![Coverage Status](https://coveralls.io/repos/mike-north/ember-cli-materialize/badge.svg?branch=master&service=github)](https://coveralls.io/github/mike-north/ember-cli-materialize?branch=master)
 [![Ember Observer Score](http://emberobserver.com/badges/ember-cli-materialize.svg)](http://emberobserver.com/addons/ember-cli-materialize)
 [![Dependency Status](https://david-dm.org/mike-north/ember-cli-materialize.svg)](https://david-dm.org/mike-north/ember-cli-materialize)
 [![devDependency Status](https://david-dm.org/mike-north/ember-cli-materialize/dev-status.svg)](https://david-dm.org/mike-north/ember-cli-materialize#info=devDependencies)

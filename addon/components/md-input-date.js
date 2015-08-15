@@ -7,12 +7,12 @@ const MONTH_NAMES = ['January', 'February', 'March', 'April',
     'November', 'December'];
 
 function formatDate(timestamp) {
-  var d = new Date(timestamp);
+  const d = new Date(timestamp);
   return `${d.getDate()} ${MONTH_NAMES[d.getMonth()]}, ${d.getFullYear()}`;
 }
 
 export default MaterializeInput.extend({
-  layout: layout,
+  layout,
 
   selectMonths: true,
   numberOfYears: 15,
@@ -30,14 +30,14 @@ export default MaterializeInput.extend({
   },
 
   _setupPicker() {
-    var datePickerOptions = this.getProperties('selectMonths', 'numberOfYears', 'min', 'max');
+    const datePickerOptions = this.getProperties('selectMonths', 'numberOfYears', 'min', 'max');
     datePickerOptions.selectYears = datePickerOptions.numberOfYears;
 
-    this._onDateSet = function (evt) {
+    this._onDateSet = evt => {
       if (evt.select) {
         this.set('value', formatDate(evt.select));
       }
-    }.bind(this);
+    };
 
     this.$('.datepicker').pickadate(Ember.$.extend(datePickerOptions, {
       onSet: this._onDateSet
@@ -45,7 +45,7 @@ export default MaterializeInput.extend({
   },
 
   _teardownPicker() {
-    var $pickadate = this.$('.datepicker').data('pickadate');
+    const $pickadate = this.$('.datepicker').data('pickadate');
     if ($pickadate) {
       $pickadate.stop();
     }

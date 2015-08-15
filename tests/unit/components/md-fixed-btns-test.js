@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('md-fixed-btns', 'component:md-fixed-btns', {
@@ -10,7 +9,7 @@ test('it renders', function(assert) {
   assert.expect(2);
 
   // Creates the component instance
-  var component = this.subject();
+  const component = this.subject();
   assert.equal(component._state, 'preRender');
 
   // Renders the component to the page
@@ -18,8 +17,8 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
-test('btnIcon attribute results in an icon being rendered', function (assert) {
-  var component = this.subject({
+test('btnIcon attribute results in an icon being rendered', function(assert) {
+  const component = this.subject({
     btnIcon: 'mdi-content-add'
   });
 
@@ -27,8 +26,8 @@ test('btnIcon attribute results in an icon being rendered', function (assert) {
   assert.equal(component.$('i.mdi-content-add').length, 1, 'Icon should be present');
 });
 
-test('btnClass attribute should pass through to the button', function (assert) {
-  var component = this.subject({
+test('btnClass attribute should pass through to the button', function(assert) {
+  const component = this.subject({
     btnClass: 'green'
   });
 
@@ -36,14 +35,14 @@ test('btnClass attribute should pass through to the button', function (assert) {
   assert.equal(component.$('.btn-floating.green').length, 1, 'Class should be appended to button');
 });
 
-test('btn-floating and btn-large classes are on the button by default', function (assert) {
-  var component = this.subject();
+test('btn-floating and btn-large classes are on the button by default', function(assert) {
+  const component = this.subject();
   this.render();
   assert.equal(component.$('.btn-floating.btn-large').length, 1, 'Classes should be present');
 });
 
-test('Optionally, users can opt to use small floating buttons', function (assert) {
-  var component = this.subject({
+test('Optionally, users can opt to use small floating buttons', function(assert) {
+  const component = this.subject({
     large: false
   });
   this.render();
@@ -51,8 +50,9 @@ test('Optionally, users can opt to use small floating buttons', function (assert
   assert.equal(component.$('.btn-floating.btn-large').length, 0, 'Button should not be large');
 });
 
-test('there should be a UL tag to hold child buttons', function (assert) {
-  var component = this.subject();
+test('there should be a UL tag to hold child buttons', function(assert) {
+  const component = this.subject();
   this.render();
-  assert.equal(Ember.$('.fixed-action-btn ul').length, 1, 'ul should be present');
+  assert.ok(component.$().hasClass('fixed-action-btn'));
+  assert.equal(component.$('ul').length, 1, 'ul should be present');
 });

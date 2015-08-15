@@ -1,8 +1,10 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+const { Controller, A } = Ember;
 
-  myData: Ember.A(["hello", "world"]),
+export default Controller.extend({
+
+  myData: new A(['hello', 'world']),
 
   actions: {
     firstAction() {

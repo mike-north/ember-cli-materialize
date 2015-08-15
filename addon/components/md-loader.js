@@ -1,12 +1,11 @@
 import Ember from 'ember';
 import UsesSettings from '../mixins/uses-settings';
 import layout from '../templates/components/md-loader';
-import computed from 'ember-new-computed';
 
-const { computed: { oneWay } } = Ember;
+const { Component, computed, computed: { oneWay } } = Ember;
 
-export default Ember.Component.extend(UsesSettings, {
-  layout: layout,
+export default Component.extend(UsesSettings, {
+  layout,
 
   classNameBindings: ['isBarType:progress:preloader-wrapper', 'active:active', 'size'],
 
@@ -16,49 +15,37 @@ export default Ember.Component.extend(UsesSettings, {
   active: true,
   color: null,
 
-  isBarType: computed('mode', {
-    get() {
-      return ['determinate', 'indeterminate'].indexOf(this.get('mode')) >= 0;
+  isBarType: computed('mode', function() {
+    return ['determinate', 'indeterminate'].indexOf(this.get('mode')) >= 0;
+  }),
+
+  isDeterminate: computed('mode', function() {
+    return ['determinate'].indexOf(this.get('mode'));
+  }),
+
+  barStyle: computed('mode', 'percent', function() {
+    if (this.get('mode') === 'determinate') {
+      return new Ember.Handlebars.SafeString(`width: ${parseInt(this.get('percent'), 10)}%`);
+    } else {
+      return new Ember.Handlebars.SafeString('');
     }
   }),
 
-  isDeterminate: computed('mode', {
-    get() {
-      return ['determinate'].indexOf(this.get('mode'));
-    }
+  barClassName: computed('isBarType', 'mode', function() {
+    return this.get('isBarType') ? this.get('mode') : null;
   }),
 
-  barStyle: computed('mode', 'percent', {
-    get() {
-      if (this.get('mode') === 'determinate') {
-        return Ember.String.htmlSafe(`width: ${parseInt(this.get('percent'), 10)}%`).string;
+  spinnerClassNames: computed('color', 'isBarType', function() {
+    if (!this.get('isBarType')) {
+      const color = this.get('color');
+      if (!color) {
+        return Ember.A(['blue', 'red', 'green', 'yellow']
+          .map(c => (`spinner-layer spinner-${c}`)));
+      } else {
+        return Ember.A([`spinner-layer spinner-${color}-only`]);
       }
-      else {
-        return null;
-      }
-    }
-  }),
-
-  barClassName: computed('isBarType', 'mode', {
-    get() {
-      return this.get('isBarType') ? this.get('mode') : null;
-    }
-  }),
-
-  spinnerClassNames: computed('color', 'isBarType', {
-    get() {
-      if (!this.get('isBarType')) {
-        var color = this.get('color');
-        if (!color) {
-          return Ember.A(['blue', 'red', 'green', 'yellow'].map((c) => (`spinner-layer spinner-${c}`)));
-        }
-        else {
-          return Ember.A([`spinner-layer spinner-${color}-only`]);
-        }
-      }
-      else {
-        return Ember.A();
-      }
+    } else {
+      return Ember.A();
     }
   })
 });

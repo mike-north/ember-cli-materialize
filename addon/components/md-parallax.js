@@ -1,8 +1,9 @@
 import Ember from 'ember';
 import layout from '../templates/components/md-parallax';
+const { Component } = Ember;
 
-export default Ember.Component.extend({
-  layout: layout,
+export default Component.extend({
+  layout,
   classNames: ['parallax-container'],
 
   didInsertElement() {
@@ -12,9 +13,9 @@ export default Ember.Component.extend({
 
   _setupParallax() {
     this.$('.parallax').parallax();
-  },
+  }
 
-  //TODO: unregister any listeners that $.parallax() registers
+  // TODO: unregister any listeners that $.parallax() registers
   // _teardownParallax() {
   //
   // }

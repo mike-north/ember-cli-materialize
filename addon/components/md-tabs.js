@@ -1,16 +1,16 @@
 import Ember from 'ember';
 import ParentComponentSupport from 'ember-composability/mixins/parent-component-support';
 import layout from '../templates/components/md-tabs';
-import computed from 'ember-new-computed';
+import _computed from 'ember-new-computed';
 
-var get = Ember.get;
+const { get, Component, computed, computed: { alias }, run: { debounce } } = Ember;
 
-export default Ember.Component.extend(ParentComponentSupport, {
-  layout: layout,
+export default Component.extend(ParentComponentSupport, {
+  layout,
   classNames: ['materialize-tabs', 'row'],
 
   content: null,
-  numTabs: Ember.computed.alias('composableChildren.length'),
+  numTabs: alias('composableChildren.length'),
   _selected: null,
   optionValuePath: 'id',
   optionLabelPath: 'title',
@@ -22,12 +22,12 @@ export default Ember.Component.extend(ParentComponentSupport, {
     this._updateIndicatorPosition(false);
   },
 
-  selected: computed('_selected', {
+  selected: _computed('_selected', {
     get() {
       return this.get('_selected');
     },
     set(key, newVal) {
-      var tabComponents = this.tabComponents();
+      const tabComponents = this.tabComponents();
       let tc = tabComponents.findBy('value', newVal);
       if (tc) {
         this._setActiveTab(tc);
@@ -36,18 +36,18 @@ export default Ember.Component.extend(ParentComponentSupport, {
     }
   }),
 
-  _indicatorUpdater: Ember.observer('selected', 'content.[]', 'composableChildren.[]', function () {
-    Ember.run.debounce(this, this._updateIndicatorPosition, 100);
+  _indicatorUpdater: Ember.observer('selected', 'content.[]', 'composableChildren.[]', function() {
+    debounce(this, this._updateIndicatorPosition, 100);
   }),
 
   tabComponents() {
-    var tabComponents = this.get('composableChildren') || Ember.A();
+    const tabComponents = this.get('composableChildren') || Ember.A();
     tabComponents.reverse();
     return tabComponents;
   },
 
   _setInitialTabSelection() {
-    var tabComponents = this.tabComponents();
+    const tabComponents = this.tabComponents();
     if (this.get('selected') === null && tabComponents.length > 0) {
       let tc = tabComponents[tabComponents.length - 1];
       this._setActiveTab(tc);
@@ -63,34 +63,30 @@ export default Ember.Component.extend(ParentComponentSupport, {
     if (!this.element) {
       return;
     }
-    var tabComponent = (this.get('composableChildren') || []).filter(item => get(item, 'value') === this.get('selected'))[0];
-    var tabSetRect = this.element.getBoundingClientRect();
+    const [tabComponent] = (this.get('composableChildren') || []).filter(item => get(item, 'value') === this.get('selected'));
+    const tabSetRect = this.element.getBoundingClientRect();
     if (tabComponent) {
-      var tabRect = tabComponent.element.getBoundingClientRect();
+      const tabRect = tabComponent.element.getBoundingClientRect();
 
-      var cssParams = {
+      const cssParams = {
         left: tabRect.left - tabSetRect.left,
         right: tabSetRect.right - tabRect.right
       };
 
       if (!animate) {
         this.$('.indicator').css(cssParams);
-      }
-      else {
-        this.$('.indicator1').velocity(cssParams, {duration: 150});
-        this.$('.indicator2').velocity(cssParams, {duration: 150, delay: 40});
+      } else {
+        this.$('.indicator1').velocity(cssParams, { duration: 150 });
+        this.$('.indicator2').velocity(cssParams, { duration: 150, delay: 40 });
       }
     }
   },
 
-  _content: computed('content.[]', 'optionLabelPath', 'optionValuePath', {
-    get() {
-      var labelPath = this.get('optionLabelPath');
-      var valuePath = this.get('optionValuePath');
-      return new Ember.A((this.get('content') || []).map(contentItem => ({id: contentItem[valuePath], title: contentItem[labelPath]})));
-    }
+  _content: computed('content.[]', 'optionLabelPath', 'optionValuePath', function() {
+    const labelPath = this.get('optionLabelPath');
+    const valuePath = this.get('optionValuePath');
+    return new Ember.A((this.get('content') || []).map(contentItem => ({ id: contentItem[valuePath], title: contentItem[labelPath] })));
   }),
-
 
   _setActiveTab(tabComponent) {
     this.set('_selected', tabComponent.get('value'));
@@ -101,6 +97,7 @@ export default Ember.Component.extend(ParentComponentSupport, {
       }
     });
   },
+
   actions: {
     tabClicked(tab) {
       this._setActiveTab(tab);

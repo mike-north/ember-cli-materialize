@@ -14,7 +14,7 @@ test('button dropdown renders', function(assert) {
   assert.expect(2);
 
   // creates the component instance
-  var component = this.subject();
+  const component = this.subject();
   assert.equal(component._state, 'preRender');
 
   // appends the component to the page
@@ -30,12 +30,12 @@ test('button dropdown is added to the page', function(assert) {
 });
 
 test('dropdown shown when clicked', function(assert) {
-  var component = this.subject();
+  const component = this.subject();
   component.set('hover', false);
   this.render();
-  
-  var dropdownContentId = '#' + component.get('_dropdownContentId');
-  var dropdownElement = $(dropdownContentId);
+
+  const dropdownContentId = `#${component.get('_dropdownContentId')}`;
+  const dropdownElement = $(dropdownContentId);
   assert.ok(!dropdownElement.is(':visible'));
   component.$().trigger('mouseenter');
   assert.ok(!dropdownElement.is(':visible'));
@@ -44,43 +44,43 @@ test('dropdown shown when clicked', function(assert) {
 });
 
 test('dropdown shown when hovered', function(assert) {
-  var component = this.subject();
+  const component = this.subject();
   component.set('hover', true);
   this.render();
-  
-  var dropdownContentId = '#' + component.get('_dropdownContentId');
-  var dropdownElement = $(dropdownContentId);
+
+  const dropdownContentId = `#${component.get('_dropdownContentId')}`;
+  const dropdownElement = $(dropdownContentId);
   assert.ok(!dropdownElement.is(':visible'));
   component.$().trigger('mouseenter');
   assert.ok(dropdownElement.is(':visible'));
 });
 
 test('dropdown shown at origin', function(assert) {
-  var component = this.subject();
+  const component = this.subject();
   component.set('belowOrigin', false);
   this.render();
-  
-  var dropdownContentId = '#' + component.get('_dropdownContentId');
-  var dropdownElement = $(dropdownContentId);
+
+  const dropdownContentId = `#${component.get('_dropdownContentId')}`;
+  const dropdownElement = $(dropdownContentId);
   component.$().click();
-  Ember.run(function () {
-    Ember.run.schedule('afterRender', function () {
-      assert.equal(component.$().position().top + 'px', dropdownElement.css('top'));
-	});
+  Ember.run(function() {
+    Ember.run.schedule('afterRender', function() {
+      assert.equal(`${component.$().position().top}px`, dropdownElement.css('top'));
+    });
   });
 });
 
 test('dropdown shown below origin', function(assert) {
-  var component = this.subject();
+  const component = this.subject();
   component.set('belowOrigin', true);
   this.render();
-  
-  var dropdownContentId = '#' + component.get('_dropdownContentId');
-  var dropdownElement = $(dropdownContentId);
+
+  const dropdownContentId = `#${component.get('_dropdownContentId')}`;
+  const dropdownElement = $(dropdownContentId);
   component.$().click();
-  Ember.run(function () {
-    Ember.run.schedule('afterRender', function () {
-      assert.notEqual(component.$().position().top + 'px', dropdownElement.css('top'));
-	});
+  Ember.run(function() {
+    Ember.run.schedule('afterRender', function() {
+      assert.notEqual(`${component.$().position().top}px`, dropdownElement.css('top'));
+    });
   });
 });

@@ -3,13 +3,13 @@ import Ember from 'ember';
 import startApp from '../../tests/helpers/start-app';
 import { module, test } from 'qunit';
 
-var App;
+let App;
 
 module('Acceptance - Badges', {
-  setup: function() {
+  setup() {
     App = startApp();
   },
-  teardown: function() {
+  teardown() {
     Ember.run(App, 'destroy');
   }
 });
@@ -17,7 +17,7 @@ module('Acceptance - Badges', {
 test('Load the demo page', function(assert) {
   visit('/badges');
 
-  andThen(function () {
+  andThen(function() {
     assert.ok(true, 'If this is passing, this page has no deprecation warnings');
   });
 });

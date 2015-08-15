@@ -8,6 +8,10 @@ var app = new EmberAddon({
   snippetPaths: ['tests/dummy/app/templates/snippets']
 });
 
+app.import('vendor/highlight.pack.js', {
+  exports: ['highlight.js']
+});
+
 // Use `app.import` to add additional libraries to the generated
 // output files.
 //

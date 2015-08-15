@@ -1,7 +1,8 @@
 import Ember from 'ember';
-import computed from 'ember-new-computed';
 
-export default Ember.Component.extend({
+const { Component, computed, isPresent } = Ember;
+
+export default Component.extend({
   classNames: ['input-field'],
 
   bindAttributes: ['disabled', 'readonly'],
@@ -12,11 +13,11 @@ export default Ember.Component.extend({
   init() {
     this._super(...arguments);
     // bind validation errors
-    //TODO: This is private API usage, which may bite us when glimmer arrives
+    // TODO: This is private API usage, which may bite us when glimmer arrives
     //  We should find some less brittle way of introspecting the binding path,
     //  or propose a framework modification to support this in the long term
-    var propertyPath = this.get('valueBinding._label');
-    if (Ember.isPresent(propertyPath)) {
+    const propertyPath = this.get('valueBinding._label');
+    if (isPresent(propertyPath)) {
       Ember.Binding.from(`targetObject.${this.get('errorsPath')}.${propertyPath}`)
         .to('errors')
         .connect(this);
@@ -26,21 +27,19 @@ export default Ember.Component.extend({
   didInsertElement() {
     this._super(...arguments);
     // pad the errors element when an icon is present
-    if (Ember.isPresent(this.get('icon'))) {
+    if (isPresent(this.get('icon'))) {
       this.$('> span').css('padding-left', '3rem');
     }
   },
 
-  id: computed('elementId', {
-    get() {
-      return `${this.get('elementId')}-input`;
-    }
+  id: computed('elementId', function() {
+    return `${this.get('elementId')}-input`;
   }),
 
   _setupLabel() {
-    var labelSelector = this.$('> label');
-    if (Ember.isPresent(this.get('value')) && !labelSelector.hasClass('active')) {
-      labelSelector.addClass('active');
+    const $label = this.$('> label');
+    if (isPresent(this.get('value')) && !$label.hasClass('active')) {
+      $label.addClass('active');
     }
   }
 

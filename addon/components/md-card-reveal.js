@@ -1,12 +1,13 @@
 import Ember from 'ember';
 import layout from '../templates/components/md-card-reveal';
 
-export default Ember.Component.extend({
-  layout: layout,
+const { Component } = Ember;
+
+export default Component.extend({
+  layout,
   tagName: 'div',
 
   classNames: ['card-reveal'],
-
   classNameBinding: 'class',
   activatorBinding: 'parentView.activator'
 });

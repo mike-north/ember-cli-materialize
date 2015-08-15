@@ -1,9 +1,11 @@
+import Ember from 'ember';
 import SelectableItem from './selectable-item';
 import layout from '../templates/components/md-switch';
-import computed from 'ember-new-computed';
+
+const { computed } = Ember;
 
 export default SelectableItem.extend({
-  layout: layout,
+  layout,
 
   classNames: ['switch', 'materialize-switch'],
 
@@ -11,9 +13,7 @@ export default SelectableItem.extend({
   onLabel: 'On',
   disabled: false,
 
-  _labelClass: computed('name', {
-    get() {
-      return this.get('name') ? 'right' : '';
-    }
+  _labelClass: computed('name', function() {
+    return this.get('name') ? 'right' : '';
   })
 });

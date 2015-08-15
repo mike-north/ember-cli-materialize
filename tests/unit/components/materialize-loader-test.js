@@ -13,7 +13,7 @@ test('loader renders', function(assert) {
   assert.expect(2);
 
   // Creates the component instance
-  var component = this.subject();
+  const component = this.subject();
   assert.equal(component._state, 'preRender');
 
   // Renders the component to the page

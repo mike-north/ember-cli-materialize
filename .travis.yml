@@ -13,6 +13,7 @@ cache:
 env:
   - EMBER_TRY_SCENARIO=ember-1.11
   - EMBER_TRY_SCENARIO=ember-1.12
+  - EMBER_TRY_SCENARIO=ember-1.13
   - EMBER_TRY_SCENARIO=ember-release
   - EMBER_TRY_SCENARIO=ember-beta
   - EMBER_TRY_SCENARIO=ember-canary
@@ -37,6 +38,10 @@ install:
 
 script:
   - ember try $EMBER_TRY_SCENARIO test
+
+after_script:
+  - sed -i -- 's/SF:ember-cli-materialize\/\(.*\)/SF:addon\/\1.js/' lcov.dat
+  - cat lcov.dat | coveralls
 
 after_success:
 # Remove the downloaded copy of phantomJS

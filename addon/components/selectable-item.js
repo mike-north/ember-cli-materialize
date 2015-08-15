@@ -1,33 +1,33 @@
 import Ember from 'ember';
 import ChildComponentSupport from 'ember-composability/mixins/child-component-support';
 import SelectableItemGroup from './selectable-item-group';
-import computed from 'ember-new-computed';
+import _computed from 'ember-new-computed';
 
-export default Ember.Component.extend(ChildComponentSupport, {
+const { computed, Component } = Ember;
+
+export default Component.extend(ChildComponentSupport, {
   _parentComponentTypes: [SelectableItemGroup],
   checked: null,
   disabled: false,
   classNames: ['materialize-selectable-item'],
 
-  _checked: computed('checked', 'group.selection', 'group.selection.[]', {
+  _checked: _computed('checked', 'group.selection', 'group.selection.[]', {
     get() {
-      var group = this.get('group');
+      const group = this.get('group');
       if (!group) {
         return this.get('checked');
-      }
-      else {
+      } else {
         return group.isValueSelected(this.get('value'));
       }
     },
-    set (key, val) {
-      var group = this.get('group');
+    set(key, val) {
+      const group = this.get('group');
       if (!group) {
         this.set('checked', val);
-      }
-      else {
+      } else {
         group.setValueSelection(this.get('value'), val);
       }
-      this.sendAction('action', {checked: !!val});
+      this.sendAction('action', { checked: !!val });
       return !!val;
     }
   }),
@@ -35,9 +35,9 @@ export default Ember.Component.extend(ChildComponentSupport, {
   isSelected: Ember.computed.alias('_checked'),
 
   _setupLabel() {
-    var $input = this.$('.materialize-selectable-item-input')[0];
+    const [$input] = this.$('.materialize-selectable-item-input').toArray();
 
-    var inputId = $input ? $input.id : null;
+    const inputId = $input ? $input.id : null;
     this.$('.materialize-selectable-item-label').attr('for', inputId);
   },
 
@@ -46,9 +46,7 @@ export default Ember.Component.extend(ChildComponentSupport, {
     this._setupLabel();
   },
 
-  group: computed({
-    get() {
-      return this.nearestWithProperty('__materializeSelectableItemGroup');
-    }
+  group: computed(function() {
+    return this.nearestWithProperty('__materializeSelectableItemGroup');
   })
 });

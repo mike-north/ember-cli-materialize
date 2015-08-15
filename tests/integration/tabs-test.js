@@ -3,17 +3,16 @@ import Ember from 'ember';
 import startApp from '../../tests/helpers/start-app';
 import { module, test } from 'qunit';
 
-var App;
+let App;
 
 module('Acceptance - Tabs', {
-  setup: function() {
+  setup() {
     App = startApp();
   },
-  teardown: function() {
+  teardown() {
     Ember.run(App, 'destroy');
   }
 });
-
 
 test('Basic Example - One set of tabs should be rendered, with three tabs', function(assert) {
   visit('/tabs').then(function() {

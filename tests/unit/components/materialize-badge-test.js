@@ -15,7 +15,7 @@ test('badge renders', function(assert) {
   assert.expect(2);
 
   // Creates the component instance
-  var component = this.subject();
+  const component = this.subject();
   assert.equal(component._state, 'preRender');
 
   // Renders the component to the page
@@ -23,18 +23,17 @@ test('badge renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
-
 test('badge binding to the text property works', function(assert) {
   assert.expect(2);
 
-  var component = this.subject();
+  const component = this.subject();
 
   this.render();
   assert.equal(component.$().text().trim(), '', 'By default the text property is empty');
 
-  Ember.run(function () {
+  Ember.run(function() {
     component.set('text', 'Heisenberg');
-    Ember.run.schedule('afterRender', function () {
+    Ember.run.schedule('afterRender', function() {
       assert.equal(component.$().text().trim(), 'Heisenberg', 'Setting the text property updates the content of the badge');
     });
   });

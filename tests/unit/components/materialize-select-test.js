@@ -13,7 +13,7 @@ test('select renders', function(assert) {
   assert.expect(2);
 
   // creates the component instance
-  var component = this.subject();
+  const component = this.subject();
   assert.equal(component._state, 'preRender');
 
   // renders the component to the page
@@ -22,23 +22,23 @@ test('select renders', function(assert) {
 });
 
 test('select has class input-field', function(assert) {
-  var component = this.subject();
+  const component = this.subject();
   this.render();
   assert.ok(component.$().hasClass('input-field'));
 });
 
 test('select has a label', function(assert) {
-  var label = 'My Input';
-  var component = this.subject({ label: label });
+  const label = 'My Input';
+  const component = this.subject({ label });
   this.render();
   assert.equal(component.$('>label').text(), label);
 });
 
 test('select label is active with value', function(assert) {
-  var value = {id: 1, name: 'My Input Value'};
-  var component = this.subject({
+  const value = { id: 1, name: 'My Input Value' };
+  const component = this.subject({
     content: new Ember.A([value]),
-    value: value,
+    value,
     optionLabelPath: 'content.name',
     optionValuePath: 'content.id'
   });
@@ -48,7 +48,7 @@ test('select label is active with value', function(assert) {
 
 test('select creates the correct choices from a simple content array', function(assert) {
 
-  var component = this.subject({
+  const component = this.subject({
     content: new Ember.A(['Walter White', 'Jesee Pinkman', 'Gus Freng']),
     value: 'Jesee Pinkman'
   });

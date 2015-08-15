@@ -1,10 +1,11 @@
 import Ember from 'ember';
 import layout from '../templates/components/md-card';
 
-export default Ember.Component.extend({
-  layout: layout,
+const { Component } = Ember;
+
+export default Component.extend({
+  layout,
 
   classNames: ['card'],
-
   classNameBinding: 'class'
 });

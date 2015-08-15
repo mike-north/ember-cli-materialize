@@ -4,6 +4,6 @@ moduleFor('view:default-collection-header', 'Unit | View | default collection he
 
 // Replace this with your real tests.
 test('it exists', function(assert) {
-  var view = this.subject();
+  const view = this.subject();
   assert.ok(view);
 });

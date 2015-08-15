@@ -1,7 +1,9 @@
 import Ember from 'ember';
 import layout from '../templates/default-collection-header';
 
-export default Ember.View.extend({
-  layout: layout,
+const { View } = Ember;
+
+export default View.extend({
+  layout,
   classNames: ['collection-header']
 });

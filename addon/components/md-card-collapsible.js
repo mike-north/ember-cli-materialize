@@ -1,18 +1,17 @@
 import Ember from 'ember';
 import layout from '../templates/components/md-card-collapsible';
-import computed from 'ember-new-computed';
 
-export default Ember.Component.extend({
-  layout: layout,
+const { computed, Component } = Ember;
+
+export default Component.extend({
+  layout,
   tagName: 'ul',
   classNames: ['collapsible'],
   attributeBindings: ['data-collapsible'],
   accordion: true,
 
-  'data-collapsible': computed({
-    get() {
-      return this.get('accordion') ? 'accordion' : 'expandable';
-    }
+  'data-collapsible': computed(function() {
+    return this.get('accordion') ? 'accordion' : 'expandable';
   }),
 
   didInsertElement() {
@@ -21,13 +20,14 @@ export default Ember.Component.extend({
   },
 
   _setupCollapsible() {
-    this.$().collapsible({ accordion : this.get('accordion') });
+    const accordion = this.get('accordion');
+    this.$().collapsible({ accordion });
   },
 
   _teardownCollapsible() {
-    var $panel_headers = this.$('> li > .collapsible-header');
+    const $panelHeaders = this.$('> li > .collapsible-header');
     this.$().off('click.collapse', '.collapsible-header');
-    $panel_headers.off('click.collapse');
+    $panelHeaders.off('click.collapse');
   },
 
   willDestroyElement() {

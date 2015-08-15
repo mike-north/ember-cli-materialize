@@ -13,7 +13,7 @@ test('parallax renders', function(assert) {
   assert.expect(2);
 
   // creates the component instance
-  var component = this.subject();
+  const component = this.subject();
   assert.equal(component._state, 'preRender');
 
   // renders the component to the page
@@ -22,19 +22,19 @@ test('parallax renders', function(assert) {
 });
 
 test('parallax has class parallax-container', function(assert) {
-  var component = this.subject();
+  const component = this.subject();
   this.render();
   assert.ok(component.$().hasClass('parallax-container'));
 });
 
 test('parallax has div with class parallax', function(assert) {
-  var component = this.subject();
+  const component = this.subject();
   this.render();
   assert.ok(component.$('>div').hasClass('parallax'));
 });
 
 test('parallax has an image', function(assert) {
-  var component = this.subject();
+  const component = this.subject();
   this.render();
   assert.ok(component.$('>div>img').length);
 });

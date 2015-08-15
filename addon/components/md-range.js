@@ -1,8 +1,10 @@
 import Ember from 'ember';
 import layout from '../templates/components/md-range';
 
-export default Ember.Component.extend({
-  layout: layout,
+const { Component } = Ember;
+
+export default Component.extend({
+  layout,
 
   classNames: ['range-field'],
 
