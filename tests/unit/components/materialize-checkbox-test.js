@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import {
   moduleForComponent,
   test

@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('md-fixed-btn', 'component:md-fixed-btn', {
@@ -46,7 +45,8 @@ test('btn-floating and btn-large classes are on the button by default', function
 test('button should be wrapped in a li tag', function (assert) {
   var component = this.subject();
   this.render();
-  assert.equal(Ember.$('li .btn-floating').length, 1, 'Button should be wrapped in a li tag');
+  assert.equal(component.$()[0].tagName, 'LI');
+  assert.equal(component.$('.btn-floating').length, 1, 'Button should be wrapped in a li tag');
 });
 
 test('Optionally, users can opt to use small floating buttons', function (assert) {

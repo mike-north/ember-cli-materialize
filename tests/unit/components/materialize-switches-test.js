@@ -41,8 +41,8 @@ test('simple array test', function (assert) {
     selection: Ember.A(['Deborah Morgan'])
   });
   this.render();
-  assert.deepEqual(this.$('.switch-label').toArray().map(x => Ember.$(x).text()), ['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan'], 'Choices are valid');
-  assert.equal(this.$('input[type="checkbox"]')[1].checked, true, 'Second checkbox is checked');
+  assert.deepEqual(component.$('.switch-label').toArray().map(x => Ember.$(x).text()), ['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan'], 'Choices are valid');
+  assert.equal(component.$('input[type="checkbox"]')[1].checked, true, 'Second checkbox is checked');
 });
 
 disabledGroupTest();

@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('md-fixed-btns', 'component:md-fixed-btns', {
@@ -54,5 +53,6 @@ test('Optionally, users can opt to use small floating buttons', function (assert
 test('there should be a UL tag to hold child buttons', function (assert) {
   var component = this.subject();
   this.render();
-  assert.equal(Ember.$('.fixed-action-btn ul').length, 1, 'ul should be present');
+  assert.ok(component.$().hasClass('fixed-action-btn'));
+  assert.equal(component.$('ul').length, 1, 'ul should be present');
 });

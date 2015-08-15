@@ -43,8 +43,8 @@ test('simple array test', function (assert) {
   });
   this.render();
 
-  assert.deepEqual(this.$('label').toArray().map(x => Ember.$(x).text().trim()), ['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan'], 'Choices are valid');
-  assert.equal(this.$('input[type="radio"]')[2].checked, true, 'Third radio is checked');
+  assert.deepEqual(component.$('label').toArray().map(x => Ember.$(x).text().trim()), ['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan'], 'Choices are valid');
+  assert.equal(component.$('input[type="radio"]')[2].checked, true, 'Third radio is checked');
 });
 
 
