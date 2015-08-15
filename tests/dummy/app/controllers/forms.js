@@ -3,10 +3,8 @@ import Ember from 'ember';
 const { Controller, A, observer, computed } = Ember;
 
 function asJSON(propKey) {
-  return new Ember.computed(`${propKey,propKey}.[]`, {
-    get() {
-      return JSON.stringify(this.get(propKey));
-    }
+  return new Ember.computed(`${propKey,propKey}.[]`, function() {
+    return JSON.stringify(this.get(propKey));
   });
 }
 

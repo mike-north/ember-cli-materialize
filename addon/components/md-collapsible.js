@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import layout from '../templates/components/md-collapsible';
-import computed from 'ember-new-computed';
+import _computed from 'ember-new-computed';
 
 const { deprecate, Component } = Ember;
 
@@ -9,7 +9,7 @@ export default Component.extend({
   tagName: 'li',
   classNameBindings: ['class'],
   actionArg: null,
-  model: computed('actionArg', {
+  model: _computed('actionArg', {
     get() {
       deprecate('md-collapsible#model is deprecated. Please use md-collapsible#actionArg instead');
       return this.get('actionArg');

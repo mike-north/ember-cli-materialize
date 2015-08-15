@@ -1,10 +1,9 @@
 import Ember from 'ember';
-import computed from 'ember-new-computed';
+
+const { computed } = Ember;
 
 export default Ember.Mixin.create({
-  _mdSettings: computed({
-    get() {
-      return this.get('container').lookup('service:materialize-settings');
-    }
+  _mdSettings: computed(function() {
+    return this.get('container').lookup('service:materialize-settings');
   })
 });

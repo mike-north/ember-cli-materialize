@@ -1,9 +1,8 @@
 import Ember from 'ember';
 import layout from '../templates/components/md-btn-dropdown';
-import computed from 'ember-new-computed';
 import MaterializeButton from './md-btn';
 
-const { run: { scheduleOnce } } = Ember;
+const { run: { scheduleOnce }, computed } = Ember;
 
 export default MaterializeButton.extend({
   layout,
@@ -33,9 +32,7 @@ export default MaterializeButton.extend({
       belowOrigin: !!this.getWithDefault('belowOrigin', false)
     });
   },
-  _dropdownContentId: computed({
-    get() {
-      return `${this.get('elementId')}-dropdown-content`;
-    }
+  _dropdownContentId: computed(function() {
+    return `${this.get('elementId')}-dropdown-content`;
   })
 });

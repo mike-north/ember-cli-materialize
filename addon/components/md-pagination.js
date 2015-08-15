@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import layout from '../templates/components/md-pagination';
 
-const { Component, computed } = Ember;
+const { Component, computed, A } = Ember;
 
 export default Component.extend({
   layout,
@@ -37,16 +37,14 @@ export default Component.extend({
     };
   }),
 
-  _pages: computed('windowRange.low', 'windowRange.high', 'current', {
-    get() {
-      const a = Ember.A();
-      const winRange = this.get('windowRange');
-      const current = this.get('current');
-      for (let i = winRange.low; i <= winRange.high; i += 1) {
-        a.addObject({ val: i, cssClass: (current === i ? 'active' : 'waves-effect') });
-      }
-      return a;
+  _pages: computed('windowRange.low', 'windowRange.high', 'current', function() {
+    const a = new A([]);
+    const winRange = this.get('windowRange');
+    const current = this.get('current');
+    for (let i = winRange.low; i <= winRange.high; i += 1) {
+      a.addObject({ val: i, cssClass: (current === i ? 'active' : 'waves-effect') });
     }
+    return a;
   }),
 
   _canGoBack: computed('min', 'current', function() {
