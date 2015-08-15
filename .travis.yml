@@ -59,4 +59,4 @@ after_success:
 # new commit already made (but not pushed)
 # Push the new commit
 - /bin/bash lib/try-generate-pages.sh
-
+- git checkout master
