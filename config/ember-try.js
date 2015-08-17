@@ -31,10 +31,10 @@ module.exports = {
     {
       name: 'ember-beta',
       dependencies: {
-        'ember': 'components/ember#beta'
+        'ember': '2.0.0-beta.5'
       },
       resolutions: {
-        'ember': 'beta'
+        'ember': '2.0.0-beta.5'
       }
     },
     {
