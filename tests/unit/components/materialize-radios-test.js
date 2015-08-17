@@ -52,19 +52,26 @@ test('deselecting checkbox works with multiple=false', function(assert) {
   });
 
   this.render(hbs `
-      {{md-radios content=content selection=selection}}
-    `);
-  const viewRegistry = Ember.View.views || Ember.View.create().get('_viewRegistry');
-  const component = viewRegistry[this.$('.md-radios')[0].id];
+    {{md-radios content=content selection=selection}}
+  `);
 
-  Ember.run(function() {
-    assert.equal(component.isValueSelected('a'), false, 'A should be un-checked');
-    assert.equal(component.isValueSelected('b'), true, 'B should be checked');
-    assert.equal(component.isValueSelected('c'), false, 'C should be un-checked');
-    assert.equal(component.get('selection'), 'b', 'Selection should be B and only B');
+  assert.equal(this.$('input:checked').length, 1, 'One item should be selected');
+  assert.equal(this.$('input:checked').attr('value'), 'b', 'Item b should be selected');
 
-    component.setValueSelection('b', false);
-    assert.equal(component.isValueSelected('b'), false, 'B should be un-checked after unselection');
-    assert.equal(component.get('selection'), null, 'Selection should be B and only B');
-  });
+  this.$('input[value="a"]').click();
+  assert.equal(this.$('input:checked').length, 1, 'One item should be selected');
+  assert.equal(this.$('input:checked').attr('value'), 'a', 'Item a should be selected');
+
+  this.$('input[value="b"]').click();
+  assert.equal(this.$('input:checked').length, 1, 'One item should be selected');
+  assert.equal(this.$('input:checked').attr('value'), 'b', 'Item b should be selected');
+
+  this.$('input[value="b"]').click();
+  assert.equal(this.$('input:checked').length, 1, 'One item should be selected');
+  assert.equal(this.$('input:checked').attr('value'), 'b', 'Item b should be selected');
+
+  this.$('input[value="c"]').click();
+  assert.equal(this.$('input:checked').length, 1, 'One item should be selected');
+  assert.equal(this.$('input:checked').attr('value'), 'c', 'Item c should be selected');
+
 });
