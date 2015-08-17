@@ -4,26 +4,10 @@ import layout from '../templates/components/md-tabs';
 
 const { get, Component, computed, computed: { alias }, run: { debounce } } = Ember;
 
-const EMBER_VERSION_REGEX = /^([0-9]+)\.([0-9]+)\.([0-9]+)(?:(?:\-(alpha|beta)\.([0-9]+)(?:\.([0-9]+))?)?)?(?:\+(canary))?(?:\.([0-9abcdef]+))?(?:\-([A-Za-z0-9\.\-]+))?(?:\+([A-Za-z0-9\.\-]+))?$/;
-
-// VERSION_INFO[i] is as follows:
-// 0  complete version string
-// 1  major version
-// 2  minor version
-// 3  trivial version
-// 4  pre-release type (optional: "alpha" or "beta" or undefined for stable releases)
-// 5  pre-release version (optional)
-// 6  pre-release sub-version (optional)
-// 7  canary (optional: "canary", or undefined for stable releases)
-// 8  SHA (optional)
-
-const VERSION_INFO = EMBER_VERSION_REGEX.exec(Ember.VERSION);
-const IS_PRE_113 = parseInt(VERSION_INFO[1], 10) < 2 && parseInt(VERSION_INFO[2], 10) < 13;
-
 export default Component.extend(ParentComponentSupport, {
   layout,
   classNames: ['materialize-tabs', 'row'],
-
+  composableChildrenDebounceTime: 1,
   content: null,
   numTabs: alias('composableChildren.length'),
   optionValuePath: 'id',
@@ -42,11 +26,7 @@ export default Component.extend(ParentComponentSupport, {
   }),
 
   tabComponents() {
-    const tabComponents = this.get('composableChildren') || Ember.A();
-    if (IS_PRE_113) {
-      tabComponents.reverse();
-    }
-    return tabComponents;
+    return this.get('composableChildren') || Ember.A();
   },
 
   _updateIndicatorPosition(animate=true) {
