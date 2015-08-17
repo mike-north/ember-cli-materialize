@@ -1,4 +1,4 @@
 {{yield}}
 {{#each _content as |item|}}
-  <p>{{view selectableItemView content=item disabled=disabled}}</p>
+  <p>{{component selectableItemView content=item disabled=disabled groupId="group-{{elementId}}"}}</p>
 {{/each}}

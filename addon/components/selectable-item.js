@@ -35,7 +35,7 @@ export default Component.extend(ChildComponentSupport, {
   isSelected: Ember.computed.alias('_checked'),
 
   _setupLabel() {
-    const [$input] = this.$('.materialize-selectable-item-input').toArray();
+    const [$input] = this.$('.materialize-selectable-item-input, .materialize-selectable-item-input-container input').toArray();
 
     const inputId = $input ? $input.id : null;
     this.$('.materialize-selectable-item-label').attr('for', inputId);

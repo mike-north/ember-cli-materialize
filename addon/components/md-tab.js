@@ -15,12 +15,24 @@ export default Component.extend(ChildComponentSupport, {
 
   colWidth: oneWay('composableParent.colWidth'),
 
-  click() {
-    this.get('composableParent').send('tabClicked', this);
-  },
-
   _colClass: computed('colWidth', function() {
     return `s${this.get('colWidth')}`;
-  })
+  }),
+
+  active: computed('composableParent.composableChildren.[]', 'composableParent.selected', 'value', function() {
+    const selected = this.get('composableParent.selected');
+    if (selected) {
+      return selected === this.get('value');
+    } else {
+      const values = this.get('composableParent')
+        .tabComponents()
+        .map(t => t.get('value'));
+      return values.indexOf(this.get('value')) === 0;
+    }
+  }).readOnly(),
+
+  click() {
+    this.get('composableParent').set('selected', this.get('value'));
+  }
 
 });

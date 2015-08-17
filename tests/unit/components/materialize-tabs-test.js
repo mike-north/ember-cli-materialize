@@ -73,8 +73,14 @@ test('No initial selection - first tab should be selected', function(assert) {
       { id: 'c', title: 'Third' }
     ])
   });
-  this.render();
-  assert.equal(component.$('.active').text().trim(), 'First', 'First tab is initially selected');
+
+  Ember.run(() => {
+    this.render();
+    Ember.run.scheduleOnce('afterRender', () => {
+      assert.equal(component.$('.active').text().trim(), 'First', 'First tab is initially selected');
+    });
+  });
+
 });
 
 test('Empty content - should render an empty UL', function(assert) {
