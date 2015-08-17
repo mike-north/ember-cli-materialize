@@ -20,7 +20,6 @@ test('no parameters, no block', function(assert) {
   assert.equal(this.$('.md-radios').toArray().length, 1, 'component renders');
 });
 
-
 test('simple array test, with initial selection', function(assert) {
   this.setProperties({
     content: Ember.A(['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan']),
@@ -49,7 +48,7 @@ test('deselecting checkbox works with multiple=false', function(assert) {
 
   this.setProperties({
     content: ['a', 'b', 'c'],
-    selection: 'b',
+    selection: 'b'
   });
 
   this.render(hbs `
