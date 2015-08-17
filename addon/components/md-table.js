@@ -2,7 +2,7 @@ import Ember from 'ember';
 import ParentComponentSupport from 'ember-composability/mixins/parent-component-support';
 import layout from '../templates/components/md-table';
 
-const { Component, computed } = Ember;
+const { A, Component, computed } = Ember;
 
 export default Component.extend(ParentComponentSupport, {
   tagName: 'table',
@@ -14,7 +14,9 @@ export default Component.extend(ParentComponentSupport, {
     this.set('columns', Ember.A());
   },
 
-  columnComponents: computed.alias('composableChildren'),
+  columnComponents: computed('composableChildren', function() {
+    return new A(this.get('composableChildren'));
+  }).readOnly(),
 
   registerChildComponent(childComponent) {
     this.get('_childComponents').add(childComponent, childComponent.get('key'));

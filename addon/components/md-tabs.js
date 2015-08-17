@@ -26,7 +26,7 @@ export default Component.extend(ParentComponentSupport, {
   }),
 
   tabComponents() {
-    return this.get('composableChildren') || Ember.A();
+    return Ember.A(this.get('composableChildren')) || Ember.A();
   },
 
   _updateIndicatorPosition(animate=true) {
