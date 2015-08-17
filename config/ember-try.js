@@ -14,6 +14,10 @@ module.exports = {
       }
     },
     {
+      name: 'default',
+      dependencies: {}
+    },
+    {
       name: 'ember-1.13',
       dependencies: {
         'ember': '~1.13.0'
