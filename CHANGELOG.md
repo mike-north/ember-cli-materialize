@@ -1,5 +1,21 @@
 # Change Log
 
+## [v0.18.0](https://github.com/mike-north/ember-cli-materialize/tree/v0.18.0) (2015-08-15)
+
+[Full Changelog](https://github.com/mike-north/ember-cli-materialize/compare/v0.17.4...v0.18.0)
+
+**Closed issues:**
+
+- Deprecation warnings [\#176](https://github.com/mike-north/ember-cli-materialize/issues/176)
+
+**Merged pull requests:**
+
+- Autofocus Support on input field [\#208](https://github.com/mike-north/ember-cli-materialize/pull/208) ([cmanou](https://github.com/cmanou))
+
+- Kill deprecations [\#207](https://github.com/mike-north/ember-cli-materialize/pull/207) ([mike-north](https://github.com/mike-north))
+
+- Use v0.4.0 of ember-key-responder [\#191](https://github.com/mike-north/ember-cli-materialize/pull/191) ([mike-north](https://github.com/mike-north))
+
 ## [v0.17.4](https://github.com/mike-north/ember-cli-materialize/tree/v0.17.4) (2015-08-15)
 
 [Full Changelog](https://github.com/mike-north/ember-cli-materialize/compare/v0.17.3...v0.17.4)
