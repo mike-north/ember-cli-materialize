@@ -5,7 +5,7 @@ const { Component, computed, isPresent } = Ember;
 export default Component.extend({
   classNames: ['input-field'],
 
-  bindAttributes: ['disabled', 'readonly'],
+  bindAttributes: ['disabled', 'readonly', 'autofocus'],
   validate: false,
 
   errorsPath: 'errors',
