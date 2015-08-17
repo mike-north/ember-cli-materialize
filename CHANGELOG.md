@@ -1,6 +1,30 @@
 # Change Log
 
-## [v0.18.0](https://github.com/mike-north/ember-cli-materialize/tree/v0.18.0) (2015-08-15)
+## [v0.18.1](https://github.com/mike-north/ember-cli-materialize/tree/v0.18.1) (2015-08-17)
+
+[Full Changelog](https://github.com/mike-north/ember-cli-materialize/compare/v0.18.0...v0.18.1)
+
+**Fixed bugs:**
+
+- md-btn isDisabled doesn't disable event [\#201](https://github.com/mike-north/ember-cli-materialize/issues/201)
+
+- Upgraded to master & materialize 0.97 - modals have lost the translucent overlay, and have z-index issues [\#192](https://github.com/mike-north/ember-cli-materialize/issues/192)
+
+- ember-radio-button v1.0.4 causing deprecation warning, updating breaks radio buttons [\#178](https://github.com/mike-north/ember-cli-materialize/issues/178)
+
+- Update docs to reflect buttonType correctly [\#164](https://github.com/mike-north/ember-cli-materialize/issues/164)
+
+- Override `waves-light` [\#157](https://github.com/mike-north/ember-cli-materialize/issues/157)
+
+- Odd blue line showing up when using the datepicker [\#140](https://github.com/mike-north/ember-cli-materialize/issues/140)
+
+**Merged pull requests:**
+
+- Allow customization of button waves [\#210](https://github.com/mike-north/ember-cli-materialize/pull/210) ([mike-north](https://github.com/mike-north))
+
+- Button actions shouldn't fire when in disabled state [\#209](https://github.com/mike-north/ember-cli-materialize/pull/209) ([mike-north](https://github.com/mike-north))
+
+## [v0.18.0](https://github.com/mike-north/ember-cli-materialize/tree/v0.18.0) (2015-08-17)
 
 [Full Changelog](https://github.com/mike-north/ember-cli-materialize/compare/v0.17.4...v0.18.0)
 
