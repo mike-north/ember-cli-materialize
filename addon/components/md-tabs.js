@@ -1,9 +1,24 @@
 import Ember from 'ember';
 import ParentComponentSupport from 'ember-composability/mixins/parent-component-support';
 import layout from '../templates/components/md-tabs';
-import _computed from 'ember-new-computed';
 
 const { get, Component, computed, computed: { alias }, run: { debounce } } = Ember;
+
+const EMBER_VERSION_REGEX = /^([0-9]+)\.([0-9]+)\.([0-9]+)(?:(?:\-(alpha|beta)\.([0-9]+)(?:\.([0-9]+))?)?)?(?:\+(canary))?(?:\.([0-9abcdef]+))?(?:\-([A-Za-z0-9\.\-]+))?(?:\+([A-Za-z0-9\.\-]+))?$/;
+
+// VERSION_INFO[i] is as follows:
+// 0  complete version string
+// 1  major version
+// 2  minor version
+// 3  trivial version
+// 4  pre-release type (optional: "alpha" or "beta" or undefined for stable releases)
+// 5  pre-release version (optional)
+// 6  pre-release sub-version (optional)
+// 7  canary (optional: "canary", or undefined for stable releases)
+// 8  SHA (optional)
+
+const VERSION_INFO = EMBER_VERSION_REGEX.exec(Ember.VERSION);
+const IS_PRE_113 = parseInt(VERSION_INFO[1], 10) < 2 && parseInt(VERSION_INFO[2], 10) < 13;
 
 export default Component.extend(ParentComponentSupport, {
   layout,
@@ -11,30 +26,16 @@ export default Component.extend(ParentComponentSupport, {
 
   content: null,
   numTabs: alias('composableChildren.length'),
-  _selected: null,
   optionValuePath: 'id',
   optionLabelPath: 'title',
   colWidth: 2,
 
+  selected: null,
+
   didInsertElement() {
     this._super(...arguments);
-    this._setInitialTabSelection();
     this._updateIndicatorPosition(false);
   },
-
-  selected: _computed('_selected', {
-    get() {
-      return this.get('_selected');
-    },
-    set(key, newVal) {
-      const tabComponents = this.tabComponents();
-      let tc = tabComponents.findBy('value', newVal);
-      if (tc) {
-        this._setActiveTab(tc);
-      }
-      return newVal;
-    }
-  }),
 
   _indicatorUpdater: Ember.observer('selected', 'content.[]', 'composableChildren.[]', function() {
     debounce(this, this._updateIndicatorPosition, 100);
@@ -42,21 +43,10 @@ export default Component.extend(ParentComponentSupport, {
 
   tabComponents() {
     const tabComponents = this.get('composableChildren') || Ember.A();
-    tabComponents.reverse();
-    return tabComponents;
-  },
-
-  _setInitialTabSelection() {
-    const tabComponents = this.tabComponents();
-    if (this.get('selected') === null && tabComponents.length > 0) {
-      let tc = tabComponents[tabComponents.length - 1];
-      this._setActiveTab(tc);
-    } else {
-      if (this.get('selected')) {
-        let tc = tabComponents.findBy('value', this.get('selected'));
-        this._setActiveTab(tc);
-      }
+    if (IS_PRE_113) {
+      tabComponents.reverse();
     }
+    return tabComponents;
   },
 
   _updateIndicatorPosition(animate=true) {
@@ -86,21 +76,5 @@ export default Component.extend(ParentComponentSupport, {
     const labelPath = this.get('optionLabelPath');
     const valuePath = this.get('optionValuePath');
     return new Ember.A((this.get('content') || []).map(contentItem => ({ id: contentItem[valuePath], title: contentItem[labelPath] })));
-  }),
-
-  _setActiveTab(tabComponent) {
-    this.set('_selected', tabComponent.get('value'));
-    tabComponent.set('active', true);
-    this.tabComponents().forEach(tc => {
-      if (tc !== tabComponent) {
-        tc.set('active', false);
-      }
-    });
-  },
-
-  actions: {
-    tabClicked(tab) {
-      this._setActiveTab(tab);
-    }
-  }
+  })
 });

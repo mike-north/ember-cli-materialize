@@ -15,9 +15,8 @@ import {
 } from '../../helpers/selectable-item-group';
 
 moduleForComponent('md-switches', {
-  unit: true
-  // Specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar']
+  unit: true,
+  needs: ['component:md-switches-switch']
 });
 
 test('it renders', function(assert) {
