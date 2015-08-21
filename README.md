@@ -114,3 +114,5 @@ Special thanks to [Stefan Gasser](https://github.com/sgasser) for creating and o
 ## License
 ember-cli-materialize is released under the MIT License. See the bundled LICENSE file for
 details.
+
+![Analytics](https://ga-beacon.appspot.com/UA-66610985-1/mike-north/ember-cli-materialize/readme)
