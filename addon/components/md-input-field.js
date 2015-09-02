@@ -8,21 +8,13 @@ export default Component.extend({
   bindAttributes: ['disabled', 'readonly', 'autofocus'],
   validate: false,
 
-  errorsPath: 'errors',
+  isValid: computed('validate', 'errors', function() {
+    return (!this.get('validate') && !isPresent(this.get('errors.firstObject')));
+  }),
 
-  init() {
-    this._super(...arguments);
-    // bind validation errors
-    // TODO: This is private API usage, which may bite us when glimmer arrives
-    //  We should find some less brittle way of introspecting the binding path,
-    //  or propose a framework modification to support this in the long term
-    const propertyPath = this.get('valueBinding._label');
-    if (isPresent(propertyPath)) {
-      Ember.Binding.from(`targetObject.${this.get('errorsPath')}.${propertyPath}`)
-        .to('errors')
-        .connect(this);
-    }
-  },
+  isInvalid: computed('validate', 'errors', function() {
+    return (!this.get('validate') && isPresent(this.get('errors.firstObject')));
+  }),
 
   didInsertElement() {
     this._super(...arguments);

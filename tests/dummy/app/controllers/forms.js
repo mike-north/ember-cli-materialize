@@ -20,14 +20,13 @@ export default Controller.extend({
   }),
 
   // BEGIN-SNIPPET form-validation-basic
-  nameDidChange: Ember.observer('name', function() {
+  nameDidChange: Ember.observer('model.name', function() {
     const errors = this.get('errors');
     let messages = [];
-    if (!Ember.isPresent(this.get('name'))) {
+    if (!Ember.isPresent(this.get('model.name'))) {
       messages = ['This field is required'];
     }
     errors.set('name', messages);
-    this.set('errors', errors);
   }),
   // END-SNIPPET
 
