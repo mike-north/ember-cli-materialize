@@ -10,7 +10,7 @@ export default Route.extend({
 
   setupController(controller, model) {
     this._super(controller, model);
-    controller.set('errors', { name: ['This field is required'] });
+    controller.set('errors', Ember.Object.create({ name: Ember.A(['This field is required']) }));
   }
 
 });
