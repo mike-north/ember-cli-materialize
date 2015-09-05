@@ -53,11 +53,11 @@ Using **SASS** makes configuring the color scheme simple. Just make sure you imp
 ```scss
 // Example app.scss
 @import 'components/color';
-@import 'components/variables';
 
 // Custom color settings go here
 $primary-color: color("pink", "lighten-2");
 
+@import 'components/variables';
 @import 'materialize';
 @import 'ember-cli-materialize';
 ```
