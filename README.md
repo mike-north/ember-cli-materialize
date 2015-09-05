@@ -91,6 +91,12 @@ module.exports = function(/* environment, appConfig */) {
 $ ember install ember-cli-materialize
 ```
 
+### PhantomJS
+
+If you are using PhantomJS version 1.9.x as a test runner then after installing this addon you may experience test failures when running tests via `ember test` that you do not see in a browser.
+
+This is due to the known limitation in PhantomJS 1.9 not providing a `.bind` method. To continue using PhantomJS simply either install [ember-cli-es5-shim](https://github.com/pixelhandler/ember-cli-es5-shim), which provides a `.bind` method, or try PhantomJS 2.x.
+
 ## Testing
 
 This addon is continuiously integrated against the following framework versions
