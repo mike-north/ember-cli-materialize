@@ -1,19 +1,19 @@
-<li class="{{decrementClass}}">
-  <a {{action 'oneBack'}}  class='decrement'>
+<li {{action 'oneBack'}} class="{{decrementClass}}">
+  <a class='decrement'>
     <i class="mdi-navigation-chevron-left"></i>
   </a>
 </li>
 
 {{#each _pages as |page|}}
-  <li class="{{page.cssClass}}">
-    <a {{action 'gotoPage' page.val}}>
+  <li {{action 'gotoPage' page.val}} class="{{page.cssClass}}">
+    <a>
       {{page.val}}
     </a>
   </li>
 {{/each}}
 
-<li class="{{incrementClass}}">
-  <a {{action 'oneFwd'}}  class='increment'>
+<li {{action 'oneFwd'}} class="{{incrementClass}}">
+  <a class='increment'>
     <i class="mdi-navigation-chevron-right"></i>
   </a>
 </li>
