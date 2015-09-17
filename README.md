@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/mike-north/ember-cli-materialize.png?label=ready&title=Ready)](https://waffle.io/mike-north/ember-cli-materialize)
 # ember-cli-materialize
 
 [![Build Status](https://travis-ci.org/mike-north/ember-cli-materialize.svg?branch=master)](https://travis-ci.org/mike-north/ember-cli-materialize)
