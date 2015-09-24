@@ -53,7 +53,7 @@
     "ember-modal-dialog": "~0.7.5",
     "ember-new-computed": "~1.0.2",
     "ember-radio-button": "1.0.7",
-    "ember-suave": "^1.0.0",
+    "ember-suave": "^1.1.0",
     "ember-try": "0.0.8"
   },
   "keywords": [

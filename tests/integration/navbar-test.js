@@ -44,10 +44,9 @@ test('SideNav', assert => {
         setTimeout(() => {
           assert.equal(Ember.$('.navbar-example .side-nav').css('left'), '-250px');
           window.QUnit.start();
-        }, 1000);
-      }, 1000);
-    }, 1000);
-
+        }, 1200);
+      }, 1200);
+    }, 1200);
   });
 });
 
