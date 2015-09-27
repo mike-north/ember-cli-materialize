@@ -2,12 +2,13 @@ import Ember from 'ember';
 import SelectableItem from './selectable-item';
 import layout from '../templates/components/md-radio';
 
-const { computed } = Ember;
+const { computed, computed: { alias } } = Ember;
 
 export default SelectableItem.extend({
   layout,
 
   value: '',
+  text: alias('name'),
   groupValue: Ember.computed.alias('group.selection'),
 
   className: ['materialize-radio'],
