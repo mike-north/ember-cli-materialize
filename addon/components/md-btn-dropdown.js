@@ -25,7 +25,9 @@ export default MaterializeButton.extend({
 
     this.$().dropdown({
       hover: !!this.getWithDefault('hover', false),
-      constrainWidth: !!this.getWithDefault('constrainWidth', true),
+      // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+      constrain_width: !!this.getWithDefault('constrainWidth', true),
+      // jscs:enable requireCamelCaseOrUpperCaseIdentifiers
       inDuration: this.getWithDefault('inDuration', this.get('_mdSettings.dropdownInDuration')),
       outDuration: this.getWithDefault('outDuration', this.get('_mdSettings.dropdownOutDuration')),
       gutter: this.getWithDefault('gutter', 0),

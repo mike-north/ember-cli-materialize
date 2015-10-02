@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import {
   moduleForComponent,
   test
@@ -63,11 +62,7 @@ test('dropdown shown at origin', function(assert) {
   const dropdownContentId = `#${component.get('_dropdownContentId')}`;
   const dropdownElement = $(dropdownContentId);
   component.$().click();
-  Ember.run(function() {
-    Ember.run.schedule('afterRender', function() {
-      assert.equal(`${component.$().position().top}px`, dropdownElement.css('top'));
-    });
-  });
+  assert.equal(`${component.$().position().top}px`, dropdownElement.css('top'));
 });
 
 test('dropdown shown below origin', function(assert) {
@@ -78,9 +73,27 @@ test('dropdown shown below origin', function(assert) {
   const dropdownContentId = `#${component.get('_dropdownContentId')}`;
   const dropdownElement = $(dropdownContentId);
   component.$().click();
-  Ember.run(function() {
-    Ember.run.schedule('afterRender', function() {
-      assert.notEqual(`${component.$().position().top}px`, dropdownElement.css('top'));
-    });
-  });
+  assert.notEqual(`${component.$().position().top}px`, dropdownElement.css('top'));
+});
+
+test('dropdown with constrained width', function(assert) {
+  const component = this.subject();
+  component.set('constrainWidth', true);
+  this.render();
+
+  const dropdownContentId = `#${component.get('_dropdownContentId')}`;
+  const dropdownElement = $(dropdownContentId);
+  component.$().click();
+  assert.equal(`${component.$().outerWidth()}px`, dropdownElement.css('width'));
+});
+
+test('dropdown with unconstrained width', function(assert) {
+  const component = this.subject();
+  component.set('constrainWidth', false);
+  this.render();
+
+  const dropdownContentId = `#${component.get('_dropdownContentId')}`;
+  const dropdownElement = $(dropdownContentId);
+  component.$().click();
+  assert.notEqual(`${component.$().outerWidth()}px`, dropdownElement.css('width'));
 });
