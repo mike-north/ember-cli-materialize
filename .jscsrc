@@ -1,4 +1,4 @@
 {
   "excludeFiles": ["blanket-options.js"],
-  "requireParenthesesAroundArrowParam": false
+  "requireParenthesesAroundArrowParam": null
 }
