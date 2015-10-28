@@ -1,7 +1,8 @@
 import config from '../config/environment';
 import MaterializeSettings from 'ember-cli-materialize/services/md-settings';
 
-export function initialize(container, application) {
+export function initialize() {
+  let application = arguments[1] || arguments[0];
   const { materializeDefaults } = config;
 
   application.register('config:materialize', materializeDefaults, { instantiate: false });
