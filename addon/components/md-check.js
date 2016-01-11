@@ -6,7 +6,8 @@ import afterRender from  '../utils/after-render';
 const {
 	computed: {
 		alias
-	}
+	},
+	on
 } = Ember;
 
 export default SelectableItem.extend({
