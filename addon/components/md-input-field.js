@@ -8,13 +8,22 @@ export default Component.extend({
   bindAttributes: ['disabled', 'readonly', 'autofocus'],
   validate: false,
 
-  isValid: computed('validate', 'errors', function() {
-    return (!this.get('validate') && !isPresent(this.get('errors.firstObject')));
+  isValid: computed('validate', 'errors', 'errorMessage', function() {
+    return (!this.get('validate') && !isPresent(this.get('errors.firstObject')) && !isPresent(this.get('errorMessage')));
   }),
 
-  isInvalid: computed('validate', 'errors', function() {
-    return (!this.get('validate') && isPresent(this.get('errors.firstObject')));
+  isInvalid: computed('validate', 'errors', 'errorMessage', function() {
+    return (!this.get('validate') && (isPresent(this.get('errors.firstObject')) || isPresent(this.get('errorMessage'))));
   }),
+
+  visited: false,
+
+  focusOut(){
+    this.set('visited', true);
+    if (this.attrs.onFocusOut){
+      this.attrs.onFocusOut();
+    }
+  },
 
   didInsertElement() {
     this._super(...arguments);

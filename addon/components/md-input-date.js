@@ -38,16 +38,21 @@ export default MaterializeInput.extend({
         this.set('value', formatDate(evt.select));
       }
     };
+    this._onClose = () => {
+      this.$('.picker').blur();
+    };
 
     this.$('.datepicker').pickadate(Ember.$.extend(datePickerOptions, {
-      onSet: this._onDateSet
+      onSet: this._onDateSet,
+      onClose: this._onClose
     }));
   },
 
-  _teardownPicker() {
-    const $pickadate = this.$('.datepicker').data('pickadate');
-    if ($pickadate) {
-      $pickadate.stop();
-    }
-  }
+  setMinDate: observer('min', function() {
+    this.$('.datepicker').pickadate('picker').set('min', this.get('min'));
+  }),
+  setMaxDate: observer('max', function() {
+    this.$('.datepicker').pickadate('picker').set('max', this.get('max'));
+  })
+
 });
