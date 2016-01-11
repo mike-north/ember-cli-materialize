@@ -7,6 +7,9 @@ const {
 	computed: {
 		alias
 	},
+	run: {
+		later
+	},
 	on
 } = Ember;
 

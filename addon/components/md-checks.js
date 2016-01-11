@@ -1,8 +1,8 @@
 import SelectableItemGroup from './selectable-item-group';
+import afterRender from '../utils/after-render';
 const {
 	run: {
-		later,
-		scheduleOnce
+		later
 	},
 	on
 } = Ember;

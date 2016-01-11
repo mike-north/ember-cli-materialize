@@ -3,7 +3,10 @@ import MaterializeInputField from './md-input-field';
 import layout from '../templates/components/md-select';
 import afterRender from '../utils/after-render';
 const {
-  on
+  on,
+  run: {
+    later
+  }
 } = Ember;
 
 export default MaterializeInputField.extend({
@@ -34,7 +37,7 @@ export default MaterializeInputField.extend({
     const inputSelector = this.$('input');
     // monitor the select's validity and copy the appropriate validation class to the materialize input element.
     if (!Ember.isNone(inputSelector)) {
-      Ember.run.later(this, function() {
+      later(this, function() {
         const isValid = this.$('select').hasClass('valid');
         if (isValid) {
           inputSelector.removeClass('invalid');
