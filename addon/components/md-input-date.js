@@ -48,10 +48,10 @@ export default MaterializeInput.extend({
     }));
   },
 
-  setMinDate: observer('min', function() {
+  setMinDate: Ember.observer('min', function() {
     this.$('.datepicker').pickadate('picker').set('min', this.get('min'));
   }),
-  setMaxDate: observer('max', function() {
+  setMaxDate: Ember.observer('max', function() {
     this.$('.datepicker').pickadate('picker').set('max', this.get('max'));
   })
 
