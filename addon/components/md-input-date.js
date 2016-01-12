@@ -48,6 +48,13 @@ export default MaterializeInput.extend({
     }));
   },
 
+  _teardownPicker() {
+    const $pickadate = this.$('.datepicker').data('pickadate');
+    if ($pickadate) {
+      $pickadate.stop();
+    }
+  },
+
   setMinDate: Ember.observer('min', function() {
     this.$('.datepicker').pickadate('picker').set('min', this.get('min'));
   }),
