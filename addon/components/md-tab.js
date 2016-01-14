@@ -31,8 +31,14 @@ export default Component.extend(ChildComponentSupport, {
     }
   }).readOnly(),
 
+  onClick: null,
   click() {
+    var onClick;
     this.get('composableParent').set('selected', this.get('value'));
+    
+    if (onClick = this.getAttr('onClick')){
+      onClick();
+    }
   }
 
 });
