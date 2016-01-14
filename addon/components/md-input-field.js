@@ -1,6 +1,14 @@
 import Ember from 'ember';
-
-const { Component, computed, isPresent } = Ember;
+import afterRender from '../utils/after-render'
+const { 
+  Component,
+  computed,
+  isPresent,
+  run: {
+    later
+  },
+  on
+} = Ember;
 
 export default Component.extend({
   classNames: ['input-field'],
@@ -24,6 +32,34 @@ export default Component.extend({
       this.attrs.onFocusOut();
     }
   },
+
+  pressedKeys: '13',
+
+  bindChangeEvent: afterRender(function() {
+    if (!this.getAttr('onKeypress')) {
+      return;
+    }
+
+    later(this, function() {
+      if (this.get('_state') === 'inDOM') {
+        let el = this.$('input');
+        if (el) {
+          el.on(`keypress.${this.get('elementId')}`, (e) => {
+            if ((this.get('pressedKeys') || '').split(',').indexOf(e.which.toString()) !== -1 && this.attrs.onKeypress) {
+              later(this, () => {
+                this.attrs.onKeypress();
+              }, 100);
+              
+            }
+          });
+        }
+      }
+    }, 500);
+  }),
+  
+  unbindChangeEvent: on('wiilDestroyElement', function() {
+    this.$('input').off(`keypress.${this.get('elementId')}`);
+  }),
 
   didInsertElement() {
     this._super(...arguments);
