@@ -4,7 +4,7 @@ import layout from '../templates/components/md-switch';
 import afterRender from  '../utils/after-render';
 
 const {
-	computed
+	computed,
 	run: {
 		later
 	},
