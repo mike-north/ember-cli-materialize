@@ -37,7 +37,7 @@ export default Component.extend(ChildComponentSupport, {
     this.get('composableParent').set('selected', this.get('value'));
     
     if (onClick = this.getAttr('onClick')){
-      onClick();
+      onClick(this.get('value'));
     }
   }
 
