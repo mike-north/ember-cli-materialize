@@ -5,7 +5,8 @@ import afterRender from '../utils/after-render';
 const {
   on,
   run: {
-    later
+    later,
+    scheduleOnce
   }
 } = Ember;
 
