@@ -37,12 +37,20 @@ export default Component.extend(UsesSettings, {
   },
 
   cancel() {
-    this.sendAction('close');
+    this.closeModal();
   },
 
   actions: {
     closeModal() {
-      this.sendAction('close');
+      this.closeModal();
+    }
+  },
+
+  closeModal(){
+    if (this.getAttr('onClose')){
+      this.getAttr('onClose')();
+    } else {
+      this.sendAction('close');  
     }
   }
 
