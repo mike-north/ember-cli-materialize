@@ -2,6 +2,10 @@ import Ember from 'ember';
 import MaterializeInput from './md-input';
 import layout from '../templates/components/md-input-date';
 
+const {
+  get
+} = Ember;
+
 export default MaterializeInput.extend({
   layout,
 
@@ -34,9 +38,14 @@ export default MaterializeInput.extend({
       this._onClose();
     };
 
+    var isValidDate = window.moment(this.get('selected')).isValid();
+
     this.$('.datepicker').pickadate(Ember.$.extend(datePickerOptions, {
       onSet: _onDateSet,
-      onClose: _onClose
+      onClose: _onClose,
+      min: this.get('min') || -Infinity,
+      max: this.get('max') || Infinity,
+      select: isValidDate ? window.moment(this.get('selected')).toDate().toString : null
     }));
   },
 
@@ -49,14 +58,9 @@ export default MaterializeInput.extend({
 
   _onDateSet(timestamp) {
     var onChange = this.getAttr('onChange');
-    var date = timestamp || null;
-    if (date && this.get('autoFormat')) {
-      date = window.moment(date).format(this.get('dateFormat')); 
-    }
-    if (onChange) {
+    var date = timestamp ? window.moment(timestamp).startOf('day').toDate() : null;
+    if (window.moment(date).isValid() && !window.moment(date).isSame(this.getAttr('selected')) && onChange) {
       onChange(date);
-    } else {
-      this.set('value', date);
     }
   },
 
@@ -67,11 +71,27 @@ export default MaterializeInput.extend({
     }
   },
 
-  setMinDate: Ember.observer('min', function() {
-    this.$('.datepicker').pickadate('picker').set('min', this.get('min'));
-  }),
-  setMaxDate: Ember.observer('max', function() {
-    this.$('.datepicker').pickadate('picker').set('max', this.get('max'));
-  })
+  didUpdateAttrs(attrs) {
+    this._super(...arguments);
+    var currentSelected = get(attrs, 'oldAttrs.selected.value');
+    var currentMin = get(attrs, 'oldAttrs.min.value');
+    var currentMax = get(attrs, 'oldAttrs.max.value');
+    var selected = get(attrs, 'newAttrs.selected.value');
+    var max = get(attrs, 'newAttrs.max.value');
+    var min = get(attrs, 'newAttrs.min.value');
+    if (window.moment(selected).isValid() && !window.moment(selected).isSame(currentSelected)) {
+       this.$('.datepicker').pickadate('picker').set('select', window.moment(selected).toDate());   
+    }
+    if (min && !window.moment(min).isSame(currentMin)) {
+       this.$('.datepicker').pickadate('picker').set('min', min);   
+    } else if (!min && min !== currentMin) {
+      this.$('.datepicker').pickadate('picker').set('min', -Infinity);   
+    }
+    if (max && !window.moment(max).isSame(currentMax)) {
+       this.$('.datepicker').pickadate('picker').set('max', max || Infinity);   
+    } else if (!max && max !== currentMax) {
+      this.$('.datepicker').pickadate('picker').set('max', Infinity);   
+    }
+  }
 
 });
