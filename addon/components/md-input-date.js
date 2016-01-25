@@ -33,19 +33,37 @@ export default MaterializeInput.extend({
     const datePickerOptions = this.getProperties('selectMonths', 'numberOfYears', 'min', 'max');
     datePickerOptions.selectYears = datePickerOptions.numberOfYears;
 
-    this._onDateSet = evt => {
+    var _onDateSet = evt => {
       if (evt.select) {
-        this.set('value', formatDate(evt.select));
+        this._onDateSet(evt.select);
       }
     };
-    this._onClose = () => {
+    var _onClose = () => {
       this.$('.picker').blur();
+      this._onClose();
     };
 
     this.$('.datepicker').pickadate(Ember.$.extend(datePickerOptions, {
-      onSet: this._onDateSet,
-      onClose: this._onClose
+      onSet: _onDateSet,
+      onClose: _onClose
     }));
+  },
+
+  _onClose(){
+    var onClose = this.getAttr('onClose');
+    if (onClose) {
+      onClose();
+    }
+  },
+
+  _onDateSet(timestamp) {
+    var onChange = this.getAttr('onChange');
+    var formatted = formatDate(timestamp);
+    if (onChange) {
+      onChange(formatted);
+    } else {
+      this.set('value', formatted)
+    }
   },
 
   _teardownPicker() {
