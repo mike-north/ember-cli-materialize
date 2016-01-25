@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import afterRender from '../utils/after-render'
+import afterRender from '../utils/after-render';
 const { 
   Component,
   computed,

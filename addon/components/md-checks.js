@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import SelectableItemGroup from './selectable-item-group';
 import afterRender from '../utils/after-render';
 const {

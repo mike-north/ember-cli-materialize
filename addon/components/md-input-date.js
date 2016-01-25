@@ -62,7 +62,7 @@ export default MaterializeInput.extend({
     if (onChange) {
       onChange(formatted);
     } else {
-      this.set('value', formatted)
+      this.set('value', formatted);
     }
   },
 

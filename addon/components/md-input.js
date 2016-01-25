@@ -1,6 +1,6 @@
 import MaterializeInputField from './md-input-field';
 import layout from '../templates/components/md-input';
-
+import Ember from 'ember';
 const {
 	computed,
 	isBlank
