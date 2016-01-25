@@ -11,7 +11,6 @@ export default Component.extend(UsesSettings, {
   acceptsKeyResponder: true,
   attributeBindings: ['style:inlineStyle'],
   concatenatedProperties: ['modalClassNames'],
-  bodyClassOnAddition
 
   inlineStyle: computed(function() {
     return new Ember.Handlebars.SafeString('z-index: 1000;');
