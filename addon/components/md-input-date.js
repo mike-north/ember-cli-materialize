@@ -2,15 +2,6 @@ import Ember from 'ember';
 import MaterializeInput from './md-input';
 import layout from '../templates/components/md-input-date';
 
-const MONTH_NAMES = ['January', 'February', 'March', 'April',
-    'May', 'June', 'July', 'August', 'September', 'October',
-    'November', 'December'];
-
-function formatDate(timestamp) {
-  const d = new Date(timestamp);
-  return `${d.getDate()} ${MONTH_NAMES[d.getMonth()]}, ${d.getFullYear()}`;
-}
-
 export default MaterializeInput.extend({
   layout,
 
@@ -18,6 +9,8 @@ export default MaterializeInput.extend({
   numberOfYears: 15,
   min: '',
   max: '',
+  autoFormat: true,
+  dateFormat: 'DD MMMM[,] YYYY',
 
   didInsertElement() {
     this._super(...arguments);
@@ -34,9 +27,7 @@ export default MaterializeInput.extend({
     datePickerOptions.selectYears = datePickerOptions.numberOfYears;
 
     var _onDateSet = evt => {
-      if (evt.select) {
-        this._onDateSet(evt.select);
-      }
+      this._onDateSet(evt.select);
     };
     var _onClose = () => {
       this.$('.picker').blur();
@@ -58,11 +49,14 @@ export default MaterializeInput.extend({
 
   _onDateSet(timestamp) {
     var onChange = this.getAttr('onChange');
-    var formatted = formatDate(timestamp);
+    var date = timestamp || null;
+    if (date && this.get('autoFormat')) {
+      date = window.moment(date).format(this.get('dateFormat')); 
+    }
     if (onChange) {
-      onChange(formatted);
+      onChange(date);
     } else {
-      this.set('value', formatted);
+      this.set('value', date);
     }
   },
 
