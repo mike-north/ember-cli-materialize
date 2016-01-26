@@ -123,11 +123,13 @@ export default MaterializeInput.extend({
        this.$('.datepicker').pickadate('picker').set('select', selected);   
     }
 
-    if (min && selected) {
+    var currentSelected = this.$('.datepicker').pickadate('picker').get('select');
+
+    if (min && currentSelected) {
        this.$('.datepicker').pickadate('picker').set('min', min);   
     }
 
-    if (max && selected) {
+    if (max && currentSelected) {
        this.$('.datepicker').pickadate('picker').set('max', max);   
     }
   }
