@@ -32,7 +32,11 @@ export default MaterializeInput.extend({
     datePickerOptions.selectYears = datePickerOptions.numberOfYears;
 
     var _onDateSet = evt => {
-      this._onDateSet(evt.select);
+      var options = {
+        timestamp: evt.select,
+        clear: evt.clear === null 
+      }
+      this._onDateSet(options);
     };
     var _onClose = () => {
       this.$('.picker').blur();
@@ -70,8 +74,13 @@ export default MaterializeInput.extend({
     }
   },
 
-  _onDateSet(timestamp) {
+  _onDateSet(options) {
+    var {timestamp, clear} = options;
     var onChange = this.getAttr('onChange');
+    if (clear && onChange) {
+      onChange(null);
+      return;
+    }
     var date = this.getDate(timestamp, this.getAttr('selected'));
     if (date && onChange) {
       onChange(date);
