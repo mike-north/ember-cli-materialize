@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import MaterializeInput from './md-input';
 import layout from '../templates/components/md-input-date';
+import startOfUTCDay from '../utils/start-of-utc-day';
 
 const {
   get
@@ -38,15 +39,28 @@ export default MaterializeInput.extend({
       this._onClose();
     };
 
-    var isValidDate = window.moment(this.get('selected')).isValid();
-
     this.$('.datepicker').pickadate(Ember.$.extend(datePickerOptions, {
       onSet: _onDateSet,
-      onClose: _onClose,
-      min: this.get('min') || -Infinity,
-      max: this.get('max') || Infinity,
-      select: isValidDate ? window.moment(this.get('selected')).toDate().toString : null
+      onClose: _onClose
     }));
+
+    var selected = this.getDate(this.getAttr('selected'));
+    var max = this.getDate(this.getAttr('max'), null, Infinity);
+    var min = this.getDate(this.getAttr('min'), null, -Infinity);
+
+    if (selected) {
+       this.$('.datepicker').pickadate('picker').set('select', selected);   
+    }
+
+    if (min) {
+       this.$('.datepicker').pickadate('picker').set('min', min);   
+    }
+
+    if (max) {
+       this.$('.datepicker').pickadate('picker').set('max', max);   
+    }
+
+
   },
 
   _onClose(){
@@ -58,8 +72,8 @@ export default MaterializeInput.extend({
 
   _onDateSet(timestamp) {
     var onChange = this.getAttr('onChange');
-    var date = timestamp ? window.moment(timestamp).startOf('day').toDate() : null;
-    if (window.moment(date).isValid() && !window.moment(date).isSame(this.getAttr('selected')) && onChange) {
+    var date = this.getDate(timestamp, this.getAttr('selected'));
+    if (date && onChange) {
       onChange(date);
     }
   },
@@ -79,19 +93,33 @@ export default MaterializeInput.extend({
     var selected = get(attrs, 'newAttrs.selected.value');
     var max = get(attrs, 'newAttrs.max.value');
     var min = get(attrs, 'newAttrs.min.value');
-    if (window.moment(selected).isValid() && !window.moment(selected).isSame(currentSelected)) {
-       this.$('.datepicker').pickadate('picker').set('select', window.moment(selected).toDate());   
+
+    selected = this.getDate(selected, currentSelected);
+    max = this.getDate(max, currentMax, Infinity);
+    min = this.getDate(min, currentMin, -Infinity);
+
+    if (selected) {
+       this.$('.datepicker').pickadate('picker').set('select', selected);   
     }
-    if (min && !window.moment(min).isSame(currentMin)) {
+
+    if (min) {
        this.$('.datepicker').pickadate('picker').set('min', min);   
-    } else if (!min && min !== currentMin) {
-      this.$('.datepicker').pickadate('picker').set('min', -Infinity);   
     }
-    if (max && !window.moment(max).isSame(currentMax)) {
-       this.$('.datepicker').pickadate('picker').set('max', max || Infinity);   
-    } else if (!max && max !== currentMax) {
-      this.$('.datepicker').pickadate('picker').set('max', Infinity);   
+
+    if (max) {
+       this.$('.datepicker').pickadate('picker').set('max', max);   
+    }
+  },
+
+  getDate(input, compareWith= null, defaultResult = null) {
+    var iMoment = startOfUTCDay(input);
+    var compMoment = startOfUTCDay(compareWith);
+    var isInputValid = iMoment.isValid();
+    var isCompValid = compMoment.isValid();
+    if (isInputValid && (!isCompValid || !iMoment.isSame(compareWith))) {
+      return iMoment.toDate();
+    } else {
+      return !isInputValid ? defaultResult : null;
     }
   }
-
 });
