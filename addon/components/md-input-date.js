@@ -90,7 +90,7 @@ export default MaterializeInput.extend({
 
   didUpdateAttrs(attrs) {
     this._super(...arguments);
-    var currentSelected = getAttr(attrs.soldAttrs, 'selected');
+    var currentSelected = getAttr(attrs.oldAttrs, 'selected');
     var selected = getAttr(attrs.newAttrs, 'selected');
     var max = getAttr(attrs.newAttrs, 'max');
     var min = getAttr(attrs.newAttrs, 'min');
