@@ -12,8 +12,8 @@ export default MaterializeInput.extend({
 
   selectMonths: true,
   numberOfYears: 15,
-  min: '',
-  max: '',
+  min: -Infinity,
+  max: Infinity,
   autoFormat: true,
   dateFormat: 'DD MMMM[,] YYYY',
 
@@ -28,7 +28,7 @@ export default MaterializeInput.extend({
   },
 
   _setupPicker() {
-    const datePickerOptions = this.getProperties('selectMonths', 'numberOfYears', 'min', 'max');
+    const datePickerOptions = this.getProperties('selectMonths', 'numberOfYears');
     datePickerOptions.selectYears = datePickerOptions.numberOfYears;
 
     var _onDateSet = evt => {
