@@ -89,15 +89,13 @@ export default MaterializeInput.extend({
   didUpdateAttrs(attrs) {
     this._super(...arguments);
     var currentSelected = get(attrs, 'oldAttrs.selected.value');
-    var currentMin = get(attrs, 'oldAttrs.min.value');
-    var currentMax = get(attrs, 'oldAttrs.max.value');
     var selected = get(attrs, 'newAttrs.selected.value');
     var max = get(attrs, 'newAttrs.max.value');
     var min = get(attrs, 'newAttrs.min.value');
 
     selected = this.getDate(selected, currentSelected);
-    max = this.getDate(max, currentMax, Infinity);
-    min = this.getDate(min, currentMin, -Infinity);
+    max = this.getDate(max, null, Infinity);
+    min = this.getDate(min, null, -Infinity);
     this.updateDatePicker({
       selected,
       min,
@@ -123,13 +121,11 @@ export default MaterializeInput.extend({
        this.$('.datepicker').pickadate('picker').set('select', selected);   
     }
 
-    var currentSelected = this.$('.datepicker').pickadate('picker').get('select');
-
-    if (min && currentSelected) {
+    if (min) {
        this.$('.datepicker').pickadate('picker').set('min', min);   
     }
 
-    if (max && currentSelected) {
+    if (max) {
        this.$('.datepicker').pickadate('picker').set('max', max);   
     }
   }
