@@ -117,7 +117,7 @@ export default MaterializeInput.extend({
 
   updateDatePicker(options) {
     var {selected, min, max} = options;
-    if (selected) {
+    if (selected || selected === null) {
        this.$('.datepicker').pickadate('picker').set('select', selected);   
     }
 
