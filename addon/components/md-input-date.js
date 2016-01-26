@@ -52,19 +52,11 @@ export default MaterializeInput.extend({
     var max = this.getDate(this.getAttr('max'), null, Infinity);
     var min = this.getDate(this.getAttr('min'), null, -Infinity);
 
-    if (selected) {
-       this.$('.datepicker').pickadate('picker').set('select', selected);   
-    }
-
-    if (min) {
-       this.$('.datepicker').pickadate('picker').set('min', min);   
-    }
-
-    if (max) {
-       this.$('.datepicker').pickadate('picker').set('max', max);   
-    }
-
-
+    this.updateDatePicker({
+      selected,
+      min,
+      max
+    });
   },
 
   _onClose(){
@@ -106,18 +98,11 @@ export default MaterializeInput.extend({
     selected = this.getDate(selected, currentSelected);
     max = this.getDate(max, currentMax, Infinity);
     min = this.getDate(min, currentMin, -Infinity);
-
-    if (selected) {
-       this.$('.datepicker').pickadate('picker').set('select', selected);   
-    }
-
-    if (min) {
-       this.$('.datepicker').pickadate('picker').set('min', min);   
-    }
-
-    if (max) {
-       this.$('.datepicker').pickadate('picker').set('max', max);   
-    }
+    this.updateDatePicker({
+      selected,
+      min,
+      max
+    });
   },
 
   getDate(input, compareWith= null, defaultResult = null) {
@@ -129,6 +114,21 @@ export default MaterializeInput.extend({
       return iMoment.toDate();
     } else {
       return !isInputValid ? defaultResult : null;
+    }
+  },
+
+  updateDatePicker(options) {
+    {selected, min, max} = options;
+    if (selected) {
+       this.$('.datepicker').pickadate('picker').set('select', selected);   
+    }
+
+    if (min && selected) {
+       this.$('.datepicker').pickadate('picker').set('min', min);   
+    }
+
+    if (max && selected) {
+       this.$('.datepicker').pickadate('picker').set('max', max);   
     }
   }
 });
