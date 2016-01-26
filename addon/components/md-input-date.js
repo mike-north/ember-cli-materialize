@@ -2,6 +2,7 @@ import Ember from 'ember';
 import MaterializeInput from './md-input';
 import layout from '../templates/components/md-input-date';
 import startOfUTCDay from '../utils/start-of-utc-day';
+import getAttr from '../utils/get-attr';
 
 const {
   get
@@ -88,10 +89,10 @@ export default MaterializeInput.extend({
 
   didUpdateAttrs(attrs) {
     this._super(...arguments);
-    var currentSelected = get(attrs, 'oldAttrs.selected.value');
-    var selected = get(attrs, 'newAttrs.selected.value');
-    var max = get(attrs, 'newAttrs.max.value');
-    var min = get(attrs, 'newAttrs.min.value');
+    var currentSelected = getAttr(oldAttrs, 'selected');
+    var selected = getAttr(newAttrs, 'selected');
+    var max = getAttr(newAttrs, 'max');
+    var min = getAttr(newAttrs, 'min');
 
     selected = this.getDate(selected, currentSelected);
     max = this.getDate(max, null, Infinity);
