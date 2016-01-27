@@ -29,8 +29,8 @@ export default MaterializeInput.extend({
   },
 
   _setupPicker() {
-    const datePickerOptions = this.getProperties('selectMonths', 'numberOfYears', 'containerClassName');
-    datePickerOptions.container = datePickerOptions.containerClassName;
+    const datePickerOptions = this.getProperties('selectMonths', 'numberOfYears', 'containerSelector');
+    datePickerOptions.container = datePickerOptions.containerSelector;
     datePickerOptions.selectYears = datePickerOptions.numberOfYears;
 
     var _onDateSet = evt => {
