@@ -1,12 +1,13 @@
 import Ember from 'ember';
 import MaterializeInput from './md-input';
 import layout from '../templates/components/md-input-date';
-import startOfUTCDay from '../utils/start-of-utc-day';
 import getAttr from '../utils/get-attr';
 
 const {
   get
 } = Ember;
+
+const m = window.moment;
 
 export default MaterializeInput.extend({
   layout,
@@ -16,7 +17,8 @@ export default MaterializeInput.extend({
   min: -Infinity,
   max: Infinity,
   autoFormat: true,
-  dateFormat: 'DD MMMM[,] YYYY',
+  dateFormat: 'YYYY-MM-DD',
+  inputDateFormat: 'DD MMMM[,] YYYY',
 
   didInsertElement() {
     this._super(...arguments);
@@ -49,12 +51,13 @@ export default MaterializeInput.extend({
       onSet: _onDateSet,
       onClose: _onClose
     }));
-
+    var shouldSelectNull = this.getAttr('selected') === null;
     var selected = this.getDate(this.getAttr('selected'));
     var max = this.getDate(this.getAttr('max'), null, Infinity);
     var min = this.getDate(this.getAttr('min'), null, -Infinity);
 
     this.updateDatePicker({
+      shouldSelectNull,
       selected,
       min,
       max
@@ -77,7 +80,7 @@ export default MaterializeInput.extend({
     }
     var date = this.getDate(timestamp, this.getAttr('selected'));
     if (date && onChange) {
-      onChange(date);
+      onChange(m(date).format(this.get('dateFormat')));
     }
   },
 
@@ -94,11 +97,12 @@ export default MaterializeInput.extend({
     var selected = getAttr(attrs.newAttrs, 'selected');
     var max = getAttr(attrs.newAttrs, 'max');
     var min = getAttr(attrs.newAttrs, 'min');
-
+    var shouldSelectNull = selected === null;
     selected = this.getDate(selected, currentSelected);
     max = this.getDate(max, null, Infinity);
     min = this.getDate(min, null, -Infinity);
     this.updateDatePicker({
+      shouldSelectNull,
       selected,
       min,
       max
@@ -106,11 +110,11 @@ export default MaterializeInput.extend({
   },
 
   getDate(input, compareWith= null, defaultResult = null) {
-    var iMoment = startOfUTCDay(input);
-    var compMoment = startOfUTCDay(compareWith);
+    var iMoment = m(input || null);
+    var compMoment = m(compareWith || null);
     var isInputValid = iMoment.isValid();
     var isCompValid = compMoment.isValid();
-    if (isInputValid && (!isCompValid || !iMoment.isSame(compareWith))) {
+    if (isInputValid && (!isCompValid || !iMoment.date() !== compMoment.date() || !iMoment.month() !== compMoment.month() || !iMoment.year() !== compMoment.year())) {
       return iMoment.toDate();
     } else {
       return !isInputValid ? defaultResult : null;
@@ -118,9 +122,12 @@ export default MaterializeInput.extend({
   },
 
   updateDatePicker(options) {
-    var {selected, min, max} = options;
-    if (selected || selected === null) {
-       this.$('.datepicker').pickadate('picker').set('select', selected);   
+    var {selected, min, max, shouldSelectNull} = options;
+    if (selected) {
+      let normalized = this.normalizeDate(selected);
+      this.$('.datepicker').pickadate('picker').set('select', normalized);   
+    } else if (shouldSelectNull && selected === null) {
+      this.$('.datepicker').pickadate('picker').set('select', null);   
     }
 
     if (min) {
@@ -130,5 +137,9 @@ export default MaterializeInput.extend({
     if (max) {
        this.$('.datepicker').pickadate('picker').set('max', max);   
     }
+  },
+
+  normalizeDate(date){
+    return moment([date.getFullYear(), date.getMonth(), date.getDate()]).toDate();
   }
 });
