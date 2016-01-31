@@ -1,6 +1,14 @@
 import Ember from 'ember';
 import MaterializeInputField from './md-input-field';
 import layout from '../templates/components/md-select';
+import afterRender from '../utils/after-render';
+const {
+  on,
+  run: {
+    later,
+    scheduleOnce
+  }
+} = Ember;
 
 export default MaterializeInputField.extend({
   layout,
@@ -30,7 +38,7 @@ export default MaterializeInputField.extend({
     const inputSelector = this.$('input');
     // monitor the select's validity and copy the appropriate validation class to the materialize input element.
     if (!Ember.isNone(inputSelector)) {
-      Ember.run.later(this, function() {
+      later(this, function() {
         const isValid = this.$('select').hasClass('valid');
         if (isValid) {
           inputSelector.removeClass('invalid');
@@ -41,5 +49,40 @@ export default MaterializeInputField.extend({
         }
       }, 150);
     }
-  })
+  }),
+
+  onSelect: null,
+  bindSelectEvent: afterRender(function() {
+    if (!this.getAttr('onSelect')) {
+      return;
+    }
+
+    later(this, function() {
+      if (this.get('_state') === 'inDOM') {
+        let el = this.$();
+        if (el) {
+          el.on(`change.${this.get('elementId')}`, function() {
+            if (this.getAttr('onSelect')) {
+              later(this, function() {
+                this.attrs.onSelect(this.$('select').val());
+              }, 100);
+            }
+          }.bind(this));
+        } 
+      }
+
+    }, 500);
+  }),
+  unbindSelectEvent: on('wiilDestroyElement', function(){
+     this.$().off(`change.${this.get('elementId')}`);
+  }),
+
+  didUpdateAttrs(attrs){
+    
+    if (attrs.newAttrs.disabled !== attrs.oldAttrs.disabled){
+      scheduleOnce('afterRender', this, () => {
+        this.$('select').material_select();
+      });
+    }
+  },
 });

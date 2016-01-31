@@ -36,8 +36,14 @@ export default Component.extend(UsesSettings, {
   },
 
   click() {
+    var onClick = this.getAttr('onClick');
     if (!this.get('disabled')) {
-      this.sendAction('action', this.get('actionArg'));
+      if (onClick) {
+        onClick();
+      } else {
+        this.sendAction('action', this.get('actionArg'));  
+      }
+      
     }
   }
 });
