@@ -19,6 +19,7 @@ export default SelectableItem.extend({
 	offLabel: 'Off',
 	onLabel: 'On',
 	disabled: false,
+	classNameBindings: ['disabled'],
 
 	_labelClass: computed('name', function() {
 		return this.get('name') ? 'right' : '';
