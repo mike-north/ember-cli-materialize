@@ -23,7 +23,8 @@ Ember.js version | ember-cli-materialize version
 -----------------|--------------
 `< 1.10.0`       | Not supported
 `1.10.0 <= x <  1.11.0`| [`v0.16.4`](https://github.com/mike-north/ember-cli-materialize/tree/v0.16.4)
-`x >= 1.11.0` | [![npm version](https://badge.fury.io/js/ember-cli-materialize.svg)](http://badge.fury.io/js/ember-cli-materialize)
+`1.11.0 <= x <  1.12.0`| [`v0.18.6`](https://github.com/mike-north/ember-cli-materialize/tree/v0.18.6)
+`x >= 1.12.0` | [![npm version](https://badge.fury.io/js/ember-cli-materialize.svg)](http://badge.fury.io/js/ember-cli-materialize)
 
 
 ## Main features

@@ -1,21 +1,10 @@
 module.exports = {
   scenarios: [
     {
-      name: 'ember-1.11',
-      dependencies: {
-        'ember': '~1.11.0',
-        'ember-load-initializers': 'ember-cli/ember-load-initializers#0.0.2'
-      }
-    },
-    {
       name: 'ember-1.12',
       dependencies: {
         'ember': '~1.12.0'
       }
-    },
-    {
-      name: 'default',
-      dependencies: {}
     },
     {
       name: 'ember-1.13',
