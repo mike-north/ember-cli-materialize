@@ -10,16 +10,6 @@ moduleForComponent('md-radios', {
   integration: true
 });
 
-test('no parameters, no block', function(assert) {
-  assert.expect(1);
-
-  this.render(hbs `
-    {{md-radios}}
-  `);
-
-  assert.equal(this.$('.md-radios').toArray().length, 1, 'component renders');
-});
-
 test('simple array test, with initial selection', function(assert) {
   this.setProperties({
     content: Ember.A(['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan']),
