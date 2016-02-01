@@ -62,10 +62,13 @@ test('dropdown shown at origin', function(assert) {
 
   const dropdownContentId = `#${component.get('_dropdownContentId')}`;
   const dropdownElement = $(dropdownContentId);
+  assert.equal(dropdownElement.css('top'), 'auto', 'Initially auto');
+
   component.$().click();
   Ember.run(function() {
     Ember.run.schedule('afterRender', function() {
-      assert.equal(`${component.$().position().top}px`, dropdownElement.css('top'));
+      const dropdownPosString = dropdownElement.css('top');
+      assert.equal(parseInt(component.$().position().top, 10) - parseInt(dropdownPosString.substring(0, dropdownPosString.length - 2), 10), -36);
     });
   });
 });

@@ -24,7 +24,6 @@ test('basic usage', function(assert) {
       optionLabelPath="content.value"
       optionValuePath="content" class="col s12"}}
   `);
-
   assert.equal(this.$().text().trim(), `Framework
 ▼Please choose...Materialize CSSEmber-CLI MaterializePlease choose...Materialize CSSEmber-CLI Materialize`);
 
