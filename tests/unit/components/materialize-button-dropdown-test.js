@@ -68,7 +68,7 @@ test('dropdown shown at origin', function(assert) {
   Ember.run(function() {
     Ember.run.schedule('afterRender', function() {
       const dropdownPosString = dropdownElement.css('top');
-      assert.equal(parseInt(component.$().position().top, 10) - parseInt(dropdownPosString.substring(0, dropdownPosString.length - 2), 10), -36);
+      assert.equal(parseInt(component.$().position().top, 10), parseInt(dropdownPosString.substring(0, dropdownPosString.length - 2), 10));
     });
   });
 });
