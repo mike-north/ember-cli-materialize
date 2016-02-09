@@ -37,7 +37,7 @@ export default Component.extend(UsesSettings, {
 
   click() {
     var onClick = this.getAttr('onClick');
-    if (!this.get('disabled')) {
+    if (!this.get('isDisabled') && !this.$().hasClass('disabled')) {
       if (onClick) {
         onClick();
       } else {
