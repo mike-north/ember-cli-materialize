@@ -114,7 +114,7 @@ export default MaterializeInput.extend({
     var compMoment = m(compareWith || null);
     var isInputValid = iMoment.isValid();
     var isCompValid = compMoment.isValid();
-    if (isInputValid && (!isCompValid || !iMoment.date() !== compMoment.date() || !iMoment.month() !== compMoment.month() || !iMoment.year() !== compMoment.year())) {
+    if (isInputValid && (!isCompValid || iMoment.date() !== compMoment.date() || iMoment.month() !== compMoment.month() || iMoment.year() !== compMoment.year())) {
       return iMoment.toDate();
     } else {
       return !isInputValid ? defaultResult : null;
