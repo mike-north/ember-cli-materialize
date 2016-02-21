@@ -1,9 +1,8 @@
 import Ember from 'ember';
 import ChildComponentSupport from 'ember-composability/mixins/child-component-support';
 import SelectableItemGroup from './selectable-item-group';
-import _computed from 'ember-new-computed';
 
-const { computed, Component } = Ember;
+const { computed, Component, computed } = Ember;
 
 export default Component.extend(ChildComponentSupport, {
   _parentComponentTypes: [SelectableItemGroup],
@@ -11,7 +10,7 @@ export default Component.extend(ChildComponentSupport, {
   disabled: false,
   classNames: ['materialize-selectable-item'],
 
-  _checked: _computed('checked', 'group.selection', 'group.selection.[]', {
+  _checked: computed('checked', 'group.selection', 'group.selection.[]', {
     get() {
       const group = this.get('group');
       if (!group) {
@@ -32,7 +31,7 @@ export default Component.extend(ChildComponentSupport, {
     }
   }),
 
-  isSelected: Ember.computed.alias('_checked'),
+  isSelected: computed.alias('_checked'),
 
   _setupLabel() {
     const [$input] = this.$('.materialize-selectable-item-input, .materialize-selectable-item-input-container input').toArray();
