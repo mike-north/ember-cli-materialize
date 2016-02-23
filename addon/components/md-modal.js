@@ -12,7 +12,7 @@ export default Component.extend(UsesSettings, {
   attributeBindings: ['style:inlineStyle'],
   concatenatedProperties: ['modalClassNames'],
 
-  overlayClass: 'lean-modal',
+  overlayClassName: 'lean-modal',
 
   inlineStyle: computed(function() {
     return new Ember.Handlebars.SafeString('z-index: 1000;');
