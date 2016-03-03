@@ -37,7 +37,22 @@ export default Component.extend(UsesSettings, {
 
   click() {
     if (!this.get('disabled')) {
-      this.sendAction('action', this.get('actionArg'));
+      const action = this.get('action');
+
+      if(typeof action === 'function') {
+        //support for closure action
+        let args = this.get('actionArg');
+        if(typeof args === 'undefined' || args === null) {
+          args = [];
+        }
+        if(!Array.isArray(args)) {
+          args = [args];
+        }
+
+        action(...args);
+      } else {
+        this.sendAction('action', this.get('actionArg'));
+      }
     }
   }
 });
