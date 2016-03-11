@@ -1,23 +1,28 @@
 /*jshint node:true*/
+
+function scenario(emberVersion) {
+  return {
+    name: 'ember-' + emberVersion,
+    bower: {
+      dependencies: {
+        'ember': '~' + emberVersion + '.0'
+      },
+      resolutions: {
+        'ember': '~' + emberVersion + '.0'
+      }
+    }
+  };
+}
+
+
 module.exports = {
   scenarios: [
-    {
-      name: 'default',
-      bower: {
-        dependencies: { }
-      }
-    },
-    {
-      name: 'ember-1-13',
-      bower: {
-        dependencies: {
-          'ember': '~1.13.0'
-        },
-        resolutions: {
-          'ember': '~1.13.0'
-        }
-      }
-    },
+    scenario('1.13'),
+    scenario('2.0'),
+    scenario('2.1'),
+    scenario('2.2'),
+    scenario('2.3'),
+    scenario('2.4'),
     {
       name: 'ember-release',
       bower: {

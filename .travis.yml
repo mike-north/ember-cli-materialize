@@ -42,9 +42,9 @@ install:
 script:
   - ember try $EMBER_TRY_SCENARIO test
 
-after_script:
-  - sed -i -- 's/SF:ember-cli-materialize\/\(.*\)/SF:addon\/\1.js/' lcov.dat
-  - cat lcov.dat | coveralls
+# after_script:
+#   - sed -i -- 's/SF:ember-cli-materialize\/\(.*\)/SF:addon\/\1.js/' lcov.dat
+#   - cat lcov.dat | coveralls
 
 after_success:
 # Remove the downloaded copy of phantomJS
