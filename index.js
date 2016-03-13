@@ -33,6 +33,8 @@ module.exports = {
     app.import(app.bowerDirectory + '/materialize/dist/font/material-design-icons/Material-Design-Icons.woff', { destDir: 'font/material-design-icons' });
     app.import(app.bowerDirectory + '/materialize/dist/font/material-design-icons/Material-Design-Icons.woff2', { destDir: 'font/material-design-icons' });
 
-    app.import(app.bowerDirectory + '/materialize/dist/js/materialize.js');
+    if (!(app.options['ember-cli-materialize'] && app.options.['ember-cli-materialize'].includeJS === false)) {
+        app.import(app.bowerDirectory + '/materialize/dist/js/materialize.js');
+    }
   }
 };
