@@ -36,7 +36,7 @@ export default Component.extend(UsesSettings, {
   },
 
   click() {
-    if (!this.get('disabled')) {
+    if (!this.get('disabled') && !this.get('isDisabled')) {
       const action = this.get('action');
 
       if(typeof action === 'function') {
