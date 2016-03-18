@@ -45,7 +45,7 @@
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-code-snippet": "mike-north/ember-code-snippet#global",
-    "ember-composability": "~0.2.0",
+    "ember-composability": "~0.3.1",
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
