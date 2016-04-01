@@ -4,6 +4,7 @@ const { computed } = Ember;
 
 export default Ember.Mixin.create({
   _mdSettings: computed(function() {
-    return this.get('container').lookup('service:materialize-settings');
+    const owner = Ember.getOwner ? Ember.getOwner(this) : this.get('container');
+    return owner.lookup('service:materialize-settings');
   })
 });
