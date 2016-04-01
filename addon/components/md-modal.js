@@ -18,10 +18,13 @@ export default Component.extend(UsesSettings, {
   isFooterFixed: oneWay('_mdSettings.modalIsFooterFixed'),
 
   modalClassNames: ['modal', 'show'],
-  _modalClassString: computed('modalClassNames.[]', 'isFooterFixed', function() {
+  _modalClassString: computed('modalClassNames.[]', 'class', 'isFooterFixed', function() {
     const names = this.get('modalClassNames');
     if (this.get('isFooterFixed')) {
       names.push('modal-fixed-footer');
+    }
+    if (this.get('class')) {
+      names.push(this.get('class'));
     }
     return names.join(' ');
   }),
