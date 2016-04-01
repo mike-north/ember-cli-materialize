@@ -37,10 +37,17 @@ export default MaterializeInput.extend({
       if (evt.select) {
         this.set('value', formatDate(evt.select));
       }
+      if (evt.clear === null) {
+        console.log('clear')
+        this.set('value', null);
+        this.$('.datepicker').data('value', null);
+      }
     };
 
     this.$('.datepicker').pickadate(Ember.$.extend(datePickerOptions, {
-      onSet: this._onDateSet
+      onSet: this._onDateSet,
+      closeOnSelect: true,
+      closeOnClear: true,
     }));
   },
 
