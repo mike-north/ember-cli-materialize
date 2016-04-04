@@ -7,6 +7,7 @@ const { Component, computed, computed: { oneWay } } = Ember;
 export default Component.extend(UsesSettings, {
   layout,
 
+  clickOutsideToClose: true,
   acceptsKeyResponder: true,
   attributeBindings: ['style:inlineStyle'],
   concatenatedProperties: ['modalClassNames'],
