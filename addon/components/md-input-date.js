@@ -13,6 +13,7 @@ export default MaterializeInput.extend({
   min: '',
   max: '',
   format: 'DD MMM, YYYY',
+  pickadateOpt: {}, //from http://amsul.ca/pickadate.js/date/
 
   _displayValue: computed('value', function() {
     const valueDate = this.get('value');
@@ -37,14 +38,14 @@ export default MaterializeInput.extend({
     datePickerOptions.format = this._parseToUiFormat(this.get('format'));
 
     this._onDateSet = evt => {
-      if (evt.select) {
-        this.set('value', evt.select);
-      }
+      //clear event - Object {clear: null}
+      //set event - Object {select: date_value}
+      this.set('value', evt.select ? evt.select : null );
     };
+    datePickerOptions.onSet = this._onDateSet;
 
-    this.$('.datepicker').pickadate(Ember.$.extend(datePickerOptions, {
-      onSet: this._onDateSet
-    }));
+    const userPickadateOpt = this.get('pickadateOpt');
+    this.$('.datepicker').pickadate(Ember.$.extend(datePickerOptions, userPickadateOpt));
   },
 
   _parseToUiFormat(format) {
