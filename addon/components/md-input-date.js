@@ -1,15 +1,9 @@
 import Ember from 'ember';
 import MaterializeInput from './md-input';
 import layout from '../templates/components/md-input-date';
+import moment from 'moment';
 
-const MONTH_NAMES = ['January', 'February', 'March', 'April',
-    'May', 'June', 'July', 'August', 'September', 'October',
-    'November', 'December'];
-
-function formatDate(timestamp) {
-  const d = new Date(timestamp);
-  return `${d.getDate()} ${MONTH_NAMES[d.getMonth()]}, ${d.getFullYear()}`;
-}
+const { computed } = Ember;
 
 export default MaterializeInput.extend({
   layout,
@@ -18,6 +12,14 @@ export default MaterializeInput.extend({
   numberOfYears: 15,
   min: '',
   max: '',
+  format: 'DD MMM, YYYY',
+
+  _displayValue: computed('value', function() {
+    const valueDate = this.get('value');
+    const displayFormat = this.get('format');
+    return typeof displayFormat === 'function' ?
+      displayFormat(value) : moment(valueDate).format(displayFormat);
+  }),
 
   didInsertElement() {
     this._super(...arguments);
@@ -32,16 +34,23 @@ export default MaterializeInput.extend({
   _setupPicker() {
     const datePickerOptions = this.getProperties('selectMonths', 'numberOfYears', 'min', 'max');
     datePickerOptions.selectYears = datePickerOptions.numberOfYears;
+    datePickerOptions.format = this._parseToUiFormat(this.get('format'));
 
     this._onDateSet = evt => {
       if (evt.select) {
-        this.set('value', formatDate(evt.select));
+        this.set('value', evt.select);
       }
     };
 
     this.$('.datepicker').pickadate(Ember.$.extend(datePickerOptions, {
       onSet: this._onDateSet
     }));
+  },
+
+  _parseToUiFormat(format) {
+    //parse to pickadate.js format
+    return format && typeof format !== 'function' ?
+      format.replace(/\b([DMY]+)\b/g, (match) => match.toLowerCase()) : undefined;
   },
 
   _teardownPicker() {
