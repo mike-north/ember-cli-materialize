@@ -7,8 +7,11 @@ export default MaterializeInputField.extend({
 
   actions: {
     doAction() {
-      console.log('firing action');
       this.sendAction();
+    },
+    clear() {
+      this.set('value', '');
+      this.send('doAction');
     }
   },
 

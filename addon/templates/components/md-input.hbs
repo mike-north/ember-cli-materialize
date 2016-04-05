@@ -19,6 +19,10 @@
   enter='doAction'}}
 <label for="{{id}}">{{label}}</label>
 
+{{#if clearButton}}
+  <span class="clear" {{action 'clear'}}>&times;</span>
+{{/if}}
+
 <small class="red-text">
   {{#if errors}} {{errors.firstObject}} {{else}} &nbsp; {{/if}}
 </small>
