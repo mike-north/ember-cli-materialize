@@ -1,5 +1,5 @@
 {{#if icon}}
-  <i class="{{icon}} prefix"></i>
+  <i class="{{icon}} prefix" {{action 'doAction'}}></i>
 {{/if}}
 
 {{input id=id
@@ -15,8 +15,13 @@
   autofocus=autofocus
   step=step
   min=min
-  max=max}}
+  max=max
+  enter='doAction'}}
 <label for="{{id}}">{{label}}</label>
+
+{{#if clearButton}}
+  <span class="clear" {{action 'clear'}}>&times;</span>
+{{/if}}
 
 <small class="red-text">
   {{#if errors}} {{errors.firstObject}} {{else}} &nbsp; {{/if}}
