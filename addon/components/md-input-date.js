@@ -12,7 +12,7 @@ export default MaterializeInput.extend({
   numberOfYears: 15,
   min: '',
   max: '',
-  format: 'DD MMM, YYYY',
+  format: 'DD MMM, YYYY', //moment format
   pickadateOpt: {}, //from http://amsul.ca/pickadate.js/date/
 
   _displayValue: computed('value', function() {
@@ -49,9 +49,18 @@ export default MaterializeInput.extend({
   },
 
   _parseToUiFormat(format) {
-    //parse to pickadate.js format
-    return format && typeof format !== 'function' ?
-      format.replace(/\b([DMY]+)\b/g, (match) => match.toLowerCase()) : undefined;
+    //parse moment format to pickadate.js format
+
+    //doesn't support pickatime - only date format
+    //this.$('.datepicker').pickatime();
+    //format.replace(/\bmm\b/g, 'ii')
+    //      .replace(/\bm\b/g, 'i')
+    //      .replace(/\bhh\b/g, 'HH')
+    //      .replace(/\bh\b/g, 'H')
+
+    return format && typeof format === 'function' ? format() :
+      format.replace(/\b([mhs]+)\b/g, '')
+            .replace(/\b([DMY]+)\b/g, (match) => match.toLowerCase());
   },
 
   _teardownPicker() {
