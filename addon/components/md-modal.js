@@ -2,7 +2,7 @@ import Ember from 'ember';
 import $ from 'jquery';
 import UsesSettings from '../mixins/uses-settings';
 import layout from '../templates/components/md-modal';
-import { EKMixin } from 'ember-keyboard';
+import { EKMixin, keyUp } from 'ember-keyboard';
 
 const { Component, computed, computed: { oneWay } } = Ember;
 
@@ -54,9 +54,9 @@ export default Component.extend(EKMixin, UsesSettings, {
     }
   },
 
-  cancel() {
+  cancel: on(keyUp('Escape'), function() {
     this.closeModal();
-  },
+  }),
 
   actions: {
     closeModal() {
