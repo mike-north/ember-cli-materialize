@@ -9,6 +9,7 @@ const { Component, on, computed, computed: { oneWay } } = Ember;
 export default Component.extend(EKMixin, UsesSettings, {
   layout,
 
+  keyboardActivated: true,
   keyboardFirstResponder: true,
   attributeBindings: ['style:inlineStyle'],
   concatenatedProperties: ['modalClassNames'],
