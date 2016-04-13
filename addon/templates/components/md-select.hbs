@@ -1,13 +1,18 @@
 <label id="{{id}}" class="active">{{label}}</label>
-{{view "select"
-  id=id
-  content=content
-  optionValuePath=optionValuePath
-  optionLabelPath=optionLabelPath
-  prompt=prompt
-  value=value
-  disabled=disabled
-  classNameBindings="validate:validate errors:invalid:valid"}}
+<select onchange={{action (mut value) value="target.value"}}
+        class="{{if validate 'validate'}} {{if errors 'invalid' 'valid'}}"
+        disabled={{if disabled "true"}}>
+  {{#if prompt}}
+    <option value="" disabled selected>{{prompt}}</option>
+  {{/if}}
+  {{#each content as |option|}}
+    {{#with (if (eq optionValuePath 'content') option (or (get option (md-regex-replace (or optionValuePath 'content.value') '(content\.|^content$)' '')) option)) as |optionValue|}}
+      {{#with (if (eq optionLabelPath 'content') option (or (get option (md-regex-replace (or optionLabelPath 'content.label') '(content\.|^content$)' '')) option)) as |optionLabel|}}
+        <option value={{optionValue}} selected={{if (eq value optionValue) "true"}}>{{optionLabel}}</option>
+      {{/with}}
+    {{/with}}
+  {{/each}}
+</select>
 
 <small class="red-text">
   {{#if errors}}
