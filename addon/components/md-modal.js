@@ -4,7 +4,7 @@ import UsesSettings from '../mixins/uses-settings';
 import layout from '../templates/components/md-modal';
 import { EKMixin, keyUp } from 'ember-keyboard';
 
-const { Component, computed, computed: { oneWay } } = Ember;
+const { Component, on, computed, computed: { oneWay } } = Ember;
 
 export default Component.extend(EKMixin, UsesSettings, {
   layout,
