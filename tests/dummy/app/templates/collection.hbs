@@ -4,7 +4,7 @@
     {{#options-panel}}
       {{component-option optionId="content" required=true description="Iterable collection"}}
       {{component-option optionId="header" description="Header text"}}
-      {{component-option optionId="headerView" description="Header view (string or view class)"}}
+      {{component-option optionId="headerComponent" default='ember-cli-materialize/components/md-default-collection-header' description="Header component (string or view class)"}}
     {{/options-panel}}
 
     <p>For the following examples, let's say we have an array like this</p>
@@ -24,11 +24,11 @@
     </div>
     <div class="section">
       <h4 class="col s12 header">Custom Collection Header</h4>
-      <p>First you need to create a view</p>
+      <p>First you need to create a component</p>
       {{code-snippet name='custom-collection-header.js'}}
-      <p>And a template for the header view</p>
+      <p>And a template for the header component</p>
       {{code-snippet name='my-custom-header.hbs'}}
-      <p>You can then pass this view to the collection</p>
+      <p>You can then pass this component to the collection</p>
       {{example-snippet snippet='collection-header-custom' class='custom-header-collection-example' content=content}}
     </div>
     <div class="section">

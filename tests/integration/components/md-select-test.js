@@ -24,8 +24,8 @@ test('basic usage', function(assert) {
       optionLabelPath="content.value"
       optionValuePath="content" class="col s12"}}
   `);
-  assert.equal(this.$().text().trim(), `Framework
-▼Please choose...Materialize CSSEmber-CLI MaterializePlease choose...Materialize CSSEmber-CLI Materialize`);
+
+  assert.equal(this.$().text().split(/[\s\W]+/).join(' ').trim(), 'Framework Please choose Materialize CSSEmber CLI Materialize Please choose Materialize CSS Ember CLI Materialize');
 
   assert.ok(this.$('.md-select').hasClass('input-field'));
 
@@ -44,8 +44,7 @@ test('simple array usage', function(assert) {
       content=content
       value="Jesee Pinkman"}}
   `);
-
-  assert.equal(this.$().text().trim(), '▼Walter WhiteJesee PinkmanGus FrengWalter WhiteJesee PinkmanGus Freng');
+  assert.equal(this.$().text().split(/[\s\W]+/).join(' ').trim(), 'Walter WhiteJesee PinkmanGus Freng Walter White Jesee Pinkman Gus Freng');
   assert.equal(this.$('.md-select input').val(), 'Jesee Pinkman', 'Jesee Pinkman is initially selected');
 
 });

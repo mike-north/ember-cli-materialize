@@ -2,11 +2,26 @@ import Ember from 'ember';
 import MaterializeInputField from './md-input-field';
 import layout from '../templates/components/md-select';
 
+const { get } = Ember;
+
 export default MaterializeInputField.extend({
   layout,
   classNames: ['md-select'],
   optionLabelPath: 'content',
   optionValuePath: 'content',
+
+  _parsedContent: Ember.computed('optionValuePath', 'optionLabelPath', 'content.[]', function() {
+    const contentRegex = /(content\.|^content$)/;
+    // keep backwards compatability for defining optionValuePath & as optionContentPath `content.{{attName}}`
+    const optionValuePath = (this.get('optionValuePath') || '').replace(contentRegex, '');
+    const optionLabelPath = (this.get('optionLabelPath') || '').replace(contentRegex, '');
+    return Ember.A((this.get('content') || []).map(function(option) {
+      return Ember.Object.create({
+        value: optionValuePath ? get(option, optionValuePath) : option,
+        label: optionLabelPath ? get(option, optionLabelPath) : option
+      });
+    }));
+  }),
 
   didInsertElement() {
     this._super(...arguments);
