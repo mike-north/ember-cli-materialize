@@ -29,7 +29,7 @@ test('Load the demo page', function(assert) {
 
     // Simple header on collection
     assert.equal(find('.simple-header-collection-example .collection-item').length, 3, '3 items in basic collection example');
-    assert.equal(find('.simple-header-collection-example .collection-header').text(), 'People to Watch', 'Header content is correct');
+    assert.equal(find('.simple-header-collection-example .collection-header').text().trim(), 'People to Watch', 'Header content is correct');
     assert.equal(find('.simple-header-collection-example .with-header').length, 1, 'with-header class is present');
 
     // Custom header on collection
