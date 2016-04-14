@@ -24,7 +24,9 @@ env:
 matrix:
   fast_finish: true
   allow_failures:
-    - env: ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-canary
+    - env:
+      - ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-beta #Can be removed when dummy app won't contain Ember.View
+      - ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-canary
 
 before_install:
   - mkdir travis-phantomjs
