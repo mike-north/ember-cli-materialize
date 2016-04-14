@@ -13,7 +13,7 @@ An [ember-cli](http://www.ember-cli.com) addon for using [Materialize](http://ma
 
 **Ember 2.0 Friendly**
 
-**Materialize Version ~0.97.0**
+**Materialize Version 0.97.5**
 
 [![NPM](https://nodei.co/npm-dl/ember-cli-materialize.png?months=6)](https://nodei.co/npm/ember-cli-materialize/)
 
