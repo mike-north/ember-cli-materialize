@@ -5,7 +5,7 @@ const { computed: { alias } } = Ember;
 export default Ember.Component.extend({
   layout,
   tagName: 'th',
-  attributeBindings: ['data-field'],
-  'data-field': alias('column.valueBindingPath'),
+  attributeBindings: ['field:data-field'],
+  field: alias('column.valueBindingPath'),
   column: null
 });
