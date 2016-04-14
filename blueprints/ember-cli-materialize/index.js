@@ -4,7 +4,7 @@ module.exports = {
   normalizeEntityName: function() {},
 
   beforeInstall: function(options) {
-    return this.addBowerPackageToProject('materialize', '0.97.5');
+    return this.addBowerPackageToProject('materialize', '=<0.97.5');
   },
 
   afterInstall: function() {
