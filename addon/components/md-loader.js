@@ -25,9 +25,9 @@ export default Component.extend(UsesSettings, {
 
   barStyle: computed('mode', 'percent', function() {
     if (this.get('mode') === 'determinate') {
-      return new Ember.Handlebars.SafeString(`width: ${parseInt(this.get('percent'), 10)}%`);
+      return new Ember.String.htmlSafe(`width: ${parseInt(this.get('percent'), 10)}%`);
     } else {
-      return new Ember.Handlebars.SafeString('');
+      return new Ember.String.htmlSafe('');
     }
   }),
 
