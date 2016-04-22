@@ -2,7 +2,6 @@ import Ember from 'ember';
 import layout from '../templates/components/md-table-col';
 import Table from './md-table';
 import ChildComponentSupport from 'ember-composability/mixins/child-component-support';
-import DefaultColumnHeaderView from 'ember-cli-materialize/views/default-column-header';
 
 const { Component, computed, get, computed: { oneWay } } = Ember;
 
@@ -11,7 +10,7 @@ export default Component.extend(ChildComponentSupport, {
   tagName: 'td',
   layout,
   valueBindingPath: null,
-  headerView: DefaultColumnHeaderView,
+  headerComponentName: 'md-default-column-header',
   header: oneWay('valueBindingPath'),
   key: oneWay('valueBindingPath'),
   _value: computed('valueBindingPath', 'row', function() {

@@ -19,6 +19,19 @@ export default MaterializeInputField.extend({
     // jscs: enable
   },
 
+  _parsedContent: Ember.computed('optionValuePath', 'optionLabelPath', 'content.[]', function() {
+     const contentRegex = /(content\.|^content$)/;
+     // keep backwards compatability for defining optionValuePath & as optionContentPath `content.{{attName}}`
+     const optionValuePath = (this.get('optionValuePath') || '').replace(contentRegex, '');
+     const optionLabelPath = (this.get('optionLabelPath') || '').replace(contentRegex, '');
+     return Ember.A((this.get('content') || []).map((option) => {
+       return Ember.Object.create({
+         value: optionValuePath ? Ember.get(option, optionValuePath) : option,
+         label: optionLabelPath ? Ember.get(option, optionLabelPath) : option
+       });
+     }));
+   }),
+
   // TODO: clean up any listeners that $.select() puts in place
   // _teardownSelect() {
   //
