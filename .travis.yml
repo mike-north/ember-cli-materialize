@@ -40,7 +40,7 @@ install:
   - bower install
 
 script:
-  - ember try $EMBER_TRY_SCENARIO test
+  - ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup
 
 # after_script:
 #   - sed -i -- 's/SF:ember-cli-materialize\/\(.*\)/SF:addon\/\1.js/' lcov.dat

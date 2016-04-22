@@ -1,9 +1,9 @@
 import layout from '../templates/snippets/my-column-header';
 
 // BEGIN-SNIPPET my-column-header
-import DefaultHeaderView from 'ember-cli-materialize/views/default-column-header';
+import DefaultHeader from 'ember-cli-materialize/components/md-default-column-header';
 
-export default DefaultHeaderView.extend({
+export default DefaultHeader.extend({
   layout
 });
 // END-SNIPPET

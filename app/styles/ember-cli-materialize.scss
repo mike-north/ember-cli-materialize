@@ -17,6 +17,7 @@
 }
 
 .lean-modal {
-  background-color: black;
-  opacity: 0.5;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1.0;
+  z-index: 10001;
 }

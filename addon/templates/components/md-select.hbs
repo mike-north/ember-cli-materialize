@@ -1,12 +1,15 @@
 <label id="{{id}}" class="active">{{label}}</label>
-{{view "select"
-  id=id
-  content=content
-  optionValuePath=optionValuePath
-  optionLabelPath=optionLabelPath
-  prompt=prompt
-  value=value
-  classNameBindings="validate:validate errors:invalid:valid"}}
+
+<select onchange={{action (mut value) value="target.value"}}
+        class="{{if validate 'validate'}} {{if errors 'invalid' 'valid'}}"
+        disabled={{if disabled "true"}}>
+  {{#if prompt}}
+    <option value="" disabled selected={{unless value "true"}}>{{prompt}}</option>
+  {{/if}}
+  {{#each _parsedContent as |option|}}
+    <option value={{option.value}} selected={{if (eq value option.value) "true"}}>{{option.label}}</option>
+  {{/each}}
+</select>
 
 <small class="red-text">
   {{#if errors}}
