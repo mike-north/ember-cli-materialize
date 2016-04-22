@@ -29,7 +29,7 @@ test('Load the demo page', assert => {
 test('SideNav', assert => {
   visit('/navbar');
 
-  window.QUnit.stop();
+  let done = assert.async();
 
   andThen(() => {
     assert.equal(find('.navbar-example nav .button-collapse').length, 1, 'Navbar collapse button is in the DOM');
@@ -38,12 +38,13 @@ test('SideNav', assert => {
 
   andThen(() => {
     setTimeout(() => {
+      assert.equal(Ember.$('.navbar-example .side-nav').attr('style'), 'transform: translateX(0px);');
       assert.equal(Ember.$('.navbar-example .side-nav').css('left'), '0px', 'SideNav is open');
       setTimeout(() => {
         Ember.$('#sidenav-overlay').click();
         setTimeout(() => {
-          assert.equal(Ember.$('.navbar-example .side-nav').css('left'), '-250px');
-          window.QUnit.start();
+          assert.equal(Ember.$('.navbar-example .side-nav').attr('style'), 'transform: translateX(-100%);');
+          done();
         }, 1200);
       }, 1200);
     }, 1200);
