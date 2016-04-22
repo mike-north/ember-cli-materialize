@@ -1,5 +1,6 @@
 {
   "preset": "ember-suave",
   "excludeFiles": ["blanket-options.js"],
-  "requireParenthesesAroundArrowParam": null
+  "requireParenthesesAroundArrowParam": null,
+  "disallowConstOutsideModuleScope": null
 }
