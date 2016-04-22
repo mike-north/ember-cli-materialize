@@ -38,12 +38,12 @@ test('SideNav', assert => {
 
   andThen(() => {
     setTimeout(() => {
-      assert.equal(Ember.$('.navbar-example .side-nav').attr('style'), 'transform: translateX(0px);');
+      assert.ok(Ember.$('.navbar-example .side-nav').attr('style').indexOf('translateX(0px)') > 0, 'TranslateX is 0');
       assert.equal(Ember.$('.navbar-example .side-nav').css('left'), '0px', 'SideNav is open');
       setTimeout(() => {
         Ember.$('#sidenav-overlay').click();
         setTimeout(() => {
-          assert.equal(Ember.$('.navbar-example .side-nav').attr('style'), 'transform: translateX(-100%);');
+          assert.ok(Ember.$('.navbar-example .side-nav').attr('style').indexOf('translateX(-100%)') > 0, 'TranslateX > 0');
           done();
         }, 1200);
       }, 1200);
