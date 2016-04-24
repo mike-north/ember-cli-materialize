@@ -34,7 +34,7 @@ test('Load the demo page', function(assert) {
 
     // Custom header on collection
     assert.equal(find('.custom-header-collection-example .collection-item').length, 3, '3 items in basic collection example');
-    assert.equal(find('.custom-header-collection-example .collection-header').text(), 'People to Watch', 'Header content is correct');
+    assert.equal(find('.custom-header-collection-example .collection-header').text().trim(), 'People to Watch', 'Header content is correct');
     assert.equal(find('.custom-header-collection-example .with-header').length, 1, 'with-header class is present');
     assert.equal(find('.custom-header-collection-example .collection-header.deep-purple').length, 1, 'Header is customized (deep-purple)');
 

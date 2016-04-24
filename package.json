@@ -1,7 +1,7 @@
 {
-  "name": "ember-cli-materialize",
+  "name": "@streamrail/ember-cli-materialize",
   "description": "An ember-cli addon for using Materialize (CSS Framework based on Material Design) in Ember applications.",
-  "version": "0.18.6",
+  "version": "1.0.0",
   "directories": {
     "doc": "doc",
     "test": "tests"
