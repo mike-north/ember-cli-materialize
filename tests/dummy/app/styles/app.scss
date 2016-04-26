@@ -1,7 +1,12 @@
+// Fix for Roboto font path
+$roboto-font-path: '../assets/';
 $button-color: #e51c23;
 
-@import 'materialize';
+// Materialize styles
+@import "materialize";
+
 @import 'code';
+// ember-cli-materialize styles
 @import 'ember-cli-materialize';
 
 span.new-badge {
