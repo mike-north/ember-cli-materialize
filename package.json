@@ -62,7 +62,7 @@
     "ember-suave": "2.0.1",
     "ember-truth-helpers": "1.2.0",
     "ember-try": "^0.2.2",
-    "loader.js": "4.0.3"
+    "loader.js": "4.0.4"
   },
   "keywords": [
     "materialize",
