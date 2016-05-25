@@ -24,8 +24,7 @@ test('basic usage', function(assert) {
       optionLabelPath="content.value"
       optionValuePath="content" class="col s12"}}
   `);
-  assert.equal(this.$().text().trim(), `Framework
-▼Please choose...Materialize CSSEmber-CLI MaterializePlease choose...Materialize CSSEmber-CLI Materialize`);
+  assert.equal(this.$().text().trim().replace(/[\s\n]+/g, ''), `Framework▼Pleasechoose...MaterializeCSSEmber-CLIMaterializePleasechoose...MaterializeCSSEmber-CLIMaterialize`);
 
   assert.ok(this.$('.md-select').hasClass('input-field'));
 
@@ -45,7 +44,7 @@ test('simple array usage', function(assert) {
       value="Jesee Pinkman"}}
   `);
 
-  assert.equal(this.$().text().trim(), '▼Walter WhiteJesee PinkmanGus FrengWalter WhiteJesee PinkmanGus Freng');
+  assert.equal(this.$().text().trim().replace(/[\s\n]+/g, ''), '▼WalterWhiteJeseePinkmanGusFrengWalterWhiteJeseePinkmanGusFreng');
   assert.equal(this.$('.md-select input').val(), 'Jesee Pinkman', 'Jesee Pinkman is initially selected');
 
 });

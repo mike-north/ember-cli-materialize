@@ -1,17 +1,5 @@
 <header>
-<div class="navbar-fixed">
-  <nav class="demo-page-nav deep-orange">
-    <div class="nav-wrapper">
-      <div class="container-fluid">
-        <a href="#!" class="brand-logo white-text">
-          <img class="ember-logo hide-on-med-and-down" src="images/ember-white.svg" />
-          Materialize
-        </a>
-        <a href="#" data-activates="mobile-demo" class="button-collapse demo-button-collapse deep-orange-text text-darken-2"><i class="mdi-navigation-menu"></i></a>
-      </div>
-    </div>
-  </nav>
-</div>
+{{demo-nav}}
 </header>
 <ul class="side-nav fixed demo-page-submenu" id="mobile-demo">
   {{#each demoSections as |section|}}
@@ -34,3 +22,4 @@
 <footer class="page-footer demo-footer deep-orange darken-2">
   {{#md-copyright text='Copyright Text' startYear=2014}}<a class="grey-text text-lighten-4 right" href="#!">More Links</a>{{/md-copyright}}
 </footer>
+{{ember-anchor a=myQueryParam}}

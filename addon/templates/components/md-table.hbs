@@ -1,7 +1,7 @@
 <thead>
   <tr>
     {{#each columnComponents as |column|}}
-      {{view column.headerView column=column}}
+      {{component column.headerComponentName column=column}}
     {{/each}}
   </tr>
 </thead>

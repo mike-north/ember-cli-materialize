@@ -2,11 +2,11 @@
   "name": "ember-cli-materialize",
   "dependencies": {
     "blanket": "~1.1.5",
-    "ember": "~2.4.2",
-    "ember-cli-shims": "0.1.0",
+    "ember": "~2.5.0",
+    "ember-cli-shims": "0.1.1",
     "ember-cli-test-loader": "0.2.2",
     "ember-qunit-notifications": "0.1.0",
-    "materialize": "~0.97.5"
+    "materialize": "0.97.6"
   },
   "resolutions": {
     "blanket": "5e94fc30f2e694bb5c3718ddcbf60d467f4b4d26"
