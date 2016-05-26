@@ -1,5 +1,5 @@
 {{#if _hasHeader}}
-  {{component headerComponentName header=header}}
+  {{view headerView}}
 {{/if}}
 {{#each content as |item idx|}}
   {{yield item idx}}

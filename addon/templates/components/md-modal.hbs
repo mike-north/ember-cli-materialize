@@ -3,8 +3,9 @@ alignment=alignment
 alignmentTarget=alignmentTarget
 hasOverlay=true
 translucentOverlay=true
+clickOutsideToClose=clickOutsideToClose
 overlay-class='lean-modal'
-close='closeModal'}}
+close=(if clickOutsideToClose 'closeModal')}}
   <div class="{{_modalClassString}}" style="display: block; opacity: 1; top: 10%;">
     {{yield}}
   </div>

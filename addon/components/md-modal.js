@@ -1,13 +1,14 @@
 import Ember from 'ember';
 import UsesSettings from '../mixins/uses-settings';
 import layout from '../templates/components/md-modal';
-import { EKMixin, keyUp } from 'ember-keyboard';
 
 const { Component, computed, computed: { oneWay } } = Ember;
 
-export default Component.extend(EKMixin, UsesSettings, {
+export default Component.extend(UsesSettings, {
   layout,
 
+  clickOutsideToClose: true,
+  acceptsKeyResponder: true,
   attributeBindings: ['style:inlineStyle'],
   concatenatedProperties: ['modalClassNames'],
 
@@ -26,14 +27,15 @@ export default Component.extend(EKMixin, UsesSettings, {
     return names.join(' ');
   }),
 
-  init() {
+  didInsertElement() {
     this._super(...arguments);
-    this.set('keyboardActivated', true);
+    this.becomeKeyResponder();
   },
 
-  _onEsc: Ember.on(keyUp('Escape'), function() {
-    this.cancel();
-  }),
+  willDestroyElement() {
+    this._super(...arguments);
+    this.resignKeyResponder();
+  },
 
   cancel() {
     this.sendAction('close');
