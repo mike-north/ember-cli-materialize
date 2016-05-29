@@ -30,6 +30,7 @@ export default Component.extend({
 			let cachedElements = this.get('cachedElements');
 			if (this.get('isActive') && this.get('_state') === 'inDOM') {
 				this.clearTooltipsOfDetachedElements();
+				this.clearRemains();
 				this.$('[data-tooltip]').toArray().forEach(function(el) {
 					let $el = $(el),
 						tooltip = $el.attr('data-tooltip'),
@@ -57,6 +58,24 @@ export default Component.extend({
 			cachedElements.removeObject(el);
 			el.remove();
 		});
+	},
+
+	clearRemains(){
+		this.$('[data-tooltip-id]')
+			.toArray()
+			.filter(function(el) {
+				let $el = $(el),
+					tooltip = $el.attr('data-tooltip'),
+					tooltipId = $el.attr('data-tooltip-id');
+				return !tooltip && tooltipId
+			}, this)
+			.forEach(function(el) {
+				var $el = $(el);
+				var tooltipId = $el.attr('data-tooltip-id');
+				$el.off('mouseenter.tooltip').off('mouseleave.tooltip');
+				el.removeAttribute('data-tooltip-id');
+				$('#' + tooltipId).remove();
+			}, this)
 	},
 
 	destroyTooltips: on('willDestroyElement', function() {
