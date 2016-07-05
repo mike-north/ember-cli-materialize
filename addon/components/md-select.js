@@ -7,6 +7,9 @@ export default MaterializeInputField.extend({
   classNames: ['md-select'],
   optionLabelPath: 'content',
   optionValuePath: 'content',
+  contentChanged: Ember.observer('content.[]', function() {
+    Ember.run.once(this, '_setupSelect');
+  }),
 
   didInsertElement() {
     this._super(...arguments);
