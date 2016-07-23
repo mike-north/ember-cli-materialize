@@ -5,6 +5,8 @@ import { module, test } from 'qunit';
 
 let App;
 
+const { run } = Ember;
+
 const BUTTON_HOVER_TIMEOUT = 1000;
 
 module('Acceptance - Buttons', {
@@ -12,7 +14,7 @@ module('Acceptance - Buttons', {
     App = startApp();
   },
   teardown() {
-    Ember.run(App, 'destroy');
+    run(App, 'destroy');
   }
 });
 
@@ -31,7 +33,7 @@ test('Floating buttons should be exposed on hover', assert => {
   andThen(() => {
     const mainButton = find('.fixed-btns-example > a.btn-floating');
     assert.equal($('.fixed-btns-example ul li:first-child a').css('opacity'), '0', 'Secondary buttons should be hidden before mouseover');
-    Ember.$(mainButton).mouseover();
+    $(mainButton).mouseover();
   });
 
   andThen(() => {
@@ -67,7 +69,7 @@ test('Clicking a secondary floating button should fire a different action, and p
   andThen(() => {
     const mainButton = find('.fixed-btns-example > a.btn-floating');
     assert.equal($('.fixed-btns-example ul li:first-child a').css('opacity'), '0', 'Secondary buttons should be hidden before mouseover');
-    Ember.$(mainButton).mouseover();
+    $(mainButton).mouseover();
   });
 
   andThen(() => {

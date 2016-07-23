@@ -1,57 +1,65 @@
 import Ember from 'ember';
 
-const { Controller, A, observer, computed } = Ember;
+const {
+  Controller,
+  A,
+  observer,
+  computed,
+  isPresent,
+  later,
+  computed: { not }
+} = Ember;
 
 function asJSON(propKey) {
-  return new Ember.computed(`${propKey,propKey}.[]`, function() {
+  return computed(`${propKey,propKey}.[]`, function() {
     return JSON.stringify(this.get(propKey));
   });
 }
 
 export default Controller.extend({
-  frameworks: new A([
-      { id: 1, value: 'Materialize CSS' },
-      { id: 2, value: 'Ember-CLI Materialize' }
-  ]),
+  frameworks: new A([{
+    id: 1,
+    value: 'Materialize CSS'
+  }, {
+    id: 2,
+    value: 'Ember-CLI Materialize'
+  }]),
   message: `This is a long message. It might flow to the next line if I keep typing, so it's better suited to a textarea`,
-  errors: Ember.Object.create({
-    name: new A([]),
-    framework: new A([])
-  }),
+  errors: {
+    name: A([]),
+    framework: A([])
+  },
 
   // BEGIN-SNIPPET form-validation-basic
-  nameDidChange: Ember.observer('model.name', function() {
-    const errors = this.get('errors');
+  nameDidChange: observer('model.name', function() {
     let messages = [];
-    if (!Ember.isPresent(this.get('model.name'))) {
+    if (!isPresent(this.get('model.name'))) {
       messages = ['This field is required'];
     }
-    errors.set('name', messages);
+    this.get('errors.name').setObjects(messages);
   }),
   // END-SNIPPET
 
   frameworkDidChange: observer('framework', function() {
-    const self = this;
-    const errors = self.get('errors');
-    Ember.run.later(function() {
+    let self = this;
+    later(() => {
       let messages = [];
-      if (!Ember.isPresent(self.get('framework'))) {
+      if (!isPresent(self.get('framework'))) {
         messages = ['This field is required'];
       }
-      errors.set('framework', messages);
-      self.set('errors', errors);
+      this.get('errors.framework').setObjects(messages);
     }, 100);
   }),
 
   dateValue: '15 January, 1974',
   ageFromDate: computed('dateValue', function() {
-    const d = new Date(this.get('dateValue'));
+    let d = new Date(this.get('dateValue'));
     return new Date().getFullYear() - d.getFullYear();
   }),
 
   rangeValue: 64,
   switchValue1: true,
-  notSwitchValue: Ember.computed.not('switchValue'),
+  notSwitchValue: not('switchValue'),
   switchValue: true,
   checkValueOne: false,
   checkValueTwo: true,
@@ -60,16 +68,40 @@ export default Controller.extend({
   radioIsSelected: false,
   radioSelection: 2,
   otherRadioSelection: 'green',
-  radioChoices: new A([{ id: 1, text: 'One' }, { id: 2, text: 'Two' }]),
+  radioChoices: new A([{
+    id: 1,
+    text: 'One'
+  }, {
+    id: 2,
+    text: 'Two'
+  }]),
 
   radioSelectionString: asJSON('radioSelection'),
   radioChoicesString: asJSON('radioChoices'),
 
   checkboxSelections: new A([3, 4]),
-  checkboxChoices: new A([{ id: 3, label: 'Three' }, { id: 4, label: 'Four' }, { id: 5, label: 'Five' }]),
+  checkboxChoices: new A([{
+    id: 3,
+    label: 'Three'
+  }, {
+    id: 4,
+    label: 'Four'
+  }, {
+    id: 5,
+    label: 'Five'
+  }]),
 
   switchesChoicesString: asJSON('switchesChoices'),
-  switchesChoices: new A([{ key: 6, name: 'Six' }, { key: 7, name: 'Seven' }, { key: 8, name: 'Eight' }]),
+  switchesChoices: new A([{
+    key: 6,
+    name: 'Six'
+  }, {
+    key: 7,
+    name: 'Seven'
+  }, {
+    key: 8,
+    name: 'Eight'
+  }]),
   switchesSelections: new A([7]),
   switchesSelection: 7,
   switchesSelectionString: asJSON('switchesSelection'),

@@ -2,7 +2,17 @@ import Ember from 'ember';
 import UsesSettings from '../mixins/uses-settings';
 import layout from '../templates/components/md-loader';
 
-const { Component, computed, computed: { oneWay } } = Ember;
+const {
+  Component,
+  computed,
+  computed: {
+    oneWay
+  },
+  A,
+  String: {
+    htmlSafe
+  }
+} = Ember;
 
 export default Component.extend(UsesSettings, {
   layout,
@@ -25,9 +35,9 @@ export default Component.extend(UsesSettings, {
 
   barStyle: computed('mode', 'percent', function() {
     if (this.get('mode') === 'determinate') {
-      return new Ember.String.htmlSafe(`width: ${parseInt(this.get('percent'), 10)}%`);
+      return htmlSafe(`width: ${parseInt(this.get('percent'), 10)}%`);
     } else {
-      return new Ember.String.htmlSafe('');
+      return htmlSafe('');
     }
   }),
 
@@ -39,13 +49,13 @@ export default Component.extend(UsesSettings, {
     if (!this.get('isBarType')) {
       const color = this.get('color');
       if (!color) {
-        return Ember.A(['blue', 'red', 'green', 'yellow']
+        return A(['blue', 'red', 'green', 'yellow']
           .map(c => (`spinner-layer spinner-${c}`)));
       } else {
-        return Ember.A([`spinner-layer spinner-${color}-only`]);
+        return A([`spinner-layer spinner-${color}-only`]);
       }
     } else {
-      return Ember.A();
+      return A();
     }
   })
 });

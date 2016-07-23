@@ -1,10 +1,12 @@
 import Ember from 'ember';
 
-const { computed } = Ember;
+const { computed, Mixin } = Ember;
 
-export default Ember.Mixin.create({
+export default Mixin.create({
   _mdSettings: computed(function() {
-    const owner = Ember.getOwner ? Ember.getOwner(this) : this.get('container');
+    // jscs:disable disallowDirectPropertyAccess
+    let owner = Ember.getOwner ? Ember.getOwner(this) : this.get('container');
+    // jscs:enable disallowDirectPropertyAccess
     return owner.lookup('service:materialize-settings');
   })
 });

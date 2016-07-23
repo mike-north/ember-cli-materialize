@@ -1,7 +1,9 @@
 // BEGIN-SNIPPET pagination-controller
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+const { Controller } = Ember;
+
+export default Controller.extend({
   queryParams: ['page'],
   page: 3
 });

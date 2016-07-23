@@ -5,12 +5,14 @@ import { module, test } from 'qunit';
 
 let App;
 
+const { run } = Ember;
+
 module('Acceptance - Navbar', {
   setup() {
     App = startApp();
   },
   teardown() {
-    Ember.run(App, 'destroy');
+    run(App, 'destroy');
   }
 });
 
@@ -20,8 +22,8 @@ test('Load the demo page', assert => {
   andThen(() => {
     assert.ok(true, 'If this is passing, this page has no deprecation warnings');
 
-    assert.equal(Ember.$('.navbar-example nav').length, 1, 'Navbar is in the DOM');
-    assert.equal(Ember.$('.navbar-example nav .brand-logo').text(), 'Example', 'name is rendered in .brand-info');
+    assert.equal($('.navbar-example nav').length, 1, 'Navbar is in the DOM');
+    assert.equal($('.navbar-example nav .brand-logo').text(), 'Example', 'name is rendered in .brand-info');
 
   });
 });
@@ -38,12 +40,12 @@ test('SideNav', assert => {
 
   andThen(() => {
     setTimeout(() => {
-      assert.ok(Ember.$('.navbar-example .side-nav').attr('style').indexOf('translateX(0px)') > 0, 'TranslateX is 0');
-      assert.equal(Ember.$('.navbar-example .side-nav').css('left'), '0px', 'SideNav is open');
+      assert.ok($('.navbar-example .side-nav').attr('style').indexOf('translateX(0px)') > 0, 'TranslateX is 0');
+      assert.equal($('.navbar-example .side-nav').css('left'), '0px', 'SideNav is open');
       setTimeout(() => {
-        Ember.$('#sidenav-overlay').click();
+        $('#sidenav-overlay').click();
         setTimeout(() => {
-          assert.ok(Ember.$('.navbar-example .side-nav').attr('style').indexOf('translateX(-100%)') > 0, 'TranslateX > 0');
+          assert.ok($('.navbar-example .side-nav').attr('style').indexOf('translateX(-100%)') > 0, 'TranslateX > 0');
           done();
         }, 1200);
       }, 1200);

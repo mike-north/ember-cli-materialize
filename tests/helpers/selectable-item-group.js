@@ -4,6 +4,8 @@ import {
   test
 } from 'ember-qunit';
 
+const { run } = Ember;
+
 export function deselectForSingleSelectionTest() {
   test('deselecting checkbox works with multiple=false', function(assert) {
     assert.expect(6);
@@ -14,7 +16,7 @@ export function deselectForSingleSelectionTest() {
     component.setValueSelection('b', true);
     this.render();
 
-    Ember.run(function() {
+    run(function() {
       assert.equal(component.isValueSelected('a'), false, 'A should be un-checked');
       assert.equal(component.isValueSelected('b'), true, 'B should be checked');
       assert.equal(component.isValueSelected('c'), false, 'C should be un-checked');

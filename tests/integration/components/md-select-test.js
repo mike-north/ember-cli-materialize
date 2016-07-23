@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
@@ -11,10 +10,10 @@ test('basic usage', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.set('frameworks', new Ember.A([
+  this.set('frameworks', [
       { id: 1, value: 'Materialize CSS' },
       { id: 2, value: 'Ember-CLI Materialize' }
-  ]));
+  ]);
   // Template block usage:
   this.render(hbs`
     {{md-select content=frameworks
@@ -36,7 +35,7 @@ test('simple array usage', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.set('content', new Ember.A(['Walter White', 'Jesee Pinkman', 'Gus Freng']));
+  this.set('content', ['Walter White', 'Jesee Pinkman', 'Gus Freng']);
   // Template block usage:
   this.render(hbs`
     {{md-select

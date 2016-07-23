@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import layout from '../templates/components/md-copyright';
 
-const { Component, computed } = Ember;
+const { Component, computed, assert } = Ember;
 
 export default Component.extend({
   layout,
@@ -9,7 +9,7 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
-    Ember.assert('Property startYear must be less than or equal to the current year.',
+    assert('Property startYear must be less than or equal to the current year.',
       this.get('startYear') === null ||
       this.get('startYear') <= new Date().getFullYear());
   },

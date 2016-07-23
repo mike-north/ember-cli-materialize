@@ -5,6 +5,8 @@ import {
   test
 } from 'ember-qunit';
 
+const { run } = Ember;
+
 moduleForComponent('md-btn', {
   unit: true
   // specify the other units that are required for this test
@@ -15,7 +17,7 @@ test('button renders', function(assert) {
   assert.expect(2);
 
   // creates the component instance
-  const component = this.subject();
+  let component = this.subject();
   assert.equal(component._state, 'preRender');
 
   // appends the component to the page
@@ -24,7 +26,7 @@ test('button renders', function(assert) {
 });
 
 test('button is added to the page', function(assert) {
-  const component = this.subject();
+  let component = this.subject();
   this.render();
   assert.ok(component.$().length);
 
@@ -34,9 +36,9 @@ test('button is added to the page', function(assert) {
 });
 
 test('button text test', function(assert) {
-  const component = this.subject();
+  let component = this.subject();
   this.render();
-  Ember.run(function() {
+  run(function() {
     component.set('text', 'Button');
   });
 
@@ -44,12 +46,12 @@ test('button text test', function(assert) {
 });
 
 test('button icon test', function(assert) {
-  const component = this.subject({
+  let component = this.subject({
     iconPosition: 'left'
   });
   this.render();
 
-  Ember.run(function() {
+  run(function() {
     component.set('icon', 'mdi-action-favorite');
   });
 
@@ -59,10 +61,10 @@ test('button icon test', function(assert) {
 });
 
 test('button icon with position test', function(assert) {
-  const component = this.subject();
+  let component = this.subject();
   this.render();
 
-  Ember.run(function() {
+  run(function() {
     component.set('icon', 'mdi-action-favorite');
     component.set('iconPosition', 'right');
   });
@@ -73,10 +75,10 @@ test('button icon with position test', function(assert) {
 });
 
 test('button buttonType floating test', function(assert) {
-  const component = this.subject();
+  let component = this.subject();
   this.render();
 
-  Ember.run(function() {
+  run(function() {
     component.set('buttonType', 'floating');
   });
 
@@ -86,10 +88,10 @@ test('button buttonType floating test', function(assert) {
 });
 
 test('button buttonType flat test', function(assert) {
-  const component = this.subject();
+  let component = this.subject();
   this.render();
 
-  Ember.run(function() {
+  run(function() {
     component.set('buttonType', 'flat');
   });
 
@@ -98,10 +100,10 @@ test('button buttonType flat test', function(assert) {
 });
 
 test('button buttonType large test', function(assert) {
-  const component = this.subject();
+  let component = this.subject();
   this.render();
 
-  Ember.run(function() {
+  run(function() {
     component.set('buttonType', 'large');
   });
 
@@ -111,10 +113,10 @@ test('button buttonType large test', function(assert) {
 });
 
 test('button isDisabled test', function(assert) {
-  const component = this.subject();
+  let component = this.subject();
   this.render();
 
-  Ember.run(function() {
+  run(function() {
     component.set('isDisabled', 'true');
   });
 

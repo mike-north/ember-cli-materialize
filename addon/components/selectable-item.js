@@ -3,7 +3,7 @@ import ChildComponentSupport from 'ember-composability/mixins/child-component-su
 import SelectableItemGroup from './selectable-item-group';
 import _computed from 'ember-new-computed';
 
-const { computed, Component } = Ember;
+const { computed, computed: { alias }, Component } = Ember;
 
 export default Component.extend(ChildComponentSupport, {
   _parentComponentTypes: [SelectableItemGroup],
@@ -13,7 +13,7 @@ export default Component.extend(ChildComponentSupport, {
 
   _checked: _computed('checked', 'group.selection', 'group.selection.[]', {
     get() {
-      const group = this.get('group');
+      let group = this.get('group');
       if (!group) {
         return this.get('checked');
       } else {
@@ -21,7 +21,7 @@ export default Component.extend(ChildComponentSupport, {
       }
     },
     set(key, val) {
-      const group = this.get('group');
+      let group = this.get('group');
       if (!group) {
         this.set('checked', val);
       } else {
@@ -32,12 +32,12 @@ export default Component.extend(ChildComponentSupport, {
     }
   }),
 
-  isSelected: Ember.computed.alias('_checked'),
+  isSelected: alias('_checked'),
 
   _setupLabel() {
-    const [$input] = this.$('.materialize-selectable-item-input, .materialize-selectable-item-input-container input').toArray();
+    let [$input] = this.$('.materialize-selectable-item-input, .materialize-selectable-item-input-container input').toArray();
 
-    const inputId = $input ? $input.id : null;
+    let inputId = $input ? $input.id : null;
     this.$('.materialize-selectable-item-label').attr('for', inputId);
   },
 

@@ -1,9 +1,9 @@
 import Ember from 'ember';
 import computed from 'ember-new-computed';
 
-const { computed: { empty } } = Ember;
+const { Component, computed: { empty } } = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
   emptySnippet: empty('snippet'),
   exampleFrameClass: 'col s12',
   partialName: computed('snippet', {
