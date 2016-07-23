@@ -1,45 +1,34 @@
 language: node_js
 node_js:
-- '5'
+- '4'
 sudo: false
 cache:
   directories:
   - node_modules
 env:
-- ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-2.3
-- ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-2.4
-- ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-release
-- ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-beta
-- ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-canary
+- EMBER_TRY_SCENARIO=default
+- EMBER_TRY_SCENARIO=ember-1.13
+- EMBER_TRY_SCENARIO=ember-release
+- EMBER_TRY_SCENARIO=ember-beta
 - EMBER_TRY_SCENARIO=ember-canary
 matrix:
   fast_finish: true
   allow_failures:
-    - env: EMBER_TRY_SCENARIO=ember-canary
-
+  - env: EMBER_TRY_SCENARIO=ember-canary
 before_install:
-- mkdir travis-phantomjs
-- wget https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
-  -O $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
-- tar -xvf $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -C $PWD/travis-phantomjs
-- export PATH=$PWD/travis-phantomjs:$PATH
 - npm config set spin false
-- npm install -g npm@^2
-install:
 - npm install -g bower
+- npm install phantomjs-prebuilt
+install:
 - npm install
 - bower install
 script:
 - ember try $EMBER_TRY_SCENARIO test --skip-cleanup
-after_success:
-- rm -rf travis-phantomjs
-- git remote add deploy https://$GH_TOKEN:x-oauth-basic@github.com/mike-north/ember-cli-materialize.git
-- git fetch deploy
-- git branch $GH_DEST_BRANCH deploy/$GH_DEST_BRANCH
-- git config user.name $GIT_NAME
-- git config user.email $GIT_EMAIL
-- "/bin/bash lib/try-generate-pages.sh"
-- git checkout master
-notifications:
-  slack:
-    secure: sO416ozddVJ6wwlvxccCMwxmPah5Pg3uPU6hrKH/LMXbPYJxn9tEwcI4X/uZkmSyd5LSu0IhCKaHP+fgdz445Na3sQBDbwDCT9jGhKu0F0ul9U4b3I4mB4oQjmT7ihmBEA0STln6nJc5Zq9R4gJUCUqUFoB4uJ8VnLWIRPDFdsg=
+deploy:
+  provider: heroku
+  api_key:
+    secure: QByfVZG0yt1m9l4JWbn556VmV5lCA1covgxizlE4ekw5y0UePa66MNMe9aTcxpxmOvTuut3Fv02Hgy1oJL5x93/vYADGk+YTVIXdN/DRSxS5wYNwzXRK74f+YMHSCyLvUWh2MJzz2+xs9L8813UjOWEyXu7WFh/Ic22xiMLBT7E=
+  app: ember-materialize-demo
+  on:
+    repo: mike-north/ember-cli-materialize
+    branch: v1
