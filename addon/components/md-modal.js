@@ -1,9 +1,22 @@
 import Ember from 'ember';
 import UsesSettings from '../mixins/uses-settings';
 import layout from '../templates/components/md-modal';
-import { EKMixin, keyUp } from 'ember-keyboard';
+import {
+  EKMixin,
+  keyUp
+} from 'ember-keyboard';
 
-const { Component, computed, computed: { oneWay } } = Ember;
+const {
+  Component,
+  computed,
+  computed: {
+    oneWay
+  },
+  String: {
+    htmlSafe
+  },
+  on
+} = Ember;
 
 export default Component.extend(EKMixin, UsesSettings, {
   layout,
@@ -12,7 +25,7 @@ export default Component.extend(EKMixin, UsesSettings, {
   concatenatedProperties: ['modalClassNames'],
 
   inlineStyle: computed(function() {
-    return new Ember.Handlebars.SafeString('z-index: 1000;');
+    return htmlSafe('z-index: 1000;');
   }),
 
   isFooterFixed: oneWay('_mdSettings.modalIsFooterFixed'),
@@ -31,7 +44,7 @@ export default Component.extend(EKMixin, UsesSettings, {
     this.set('keyboardActivated', true);
   },
 
-  _onEsc: Ember.on(keyUp('Escape'), function() {
+  _onEsc: on(keyUp('Escape'), function() {
     this.cancel();
   }),
 

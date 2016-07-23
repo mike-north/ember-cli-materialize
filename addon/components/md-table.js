@@ -11,7 +11,7 @@ export default Component.extend(ParentComponentSupport, {
   composableChildrenDebounceTime: 1,
   init() {
     this._super(...arguments);
-    this.set('columns', Ember.A());
+    this.set('columns', []);
   },
 
   columnComponents: computed('composableChildren', function() {

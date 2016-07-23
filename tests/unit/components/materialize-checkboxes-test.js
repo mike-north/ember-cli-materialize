@@ -14,6 +14,8 @@ import {
   deselectForSingleSelectionTest,
 } from '../../helpers/selectable-item-group';
 
+const { A } = Ember;
+
 moduleForComponent('md-checks', {
   unit: true,
   needs: ['component:md-checks-check']
@@ -23,7 +25,7 @@ test('it renders', function(assert) {
   assert.expect(2);
 
   // Creates the component instance
-  const component = this.subject();
+  let component = this.subject();
   assert.equal(component._state, 'preRender');
 
   // Renders the component to the page
@@ -32,17 +34,17 @@ test('it renders', function(assert) {
 });
 
 test('simple array test', function(assert) {
-  const component = this.subject({
-    content: Ember.A(['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan']),
-    selection: Ember.A(['Harry Morgan'])
+  let component = this.subject({
+    content: A(['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan']),
+    selection: A(['Harry Morgan'])
   });
   this.render();
-  assert.deepEqual(component.$('label').toArray().map(x => Ember.$(x).text()), ['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan'], 'Choices are valid');
+  assert.deepEqual(component.$('label').toArray().map((x) => $(x).text()), ['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan'], 'Choices are valid');
   assert.equal(component.$('input[type="checkbox"]')[2].checked, true, 'Third checkbox is checked');
 });
 
 disabledGroupTest();
 groupItemsRenderTest();
-initialSelectionTest(Ember.A(['bbb', 'ccc']));
+initialSelectionTest(A(['bbb', 'ccc']));
 
 deselectForSingleSelectionTest();

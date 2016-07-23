@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import layout from '../templates/components/md-navbar';
 
-const { computed, Component, typeOf, run: { scheduleOnce } } = Ember;
+const { $, computed, Component, typeOf, run: { scheduleOnce } } = Ember;
 
 export default Component.extend({
   tagName: 'nav',
@@ -15,7 +15,7 @@ export default Component.extend({
   },
 
   _setupNavbar() {
-    if (typeOf(Ember.$('.button-collapse').sideNav) === 'function') {
+    if (typeOf($('.button-collapse').sideNav) === 'function') {
       this.notifyPropertyChange('_sideNavId');
       this.$('.button-collapse').sideNav({
         closeOnClick: true

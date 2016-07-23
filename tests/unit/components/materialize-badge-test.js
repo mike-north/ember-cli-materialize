@@ -5,6 +5,8 @@ import {
   test
 } from 'ember-qunit';
 
+const { run } = Ember;
+
 moduleForComponent('md-badge', {
   unit: true
   // Specify the other units that are required for this test
@@ -15,7 +17,7 @@ test('badge renders', function(assert) {
   assert.expect(2);
 
   // Creates the component instance
-  const component = this.subject();
+  let component = this.subject();
   assert.equal(component._state, 'preRender');
 
   // Renders the component to the page
@@ -26,14 +28,14 @@ test('badge renders', function(assert) {
 test('badge binding to the text property works', function(assert) {
   assert.expect(2);
 
-  const component = this.subject();
+  let component = this.subject();
 
   this.render();
   assert.equal(component.$().text().trim(), '', 'By default the text property is empty');
 
-  Ember.run(function() {
+  run(function() {
     component.set('text', 'Heisenberg');
-    Ember.run.schedule('afterRender', function() {
+    run.schedule('afterRender', function() {
       assert.equal(component.$().text().trim(), 'Heisenberg', 'Setting the text property updates the content of the badge');
     });
   });

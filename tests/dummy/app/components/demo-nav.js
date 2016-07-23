@@ -1,5 +1,8 @@
 import Ember from 'ember';
-export default Ember.Component.extend({
+
+const { Component } = Ember;
+
+export default Component.extend({
   classNames: ['navbar-fixed'],
   didInsertElement() {
     this._super(...arguments);

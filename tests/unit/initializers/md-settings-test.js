@@ -4,10 +4,12 @@ import { module, test } from 'qunit';
 
 let container, application;
 
+const { run, Application } = Ember;
+
 module('Unit | Initializer | md settings', {
   beforeEach() {
-    Ember.run(function() {
-      application = Ember.Application.create();
+    run(function() {
+      application = Application.create();
       container = application.__container__;
       application.deferReadiness();
     });

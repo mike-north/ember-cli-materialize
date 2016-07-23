@@ -6,26 +6,28 @@ import {
 }
 from 'ember-qunit';
 
+const { A } = Ember;
+
 moduleForComponent('md-radios', {
   integration: true
 });
 
 test('simple array test, with initial selection', function(assert) {
   this.setProperties({
-    content: Ember.A(['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan']),
+    content: A(['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan']),
     selection: 'Harry Morgan'
   });
   this.render(hbs `
     {{md-radios content=content selection=selection}}
   `);
 
-  assert.deepEqual(this.$('label').toArray().map(x => Ember.$(x).text().trim()), ['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan'], 'Choices are valid');
+  assert.deepEqual(this.$('label').toArray().map(x => $(x).text().trim()), ['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan'], 'Choices are valid');
   assert.equal(this.$('input[type="radio"]')[2].checked, true, 'Third radio is checked');
 });
 
 test('disabled test', function(assert) {
   this.setProperties({
-    content: Ember.A(['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan']),
+    content: A(['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan']),
     selection: 'Harry Morgan'
   });
   this.render(hbs `

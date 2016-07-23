@@ -73,13 +73,13 @@ export default Component.extend(ParentComponentSupport, {
     const content = get(this, 'content') || new A([]);
 
     if (valuePath && labelPath) {
-      return new A(
+      return A(
         content.map(el => {
           return { value: get(el, valuePath), label: get(el, labelPath) };
         })
       );
     } else {
-      return new A(
+      return A(
         content.map(el => {
           return { value: el, label: el };
         })

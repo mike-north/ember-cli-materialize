@@ -14,6 +14,8 @@ import {
   deselectForSingleSelectionTest,
 } from '../../helpers/selectable-item-group';
 
+const { A } = Ember;
+
 moduleForComponent('md-switches', {
   unit: true,
   needs: ['component:md-switches-switch']
@@ -33,16 +35,16 @@ test('it renders', function(assert) {
 
 test('simple array test', function(assert) {
   const component = this.subject({
-    content: Ember.A(['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan']),
-    selection: Ember.A(['Deborah Morgan'])
+    content: A(['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan']),
+    selection: A(['Deborah Morgan'])
   });
   this.render();
-  assert.deepEqual(component.$('.switch-label').toArray().map(x => Ember.$(x).text()), ['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan'], 'Choices are valid');
+  assert.deepEqual(component.$('.switch-label').toArray().map((x) => $(x).text()), ['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan'], 'Choices are valid');
   assert.equal(component.$('input[type="checkbox"]')[1].checked, true, 'Second checkbox is checked');
 });
 
 disabledGroupTest();
 groupItemsRenderTest();
-initialSelectionTest(Ember.A(['bbb', 'ccc']));
+initialSelectionTest(A(['bbb', 'ccc']));
 
 deselectForSingleSelectionTest();

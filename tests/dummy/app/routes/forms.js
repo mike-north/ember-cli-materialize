@@ -1,16 +1,19 @@
 import Ember from 'ember';
 
-const { Route } = Ember;
+const { Route, A } = Ember;
+// jscs:disable disallowDirectPropertyAccess
+const EObj = Ember.Object;
+// jscs:enable disallowDirectPropertyAccess
 
 export default Route.extend({
 
   model() {
-    return Ember.Object.create({ name: null });
+    return EObj.create({ name: null });
   },
 
   setupController(controller, model) {
     this._super(controller, model);
-    controller.set('errors', Ember.Object.create({ name: Ember.A(['This field is required']) }));
+    controller.set('errors', EObj.create({ name: A(['This field is required']) }));
   }
 
 });
