@@ -2,7 +2,7 @@ import Ember from 'ember';
 import layout from '../templates/components/md-btn-dropdown';
 import MaterializeButton from './md-btn';
 
-const { run: { scheduleOnce }, computed } = Ember;
+const { computed } = Ember;
 
 export default MaterializeButton.extend({
   layout,
@@ -11,26 +11,27 @@ export default MaterializeButton.extend({
   icon: 'mdi-navigation-expand-more',
   iconPosition: 'right',
   attributeBindings: [
-    'inDuration', 'outDuration', 'constrainWidth', 'hover', 'gutter', 'belowOrigin'
+    'inDuration', 'outDuration', 'constrainWidth', 'hover', 'gutter', 'belowOrigin:data-beloworigin'
   ],
 
-  didInsertElement() {
+  didRender() {
     this._super(...arguments);
-    scheduleOnce('afterRender', this, this._setupDropdown);
+    this._setupDropdown();
   },
 
   _setupDropdown() {
     // needed until the Materialize.dropdown plugin is replaced
     this.$().attr('data-activates', this.get('_dropdownContentId'));
-
-    this.$().dropdown({
+    let options = {
       hover: !!this.getWithDefault('hover', false),
       constrainWidth: !!this.getWithDefault('constrainWidth', true),
       inDuration: this.getWithDefault('inDuration', this.get('_mdSettings.dropdownInDuration')),
       outDuration: this.getWithDefault('outDuration', this.get('_mdSettings.dropdownOutDuration')),
       gutter: this.getWithDefault('gutter', 0),
       belowOrigin: !!this.getWithDefault('belowOrigin', false)
-    });
+    };
+
+    this.$().dropdown(options);
   },
   _dropdownContentId: computed(function() {
     return `${this.get('elementId')}-dropdown-content`;
