@@ -55,24 +55,6 @@ test('dropdown shown when hovered', function(assert) {
   assert.ok(dropdownElement.is(':visible'));
 });
 
-test('dropdown shown at origin', function(assert) {
-  const component = this.subject();
-  component.set('belowOrigin', false);
-  this.render();
-
-  const dropdownContentId = `#${component.get('_dropdownContentId')}`;
-  const dropdownElement = $(dropdownContentId);
-  assert.equal(dropdownElement.css('top'), 'auto', 'Initially auto');
-
-  component.$().click();
-  Ember.run(function() {
-    Ember.run.schedule('afterRender', function() {
-      // const dropdownPosString = dropdownElement.css('top');
-      assert.ok(parseInt(component.$().position().top, 10) > 200);
-    });
-  });
-});
-
 test('dropdown shown below origin', function(assert) {
   const component = this.subject();
   component.set('belowOrigin', true);
