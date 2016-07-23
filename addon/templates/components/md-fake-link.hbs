@@ -1,0 +1,14 @@
+<a>
+  {{#if icon}}
+  <i class="material-icons {{iconClass}}">
+    {{icon}}
+  </i>
+  {{/if}}
+  {{label}}
+  {{#if _dropdownMenuId}}
+    <i class="material-icons right">arrow_drop_down</i>
+  {{/if}}
+</a>
+{{yield (hash
+  dropdown=(component 'md-dropdown-menu' _dropdownRoot=this)
+)}}

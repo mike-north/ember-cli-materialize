@@ -1,14 +1,23 @@
-{{example-header title="Modal"}}
+{{#x-component-doc title="md-dialog" as |doc|}}
+  {{!-- {{#doc.params as |p|}}
+    {{#p.param name="min" type="integer" default=1}}Minimum page number{{/p.param}}
+  {{/doc.params}}
+ --}}
+  {{#doc.actions as |a|}}
+    {{#a.action name="on-close"}}
+      Fired whenever the modal is closed
+    {{/a.action}}
+  {{/doc.actions}}
+{{/x-component-doc}}
 
-<div class='container'>
-  {{#options-panel}}
-    {{component-option optionId="close" default="close" description="action called by hitting 'esc' key or clicking on overlay"}}
-  {{/options-panel}}
+{{#x-example name='modal-basic' title="Basic Dialog" horizSplit=8}}
+  Dialogs are powered by the <a href="https://github.com/yapplabs/ember-modal-dialog" target='_blank'>ember-modal-dialog</a> addon, with some styling and behavioral adjustments to align with material design standards.
+{{/x-example}}
 
+{{#x-example name='modal-fixed-footer' title="Fixed Footer" horizSplit=8}}
+  Adding the <span class="code">modal-fixed-footer</span> class to the dialog allows the body of the modal to scroll, while the footer remains fixed in place.
+{{/x-example}}
 
-    <div class="section">
-        <h4 class="col s12 header">Modal</h4>
-        {{#md-btn action='openModal' class="open-modal-button"}}Open modal{{/md-btn}}
-        {{example-snippet snippet='modal-basic' class='modal-example' modalIsOpen=modalIsOpen}}
-    </div>
-</div>
+{{#x-example name='modal-sheet' title="Bottom Sheet" horizSplit=8}}
+  Adding the <span class="code">bottom-sheet</span> class to the dialog aligns it with the bottom of the screen. This dialog animates from the bottom up.
+{{/x-example}}

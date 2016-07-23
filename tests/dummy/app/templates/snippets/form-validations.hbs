@@ -1,0 +1,21 @@
+{{#md-form class='card-panel grey lighten-4' as |f|}}
+  <div class="row">
+    {{f.text label='First Name'
+      validate=true
+      value=model.firstName
+      errorMessages=model.validations.attrs.firstName.messages
+      class='col s6'}}
+    {{f.text label='Last Name'
+      validate=true
+      value=model.lastName
+      errorMessages=model.validations.attrs.lastName.messages
+      class='col s6'}}
+  </div>
+  <div class="row">
+    {{f.email label='Email Address'
+      errorMessages=model.validations.attrs.email.messages
+      validate=true
+      value=model.email
+      class='col s12'}}
+  </div>
+{{/md-form}}

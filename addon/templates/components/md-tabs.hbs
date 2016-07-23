@@ -1,10 +1,4 @@
-<div class="col s12">
-  <ul class="tabs">
-    {{#each _content as |tab|}}
-      {{md-tab title=tab.title value=tab.id}}
-    {{/each}}
-    {{yield}}
-    <div class="indicator indicator1"></div>
-    <div class="indicator indicator2"></div>
-  </ul>
-</div>
+{{yield (hash
+  tab=(component 'md-tab' _tabs=this)
+  link-to=(component 'md-tab-link' _tabs=this)
+)}}

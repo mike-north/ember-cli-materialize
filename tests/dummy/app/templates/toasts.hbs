@@ -1,0 +1,53 @@
+{{#x-component-doc title="md-toasts" as |doc|}}
+  {{#doc.params as |p|}}
+    {{#p.param name="min" type="integer" default=1}}Minimum page number{{/p.param}}
+  {{/doc.params}}
+
+  {{#doc.actions as |a|}}
+    {{#a.action name="on-change"}}
+      Called whenever the currently selected item is changed
+    {{/a.action}}
+  {{/doc.actions}}
+{{/x-component-doc}}
+
+
+{{#x-example name='toast-examples'
+  exampleScope=''
+  horizSplit=8
+  exampleExtension='js'
+  title="Simple Toasts"
+  successToast=(action 'successToast')}}
+  <p>Toasts are powered by <a href="https://github.com/poteto/ember-cli-flash" target="_blank">ember-cli-flash</a>, a modern notification addon that has, at its heart a <span class="code">flashMessages</span> service.</p>
+  <p>Basic notifications can be generated easily</p>
+  <p>
+    {{md-btn
+      label='Success'
+      class='green white-text'
+      on-click=(action 'successToast')}}
+    {{md-btn
+      label='Error'
+      class='red white-text'
+      on-click=(action 'errorToast')}}
+    {{md-btn
+      label='Warning'
+      class='yellow'
+      on-click=(action 'warningToast')}}
+    {{md-btn
+      label='Default'
+      class='grey darken-3 white-text'
+      on-click=(action 'defaultToast')}}
+  </p>
+  <p><b>Toasts are rendered responsively!</b> Change the width of your screen to see how their appearance changes for large, medium and phone-sized screens.</p>
+{{/x-example}}
+
+{{#x-example name='toast-custom'
+  exampleScope=''
+  exampleExtension='js'
+  horizSplit=8
+  label="Customizing Toasts"
+  successToast=(action 'successToast')}}
+
+  <p><b>Sticky toasts</b> stay on the screen until dismissed by the user (even if the user transitions to another route!). It's also quite easy to customize the icon and colors.</p>
+  {{md-btn label='Sticky Toast' on-click=(action 'stickyToast')}}
+
+{{/x-example}}

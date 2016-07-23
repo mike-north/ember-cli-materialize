@@ -1,0 +1,6 @@
+<a href={{href}}>
+{{#if icon}}
+  <i class="material-icons {{iconClass}}">{{icon}}</i>
+{{/if}}
+{{#if linkTitle}}{{linkTitle}}{{else}}{{yield}}{{/if}}
+</a>

@@ -1,11 +1,21 @@
 import Ember from 'ember';
-import SelectableItem from './selectable-item';
-import layout from '../templates/components/md-checkbox';
+import layout from '../templates/components/md-check';
 
-const { computed: { alias } } = Ember;
+const { Component } = Ember;
 
-export default SelectableItem.extend({
+export default Component.extend({
+  classNames: ['md-check'],
+  inputClassNames: null,
+  tagName: 'p',
+  disabled: false,
   layout,
-  text: alias('name'),
-  classNames: ['materialize-checkbox']
+  value: false,
+  indeterminate: false,
+  attributeBindings: ['indeterminate'],
+  actions: {
+    onChange() {
+      this.set('value', this.$('input')[0].checked);
+      this.sendAction('on-change');
+    }
+  }
 });

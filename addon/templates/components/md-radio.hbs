@@ -1,9 +1,10 @@
-{{radio-button
-  disabled=disabled
-  value=value
-  groupValue=groupValue
-  radioClass="materialize-selectable-item-input"}}
-<label class="materialize-selectable-item-label materialize-selectable-item-label" >
-  {{name}}{{yield}}
-</label>
-
+ <input
+  name="{{_group.elementId}}-group"
+  type="radio"
+  class={{inputClass}}
+  id="{{elementId}}-input"
+  checked={{eq value _group.value}}
+  onchange={{action 'onChange'}}/>
+ <label for="{{elementId}}-input">
+   {{label}}{{yield}}
+ </label>

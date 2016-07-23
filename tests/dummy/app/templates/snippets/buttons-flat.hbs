@@ -1,24 +1,21 @@
-{{md-btn action='debug'
-	text='These' 
-	buttonType='flat'
-	class='lime'}}
+{{md-btn label='Duck' flat=true
+  on-click=(action
+    'wasClicked'
+    'Duck clicked!'
+  )}}
 
-{{#md-btn action='debug'
-	buttonType='flat'
-	class='purple lighten-2 white-text'}}
-	Buttons
-{{/md-btn}}
+{{md-btn label='Duck'
+  flat=true
+  waves="red"
+  icon="lightbulb_outline"
+  iconClass="right"
+  waves='dark'
+  class="red white-text"}}
 
-{{#md-btn action='debug'
-	buttonType='flat'
-	class='yellow black-text'
-	wavesClass='waves-dark'}}
-	Are
-{{/md-btn}}
-
-{{#md-btn action='debug'
-	buttonType='flat'
-	class='pink lighten-2 white-text'
-	wavesClass='waves-dark'}}
-	Flat
-{{/md-btn}}
+{{md-btn label='Goose!'
+  disabled=true
+  flat=true
+  on-click=(action
+    'wasClicked'
+    'Goose clicked!'
+  )}}

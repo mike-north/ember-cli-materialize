@@ -1,34 +1,12 @@
-{{example-header title="Tabs"}}
+{{#x-component-doc title="md-tabs" as |doc|}}
 
-<div class='container'>
+{{/x-component-doc}}
 
-  {{#options-panel}}
+{{#x-example title='Basic Tabs' name='tabs-basic'}}
+  <p>Basic tabs each have an <span class="code">active</span> state.</p>
+{{/x-example}}
 
-    {{component-option optionId="content" default="[]" description="tabs array"}}
-    {{component-option optionId="selected" description="selected tab id"}}
-    {{component-option optionId="colWidth" default="2" description="width of tabs, in grid columns"}}
-  {{/options-panel}}
 
-  <div class="section">
-    <h4 class="col s12 header">Basic Usage</h4>
-   <p>Creating a basic set of tabs is simple, and you have several syntax options to choose from.
-    First, you can pass an array of tabs to the <code>&#123;&#123;md-tabs&#125;&#125;</code> component:</p>
-    {{example-snippet snippet='tabs-basic' class='basic-tabs-example' basicTabsContent=basicTabsContent basicTabsSelection=basicTabsSelection exampleFrameClass='z-depth-1'}}
-    <p>By default, the structure of the array of tabs is expected to look like this</p>
-
-    <pre class=" language-markup">
-      <code class=" col s8 language-markup">
-      [ {id: 'a', title: 'First'},
-        {id: 'b', title: 'Second'},
-        {id: 'c', title: 'Third'} ]
-      </code>
-    </pre>
-    <p>If you wish to use different key and value properties, you may specify some additional options</p>
-
-      {{example-snippet snippet='tabs-optionpaths' class='second-tabs-example' alternateTabsContent=alternateTabsContent basicTabsSelection=basicTabsSelection exampleFrameClass='z-depth-1'}}
-
-    <h4 class="col s12 header">Alternate Syntax</h4>
-    <p>The following syntax allows for more granular control over the particulars of each tab</p>
-    {{example-snippet snippet='tabs-declarative' class='third-tabs-example' basicTabsSelection=basicTabsSelection exampleFrameClass='z-depth-1'}}
-  </div>
-</div>
+{{#x-example title='Link Tabs' name='tabs-links'}}
+  <p>Link tabs extend from the core <span class="code">\{{link-to}}</span> component. The <span class="code">\{{link-to}}</span> active state dicates where the indicator in the tab set is placed</p>
+{{/x-example}}

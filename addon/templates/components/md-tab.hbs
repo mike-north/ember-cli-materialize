@@ -1,3 +1,8 @@
-<a class="{{if active 'active'}}">
-  {{title}}
+<a>
+  {{#if icon}}
+  <i class="material-icons {{iconClass}}">
+    {{icon}}
+  </i>
+  {{/if}}
+  {{text}}{{yield}}
 </a>

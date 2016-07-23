@@ -1,3 +1,1 @@
-import MaterializeCardReveal from 'ember-cli-materialize/components/md-card-reveal';
-
-export default MaterializeCardReveal;
+export { default } from 'ember-cli-materialize/components/md-card-reveal';

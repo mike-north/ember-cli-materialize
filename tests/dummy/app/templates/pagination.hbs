@@ -1,16 +1,17 @@
-{{example-header title="Pagination"}}
+{{#x-component-doc title="md-pagination" as |doc|}}
+  {{#doc.params as |p|}}
+    {{#p.param name="min" type="integer" default=1}}Minimum page number{{/p.param}}
+    {{#p.param name="max" type="integer" default=1}}Maximum page number{{/p.param}}
+    {{#p.param name="current" type="integer" default=1}}Current page number{{/p.param}}
+    {{#p.param name="range" type="integer" default=5}}number of pages to show in viewable window{{/p.param}}
+  {{/doc.params}}
 
-<div class='container'>
-  {{#options-panel}}
-    {{component-option optionId="min" default=1 required=true}}
-    {{component-option optionId="max" default=1 required=true}}
-    {{component-option optionId="current" default=1 required=true}}
-    {{component-option optionId="range" default=5}}
-  {{/options-panel}}
+  {{#doc.actions as |a|}}
+    {{#a.action name="on-change"}}
+      Called whenever the currently selected item is changed
+    {{/a.action}}
+  {{/doc.actions}}
+{{/x-component-doc}}
 
-    <div class="section">
-        <h4 class="col s12 header">Pagination</h4>
-        {{example-snippet snippet='pagination-basic' class='pagination-example' page=page}}
-        {{code-snippet name='pagination-controller.js'}}
-    </div>
-</div>
+{{x-example name='basic-pagination'
+page=page pageChanged=(action 'pageChanged')}}

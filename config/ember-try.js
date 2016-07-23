@@ -14,13 +14,8 @@ function scenario(emberVersion) {
   };
 }
 
-
 module.exports = {
   scenarios: [
-    scenario('1.13'),
-    scenario('2.0'),
-    scenario('2.1'),
-    scenario('2.2'),
     scenario('2.3'),
     scenario('2.4'),
     {

@@ -1,0 +1,25 @@
+{{#md-collapsible accordion=true as |c|}}
+  {{#c.item as |item|}}
+    {{item.header icon="home" text="An interesting thing!"}}
+    {{item.body text="abc"}}
+  {{/c.item}}
+  {{#c.item as |item|}}
+    {{#item.header}}
+      <i class="material-icons">star</i>
+      A customized header via component block form!
+    {{/item.header}}
+    {{#item.body}}
+      <p>This is a longer body</p>
+    {{/item.body}}
+  {{/c.item}}
+  {{#c.item as |item|}}
+    {{#item.header}}
+      <i class="material-icons">person</i>
+      A customized header via component block form!
+    {{/item.header}}
+    {{#item.body}}
+      <p>This is a longer body</p>
+    {{/item.body}}
+  {{/c.item}}
+{{/md-collapsible}}
+

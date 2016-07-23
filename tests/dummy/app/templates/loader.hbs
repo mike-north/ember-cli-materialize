@@ -1,40 +1,17 @@
-{{example-header title="Loader"}}
+{{#x-component-doc title="md-loader" as |doc|}}
+  {{#doc.params as |p|}}
+    {{#p.param name="min" type="integer" default=1}}Minimum page number{{/p.param}}
+  {{/doc.params}}
+{{/x-component-doc}}
 
+{{#x-example title='Determinate' name='loader-determinate'}}
+  The determinate loader quantitatively represents progress.
+{{/x-example}}
 
-<div class='container'>
-  {{#options-panel}}
-    {{component-option optionId="mode"
-      default="indeterminate"
-      description="Loader mode (determinate, indeterminate, circular)"}}
-    {{component-option optionId="percent"
-      default="0"
-      description="Percent progress (determinate loader only)"}}
-    {{component-option optionId="active"
-      default="true"
-      description="Whether the animation should be active or not (indeterminate loaders only)"}}
-    {{component-option optionId="color"
-      description="Circular loader color (null, yellow, blue, green, red). Setting this to null (default) will result in the color rotating"}}
-    {{component-option optionId="size"
-      default="big"
-      description="Circular loader size (small, big)"}}
-  {{/options-panel}}
+{{#x-example title='Indeterminate' name='loader-indeterminate'}}
+  The indeterminate loader is great for representing an unknown wait time.
+{{/x-example}}
 
-  <!-- INDETERMINATE LOADER -->
-  <div class="section">
-    <h4 class="col s12 header">Indeterminate Loader</h4>
-    {{example-snippet snippet='progress-indeterminate' class='loader-example'}}
-  </div>
+{{#x-example title='Circular' name='loader-circular'}}
 
-  <!-- DETERMINATE LOADER -->
-  <div class="section">
-    <h4 class="col s12 header">Determinate Loader</h4>
-    {{example-snippet snippet='progress-determinate' class='loader-example' percent=percent}}
-  </div>
-
-  <!-- CIRCULAR DETERMINATE LOADER -->
-  <div class="section">
-    <h4 class="col s12 header">Circular Indeterminate Loader</h4>
-    {{example-snippet snippet='progress-circular' class='loader-example'}}
-  </div>
-
-</div>
+{{/x-example}}

@@ -1,17 +1,11 @@
+
 {{#if icon}}
-  <i class="{{icon}} prefix"></i>
+<i class="material-icons prefix">{{icon}}</i>
 {{/if}}
-
-<input type="date"
-  id="{{id}}"
-  class="{{if validate 'validate'}} {{if errors 'invalid' 'valid'}} datepicker"
-  data-value="{{value}}"
-  required={{required}}
-  readonly={{readonly}}
-  disabled={{disabled}} />
-
-<label for={{id}}>{{label}}</label>
-
-<small class="red-text">
-  {{#if errors}} {{errors.firstObject}} {{else}} &nbsp; {{/if}}
-</small>
+{{pikaday-input value=startsAt format="MM/DD/YYYY"}}
+<label
+  for={{_inputId}}
+  class={{_classesForLabel}}>
+  {{label}}
+</label>
+{{yield}}

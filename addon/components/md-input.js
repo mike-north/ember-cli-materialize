@@ -1,13 +1,11 @@
-import MaterializeInputField from './md-input-field';
+import Ember from 'ember';
 import layout from '../templates/components/md-input';
+import TextComponent from '../mixins/text-component';
 
-export default MaterializeInputField.extend({
-  layout,
+const { Component } = Ember;
+
+export default Component.extend(TextComponent, {
+  classNames: ['md-input', 'input-field'],
   type: 'text',
-
-  didInsertElement() {
-    this._super(...arguments);
-    // make sure the label moves when a value is bound.
-    this._setupLabel();
-  }
+  layout
 });

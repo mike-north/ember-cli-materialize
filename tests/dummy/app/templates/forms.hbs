@@ -1,163 +1,49 @@
-{{example-header title="Forms"}}
+{{#x-component-doc title="md-input" as |doc|}}
+  {{#doc.params as |p|}}
+    {{#p.param name="type" type="string" default="text"}}
+      the input type, consistent with the HTML5 <span class="code">&lt;input type="" /&gt;</span> attribute.
+    {{/p.param}}
+    {{#p.param name="value" type="string"}}
+      Value binding for the input
+    {{/p.param}}
+    {{#p.param name="placeholder" type="string"}}
+      Placeholder text to use for empty inputs. Analagous to the HTML5 <span class="code">&lt;input placeholder="" /&gt;</span> attribute.
+    {{/p.param}}
+    {{#p.param name="label" type="string"}}
+    The field's label. By default, also used as the placeholder
+    {{/p.param}}
+    {{#p.param name="icon" type="string"}}
+    The field's icon prefix. Valid values are all google material design icon ligatures.
+    {{/p.param}}
+    {{#p.param name="disabled" type="bool" default="false"}}
+    The disabled/enabled state of the field
+    {{/p.param}}
+    {{#p.param name="inputClass" type="string"}}
+      Additional CSS classes to add to the <span class="code">&lt;input&gt;</span> element.
+    {{/p.param}}
+    {{#p.param name="labelClass" type="string"}}
+    Additional CSS classes to add to the <span class="code">&lt;label&gt;</span> element.
+    {{/p.param}}
+  {{/doc.params}}
+  {{#doc.actions as |a|}}
+    {{#a.action name="on-change"}}
+      Called whenever the value of the field changes
+    {{/a.action}}
+  {{/doc.actions}}
+{{/x-component-doc}}
 
+{{x-example name='basic-input'}}
+{{x-example name='icon-input'}}
+{{x-example name='basic-textarea'}}
+{{x-example name='basic-select' stuff=stuff}}
+{{x-example name='basic-switch'}}
+{{x-example name='basic-radio'}}
+{{x-example name='basic-date'}}
+{{#x-example title='Composable Forms' horizSplit=8 name='form-composable'}}
+{{/x-example}}
 
-<div class='container'>
-    <div class="section">
-        <h4 class="col s12 header">Input</h4>
-        {{#options-panel header=''}}
-            {{component-option optionId="label"}}
-            {{component-option optionId="icon"}}
-            {{component-option optionId="value"}}
-            {{component-option optionId="type" default="text"}}
-            {{component-option optionId="required" default="false"}}
-            {{component-option optionId="readonly" default="false"}}
-            {{component-option optionId="disabled" default="false"}}
-            {{component-option optionId="maxlength"}}
-            {{component-option optionId="pattern"}}
-            {{component-option optionId="validate" default="false"}}
-            {{component-option optionId="autocomplete"}}
-        {{/options-panel}}
-        <h5>Basic Input</h5>
-        {{example-snippet snippet='input-basic' class='input-example'}}
-        <h5>Input With Icon</h5>
-        {{example-snippet snippet='input-with-icon' class='input-example'}}
-        <h5>Typed Inputs</h5>
-        {{example-snippet snippet='input-types' class='input-example'}}
-    </div>
+{{#x-example title='Validations' name='form-validations' model=content}}
+  <p>Adding validations to form fields is easy via the optional <a href="https://github.com/offirgolan/ember-cp-validations" target="_blank">ember-cp-validations</a> addon. Simply bind the <span class="code">errorMessages</span> array attribute as shown in this example.</p>
 
-
-
-
-    <div class="section">
-        <h4 class="col s12 header">Validations</h4>
-      <p>
-          Validations can be performed using HTML5 browser validation by passing validate=true to the component
-          or you can take advantage of the ember-validations addon w/out additional configuration of the component.
-          The following example simulates ember-validations style validation using an observer on the controller's name
-          property.
-      </p>
-      {{example-snippet snippet='form-validation-basic' model=model errors=errors}}
-      {{code-snippet name='form-validation-basic.js'}}
-    </div>
-    <div class="section">
-        <h4 class="col s12 header">Text Area</h4>
-        {{#options-panel header=''}}
-          {{component-option optionId="label" }}
-          {{component-option optionId="icon" }}
-          {{component-option optionId="value" }}
-          {{component-option optionId="name" }}
-          {{component-option optionId="required" default="false"}}
-          {{component-option optionId="readonly" default="false"}}
-          {{component-option optionId="disabled" default="false"}}
-          {{component-option optionId="maxlength" }}
-          {{component-option optionId="validate" default="false"}}
-        {{/options-panel}}
-        <h5>Basic Textarea</h5>
-        {{example-snippet snippet='textarea-basic' class='input-example' message=message}}
-    </div>
-    <div class="section">
-        <h4 class="col s12 header">Select</h4>
-        {{#options-panel header=''}}
-            {{component-option optionId="label" }}
-            {{component-option optionId="icon" }}
-            {{component-option optionId="prompt" }}
-            {{component-option optionId="content" }}
-            {{component-option optionId="value" }}
-            {{component-option optionId="optionValuePath" }}
-            {{component-option optionId="optionLabelPath" }}
-            {{component-option optionId="validate" default="false"}}
-        {{/options-panel}}
-        <h5>Basic Select</h5>
-        {{example-snippet snippet='select-basic' class='input-example' framework=framework frameworks=frameworks}}
-    </div>
-    <div class="section">
-        <h4 class="col s12 header">Date Input</h4>
-        {{#options-panel header=''}}
-            {{component-option optionId="label" }}
-            {{component-option optionId="icon" }}
-            {{component-option optionId="value" }}
-            {{component-option optionId="required" }}
-            {{component-option optionId="readonly" }}
-            {{component-option optionId="disabled" }}
-            {{component-option optionId="selectMonths" default="true"}}
-            {{component-option optionId="numberOfYears" default="15"}}
-            {{component-option optionId="min" }}
-            {{component-option optionId="max" }}
-            {{component-option optionId="validate" default="false"}}
-        {{/options-panel}}
-        <h5>Date Input</h5>
-        {{example-snippet snippet='input-date-basic' class='input-example' dateValue=dateValue}}
-        <p>If you were born on {{dateValue}}, you are about <span class="badge white-text light-blue" style="position: inherit">{{ageFromDate}}</span> years old.</p>
-
-    </div>
-    <div class="section">
-        <h4 class="col s12 header">Range Input</h4>
-        {{#options-panel header=''}}
-          {{component-option optionId="value" default=0}}
-          {{component-option optionId="min" default=0}}
-          {{component-option optionId="max" default=100}}
-          {{component-option optionId="step" default=5}}
-          {{component-option optionId="disabled" default=false}}
-        {{/options-panel}}
-        <h5>Range Input</h5>
-        {{example-snippet snippet='input-range-basic' class='input-example' rangeValue=rangeValue}}
-    </div>
-    <div class="section">
-        <h4 class="col s12 header">Checkbox</h4>
-        {{#options-panel header=''}}
-          {{component-option optionId="checked" default="false"}}
-          {{component-option optionId="name" }}
-          {{component-option optionId="disabled" default="false"}}
-        {{/options-panel}}
-        <h5>Checkbox</h5>
-        {{example-snippet snippet='input-check-basic' class='checkbox-example' checkboxIsSelected=checkboxIsSelected}}
-    </div>
-
-    <div class="section">
-        <h4 class="col s12 header">Switch</h4>
-        {{#options-panel header=''}}
-          {{component-option optionId="onLabel" default="On"}}
-          {{component-option optionId="offLabel" default="Off"}}
-          {{component-option optionId="checked" default="false"}}
-          {{component-option optionId="disabled" default="false"}}
-        {{/options-panel}}
-        <h5>Switch</h5>
-        {{example-snippet snippet='input-switch-basic' class='switch-example' switchValue=switchValue notSwitchValue=notSwitchValue}}
-    </div>
-    <div class="section">
-        <h4 class="col s12 header">Checkbox, Radio button and Switch lists</h4>
-        {{#options-panel header=''}}
-          {{component-option optionId="selection" default="null"}}
-          {{component-option optionId="content" default="null"}}
-          {{component-option optionId="optionValuePath" default="content"}}
-          {{component-option optionId="optionLabelPath" default="content"}}
-          {{component-option optionId="disabled" default="false"}}
-        {{/options-panel}}
-
-        <h5>Multi-Select Switch List</h5>
-        <p>Selection:
-          {{#each checkboxSelections as |str|}}
-            {{md-badge text=str class="default-value light-blue white-text"}}
-          {{/each}}
-        </p>
-        {{example-snippet snippet='input-switch-list' class='checkbox-example' checkboxChoices=checkboxChoices checkboxSelections=checkboxSelections}}
-
-        <h5>Single-Select Switch List</h5>
-        <p>Selection: {{md-badge text=radioSelection class="default-value light-blue white-text"}}</p>
-        {{example-snippet snippet='input-switch-list-exclusive' class='checkbox-example' radioSelection=radioSelection}}
-
-        <h5>Checkbox List</h5>
-        <p>Selection:
-          {{#each checkboxSelections as |str|}}
-            {{md-badge text=str class="default-value blue white-text"}}
-          {{/each}}
-        </p>
-        {{example-snippet snippet='input-check-list' class='checkbox-example' checkboxChoices=checkboxChoices checkboxSelections=checkboxSelections}}
-
-        <h5>Radio List</h5>
-        <p>Selection: {{md-badge text=radioSelection class="default-value light-blue white-text"}}</p>
-
-        {{example-snippet snippet='input-radio-list' class='checkbox-example' radioSelection=radioSelection}}
-    </div>
-
-</div>
+  {{code-snippet name='person-model.js'}}
+{{/x-example}}

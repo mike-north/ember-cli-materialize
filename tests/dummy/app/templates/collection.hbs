@@ -1,42 +1,20 @@
-{{example-header title="Collection"}}
+{{#x-component-doc title="md-collection" as |doc|}}
+  {{#doc.params as |p|}}
+    {{#p.param name="content" type="array" default=[]}}Items in collection{{/p.param}}
+  {{/doc.params}}
+{{/x-component-doc}}
 
-<div class='container'>
-    {{#options-panel}}
-      {{component-option optionId="content" required=true description="Iterable collection"}}
-      {{component-option optionId="header" description="Header text"}}
-      {{component-option optionId="headerView" description="Header view (string or view class)"}}
-    {{/options-panel}}
+{{#x-example name='collection-basic' title='Static Collections'}}
+  <p>You can easily compose a collection of hard-coded items using the <span class="code">\{{_.item}}</span> sub-component, using either an inline or block form</p>
+{{/x-example}}
 
-    <p>For the following examples, let's say we have an array like this</p>
-    {{code-snippet name='collection-route.js'}}
+{{#x-example name='collection-dynamic' title='Dynamic Collections' emberObjects=emberObjects cliObjects=cliObjects}}
+<p>Passing in a <span class="code">content</span> array saves you from having to add extra <span class="code">\{{each}}</span> loops all over your templates. Both inline and block expressions are available.</p>
+{{/x-example}}
 
-    <div class="section">
-      <h4 class="col s12 header">Basic Collection</h4>
-      {{example-snippet snippet='collection-basic' class='basic-collection-example' content=content}}
-    </div>
-    <div class="section">
-      <h4 class="col s12 header">Links</h4>
-      {{example-snippet snippet='collection-links' class='links-collection-example' content=content}}
-    </div>
-    <div class="section">
-      <h4 class="col s12 header">Simple Collection Header</h4>
-      {{example-snippet snippet='collection-header' class='simple-header-collection-example' content=content}}
-    </div>
-    <div class="section">
-      <h4 class="col s12 header">Custom Collection Header</h4>
-      <p>First you need to create a view</p>
-      {{code-snippet name='custom-collection-header.js'}}
-      <p>And a template for the header view</p>
-      {{code-snippet name='my-custom-header.hbs'}}
-      <p>You can then pass this view to the collection</p>
-      {{example-snippet snippet='collection-header-custom' class='custom-header-collection-example' content=content}}
-    </div>
-    <div class="section">
-      <h4 class="col s12 header">Secondary Content</h4>
-      {{example-snippet snippet='collection-secondary-content' class='secondary-content-collection-example' content=content}}
-    </div>
-    <div class="section">
-      <h4 class="col s12 header">Avatars</h4>
-      {{example-snippet snippet='collection-avatars' class='avatars-collection-example' content=content}}
-    </div>
-</div>
+{{#x-example name='collection-links' title='Links in Collections'}}
+  <p>One or more items in a collection may be a link. The <span class="code">\{{_.link-to}}</span> sub-component extends the core <span class="code">\{{link-to}}</span> Ember component, allowing all the typical functionality (including the <span class="code">active</span> class) while integrating seamlessly into the collection. </p>
+{{/x-example}}
+{{#x-example name='collection-headers' title='Collection Headers'}}
+  Adding a header is easy via the <span class="code">\{{_.header}}</span> sub-component, which may be used in either inline or bock form.
+{{/x-example}}

@@ -1,6 +1,23 @@
-{{#if _hasHeader}}
-  {{component headerComponentName header=header}}
+{{#if hasBlock}}
+{{#if content}}
+  {{#each content as |item|}}
+  {{yield (hash
+      items=(component 'md-collection-items')
+      item=(component 'md-collection-item')
+      link-to=(component 'md-collection-linkitem')
+      header=(component 'md-collection-header' collectionComponent=this)
+  ) item}}
+  {{/each}}
+{{else}}
+  {{yield (hash
+      items=(component 'md-collection-items')
+      item=(component 'md-collection-item')
+      link-to=(component 'md-collection-linkitem')
+      header=(component 'md-collection-header' collectionComponent=this)
+  )}}
 {{/if}}
-{{#each content as |item idx|}}
-  {{yield item idx}}
-{{/each}}
+{{else}}
+  {{#each content as |item|}}
+    {{md-collection-item text=item.name}}
+  {{/each}}
+{{/if}}

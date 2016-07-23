@@ -1,15 +1,5 @@
-{{#if isBarType}}
-  <div class="{{barClassName}}" style={{barStyle}}></div>
+{{#if circular}}
+  {{partial 'md-progress-circular'}}
+{{else}}
+  <div class="{{_barLoaderClass}}" style={{_barStyle}}></div>
 {{/if}}
-
-{{#each spinnerClassNames as |spinnerClassName|}}
-  <div class="{{spinnerClassName}}">
-    <div class="circle-clipper left">
-      <div class="circle"></div>
-    </div><div class="gap-patch">
-      <div class="circle"></div>
-    </div><div class="circle-clipper right">
-      <div class="circle"></div>
-    </div>
-  </div>
-{{/each}}

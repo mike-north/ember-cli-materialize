@@ -1,0 +1,6 @@
+{{#md-collection as |c|}}
+  {{c.header text="Actions"}}
+  {{yield (hash
+    action=(component 'x-component-doc-action')
+  )}}
+{{/md-collection}}

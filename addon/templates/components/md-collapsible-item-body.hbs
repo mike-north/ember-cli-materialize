@@ -1,0 +1,7 @@
+{{#if text}}
+  <p>{{text}}</p>
+{{else}}
+  {{yield (hash
+    link-to=(component 'md-nav-link')
+  )}}
+{{/if}}

@@ -1,13 +1,14 @@
 import Ember from 'ember';
 import layout from '../templates/components/md-card-reveal';
 
-const { Component } = Ember;
-
-export default Component.extend({
+export default Ember.Component.extend({
+  classNames: ['md-card-reveal', 'card-reveal'],
   layout,
-  tagName: 'div',
 
-  classNames: ['card-reveal'],
-  classNameBinding: 'class',
-  activatorBinding: 'parentView.activator'
+  didInsertElement() {
+    this._super(...arguments);
+    Ember.run.scheduleOnce('afterRender', () => {
+      this.card.set('_hasReveal', true);
+    });
+  }
 });

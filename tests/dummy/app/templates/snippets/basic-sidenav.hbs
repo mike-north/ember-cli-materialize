@@ -1,0 +1,19 @@
+{{#md-sidenav params=(hash menuWidth=300) as |n|}}
+  {{n.link-to 'Blue' 'sidenav'
+    (query-params a="1")
+    icon='star'}}
+  {{#n.collapsible as |c|}}
+      {{#c.item as |item|}}
+        {{item.header
+          icon="home"
+          text="An interesting thing!"}}
+        {{#item.body as |b|}}
+          <ul>
+          {{b.link-to 'Purple' 'sidenav'
+            (query-params a="3")
+            icon='person'}}
+          </ul>
+        {{/item.body}}
+      {{/c.item}}
+  {{/n.collapsible}}
+{{/md-sidenav}}

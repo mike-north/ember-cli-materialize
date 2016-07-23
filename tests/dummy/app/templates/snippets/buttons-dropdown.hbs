@@ -1,14 +1,13 @@
-{{#md-btn-dropdown text='Button' belowOrigin=true}}
-	<li><a href="#!">one</a></li>
-	<li><a href="#!">two</a></li>
-	<li class="divider"></li>
-	<li><a href="#!">three</a></li>
-{{/md-btn-dropdown}}
-
-
-{{#md-btn-dropdown text='Other Button'}}
-  <li><a href="#!">four</a></li>
-  <li><a href="#!">five</a></li>
-  <li class="divider"></li>
-  <li><a href="#!">six</a></li>
-{{/md-btn-dropdown}}
+{{#md-btn icon='cloud' as |b|}}
+  Official Ember Repos
+  {{#b.dropdown as |d|}}
+    {{d.btn label="Ember.js"
+      on-click=(action 'wasClicked' 'Ember.js')}}
+    {{d.btn label="Ember Data"
+      on-click=(action 'wasClicked' 'Ember Data')}}
+    {{d.btn label="Ember-CLI"
+      on-click=(action 'wasClicked' 'Ember-CLI')}}
+    {{d.btn label="Liquid Fire"
+      on-click=(action 'wasClicked' 'Liquid Fire')}}
+  {{/b.dropdown}}
+{{/md-btn}}

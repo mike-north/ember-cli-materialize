@@ -1,0 +1,13 @@
+{{#md-card
+  title="A Simple Card"
+  class="blue-grey darken-1" as |c|}}
+  {{#c.content class="white-text"}}
+    <p>This is a very simple card</p>
+  {{/c.content}}
+  {{#c.actions class='right-align' as |a|}}
+    <a {{action 'wasClicked' 'Save'}}>
+      Save </a>
+    <a {{action 'wasClicked' 'Cancel'}}>
+      Cancel </a>
+  {{/c.actions}}
+{{/md-card}}

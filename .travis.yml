@@ -1,62 +1,45 @@
----
 language: node_js
-
 node_js:
-  - "0.12"
-
+- '5'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 env:
-  - EMBER_TRY_SCENARIO=ember-1.13
-  - EMBER_TRY_SCENARIO=ember-2.0
-  - EMBER_TRY_SCENARIO=ember-2.1
-  - EMBER_TRY_SCENARIO=ember-2.2
-  - EMBER_TRY_SCENARIO=ember-2.3
-  - EMBER_TRY_SCENARIO=ember-2.4
-  - EMBER_TRY_SCENARIO=ember-release
-  - ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-beta
-  - ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-canary
-
+- ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-2.3
+- ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-2.4
+- ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-release
+- ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-beta
+- ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-canary
+- EMBER_TRY_SCENARIO=ember-canary
 matrix:
   fast_finish: true
   allow_failures:
-    - env: ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-canary
+    - env: EMBER_TRY_SCENARIO=ember-canary
 
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- mkdir travis-phantomjs
+- wget https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
+  -O $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
+- tar -xvf $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -C $PWD/travis-phantomjs
+- export PATH=$PWD/travis-phantomjs:$PATH
+- npm config set spin false
+- npm install -g npm@^2
 install:
-  - npm install -g bower
-  - npm install
-  - bower install
-
+- npm install -g bower
+- npm install
+- bower install
 script:
-  - ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup
-
-# after_script:
-#   - sed -i -- 's/SF:ember-cli-materialize\/\(.*\)/SF:addon\/\1.js/' lcov.dat
-#   - cat lcov.dat | coveralls
-
+- ember try $EMBER_TRY_SCENARIO test --skip-cleanup
 after_success:
-# Remove the downloaded copy of phantomJS
 - rm -rf travis-phantomjs
-# Add a remote, authenticating via an OAuth token (encrypted via "travis secure")
 - git remote add deploy https://$GH_TOKEN:x-oauth-basic@github.com/mike-north/ember-cli-materialize.git
-# Download all branches from this new remote (really the same remote, but different auth)
 - git fetch deploy
-# Check out a local copy of "master", but don't switch to it yet
 - git branch $GH_DEST_BRANCH deploy/$GH_DEST_BRANCH
-# Set up some required git config stuff (more env variables encrypted via "travis secure")
 - git config user.name $GIT_NAME
 - git config user.email $GIT_EMAIL
-# Generate the github pages. When this command is finished I'll be on "master" branch with a
-# new commit already made (but not pushed)
-# Push the new commit
-- /bin/bash lib/try-generate-pages.sh
+- "/bin/bash lib/try-generate-pages.sh"
 - git checkout master
+notifications:
+  slack:
+    secure: sO416ozddVJ6wwlvxccCMwxmPah5Pg3uPU6hrKH/LMXbPYJxn9tEwcI4X/uZkmSyd5LSu0IhCKaHP+fgdz445Na3sQBDbwDCT9jGhKu0F0ul9U4b3I4mB4oQjmT7ihmBEA0STln6nJc5Zq9R4gJUCUqUFoB4uJ8VnLWIRPDFdsg=

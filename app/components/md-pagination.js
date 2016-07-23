@@ -1,3 +1,1 @@
-import materializePagination from 'ember-cli-materialize/components/md-pagination';
-
-export default materializePagination;
+export { default } from 'ember-cli-materialize/components/md-pagination';

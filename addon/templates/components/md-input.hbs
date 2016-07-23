@@ -1,23 +1,23 @@
 {{#if icon}}
-  <i class="{{icon}} prefix"></i>
+<i class="material-icons prefix">{{icon}}</i>
 {{/if}}
-
-{{input id=id
+{{input
   value=value
-  classNameBindings="validate:validate: isValid:valid: isInvalid:invalid:"
+  id=_inputId
   type=type
-  required=required
-  pattern=pattern
-  maxlength=maxlength
-  readonly=readonly
+  placeholder=placeholder
   disabled=disabled
-  autocomplete=autocomplete
-  autofocus=autofocus
-  step=step
-  min=min
-  max=max}}
-<label for="{{id}}">{{label}}</label>
-
-<small class="red-text">
-  {{#if errors}} {{errors.firstObject}} {{else}} &nbsp; {{/if}}
-</small>
+  class=_classesForInput
+  key-up=(action 'onKeyUp')
+  key-press=(action 'onKeyDown')
+  key-press=(action 'onChange')
+  focus-out=(action 'onBlur')
+  enter=(action 'onEnter')
+}}
+<label
+  for={{_inputId}}
+  class="{{labelClass}} {{if active 'active'}}"
+  data-error={{error}}>
+  {{label}}
+</label>
+{{yield}}

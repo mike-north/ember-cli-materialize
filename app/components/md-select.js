@@ -1,3 +1,1 @@
-import materializeSelect from 'ember-cli-materialize/components/md-select';
-
-export default materializeSelect;
+export { default } from 'ember-cli-materialize/components/md-select';

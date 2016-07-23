@@ -1,0 +1,9 @@
+<input
+  class="{{inputClassNames}}"
+  id="{{elementId}}-input"
+  type="checkbox"
+  checked={{value}}
+  disabled={{disabled}}
+  indeterminate={{indeterminate}}
+  onchange={{action 'onChange'}} >
+<label for="{{elementId}}-input">{{label}}{{yield}}</label>

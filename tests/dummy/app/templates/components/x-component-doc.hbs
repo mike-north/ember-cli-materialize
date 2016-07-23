@@ -1,0 +1,12 @@
+{{#md-card title=title as |c|}}
+  {{#c.content}}
+    <div class="row">
+      <div class="col s12">
+        {{yield (hash
+            params=(component 'x-component-doc-params')
+            actions=(component 'x-component-doc-actions')
+        )}}
+      </div>
+    </div>
+  {{/c.content}}
+{{/md-card}}

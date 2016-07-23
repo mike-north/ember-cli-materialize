@@ -1,0 +1,15 @@
+{{#x-component-doc title="md-sidenav" as |doc|}}
+  {{#doc.params as |p|}}
+    {{#p.param name="text" type="string"}}
+      The text rendered on the button
+    {{/p.param}}
+    {{#p.param name="icon" type="string"}}
+      The icon on the button. This can be any valid Google Material Design ligature.
+    {{/p.param}}
+    {{#p.param name="iconClass" type="string" default="left"}}
+      Additional classes to append to the icon on the button, if present. Typical values will be <span class="code">left</span> or <span class="code">right</span>.
+    {{/p.param}}
+  {{/doc.params}}
+{{/x-component-doc}}
+
+{{x-example name='basic-sidenav' classNames='sidenav-example' horizSplit=-1}}

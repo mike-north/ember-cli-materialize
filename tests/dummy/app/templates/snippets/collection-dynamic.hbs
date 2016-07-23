@@ -1,0 +1,8 @@
+{{md-collection content=emberObjects}}
+
+{{#md-collection content=cliObjects
+  as |c  item|}}
+  {{#c.item}}
+    {{item.name}}
+  {{/c.item}}
+{{/md-collection}}

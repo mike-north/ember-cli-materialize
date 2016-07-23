@@ -1,0 +1,15 @@
+{{#x-component-doc title="md-nav" as |doc|}}
+  {{#doc.params as |p|}}
+    {{#p.param name="min" type="integer" default=1}}Minimum page number{{/p.param}}
+  {{/doc.params}}
+
+  {{#doc.actions as |a|}}
+    {{#a.action name="on-change"}}
+      Called whenever the currently selected item is changed
+    {{/a.action}}
+  {{/doc.actions}}
+{{/x-component-doc}}
+
+{{#x-example title="Basic Nav" name='basic-nav' horizSplit=-1}}
+<p>A nav consists of menus and items within those menus. The <span class="code">active</span> state on the core Ember <span class="code">\{{link-to}}</span> component works seamlessly</p>
+{{/x-example}}

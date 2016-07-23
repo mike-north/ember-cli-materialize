@@ -1,0 +1,26 @@
+.md-toast.toast {
+  top: 35px;
+  opacity: 0;
+  transition: margin-top 375ms, top 300ms, opacity 300ms;
+  &.active {
+    top: 0;
+    opacity: 1
+  }
+  &.exiting {
+    opacity: 0;
+    margin-top: -40px;
+  }
+  .toast-progress {
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 15px - 1em - 48px);
+    height: 3px;
+    .toast-progress-bar {
+      left: 0;
+      height: 3px;
+      width: 40%;
+      background-color: #666;
+      opacity: 0.85;
+    }
+  }
+}

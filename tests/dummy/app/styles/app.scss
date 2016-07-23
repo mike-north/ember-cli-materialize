@@ -1,163 +1,33 @@
-// Fix for Roboto font path
-$roboto-font-path: '../assets/';
-$button-color: #e51c23;
+// Example app.scss
+@import 'components/color';
 
-// Materialize styles
+// Custom color settings go here
+$primary-color: color("blue", "accent-2");
+$secondary-color:  color("materialize-red", "base");
+$navbar-height: 72px;
+// $medium-screen: 603px;
+// $medium-screen-up: $medium-screen + 1px;
+// $navbar-font-color: color("white", "lighten-2");
+
+@import 'components/variables';
+
+$roboto-font-path: '/assets/';
 @import "materialize";
 
-@import 'code';
-// ember-cli-materialize styles
-@import 'ember-cli-materialize';
+@import "x-example";
+@import "x-component-doc";
 
-span.new-badge {
-  padding-right: 15px;
-  padding-left: 10px;
-  margin-right: -20px;
+.code {
+  padding: 2px;
+  background-color: color('grey', 'lighten-2');
+  font-family: monospace;
+  white-space: pre;
 }
 
-.index-banner {
-  background-color: color('grey', 'lighten-3');
-  .container {
-    position: relative;
-    .header {
-      color: color('deep-orange', 'base');
-    }
-  }
-  h4 {
-    margin-bottom: 40px;
-  }
-  a{
-    color: color('deep-orange', 'base');
-  }
+#qunit-modulefilter {
+  @extend .browser-default;
 }
 
-.github-commit {
-  padding: 14px 0;
-  height: 60px;
-  line-height: 36px;
-  background-color: #5c5757;
-  color: #e6e6e6;
-  font-size: 0.9rem;
+body {
+  background-color: color('blue-grey', 'darken-2');
 }
-
-a {
-  color: $button-color;
-}
-
-.badge {
-  &.new {
-    color: color('materialize-red', 'base');
-    background-color: #fff
-  }
-  &.default-value {
-    float: none;
-    position: inherit;
-  }
-}
-
-.intro {
-  font-size: 1.2em;
-}
-
-// /* FIXME: Workaround for https://github.com/Dogfalo/materialize/issues/1079 */
-// @each $mdi-icon-name, $mdi-icon-value in $mdi-list-icons {
-//   .#{$mdi-prefix}#{$mdi-icon-name}:before {
-//     content: "\""+ $mdi-icon-value +"\"";
-//   }
-// }
-
-// Qunit test runner style fixes
-#qunit-testrunner-toolbar {
-  [type="checkbox"] + label {
-    margin-left: 25px;
-    &:before {
-      left: -20px;
-    }
-  }
-  #qunit-modulefilter {
-    display: inherit;
-  }
-}
-
-nav .brand-logo {
-  white-space: nowrap;
-  padding-left: 20px;
-}
-
-.code-comment {
-  color: #aaa;
-}
-
-.ember-logo {
-  height: 48px;
-  padding-top: 15px;
-}
-
-.top-nav-container {
-  float: right;
-  max-width: calc(100% - 260px);
-  overflow-y: scroll;
-  box-shadow: inset -10px 0 20px rgba(255,255,255,0.7), inset 10px 0 20px rgba(255,255,255,0.7);
-  ul {
-    white-space: nowrap;
-    li {
-      float: none;
-      display: inline-block;
-    }
-  }
-}
-
-.fixed-btns-example {
-  position: relative;
-  display: inline-block;
-  right: 0;
-  bottom: 0;
-}
-
-header, main, footer.demo-footer {
-  padding-left: 240px;
-}
-
-@media only screen and (max-width : 992px) {
-  main, footer.demo-footer, header {
-    padding-left: 0;
-  }
-}
-
-.demo-page-submenu {
-  li:hover,
-  li.active {
-    background-color: color('deep-orange', 'lighten-2');
-    a {
-      color: white;
-    }
-  }
-}
-
-.navbar-fixed {
-  z-index: 10000;
-}
-.option-description {
-  font-size: 0.8rem;
-  margin-left: 40px;
-}
-
-.color-swatch-collection {
-
-  .color-swatch {
-    &[class*="darken"] {
-      color: white;
-    }
-    height: 40px;
-    line-height: 40px;
-  }
-}
-
-.text-center {
-  text-align: center;
-}
-
-.font-size-18 {
-  font-size: 18px;
-}
-

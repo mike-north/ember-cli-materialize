@@ -1,0 +1,19 @@
+<nav>
+  <div class="nav-wrapper">
+  {{#bread-crumbs
+    tagName='div'
+    class='col s12' as |component r|}}
+
+    {{#bread-crumb
+      tagName='a'
+      class='breadcrumb'
+      route=r
+      breadCrumbs=component}}
+
+      {{r.title}}
+
+    {{/bread-crumb}}
+
+  {{/bread-crumbs}}
+  </div>
+</nav>

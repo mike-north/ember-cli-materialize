@@ -1,0 +1,16 @@
+{{#md-card
+  title='What\'s with this lake?'
+  class='medium'
+  image='http://materializecss.com/images/sample-1.jpg' as |c|}}
+  {{#c.content}}
+    <p>Is this a pretty lake? I think it looks a little fake. Maybe it's photoshopped?</p>
+  {{/c.content}}
+  {{#c.actions as |a|}}
+    {{#a.btn class="red white-text"
+      on-click=(action 'wasClicked' 'No')}}
+      No {{/a.btn}}
+    {{#a.btn class="green right white-text"
+      on-click=(action 'wasClicked' 'ABCD')}}
+      Yes {{/a.btn}}
+  {{/c.actions}}
+{{/md-card}}

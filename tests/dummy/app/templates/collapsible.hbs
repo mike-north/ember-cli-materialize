@@ -1,37 +1,13 @@
-{{example-header title="Collapsible"}}
-
-<div class='container'>
-
-    {{#options-panel}}
-        {{component-option optionId="title" }}
-        {{component-option optionId="icon" }}
-        {{component-option optionId="accordion" default="true"}}
-        {{component-option optionId="active" }}
-        {{component-option optionId="action" }}
-        {{component-option optionId="model" }}
-    {{/options-panel}}
-
-    <div class="section">
-        <h4 class="col s12 header">Accordion</h4>
-        {{example-snippet snippet='collapsible-accordion' class='accordion-example'}}
-    </div>
-
-    <div class="section">
-        <h4 class="col s12 header">Expandable</h4>
-        {{example-snippet snippet='collapsible-expandable' class='expandable-example'}}
-    </div>
-
-    <div class="section">
-        <h4 class="col s12 header">Preselected Section</h4>
-        {{example-snippet snippet='collapsible-preselected' class='preselected-example'}}
-    </div>
-
-    <div class="section">
-        <h4 class="col s12 header">Action Section</h4>
-        {{#if lastClicked}}
-            <p>Last slide clicked: <span class="selected-action">{{lastClicked}}</span></p>
-        {{/if}}
-        {{example-snippet snippet='collapsible-action' class='action-selection-example'}}
-    </div>
-
-</div>
+{{#x-component-doc title="md-collapsible" as |doc|}}
+  {{#doc.params as |p|}}
+    {{#p.param name="type" type="string" default="text"}}
+      the input type, consistent with the HTML5 <span class="code">&lt;input type="" /&gt;</span> attribute.
+    {{/p.param}}
+  {{/doc.params}}
+  {{#doc.actions as |a|}}
+    {{#a.action name="on-change"}}
+      Called whenever the value of the field changes
+    {{/a.action}}
+  {{/doc.actions}}
+{{/x-component-doc}}
+{{x-example name='basic-collapsible'}}
