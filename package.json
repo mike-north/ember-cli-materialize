@@ -56,7 +56,7 @@
     "ember-inflector": "1.9.4",
     "ember-load-initializers": "^0.5.1",
     "ember-material-design-icons-shim": "0.1.9",
-    "ember-materialize-shim": "0.2.1",
+    "ember-materialize-shim": "0.2.2",
     "ember-modal-dialog": "~0.8.3",
     "ember-pikaday": "1.0.0",
     "ember-resolver": "^2.0.3",
@@ -77,7 +77,7 @@
     "ember-cli-sass": "5.3.1",
     "ember-truth-helpers": "^1.2.0",
     "ember-composable-helpers": "0.27.0",
-    "ember-materialize-shim": "^0.2.0",
+    "ember-materialize-shim": "^0.2.2",
     "rsvp": "^3.2.1"
   },
   "ember-addon": {

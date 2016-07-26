@@ -7,7 +7,7 @@ module.exports = {
   normalizeEntityName: function() {},
   afterInstall: function(options) {
     return this.addAddonsToProject({packages: [
-      {name: 'ember-materialize-shim', target: '~0.1.5'},
+      {name: 'ember-materialize-shim', target: '~0.2.2'},
       {name: 'ember-truth-helpers', target: '^1.2.0'},
       {name: 'ember-composable-helpers', target: '~0.19.0'},
       {name: 'ember-cli-flash', target: '^1.3.14'},
