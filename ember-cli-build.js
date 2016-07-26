@@ -10,8 +10,7 @@ module.exports = function(defaults) {
     sassOptions: {
       includePaths: [
         'bower_components/materialize/sass'
-      ],
-      nodeSass: nodeSass
+      ]
     },
     inlineContent: {
       body: {

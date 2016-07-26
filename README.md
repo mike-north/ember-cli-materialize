@@ -1,4 +1,4 @@
-# Ember-cli-materialize
+# ember-cli-materialize
 
 This README outlines the details of collaborating on this Ember addon.
 
