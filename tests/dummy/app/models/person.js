@@ -9,6 +9,7 @@ const { attr } = DS;
 
 const Validations = buildValidations({
   firstName: validator('presence', true),
+  phone: validator('presence', true),
   lastName: [
     validator('presence', true),
     validator('length', {
@@ -25,6 +26,7 @@ const Validations = buildValidations({
 export default DS.Model.extend(Validations, {
   firstName: attr('string'),
   lastName: attr('string'),
+  phone: attr('string'),
   email: attr('string')
 });
 //END-SNIPPET

@@ -12,6 +12,13 @@
       class='col s6'}}
   </div>
   <div class="row">
+    {{f.email label='Phone Number'
+      errorMessages=model.validations.attrs.phone.messages
+      validate='eager'
+      value=model.phone
+      class='col s12'}}
+  </div>
+  <div class="row">
     {{f.email label='Email Address'
       errorMessages=model.validations.attrs.email.messages
       validate=true

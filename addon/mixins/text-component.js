@@ -20,8 +20,9 @@ export default Mixin.create(FormField, {
   _inputId: computed('elementId', function() {
     return `${this.get('elementId')}-${this._debugContainerKey.split(':')[1]}`;
   }),
-  _validateClass: computed('validate', 'valid', function() {
-    if (this.get('validate')) {
+  _validateClass: computed('validate', 'valid', 'value', function() {
+    let v = this.get('validate');
+    if (v === 'eager' || (v && this.get('value'))) {
       return this.get('valid') ? 'valid' : 'invalid';
     }
     else {
