@@ -7,5 +7,6 @@ const { Component } = Ember;
 export default Component.extend(TextComponent, {
   classNames: ['md-input', 'input-field'],
   type: 'text',
+  placeholderChar: '_',
   layout
 });

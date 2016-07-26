@@ -1,6 +1,26 @@
 {{#if icon}}
 <i class="material-icons prefix">{{icon}}</i>
 {{/if}}
+{{#if mask}}
+{{masked-input
+  value=value
+  id=_inputId
+  type=type
+  pattern=pattern
+  mask=mask
+  formatCharacters=formatCharacters
+  placeholderChar=placeholderChar
+  placeholder=placeholder
+  disabled=disabled
+  autocomplete=autocomplete
+  autofocus=autofocus
+  class=_classesForInput
+  key-up=(action 'onKeyUp')
+  key-press=(action 'onKeyDown')
+  key-press=(action 'onChange')
+  focus-out=(action 'onBlur')
+  enter=(action 'onEnter')}}
+{{else}}
 {{input
   value=value
   id=_inputId
@@ -16,6 +36,7 @@
   focus-out=(action 'onBlur')
   enter=(action 'onEnter')
 }}
+{{/if}}
 <label
   for={{_inputId}}
   class="{{labelClass}} {{if active 'active'}}"
