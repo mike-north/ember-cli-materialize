@@ -77,6 +77,6 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoURL": "https://mike.works/ember-cli-materialize/"
+    "demoURL": "http://ember-materialize.mike.works"
   }
 }
