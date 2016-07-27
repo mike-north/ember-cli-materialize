@@ -43,7 +43,6 @@
     "ember-cli-moment-shim": "1.1.0",
     "ember-cli-qunit": "^2.1.0",
     "ember-cli-release": "~1.0.0-beta.1",
-    "ember-cli-sass": "5.3.1",
     "ember-cli-test-loader": "1.1.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-code-snippet": "1.2.1",
