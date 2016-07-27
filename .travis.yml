@@ -35,3 +35,4 @@ deploy:
   app: ember-materialize-demo
   on:
     repo: mike-north/ember-cli-materialize
+    condition: "$EMBER_TRY_SCENARIO = ember-release"
