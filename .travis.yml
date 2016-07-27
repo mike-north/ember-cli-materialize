@@ -27,7 +27,7 @@ install:
 - npm install
 - bower install
 script:
-- ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup
+- if [ "${EMBER_TRY_SCENARIO}" = "ember-release" ]; then ember try:one $EMBER_TRY_SCENARIO test; else ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup; fi
 deploy:
   provider: heroku
   api_key:
