@@ -1,0 +1,21 @@
+{
+  "name": "ember-cli-materialize",
+  "description": "Documentation for ember-cli-materialize",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/emberjs.tgz"
+    }
+  ]
+}
