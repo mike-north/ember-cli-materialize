@@ -1,7 +1,13 @@
 <div class="row">
   {{md-input value="I love material design."
-      label='Example with color specification'
-      icon="mdi-action-android light-blue-text"
-      class="col s12"
-      validate=true}}
+    label="Example with color specification"
+    icon="android light-blue-text"
+    class="col s12"
+    validate=true}}
+  {{md-input value="I love material design."
+    label="Example with icon and errors"
+    icon="phone light-lime-text"
+    class="col s12"
+    validate=true
+    errors=(array "Sorry, phones aren't cool anymore")}}
 </div>

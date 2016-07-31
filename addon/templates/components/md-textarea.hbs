@@ -1,9 +1,6 @@
 {{#if icon}}
-  <i class="{{icon}} prefix"></i>
+  {{bw-compat-icon icon extraClasses="prefix"}}
 {{/if}}
 
 {{textarea id=id value=value name=name required=required readonly=readonly disabled=disabled maxlength=maxlength class="materialize-textarea"}}
-<label for="{{id}}">{{label}}</label>
-<small class="red-text">
-  {{#if errors}} {{errors.firstObject}} {{else}} &nbsp; {{/if}}
-</small>
+<label for="{{id}}" data-error={{_errorString}}>{{label}}</label>

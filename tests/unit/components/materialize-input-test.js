@@ -4,7 +4,8 @@ import {
 } from 'ember-qunit';
 
 moduleForComponent('md-input', {
-  unit: true
+  unit: true,
+  needs: ['helper:bw-compat-icon']
 });
 
 test('input renders', function(assert) {

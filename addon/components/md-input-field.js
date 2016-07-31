@@ -7,13 +7,13 @@ export default Component.extend({
 
   bindAttributes: ['disabled', 'readonly', 'autofocus'],
   validate: false,
-
-  isValid: computed('validate', 'errors', function() {
-    return (!this.get('validate') && !isPresent(this.get('errors.firstObject')));
+  _wasTouched: false,
+  isValid: computed('_wasTouched', 'value', 'validate', 'errors', 'errors.[]', function() {
+    return (isPresent(this.get('value')) || this.get('_wasTouched')) && this.get('validate') && this.get('errors') && this.get('errors.length') === 0;
   }),
 
-  isInvalid: computed('validate', 'errors', function() {
-    return (!this.get('validate') && isPresent(this.get('errors.firstObject')));
+  isInvalid: computed('_wasTouched', 'value', 'validate', 'errors', 'errors.[]', function() {
+    return (isPresent(this.get('value')) || this.get('_wasTouched')) && this.get('validate') && this.get('errors') && this.get('errors.length') > 0;
   }),
 
   didInsertElement() {
@@ -33,6 +33,14 @@ export default Component.extend({
     if (isPresent(this.get('value')) && !$label.hasClass('active')) {
       $label.addClass('active');
     }
+  },
+  _errorString: computed('errors.[]', function() {
+    return (this.get('errors') || []).join('. ');
+  }),
+  actions: {
+    inputFocusIn(evt) {
+      this.set('_wasTouched', true);
+      this.sendAction('focusIn', evt);
+    }
   }
-
 });
