@@ -12,13 +12,17 @@ export default MaterializeButton.extend({
   iconBody: '',
   iconPosition: 'right',
   attributeBindings: [
-    'inDuration:data-induration', 'outDuration:data-outduration', 'constrainWidth:data-constrainwidth', 'hover:data-hover', 'gutter:data-gutter', 'belowOrigin:data-beloworigin', 'alignment'
+    'inDuration:data-induration', 'outDuration:data-outduration', 'constrainWidth:data-constrainwidth', '_hoverVal:data-hover', 'gutter:data-gutter', 'belowOrigin:data-beloworigin', 'alignment'
   ],
 
   didRender() {
     this._super(...arguments);
     this._setupDropdown();
   },
+
+  _hoverVal: computed('hover', function() {
+    return this.get('hover') ? 'true' : 'false';
+  }),
 
   _setupDropdown() {
     // needed until the Materialize.dropdown plugin is replaced
