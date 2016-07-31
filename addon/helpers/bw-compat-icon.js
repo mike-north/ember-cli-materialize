@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { Helper, String: { htmlSafe } } = Ember;
+const { Helper, String: { htmlSafe }, A } = Ember;
 
 export function isOldIcon(str) {
   return str.split(' ').filter((c) => {
@@ -8,15 +8,16 @@ export function isOldIcon(str) {
   }).length > 0;
 }
 
-export function bwCompatIcon(params, { extraClasses='' }) {
+export function bwCompatIcon(params, hash) {
   let [iconStr] = params;
+  let extraClassesString = (hash || {}).extraClasses || null;
+  let extraClasses = extraClassesString ? extraClassesString.split(' ') : [];
   if (isOldIcon(iconStr)) {
-    return htmlSafe(`<i class='${[iconStr].concat(extraClasses.split(' ')).join(' ')}'></i>`);
+    return htmlSafe(`<i class='${A([iconStr].concat(extraClasses)).compact().join(' ')}'></i>`);
   } else {
     let classes = iconStr.split(' ');
     let icon = classes.shift();
-    let classString = ((['material-icons'].concat(classes)).concat(extraClasses.split(' ')))
-      .map((x) => x.trim()).join(' ');
+    let classString = A((['material-icons'].concat(classes)).concat(extraClasses)).compact().join(' ');
     return htmlSafe(`<i class='${classString}'>${icon}</i>`);
   }
   return params;

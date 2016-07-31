@@ -4,7 +4,8 @@ import {
 } from 'ember-qunit';
 
 moduleForComponent('md-textarea', {
-  unit: true
+  unit: true,
+  needs: ['helper:bw-compat-icon']
   // specify the other units that are required for this test
 });
 
