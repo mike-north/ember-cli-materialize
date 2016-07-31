@@ -11,7 +11,7 @@ export default MaterializeButton.extend({
   icon: 'mdi-navigation-expand-more',
   iconPosition: 'right',
   attributeBindings: [
-    'inDuration', 'outDuration', 'constrainWidth', 'hover', 'gutter', 'belowOrigin:data-beloworigin'
+    'inDuration', 'outDuration', 'constrainWidth', 'hover', 'gutter', 'belowOrigin:data-beloworigin', 'alignment'
   ],
 
   didRender() {
@@ -24,11 +24,16 @@ export default MaterializeButton.extend({
     this.$().attr('data-activates', this.get('_dropdownContentId'));
     let options = {
       hover: !!this.getWithDefault('hover', false),
-      constrainWidth: !!this.getWithDefault('constrainWidth', true),
+      // Ignore requireCamelCaseOrUpperCaseIdentifiers because the original
+      // variable of materializecss contains underscore
+      // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+      constrain_width: !!this.getWithDefault('constrainWidth', true),
+      // jscs:enable requireCamelCaseOrUpperCaseIdentifiers
       inDuration: this.getWithDefault('inDuration', this.get('_mdSettings.dropdownInDuration')),
       outDuration: this.getWithDefault('outDuration', this.get('_mdSettings.dropdownOutDuration')),
       gutter: this.getWithDefault('gutter', 0),
-      belowOrigin: !!this.getWithDefault('belowOrigin', false)
+      belowOrigin: !!this.getWithDefault('belowOrigin', false),
+      alignment: !!this.getWithDefault('alignment', 'left')
     };
 
     this.$().dropdown(options);
