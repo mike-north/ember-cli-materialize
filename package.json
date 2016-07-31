@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-materialize",
   "description": "An ember-cli addon for using Materialize (CSS Framework based on Material Design) in Ember applications.",
-  "version": "0.21.0",
+  "version": "1.0.0-beta.0",
   "directories": {
     "doc": "doc",
     "test": "tests"
