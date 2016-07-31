@@ -5,7 +5,7 @@ const { Component, computed: { empty } } = Ember;
 
 export default Component.extend({
   emptySnippet: empty('snippet'),
-  exampleFrameClass: 'col s12',
+  exampleFrameClass: 'col s12 position-relative',
   partialName: computed('snippet', {
     get() {
       return `snippets/${this.get('snippet') || 'none'}`;

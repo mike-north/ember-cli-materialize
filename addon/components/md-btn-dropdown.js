@@ -9,9 +9,10 @@ export default MaterializeButton.extend({
   tagName: 'a',
   classNames: ['dropdown-button'],
   icon: 'mdi-navigation-expand-more',
+  iconBody: '',
   iconPosition: 'right',
   attributeBindings: [
-    'inDuration', 'outDuration', 'constrainWidth', 'hover', 'gutter', 'belowOrigin:data-beloworigin', 'alignment'
+    'inDuration:data-induration', 'outDuration:data-outduration', 'constrainWidth:data-constrainwidth', 'hover:data-hover', 'gutter:data-gutter', 'belowOrigin:data-beloworigin', 'alignment'
   ],
 
   didRender() {
@@ -33,7 +34,7 @@ export default MaterializeButton.extend({
       outDuration: this.getWithDefault('outDuration', this.get('_mdSettings.dropdownOutDuration')),
       gutter: this.getWithDefault('gutter', 0),
       belowOrigin: !!this.getWithDefault('belowOrigin', false),
-      alignment: !!this.getWithDefault('alignment', 'left')
+      alignment: this.getWithDefault('alignment', 'left')
     };
 
     this.$().dropdown(options);
