@@ -5,9 +5,6 @@ import layout from '../templates/components/md-loader';
 const {
   Component,
   computed,
-  computed: {
-    oneWay
-  },
   A,
   String: {
     htmlSafe
@@ -19,11 +16,22 @@ export default Component.extend(UsesSettings, {
 
   classNameBindings: ['isBarType:progress:preloader-wrapper', 'active:active', 'size'],
 
-  mode: oneWay('_mdSettings.loaderMode'),
+  mode: null,
   percent: 0,
-  size: oneWay('_mdSettings.loaderSize'),
+  size: null,
   active: true,
   color: null,
+
+  init() {
+    this._super(...arguments);
+    if (!this.get('mode')) {
+      this.set('mode', this.get('_mdSettings.loaderMode'));
+    }
+
+    if (!this.get('size')) {
+      this.set('size', this.get('_mdSettings.loaderSize'));
+    }
+  },
 
   isBarType: computed('mode', function() {
     return ['determinate', 'indeterminate'].indexOf(this.get('mode')) >= 0;
