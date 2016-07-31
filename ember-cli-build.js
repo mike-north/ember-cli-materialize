@@ -1,15 +1,13 @@
 /*jshint node:true*/
 /* global require, module */
 var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
-var nodeSass = require('node-sass');
 
 module.exports = function(defaults) {
   var app = new EmberAddon(defaults, {
     sassOptions: {
       includePaths: [
         'bower_components/materialize/sass'
-      ],
-      nodeSass: nodeSass // Workaround for ember-cli-sass bug https://github.com/aexmachina/ember-cli-sass/issues/117
+      ]
     }
   });
 
