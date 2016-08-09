@@ -4,7 +4,7 @@
     "ember": "~2.7.0",
     "ember-cli-shims": "0.1.1",
     "ember-qunit-notifications": "0.1.0",
-    "materialize": "0.97.6",
+    "materialize": "0.97.7",
     "hammer.js": "2.0.6",
     "hammer-time": "1.0.0",
     "pikaday": "^1.4.0"
