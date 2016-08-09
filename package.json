@@ -58,13 +58,8 @@
     "ember-inflector": "1.9.4",
     "ember-load-initializers": "^0.5.1",
     "ember-material-design-icons-shim": "0.1.9",
-<<<<<<< HEAD
     "ember-materialize-shim": "0.4.1",
-    "ember-modal-dialog": "~0.8.3",
-=======
-    "ember-materialize-shim": "0.3.0",
     "ember-modal-dialog": "^0.8.8",
->>>>>>> 1c62425d94eb118542c63b24fb8b4cd189635490
     "ember-pikaday": "1.0.0",
     "ember-resolver": "^2.0.3",
     "ember-sublime": "^0.0.9",
