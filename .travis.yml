@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-- '4'
+- 4
 sudo: false
 cache:
   directories:
@@ -11,13 +11,13 @@ env:
 - EMBER_TRY_SCENARIO=ember-2.5
 - EMBER_TRY_SCENARIO=ember-2.6
 - EMBER_TRY_SCENARIO=ember-release
-- EMBER_TRY_SCENARIO=ember-beta
-- EMBER_TRY_SCENARIO=ember-canary
+- ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-beta
+- ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-canary
 matrix:
   fast_finish: true
   allow_failures:
-  - env: EMBER_TRY_SCENARIO=ember-beta
-  - env: EMBER_TRY_SCENARIO=ember-canary
+  - env: ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-beta
+  - env: ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-canary
 before_install:
 - npm config set spin false
 - npm install -g bower
@@ -26,12 +26,11 @@ install:
 - npm install
 - bower install
 script:
-- ember try $EMBER_TRY_SCENARIO test --skip-cleanup
+- ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup
 deploy:
   provider: heroku
   api_key:
-    secure: QByfVZG0yt1m9l4JWbn556VmV5lCA1covgxizlE4ekw5y0UePa66MNMe9aTcxpxmOvTuut3Fv02Hgy1oJL5x93/vYADGk+YTVIXdN/DRSxS5wYNwzXRK74f+YMHSCyLvUWh2MJzz2+xs9L8813UjOWEyXu7WFh/Ic22xiMLBT7E=
+    secure: JyCVhFlH+gDBkHoIivvBVNNIVuJSZT5jeFDHCBAhCMh2OsHCK99hlGtLJRjG6fPWwJ81jorUb14RDA5jxU/2VPeFvefelDqarkG3lWNUUnVtiFk2mDBuhYHW03P11btoixcg2NTr7cgNjARWEt4UbaZ1a0QkdzsmzhIbSjShrRk=
   app: ember-materialize-demo
   on:
     repo: mike-north/ember-cli-materialize
-    branch: v1
