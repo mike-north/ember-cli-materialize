@@ -7,8 +7,7 @@
 [![Code Climate](https://codeclimate.com/github/mike-north/ember-cli-materialize/badges/gpa.svg)](https://codeclimate.com/github/mike-north/ember-cli-materialize)
 [![Coverage Status](https://coveralls.io/repos/mike-north/ember-cli-materialize/badge.svg?branch=master&service=github)](https://coveralls.io/github/mike-north/ember-cli-materialize?branch=master)
 [![Ember Observer Score](http://emberobserver.com/badges/ember-cli-materialize.svg)](http://emberobserver.com/addons/ember-cli-materialize)
-[![Dependency Status](https://david-dm.org/mike-north/ember-cli-materialize.svg)](https://david-dm.org/mike-north/ember-cli-materialize)
-[![devDependency Status](https://david-dm.org/mike-north/ember-cli-materialize/dev-status.svg)](https://david-dm.org/mike-north/ember-cli-materialize#info=devDependencies)
+[![Book session on Codementor](https://cdn.codementor.io/badges/book_session_github.svg)](https://www.codementor.io/mikenorth0?utm_source=github&utm_medium=button&utm_term=mikenorth0&utm_campaign=github)
 
 An [ember-cli](http://www.ember-cli.com) addon for using [Materialize](http://materializecss.com/) (CSS Framework based on [Material Design](http://www.google.com/design/spec/material-design/introduction.html)) in Ember applications.
 
