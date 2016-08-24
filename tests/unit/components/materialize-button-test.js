@@ -8,7 +8,8 @@ import {
 const { run } = Ember;
 
 moduleForComponent('md-btn', {
-  unit: true
+  unit: true,
+  needs: ['helper:bw-compat-icon']
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
 });
