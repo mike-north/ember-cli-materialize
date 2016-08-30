@@ -19,7 +19,6 @@ export default Component.extend({
 
   isInvalid: computed('_wasTouched', 'value', 'validate', 'errors', 'errors.[]', function() {
     return (
-      (isPresent(this.get('value')) || this.get('_wasTouched')) &&
       this.get('validate') &&
       this.get('errors') &&
       this.get('errors.length') > 0
