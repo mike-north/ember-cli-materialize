@@ -21,6 +21,44 @@ test('textarea renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
+test('textarea autoresizes on render', function(assert) {
+  const component = this.subject({
+    value: 'largestring'.repeat(1000)
+  });
+  this.render();
+
+  const initialHeight = component.$().height();
+
+  const done = assert.async();
+  Ember.run.next(() => {
+    const autoresizedHeight = component.$().height();
+    assert.ok(initialHeight < autoresizedHeight,
+      'Text area should autoresize to fit content');
+    done();
+  });
+});
+
+test('textarea autoresizes on value change', function(assert) {
+  const component = this.subject();
+  this.render();
+
+  const done = assert.async();
+  Ember.run.next(() => {
+    const initialHeight = component.$().height();
+
+    const textarea = component.$('textarea');
+    textarea.val('largestring'.repeat(1000));
+    textarea.change();
+
+    Ember.run.next(() => {
+      const autoresizedHeight = component.$().height();
+      assert.ok(initialHeight < autoresizedHeight,
+        'Text area should autoresize to fit content');
+      done();
+    });
+  });
+});
+
 test('textarea has class input-field', function(assert) {
   const component = this.subject();
   this.render();
