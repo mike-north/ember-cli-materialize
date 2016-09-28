@@ -62,7 +62,7 @@
     "ember-percy": "1.1.6",
     "ember-radio-button": "1.0.7",
     "ember-resolver": "^2.0.3",
-    "ember-suave": "4.0.0",
+    "ember-suave": "4.0.1",
     "ember-sublime": "0.0.9",
     "ember-truth-helpers": "1.2.0",
     "loader.js": "4.0.10"
