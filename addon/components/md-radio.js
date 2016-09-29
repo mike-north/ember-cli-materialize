@@ -2,14 +2,14 @@ import Ember from 'ember';
 import SelectableItem from './selectable-item';
 import layout from '../templates/components/md-radio';
 
-const { computed, computed: { alias } } = Ember;
+const { computed, computed: { alias }, isEmpty, assert } = Ember;
 
 export default SelectableItem.extend({
   layout,
 
   value: '',
   text: alias('name'),
-  groupValue: Ember.computed.alias('group.selection'),
+  groupValue: alias('group.selection'),
 
   className: ['materialize-radio'],
 
@@ -19,6 +19,6 @@ export default SelectableItem.extend({
 
   didInsertElement() {
     this._super(...arguments);
-    Ember.assert(!Ember.isEmpty(this.get('group')), 'materialize-radio is not supported outside the context of a materialize-radio-group');
+    assert(!isEmpty(this.get('group')), 'materialize-radio is not supported outside the context of a materialize-radio-group');
   }
 });

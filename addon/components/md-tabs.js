@@ -2,7 +2,18 @@ import Ember from 'ember';
 import ParentComponentSupport from 'ember-composability/mixins/parent-component-support';
 import layout from '../templates/components/md-tabs';
 
-const { get, Component, computed, computed: { alias }, run: { debounce } } = Ember;
+const { get,
+  Component,
+  computed,
+  computed: {
+    alias
+  },
+  run: {
+    debounce
+  },
+  A,
+  observer
+} = Ember;
 
 export default Component.extend(ParentComponentSupport, {
   layout,
@@ -21,15 +32,15 @@ export default Component.extend(ParentComponentSupport, {
     this._updateIndicatorPosition(false);
   },
 
-  _indicatorUpdater: Ember.observer('selected', 'content.[]', 'composableChildren.[]', function() {
+  _indicatorUpdater: observer('selected', 'content.[]', 'composableChildren.[]', function() {
     debounce(this, this._updateIndicatorPosition, 100);
   }),
 
   tabComponents() {
-    return Ember.A(this.get('composableChildren')) || Ember.A();
+    return A(this.get('composableChildren')) || A();
   },
 
-  _updateIndicatorPosition(animate=true) {
+  _updateIndicatorPosition(animate = true) {
     if (!this.element) {
       return;
     }
@@ -46,8 +57,13 @@ export default Component.extend(ParentComponentSupport, {
       if (!animate) {
         this.$('.indicator').css(cssParams);
       } else {
-        this.$('.indicator1').velocity(cssParams, { duration: 150 });
-        this.$('.indicator2').velocity(cssParams, { duration: 150, delay: 40 });
+        this.$('.indicator1').velocity(cssParams, {
+          duration: 150
+        });
+        this.$('.indicator2').velocity(cssParams, {
+          duration: 150,
+          delay: 40
+        });
       }
     }
   },
@@ -55,6 +71,9 @@ export default Component.extend(ParentComponentSupport, {
   _content: computed('content.[]', 'optionLabelPath', 'optionValuePath', function() {
     const labelPath = this.get('optionLabelPath');
     const valuePath = this.get('optionValuePath');
-    return new Ember.A((this.get('content') || []).map(contentItem => ({ id: contentItem[valuePath], title: contentItem[labelPath] })));
+    return new A((this.get('content') || []).map(contentItem => ({
+      id: contentItem[valuePath],
+      title: contentItem[labelPath]
+    })));
   })
 });

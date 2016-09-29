@@ -1,1 +1,12 @@
-{{md-input value="Hi Mom" label='Example' class="col s12" validate=true}}
+{{md-input 
+  value="Hi Mom"
+  label='Example'
+  class="col s6"
+  validate=true}}
+
+{{md-input 
+  value="An error was found"
+  label='Example'
+  class="col s6"
+  validate=true
+  errors=(array "We found an error")}}

@@ -6,6 +6,8 @@ const MONTH_NAMES = ['January', 'February', 'March', 'April',
     'May', 'June', 'July', 'August', 'September', 'October',
     'November', 'December'];
 
+const { $ } = Ember;
+
 function formatDate(timestamp) {
   const d = new Date(timestamp);
   return `${d.getDate()} ${MONTH_NAMES[d.getMonth()]}, ${d.getFullYear()}`;
@@ -39,7 +41,7 @@ export default MaterializeInput.extend({
       }
     };
 
-    this.$('.datepicker').pickadate(Ember.$.extend(datePickerOptions, {
+    this.$('.datepicker').pickadate($.extend(datePickerOptions, {
       onSet: this._onDateSet
     }));
   },

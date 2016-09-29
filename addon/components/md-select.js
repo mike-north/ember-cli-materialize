@@ -2,6 +2,8 @@ import Ember from 'ember';
 import MaterializeInputField from './md-input-field';
 import layout from '../templates/components/md-select';
 
+const { computed, A, observer, isNone, run: { later }, get } = Ember;
+
 export default MaterializeInputField.extend({
   layout,
   classNames: ['md-select'],
@@ -19,18 +21,18 @@ export default MaterializeInputField.extend({
     // jscs: enable
   },
 
-  _parsedContent: Ember.computed('optionValuePath', 'optionLabelPath', 'content.[]', function() {
-     const contentRegex = /(content\.|^content$)/;
-     // keep backwards compatability for defining optionValuePath & as optionContentPath `content.{{attName}}`
-     const optionValuePath = (this.get('optionValuePath') || '').replace(contentRegex, '');
-     const optionLabelPath = (this.get('optionLabelPath') || '').replace(contentRegex, '');
-     return Ember.A((this.get('content') || []).map((option) => {
-       return Ember.Object.create({
-         value: optionValuePath ? Ember.get(option, optionValuePath) : option,
-         label: optionLabelPath ? Ember.get(option, optionLabelPath) : option
-       });
-     }));
-   }),
+  _parsedContent: computed('optionValuePath', 'optionLabelPath', 'content.[]', function() {
+    const contentRegex = /(content\.|^content$)/;
+    // keep backwards compatability for defining optionValuePath & as optionContentPath `content.{{attName}}`
+    const optionValuePath = (this.get('optionValuePath') || '').replace(contentRegex, '');
+    const optionLabelPath = (this.get('optionLabelPath') || '').replace(contentRegex, '');
+    return A((this.get('content') || []).map((option) => {
+      return {
+        value: optionValuePath ? get(option, optionValuePath) : option,
+        label: optionLabelPath ? get(option, optionLabelPath) : option
+      };
+    }));
+  }),
 
   // TODO: clean up any listeners that $.select() puts in place
   // _teardownSelect() {
@@ -39,11 +41,11 @@ export default MaterializeInputField.extend({
 
   // TODO: this could be converted to a computed property, returning a string
   //  that is bound to the class attribute of the inputSelector
-  errorsDidChange: Ember.observer('errors', function() {
+  errorsDidChange: observer('errors', function() {
     const inputSelector = this.$('input');
     // monitor the select's validity and copy the appropriate validation class to the materialize input element.
-    if (!Ember.isNone(inputSelector)) {
-      Ember.run.later(this, function() {
+    if (!isNone(inputSelector)) {
+      later(this, function() {
         const isValid = this.$('select').hasClass('valid');
         if (isValid) {
           inputSelector.removeClass('invalid');

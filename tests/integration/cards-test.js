@@ -5,12 +5,14 @@ import { module, test } from 'qunit';
 
 let App;
 
+const { run } = Ember;
+
 module('Acceptance - Cards', {
   setup() {
     App = startApp();
   },
   teardown() {
-    Ember.run(App, 'destroy');
+    run(App, 'destroy');
   }
 });
 
@@ -22,7 +24,7 @@ function checkCardTitle(cardType, cardId) {
       const titleEle = find(`#${cardId} > .card-content span`);
 
       assert.ok(titleEle.hasClass('card-title'));
-      assert.equal(titleEle.text().trim(), 'Card Title');
+      assert.equal(titleEle.children().remove().end().text().trim(), 'Card Title');
     });
   });
 }

@@ -1,5 +1,5 @@
 {{#if icon}}
-  <i class="{{icon}} prefix"></i>
+  {{bw-compat-icon icon extraClasses="prefix"}}
 {{/if}}
 
 {{input id=id
@@ -13,11 +13,8 @@
   disabled=disabled
   autocomplete=autocomplete
   autofocus=autofocus
+  focusIn=(action 'inputFocusIn')
   step=step
   min=min
   max=max}}
-<label for="{{id}}">{{label}}</label>
-
-<small class="red-text">
-  {{#if errors}} {{errors.firstObject}} {{else}} &nbsp; {{/if}}
-</small>
+<label for="{{id}}" data-error={{_errorString}}>{{label}}</label>

@@ -3,6 +3,8 @@ import Ember from 'ember';
 import startApp from '../../tests/helpers/start-app';
 import { module, test } from 'qunit';
 
+const { run } = Ember;
+
 let App;
 
 module('Acceptance - Badges', {
@@ -10,7 +12,7 @@ module('Acceptance - Badges', {
     App = startApp();
   },
   teardown() {
-    Ember.run(App, 'destroy');
+    run(App, 'destroy');
   }
 });
 

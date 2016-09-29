@@ -7,6 +7,6 @@ export default Component.extend({
   layout,
 
   classNames: ['card-panel'],
-  classNameBinding: 'class'
+  classNameBindings: ['class']
 });
 

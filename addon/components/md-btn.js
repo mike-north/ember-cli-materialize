@@ -2,7 +2,7 @@ import Ember from 'ember';
 import UsesSettings from '../mixins/uses-settings';
 import layout from '../templates/components/md-btn';
 
-const { Component, computed, computed: { oneWay }, typeOf, run: { scheduleOnce } } = Ember;
+const { Component, computed, typeOf, run: { scheduleOnce } } = Ember;
 
 export default Component.extend(UsesSettings, {
   layout,
@@ -12,11 +12,18 @@ export default Component.extend(UsesSettings, {
   wavesClass: 'waves-light',
   text: null,
   icon: null,
-  iconPosition: oneWay('_mdSettings.buttonIconPosition'),
+  iconPosition: null,
   buttonType: null,
   actionArg: null,
   isFlat: computed.equal('buttonType', 'flat'),
   isDisabled: false,
+
+  init() {
+    this._super(...arguments);
+    if (!this.get('iconPosition')) {
+      this.set('iconPosition', this.get('_mdSettings.buttonIconPosition'));
+    }
+  },
 
   didInsertElement() {
     this._super(...arguments);
@@ -41,4 +48,3 @@ export default Component.extend(UsesSettings, {
     }
   }
 });
-

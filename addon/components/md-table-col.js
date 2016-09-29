@@ -3,7 +3,7 @@ import layout from '../templates/components/md-table-col';
 import Table from './md-table';
 import ChildComponentSupport from 'ember-composability/mixins/child-component-support';
 
-const { Component, computed, get, computed: { oneWay } } = Ember;
+const { Component, computed, get, computed: { alias } } = Ember;
 
 export default Component.extend(ChildComponentSupport, {
   _parentComponentTypes: [Table],
@@ -11,8 +11,8 @@ export default Component.extend(ChildComponentSupport, {
   layout,
   valueBindingPath: null,
   headerComponentName: 'md-default-column-header',
-  header: oneWay('valueBindingPath'),
-  key: oneWay('valueBindingPath'),
+  header: alias('valueBindingPath'),
+  key: alias('valueBindingPath'),
   _value: computed('valueBindingPath', 'row', function() {
     let vbp = this.get('valueBindingPath');
     if (!vbp) {

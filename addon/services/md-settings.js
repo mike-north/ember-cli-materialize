@@ -1,10 +1,11 @@
 import Ember from 'ember';
 
-const { getWithDefault, set, computed: { oneWay } } = Ember;
-const { classify } = Ember.String;
+const { getWithDefault, set, computed: { oneWay }, Service, String: { classify } } = Ember;
+// jscs:disable disallowDirectPropertyAccess
 const keys = Object.keys || Ember.keys;
+// jscs:enable disallowDirectPropertyAccess
 
-export default Ember.Service.extend({
+export default Service.extend({
   // Footer
   modalIsFooterFixed: oneWay('defaultModalIsFooterFixed'),
   // Button

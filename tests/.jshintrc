@@ -1,5 +1,6 @@
 {
   "predef": [
+    "percySnapshot",
     "document",
     "window",
     "location",

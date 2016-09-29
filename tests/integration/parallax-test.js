@@ -5,12 +5,14 @@ import { module, test } from 'qunit';
 
 let App;
 
+const { run } = Ember;
+
 module('Acceptance - Parallax', {
   setup() {
     App = startApp();
   },
   teardown() {
-    Ember.run(App, 'destroy');
+    run(App, 'destroy');
   }
 });
 
