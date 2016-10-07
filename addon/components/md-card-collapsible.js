@@ -6,9 +6,10 @@ const { computed, Component } = Ember;
 export default Component.extend({
   layout,
   tagName: 'ul',
-  classNames: ['collapsible'],
+  classNames: ['collapsible', 'popout'],
   attributeBindings: ['data-collapsible'],
   accordion: true,
+  popout: false,
 
   'data-collapsible': computed(function() {
     return this.get('accordion') ? 'accordion' : 'expandable';
