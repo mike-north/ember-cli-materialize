@@ -19,7 +19,7 @@
     "url": "https://github.com/mike-north/ember-cli-materialize/issues"
   },
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 4"
   },
   "author": "Mike North <michael.l.north@gmail.com> (http://mike.works)",
   "contributors": [
