@@ -1,49 +1,30 @@
-
----
 language: node_js
 node_js:
-  - "stable"
-
-dist: trusty
-sudo: required
-
-addons:
-  apt:
-    sources:
-    - google-chrome
-    packages:
-    - google-chrome-stable
-
+- 4
+sudo: false
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 env:
-- EMBER_TRY_SCENARIO=ember-1.13
+- EMBER_TRY_SCENARIO=ember-2.3
 - EMBER_TRY_SCENARIO=ember-2.4
-- EMBER_TRY_SCENARIO=ember-2.6
 - EMBER_TRY_SCENARIO=ember-release
 - ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-beta
 - ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-canary
-
 matrix:
   fast_finish: true
   allow_failures:
-    - env: ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-beta
-    - env: ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-canary
-
+  - env: ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-beta
+  - env: ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-canary
 before_install:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - "npm config set spin false"
-  - "npm install -g npm@^3"
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-- if [ "${EMBER_TRY_SCENARIO}" = "ember-release" ]; then ember try:one $EMBER_TRY_SCENARIO test; else ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup; fi
+- ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup
 deploy:
   provider: heroku
   api_key:
@@ -51,4 +32,3 @@ deploy:
   app: ember-materialize-demo
   on:
     repo: mike-north/ember-cli-materialize
-    condition: "$EMBER_TRY_SCENARIO = ember-release"

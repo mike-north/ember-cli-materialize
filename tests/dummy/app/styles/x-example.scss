@@ -1,0 +1,34 @@
+.x-example {
+  .hbs-code {
+    border: 1px solid #ddd;
+    background: #f8f8f8;
+  }
+  &.basic-buttons,
+  &.flat-buttons,
+  &.link-buttons,
+  &.large-buttons {
+    .btn {
+      margin: 10px;
+    }
+  }
+  &.link-buttons {
+    .btn.active {
+      @extend .z-depth-5;
+    }
+  }
+  &.sidenav-example {
+    .rendered-example {
+      position: relative;
+      min-height: 200px;
+      .side-nav {
+        transform: none;
+        left: 0;
+        width: 250px;
+        height: auto;
+        max-height: 200px;
+        position: absolute;
+        z-index: 100;
+      }
+    }
+  }
+}

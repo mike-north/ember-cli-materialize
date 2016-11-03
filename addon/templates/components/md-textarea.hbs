@@ -1,6 +1,17 @@
 {{#if icon}}
-  {{bw-compat-icon icon extraClasses="prefix"}}
+<i class="material-icons prefix">{{icon}}</i>
 {{/if}}
-
-{{textarea id=id value=value name=name required=required readonly=readonly disabled=disabled maxlength=maxlength class="materialize-textarea"}}
-<label for="{{id}}" data-error={{_errorString}}>{{label}}</label>
+<textarea
+  value={{value}}
+  rows={{rows}}
+  cols={{cols}}
+  id={{_inputId}}
+  placeholder={{placeholder}}
+  disabled={{disabled}}
+  class={{_classesForTextarea}} />
+<label
+  for={{_inputId}}
+  class={{labelClass}}>
+  {{label}}
+</label>
+{{yield}}

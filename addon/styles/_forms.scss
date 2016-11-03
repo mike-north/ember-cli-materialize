@@ -1,0 +1,16 @@
+.md-input.input-field {
+  label {
+    width: calc(100% - 1.5rem);
+    &:after {
+      font-size: 0.8rem;
+      transition-property: top;
+      top: 45px;
+    }
+    &.active {
+      &:after {
+        top: 65px;
+      }
+    }
+  }
+}
+

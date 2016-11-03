@@ -1,25 +1,58 @@
-<header>
-{{demo-nav}}
-</header>
-<ul class="side-nav fixed demo-page-submenu" id="mobile-demo">
-  {{#each demoSections as |section|}}
-    {{#link-to section.route activeClass='active' tagName='li'}}
-      {{#link-to section.route}}
-        {{section.name}}
-        {{#if section.new}}
-          {{#md-badge class='deep-orange lighten-1 new-badge right white-text'}}New{{/md-badge}}
-        {{/if}}
-      {{/link-to}}
-    {{/link-to}}
-  {{/each}}
-</ul>
-<main>
-  {{outlet}}
-</main>
+<div id="sidenav-container"></div>
+{{md-toasts}}
+<div class="navbar-fixed">
+{{#md-nav class='doc-nav' as |n|}}
+  {{#n.title 'index'}}
+    ember-cli-materialize {{/n.title}}
+  <a data-activates={{n.sidenavId}} class="button-collapse">
+    <i class="material-icons">menu</i>
+  </a>
+  <div class="hide-on-med-and-down">
+  {{#n.menu class='right' as |m|}}
+    {{#m.btn label='Components' as |b|}}
+      {{#b.dropdown as |d|}}
+        {{d.link-to 'Button' 'button'}}
+        {{d.link-to 'Card' 'card'}}
+        {{d.link-to 'Collapsible' 'collapsible'}}
+        {{d.link-to 'Collection' 'collection'}}
+        {{d.link-to 'Forms' 'forms'}}
+        {{d.link-to 'Loader' 'loader'}}
+        {{d.link-to 'Nav' 'nav'}}
+        {{d.link-to 'Pagination' 'pagination'}}
+        {{d.link-to 'SideNav' 'sidenav'}}
+        {{d.link-to 'Modal' 'modal'}}
+        {{d.link-to 'Tabs' 'tabs'}}
+        <li class="divider"></li>
+        {{#d.link-to 'toasts'}}Toasts{{/d.link-to}}
+        {{#d.link-to 'crumb'}}Breadcrumbs{{/d.link-to}}
+      {{/b.dropdown}}
+    {{/m.btn}}
+  {{/n.menu}}
+  </div>
 
-{{md-modal-container}}
+  {{#n.sidenav as |sn|}}
+    {{#sn.link-to 'button'}} Button {{/sn.link-to}}
+    {{#sn.link-to 'card'}} Card {{/sn.link-to}}
+    {{#sn.link-to 'collapsible'}} Collapsible {{/sn.link-to}}
+    {{#sn.link-to 'collection'}} Collection {{/sn.link-to}}
+    {{#sn.link-to 'forms'}} Forms {{/sn.link-to}}
+    {{#sn.link-to 'loader'}} Loader {{/sn.link-to}}
+    {{#sn.link-to 'nav'}} Nav {{/sn.link-to}}
+    {{#sn.link-to 'pagination'}} Pagination {{/sn.link-to}}
+    {{#sn.link-to 'sidenav'}} SideNav {{/sn.link-to}}
+    {{#sn.link-to 'modal'}} Modal {{/sn.link-to}}
+    {{#sn.link-to 'tabs'}} Tabs {{/sn.link-to}}
+    <li class="divider"></li>
+    {{#sn.link-to 'toasts'}} Toasts {{/sn.link-to}}
+    {{#sn.link-to 'crumb'}} Breadcrumbs {{/sn.link-to}}
+  {{/n.sidenav}}
+{{/md-nav}}
+</div>
 
-<footer class="page-footer demo-footer deep-orange darken-2">
-  {{#md-copyright text='Copyright Text' startYear=2014}}<a class="grey-text text-lighten-4 right" href="#!">More Links</a>{{/md-copyright}}
-</footer>
-{{ember-anchor a=myQueryParam}}
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      {{outlet}}
+    </div>
+  </div>
+</div>

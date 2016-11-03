@@ -1,0 +1,9 @@
+{{#if _alertIcon}}
+  <i class="material-icons left">{{_alertIcon}}</i>
+{{/if}}
+{{content.message}}
+{{#if showProgressBar}}
+  <div class="toast-progress">
+    <div class="toast-progress-bar" style={{progressDuration}}></div>
+  </div>
+{{/if}}

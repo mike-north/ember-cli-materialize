@@ -1,65 +1,58 @@
 /* jshint node: true */
 
+
+
 module.exports = function(environment) {
-  var ENV = {
-    modulePrefix: 'dummy',
-    environment: environment,
-    rootURL: '/',
-    locationType: 'auto',
-    EmberENV: {
-      FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
-      }
-    },
+    var ENV = {
+        modulePrefix: 'dummy',
+        environment: environment,
+        rootURL: '/',
+        locationType: 'auto',
+        EmberENV: {
+            FEATURES: {
+                // Here you can enable experimental features on an ember canary build
+                // e.g. 'with-controller': true
+            }
+        },
+        materialize: {
+            toasts: {
+                warning: {
+                    class: 'orange'
+                }
+            }
+        },
+        APP: {
+            // Here you can pass flags/options to your application instance
+            // when it is created
+        }
+    };
 
-    APP: {
-      emberModalDialog: {
-        modalRootElementId: 'materialize-modal-root-element'
-      }
-      // Here you can pass flags/options to your application instance
-      // when it is created
-    }
-  };
-
-  if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.EmberENV.RAISE_ON_DEPRECATION = true;
-
-  }
-
-  if (environment === 'test') {
-    // Testem prefers this...
-    ENV.rootURL = '/';
-    ENV.locationType = 'none';
     ENV.EmberENV.RAISE_ON_DEPRECATION = !process.env['ALLOW_DEPRECATIONS'];
 
-    // keep test console output quieter
-    ENV.APP.LOG_ACTIVE_GENERATION = false;
-    ENV.APP.LOG_VIEW_LOOKUPS = false;
+    if (environment === 'development') {
+        // ENV.APP.LOG_RESOLVER = true;
+        // ENV.APP.LOG_ACTIVE_GENERATION = true;
+        // ENV.APP.LOG_TRANSITIONS = true;
+        // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
+        // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    }
 
-    ENV.APP.rootElement = '#ember-testing';
-  }
+    if (environment === 'test') {
+        // Testem prefers this...
+        ENV.baseURL = '/';
+        ENV.locationType = 'none';
 
-  if (environment === 'production') {
-    ENV.locationType = 'hash';
-    ENV.rootURL = '/ember-cli-materialize/';
-    ENV.rootURL = '/ember-cli-materialize';
-    ENV.locationType = 'hash';
-  }
+        // keep test console output quieter
+        ENV.APP.LOG_ACTIVE_GENERATION = false;
+        ENV.APP.LOG_VIEW_LOOKUPS = false;
 
-  ENV.contentSecurityPolicy = {
-    'default-src': "'unsafe-inline'",
-    'script-src': "'self' 'unsafe-eval' 'unsafe-inline'",
-    'style-src': "'self' 'unsafe-inline'",
-    'connect-src': "'self' ",
-    'img-src': "'self'",
-    'media-src': "'self'"
-  };
+        ENV.APP.rootElement = '#ember-testing';
+    }
 
-  return ENV;
+    if (environment === 'production') {
+        // ENV.rootURL = 'ember-materialize-v1-site/';
+        ENV.locationType = 'hash';
+    }
+
+    return ENV;
 };

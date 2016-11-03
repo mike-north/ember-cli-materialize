@@ -1,0 +1,31 @@
+.ember-modal-overlay {
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+}
+.ember-modal-overlay.translucent {
+  background-color: rgba(#000, .50);
+}
+
+.md-dialog-modal {
+  &.modal {
+    display: block;
+    opacity: 1;
+    transform: scaleX(1);
+    top: -100%;
+    transition: bottom 300ms, top 300ms, opacity 300ms;
+    &.active {
+      top: 20%;
+    }
+  }
+  &.modal.bottom-sheet {
+    top: auto;
+    bottom: -100%;
+    &.active {
+      bottom: 0%;
+    }
+  }
+}

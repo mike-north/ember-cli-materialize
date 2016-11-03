@@ -1,6 +1,6 @@
-import SelectableItemGroup from './selectable-item-group';
+import Ember from 'ember';
+import layout from '../templates/components/md-radios';
 
-export default SelectableItemGroup.extend({
-  classNames: ['md-radios'],
-  selectableItemView: 'md-radios-radio'
+export default Ember.Component.extend({
+  layout
 });

@@ -1,0 +1,12 @@
+<span class="title">{{name}}</span>
+{{#if type}}
+  <span class="param-type right">{{type}}</span>
+{{/if}}
+<p class='first-line'>
+  {{#if default}}
+    <div class="default-value">Defaults to: {{default}}</div>
+  {{/if}}
+</p>
+{{#if hasBlock}}
+  <p class='second-line'>{{yield}}</p>
+{{/if}}

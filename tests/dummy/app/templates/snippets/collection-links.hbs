@@ -1,3 +1,5 @@
-{{#md-collection content=content as |item|}}
-  {{link-to item.name item.route class='collection-item'}}
+{{#md-collection as |c|}}
+  {{c.link-to 'Stefan Penner' 'collection' (query-params selected="stef")}}
+  {{c.link-to 'Tom Dale' 'collection' (query-params selected="tom")}}
+  {{c.link-to 'Yehuda Katz' 'collection' (query-params selected="yehuda")}}
 {{/md-collection}}

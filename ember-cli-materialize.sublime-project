@@ -7,13 +7,13 @@
       "folder_exclude_patterns": ["node_modules", "bower_components", "tmp"]
     },
     {
-      "path": "./node_modules/ember-materialize-shim",
+      "path": "node_modules/ember-materialize-shim",
       "name": "EmberMaterializeShim",
       "folder_exclude_patterns": ["node_modules", "bower_components", "tmp"]
     },
     {
-      "path": "./node_modules/ember-material-design-icons-shim",
-      "name": "EmberMaterializeIcons",
+      "path": "node_modules/ember-material-design-icons-shim",
+      "name": "Icons",
       "folder_exclude_patterns": ["node_modules", "bower_components", "tmp"]
     },
     {

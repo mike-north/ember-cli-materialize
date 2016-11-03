@@ -1,0 +1,10 @@
+<div class="nav-wrapper">
+  <div class="container">
+  {{yield (hash
+    title=(component 'link-to' class="brand-logo")
+    menu=(component 'md-nav-menu')
+    sidenavId=this._sidenavId
+    sidenav=(component 'md-sidenav' _parentNav=this)
+  )}}
+  </div>
+</div>

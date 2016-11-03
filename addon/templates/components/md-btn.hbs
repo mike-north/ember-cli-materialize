@@ -1,5 +1,11 @@
 {{#if icon}}
-  <i class="{{icon}} {{iconPosition}}"></i>
+  <i class="material-icons {{iconClass}}">
+    {{icon}}
+  </i>
 {{/if}}
-{{text}}
-{{yield}}
+{{yield (hash
+  dropdown=(component 'md-dropdown-menu' _dropdownRoot=this)
+)}}
+{{label}}
+
+

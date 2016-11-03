@@ -1,3 +1,1 @@
-import MaterializeCardContent from 'ember-cli-materialize/components/md-card-content';
-
-export default MaterializeCardContent;
+export { default } from 'ember-cli-materialize/components/md-card-content';

@@ -1,3 +1,1 @@
-import materializeCheckbox from 'ember-cli-materialize/components/md-check';
-
-export default materializeCheckbox;
+export { default } from 'ember-cli-materialize/components/md-check';

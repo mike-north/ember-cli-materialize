@@ -1,0 +1,20 @@
+{{md-btn label="open" on-click=(toggle 'isModalOpen' this)}}
+
+{{#if isModalOpen}}
+  {{#md-dialog
+    dialogClassNames='bottom-sheet'
+    on-close=(toggle 'isModalOpen' this) as |d|}}
+
+    {{!-- BODY --}}
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>This is a test</p>
+    </div>
+
+    {{!-- FOOTER --}}
+    {{#d.footer as |f|}}
+      {{f.btn label='Close'
+        on-click=(toggle 'isModalOpen' this)}}
+    {{/d.footer}}
+  {{/md-dialog}}
+{{/if}}

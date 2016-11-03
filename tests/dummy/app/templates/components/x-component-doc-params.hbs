@@ -1,0 +1,7 @@
+
+{{#md-collection as |c|}}
+  {{c.header text="Params"}}
+  {{yield (hash
+      param=(component 'x-component-doc-param')
+  )}}
+{{/md-collection}}

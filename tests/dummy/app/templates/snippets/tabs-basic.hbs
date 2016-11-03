@@ -1,3 +1,6 @@
-{{md-tabs
-    content=basicTabsContent
-    selected=basicTabsSelection}}
+{{#md-tabs as |t|}}
+  {{t.tab text='Tabs' active=true}}
+  {{t.tab text='Collections'}}
+  {{t.tab text='Things' disabled=true}}
+  {{t.tab text='Stuff'}}
+{{/md-tabs}}

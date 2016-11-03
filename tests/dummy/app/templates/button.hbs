@@ -1,0 +1,44 @@
+{{#x-component-doc title="md-btn" as |doc|}}
+  {{#doc.params as |p|}}
+    {{#p.param name="text" type="string"}}
+      The text rendered on the button
+    {{/p.param}}
+    {{#p.param name="icon" type="string"}}
+      The icon on the button. This can be any valid Google Material Design ligature.
+    {{/p.param}}
+    {{#p.param name="disabled" type="bool" default="false"}}
+      Disabled state of the button
+    {{/p.param}}
+    {{#p.param name="iconClass" type="string" default="left"}}
+      Additional classes to append to the icon on the button, if present. Typical values will be <span class="code">left</span> or <span class="code">right</span>.
+    {{/p.param}}
+    {{#p.param name="waves" type="string" default="light"}}
+      The type of wave effect rendered on the button, when it's clicked. Valid values are <span class="code">null</span>, <span class="code">light</span> and <span class="code">dark</span>.
+    {{/p.param}}
+  {{/doc.params}}
+{{/x-component-doc}}
+
+{{#x-example title="Raised Buttons" classNames="basic-buttons" name='buttons-basic' horizSplit=8}}
+  By default, buttons are raised off of the page to indicate that they are clickable elements. Their color, and text color, and depth can be customized by adding classes as shown.
+{{/x-example}}
+
+{{#x-example title="Large Buttons" classNames="large-buttons" name='buttons-large' horizSplit=8}}
+  Large buttons
+{{/x-example}}
+
+{{#x-example title="Flat Buttons" classNames="flat-buttons" name='buttons-flat' horizSplit=8}}
+  Flat buttons are commonly used on an element that's already raised (i.e., a card). By default they have no background until moused over.
+{{/x-example}}
+
+{{#x-example title="Link Buttons" classNames="link-buttons" name='buttons-links' horizSplit=8}}
+  Link buttons have a similar API surface, but are built around the Ember <span class="code">\{{link-to}}</span> component instead of the HTML5 <span class="code">&lt;button&gt;</span> tag.
+{{/x-example}}
+
+{{#x-example title="Button Dropdowns" classNames="buttons-dropdowns" name='buttons-dropdown' horizSplit=8}}
+  Dropdown buttons reveal menu upon being clicked
+{{/x-example}}
+
+
+{{#x-example title="Floating Buttons" classNames="buttons-floating" name='buttons-floating' horizSplit=8}}
+Floating buttons often are fixed in place on the page, and are reserved for very important actions only.
+{{/x-example}}

@@ -1,12 +1,13 @@
-import InputField from './md-input-field';
+import Ember from 'ember';
 import layout from '../templates/components/md-textarea';
+import TextComponent from '../mixins/text-component';
 
-export default InputField.extend({
+const { computed, Component } = Ember;
+
+export default Component.extend(TextComponent, {
+  classNames: ['md-textarea', 'input-field'],
   layout,
-
-  didInsertElement() {
-    this._super(...arguments);
-    // make sure the label moves when a value is bound.
-    this._setupLabel();
-  }
+  _classesForTextarea: computed('_classesForInput', function() {
+    return (this.get('_classesForInput') + ' materialize-textarea').trim();
+  })
 });

@@ -1,0 +1,24 @@
+@mixin badgesize($size) {
+  font-size: $size;
+  min-width: $size * 3;
+  padding: 0 (($size / 1.0rem) * 6px);
+}
+
+body span.badge {
+
+  &.no-right {
+    right: auto;
+    position: relative;
+    display: inline-block;
+  }
+
+  &.sm {
+    @include badgesize(0.9rem);
+    &.no-right {
+      top: -1px;
+    }
+  }
+  &.xs {
+    @include badgesize(0.8rem);
+  }
+}

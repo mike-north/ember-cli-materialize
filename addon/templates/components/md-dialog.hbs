@@ -1,0 +1,10 @@
+{{#modal-dialog
+  translucentOverlay=translucentOverlay
+  close=(action 'beginClose')}}
+  <div class="md-dialog-modal modal {{_dialogClass}} {{if active 'active'}}">
+
+    {{yield (hash
+      footer=(component 'md-dialog-footer' dialog=this)
+    )}}
+  </div>
+{{/modal-dialog}}

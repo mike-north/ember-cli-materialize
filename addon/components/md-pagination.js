@@ -14,7 +14,7 @@ export default Component.extend({
   range: 5,
   tagName: 'ul',
 
-  windowRange: computed('min', 'max', 'range', 'current', function() {
+  _windowRange: computed('min', 'max', 'range', 'current', function() {
     // TODO: this should be broken out into a util, so that it can be tested independently
     const max = this.get('max');
     const min = this.get('min');
@@ -37,9 +37,9 @@ export default Component.extend({
     };
   }),
 
-  _pages: computed('windowRange.low', 'windowRange.high', 'current', function() {
+  _pages: computed('_windowRange.low', '_windowRange.high', 'current', function() {
     const a = new A([]);
-    const winRange = this.get('windowRange');
+    const winRange = this.get('_windowRange');
     const current = this.get('current');
     for (let i = winRange.low; i <= winRange.high; i += 1) {
       a.addObject({ val: i, cssClass: (current === i ? 'active' : 'waves-effect') });
@@ -66,16 +66,19 @@ export default Component.extend({
   actions: {
     oneBack() {
       if (this.get('_canGoBack')) {
-        this.decrementProperty('current');
+        const x = this.decrementProperty('current');
+        this.sendAction('on-change', x);
       }
     },
     oneFwd() {
       if (this.get('_canGoFwd')) {
-        this.incrementProperty('current');
+        const x = this.incrementProperty('current');
+        this.sendAction('on-change', x);
       }
     },
     gotoPage(pagenum) {
-      this.set('current', pagenum);
+      const x = this.set('current', pagenum);
+      this.sendAction('on-change', x);
     }
   }
 });

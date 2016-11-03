@@ -1,60 +1,76 @@
 import Ember from 'ember';
-import MaterializeInputField from './md-input-field';
 import layout from '../templates/components/md-select';
 
-const { computed, A, observer, isNone, run: { later }, get } = Ember;
+const { run: { scheduleOnce }, computed, Component } = Ember;
 
-export default MaterializeInputField.extend({
+export default Component.extend({
+  classNames: ['md-select', 'input-field'],
+  content: null,
+  optionValueProp: '',
+  optionDisplayProp: '',
+  contentIconProp: '',
+  iconAlign: 'right',
+  optionClass: 'circle',
+  value: null,
+  placeholder: null,
+  _isDropdownOpen: false,
   layout,
-  classNames: ['md-select'],
-  optionLabelPath: 'content',
-  optionValuePath: 'content',
-
-  didInsertElement() {
-    this._super(...arguments);
-    this._setupSelect();
-  },
-
-  _setupSelect() {
-    // jscs: disable
-    this.$('select').material_select();
-    // jscs: enable
-  },
-
-  _parsedContent: computed('optionValuePath', 'optionLabelPath', 'content.[]', function() {
-    const contentRegex = /(content\.|^content$)/;
-    // keep backwards compatability for defining optionValuePath & as optionContentPath `content.{{attName}}`
-    const optionValuePath = (this.get('optionValuePath') || '').replace(contentRegex, '');
-    const optionLabelPath = (this.get('optionLabelPath') || '').replace(contentRegex, '');
-    return A((this.get('content') || []).map((option) => {
-      return {
-        value: optionValuePath ? get(option, optionValuePath) : option,
-        label: optionLabelPath ? get(option, optionLabelPath) : option
-      };
-    }));
+  _placeholderText: computed('placeholder', 'value', function() {
+    const ph = this.get('placeholder');
+    if (ph) {return ph;}
+    const val = this.get('value');
+    if (!val) {return ' ';}
+    else {return null;}
   }),
 
-  // TODO: clean up any listeners that $.select() puts in place
-  // _teardownSelect() {
-  //
-  // }
-
-  // TODO: this could be converted to a computed property, returning a string
-  //  that is bound to the class attribute of the inputSelector
-  errorsDidChange: observer('errors', function() {
-    const inputSelector = this.$('input');
-    // monitor the select's validity and copy the appropriate validation class to the materialize input element.
-    if (!isNone(inputSelector)) {
-      later(this, function() {
-        const isValid = this.$('select').hasClass('valid');
-        if (isValid) {
-          inputSelector.removeClass('invalid');
-          inputSelector.addClass('valid');
-        } else {
-          inputSelector.removeClass('valid');
-          inputSelector.addClass('invalid');
-        }
-      }, 150);
+  init() {
+    this._super(...arguments);
+    let content = this.get('content');
+    if (!content) {
+      this.set('content', []);
     }
-  })
+  },
+  didInsertElement() {
+    this._super(...arguments);
+    scheduleOnce('afterRender', () => {
+      this.$('select').material_select();
+    });
+  },
+  _selectClasses: computed('contentIconProp', function() {
+    return this.get('contentIconProp') ? 'icons' : '';
+  }),
+  _choices: computed('content', 'optionValueProp', 'optionDisplayProp', {
+    get() {
+      const arr = this.get('content') || [];
+      const choices = arr.map((x) => {
+        return {
+          value: Ember.get(x, this.get('optionValueProp')),
+          text:  Ember.get(x, this.get('optionDisplayProp')),
+          icon: this.get('contentIconProp') ? Ember.get(x, this.get('contentIconProp')) : null
+        };
+      });
+      return choices;
+    }
+  }),
+
+  _rebuildSelect() {
+    this.$('select').material_select('destroy');
+    this.$('select').material_select();
+  },
+
+  actions: {
+    change() {
+      // const changeAction = this.get('action');
+      const selectedEl = this.$('select')[0];
+      const selectedIndex = selectedEl.selectedIndex;
+      const content = this.get('content');
+      const shift = this.get('_placeholderText') ? 1 : 0;
+      const selectedValue = content[selectedIndex - shift];
+      this.set('value', selectedValue);
+      Ember.run.schedule('afterRender', () => {
+        this._rebuildSelect();
+      });
+      // changeAction(selectedValue);
+    }
+  }
 });

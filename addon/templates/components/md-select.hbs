@@ -1,20 +1,23 @@
-<label id="{{id}}" class="active">{{label}}</label>
-
-<select onchange={{action (mut value) value="target.value"}}
-        class="{{if validate 'validate'}} {{if errors 'invalid' 'valid'}}"
-        disabled={{if disabled "true"}}>
-  {{#if prompt}}
-    <option value="" disabled selected={{unless value "true"}}>{{prompt}}</option>
+<select id={{_inputId}}
+  placeholder={{placeholder}}
+  disabled={{disabled}}
+  class={{_selectClasses}}
+  {{action 'change' on='change'}}>
+  {{#if _placeholderText}}
+    <option value="" disabled selected>{{_placeholderText}}</option>
   {{/if}}
-  {{#each _parsedContent as |option|}}
-    <option value={{option.value}} selected={{if (eq value option.value) "true"}}>{{option.label}}</option>
+  {{#each _choices key="@index" as |item|}}
+    <option
+      value="{{item.value}}"
+      selected={{eq item.value value}}
+      data-icon={{item.icon}}
+      class={{optionClass}}>
+      {{item.text}}
+    </option>
   {{/each}}
 </select>
-
-<small class="red-text">
-  {{#if errors}}
-    {{errors.firstObject}}
-  {{else}}
-    &nbsp;
-  {{/if}}
-</small>
+<label
+  for={{_inputId}}
+  class={{labelClass}}>
+  {{label}}
+</label>
