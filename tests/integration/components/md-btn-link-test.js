@@ -13,6 +13,6 @@ test('it renders', function(assert) {
 
     this.render(hbs `{{md-btn-link 'My Thing' 'index'}}`);
     assert.equal(this.$().text().trim(), 'My Thing');
-    assert.equal(this.$().html().replace(/(id=\"ember[0-9]+\"|[\s\n]+)/g, '').replace(/disabled=\"[a-zA-Z]*\"/g, ''),
-        '<ahref=\"\"class=\"md-btn-linkbtnwaves-effectwaves-lightember-view\"><!---->MyThing</a>');
+    assert.equal(this.$().html().replace(/(id=\"ember[0-9]+\"|[\s\n]+)/g, '').replace(/disabled=\"[a-zA-Z]*\"/g, '').replace(/ember-view/g, '').replace(/<!---->/g, ''),
+        '<ahref=\"\"class=\"md-btn-linkbtnwaves-effectwaves-light\">MyThing</a>');
 });

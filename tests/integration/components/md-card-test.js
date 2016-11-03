@@ -45,8 +45,8 @@ test('Basic card with actions', function(assert) {
     assert.equal(this.$('.card-title').text(), 'A basic card');
     assert.equal(this.$('.card-content p').text(), 'template block text');
     assert.equal(this.$('.card-action').text().trim(), 'Click Me!');
-    assert.equal(this.$().html().replace(/[\s\n]+/g, '').replace(/(id=\"ember[0-9]+\"|[\s\n]+)/g, ''),
-        `<divclass=\"md-cardcardember-view\"><!----><divclass=\"md-card-contentcard-contentember-view\"><spanclass=\"card-title\">Abasiccard</span><p>templateblocktext</p></div><divclass=\"md-card-actionscard-actionember-view\"><buttonclass=\"md-btnbtn-flatwaves-effectwaves-lightember-view\"><!---->ClickMe!</button></div></div>`);
+    assert.equal(this.$().html().replace(/[\s\n]+/g, '').replace(/(id=\"ember[0-9]+\"|[\s\n]+)/g, '').replace(/ember-view/g, '').replace(/<!---->/g, ''),
+        `<divclass=\"md-cardcard\"><divclass=\"md-card-contentcard-content\"><spanclass=\"card-title\">Abasiccard</span><p>templateblocktext</p></div><divclass=\"md-card-actionscard-action\"><buttonclass=\"md-btnbtn-flatwaves-effectwaves-light\">ClickMe!</button></div></div>`);
     $('.card-action button').click();
 });
 
@@ -63,7 +63,7 @@ test('Basic card with no actions', function(assert) {
     assert.equal(this.$().text().trim().replace(/[\s\n]+/g, ''), 'Abasiccardtemplateblocktext');
     assert.equal(this.$('.card-title').text(), 'A basic card');
     assert.equal(this.$('.card-content p').text(), 'template block text');
-    assert.equal(this.$().html().replace(/[\s\n]+/g, '').replace(/(id=\"ember[0-9]+\"|[\s\n]+)/g, ''),
-        `<divclass=\"md-cardcardember-view\"><!----><divclass=\"md-card-contentcard-contentember-view\"><spanclass=\"card-title\">Abasiccard</span><p>templateblocktext</p></div></div>`);
+    assert.equal(this.$().html().replace(/[\s\n]+/g, '').replace(/(id=\"ember[0-9]+\"|[\s\n]+)/g, '').replace(/ember-view/g, '').replace(/<!---->/g, ''),
+        `<divclass=\"md-cardcard\"><divclass=\"md-card-contentcard-content\"><spanclass=\"card-title\">Abasiccard</span><p>templateblocktext</p></div></div>`);
     $('.card-action button').click();
 });
