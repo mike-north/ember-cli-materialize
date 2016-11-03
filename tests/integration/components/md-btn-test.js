@@ -42,13 +42,13 @@ test('large and flat classes are applied appropriately', function(assert) {
   });
   this.render(hbs`{{md-btn label='Button' flat=isFlat large=isLarge}}`);
   assert.equal(this.$().text().trim(), 'Button');
-  assert.equal(this.$('.md-btn').attr('class'), 'ember-view md-btn btn btn-large waves-effect waves-light');
+  assert.equal(this.$('.md-btn').attr('class'), 'md-btn btn btn-large waves-effect waves-light ember-view');
   this.set('isLarge', false);
-  assert.equal(this.$('.md-btn').attr('class'), 'ember-view md-btn btn waves-effect waves-light');
+  assert.equal(this.$('.md-btn').attr('class'), 'md-btn btn waves-effect waves-light ember-view');
   this.set('isFlat', true);
-  assert.equal(this.$('.md-btn').attr('class'), 'ember-view md-btn btn-flat waves-effect waves-light');
+  assert.equal(this.$('.md-btn').attr('class'), 'md-btn btn-flat waves-effect waves-light ember-view');
   this.set('isLarge', true);
-  assert.equal(this.$('.md-btn').attr('class'), 'ember-view md-btn btn-flat btn-large waves-effect waves-light');
+  assert.equal(this.$('.md-btn').attr('class'), 'md-btn btn-flat btn-large waves-effect waves-light ember-view');
 });
 
 test('icon alignment', function(assert) {
