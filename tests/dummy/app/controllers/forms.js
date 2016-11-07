@@ -112,8 +112,9 @@ export default Controller.extend({
   checkboxSelectionsString: asJSON('checkboxSelections'),
 
   actions: {
-    checkboxClickAction(isChecked){
-      window.alert('Are you checked? '+(isChecked === true ? "Yes, of course." : "Nope, hombre."));
+    checkboxClickAction(isChecked) {
+      let stateText = isChecked === true ? `Yes, of course.` : `Nope, hombre.`;
+      window.alert(`Are you checked? ` + stateText);
     }
   }
 });
