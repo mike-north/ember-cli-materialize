@@ -65,6 +65,7 @@ export default Controller.extend({
   checkValueTwo: true,
 
   checkboxIsSelected: false,
+  checkboxWithActionIsSelected: false,
   radioIsSelected: false,
   radioSelection: 2,
   otherRadioSelection: 'green',
@@ -108,5 +109,11 @@ export default Controller.extend({
   switchesSelectionsString: asJSON('switchesSelections'),
 
   checkboxChoicesString: asJSON('checkboxChoices'),
-  checkboxSelectionsString: asJSON('checkboxSelections')
+  checkboxSelectionsString: asJSON('checkboxSelections'),
+
+  actions: {
+    checkboxClickAction(isChecked){
+      window.alert('Are you checked? '+(isChecked === true ? "Yes, of course." : "Nope, hombre."));
+    }
+  }
 });

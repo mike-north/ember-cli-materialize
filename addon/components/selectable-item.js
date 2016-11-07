@@ -28,6 +28,10 @@ export default Component.extend(ChildComponentSupport, {
         group.setValueSelection(this.get('value'), val);
       }
       this.sendAction('action', { checked: !!val });
+
+      //Because the click() event is fired twice (on checkboxes at least), need to reset this var to its default
+      //so the click action can be fired again on the next click
+      this.set('clickActionWasSent', false);
       return !!val;
     }
   }),
@@ -44,6 +48,26 @@ export default Component.extend(ChildComponentSupport, {
   didInsertElement() {
     this._super(...arguments);
     this._setupLabel();
+  },
+  onClick: null,
+  //For some reason, click is called twice, requiring a variable to avoid sending the action twice
+  clickActionWasSent: false,
+  click(){
+    this._super(...arguments);
+    let clickAction = this.get('onClick');
+    let isSelected = !this.get('isSelected');
+
+    if(!this.get('clickActionWasSent'))
+    {
+      if(typeof clickAction === "function")
+      {
+        clickAction(isSelected);
+      }
+      else if(typeof clickAction === "string"){
+        this.sendAction('onClick', isSelected);
+      }
+      this.set('clickActionWasSent', true);
+    }
   },
 
   group: computed(function() {
