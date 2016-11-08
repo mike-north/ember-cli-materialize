@@ -7,9 +7,11 @@ export default Mixin.create(FormField, {
   disabled: false,
   inputClassNames: [],
   labelClassNames: [],
-  active: false,
   value: null,
   concatenatedProperties: ['inputClassNames', 'labelClassNames'],
+  _active: computed('value', 'placeholder', function() {
+    return this.get('value') || this.get('placeholder');
+  }),
   _classesForInput: computed('inputClassNames', '_validateClass', function() {
     let classes = this.get('inputClassNames');
     return classes.concat([this.get('_validateClass')]).join(' ');
@@ -31,7 +33,6 @@ export default Mixin.create(FormField, {
   }),
   init() {
     this._super(...arguments);
-    this.set('active', this.get('value') || this.get('placeholder'));
   },
   actions: {
     onChange() {

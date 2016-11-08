@@ -14,7 +14,7 @@ test('it renders', function(assert) {
   assert.equal(this.$().text().trim(), '');
 });
 
-test('label is rendered as expeced', function(assert) {
+test('label is rendered as expected', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
@@ -29,5 +29,33 @@ test('label is rendered as expeced', function(assert) {
   assert.equal(this.$('label').hasClass('active'), true, 'Active class is on label if field has focus');
   this.render(hbs`{{md-input label='Last Name' value='North'}}`);
   assert.equal(this.$('label').hasClass('active'), true, 'Active class is on label if field has a value');
+});
 
+test('label has active when placeholder displayed', function(assert) {
+  this.render(hbs`{{md-input label='Last Name' placeholder='Your Last Name'}}`);
+  assert.equal(this.$('label').hasClass('active'), true, 'Active class is on label when placeholder is displayed');
+});
+
+test('lable gains active state after programatically populating the value', function(assert) {
+  this.set('value', '');
+  this.render(hbs`{{md-input label='Last Name' value=value}}`);
+  this.set('value', 'North');
+
+  assert.equal(this.$('label').hasClass('active'), true, 'Active class added to label after populating value');
+});
+
+test('label loses active state after programatically clearing the value', function(assert) {
+  this.set('value', 'North');
+  this.render(hbs`{{md-input label='Last Name' value=value}}`);
+
+  this.set('value', '');
+  assert.equal(this.$('label').hasClass('active'), false, 'Active class removed from label after programatically clearing value');
+});
+
+test('label remains active with placeholder after programatically clearing the value', function(assert) {
+  this.set('value', 'North');
+  this.render(hbs`{{md-input label='Last Name' placeholder='Your Last Name' value=value}}`);
+
+  this.set('value', '');
+  assert.equal(this.$('label').hasClass('active'), true, 'Active class remains after clear with placeholder');
 });
