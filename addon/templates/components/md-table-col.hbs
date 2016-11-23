@@ -1,2 +1,5 @@
-{{_value}}
-{{yield}}
+{{#if hasBlock}}
+  {{yield}}
+{{else}}
+  {{_value}}
+{{/if}}
