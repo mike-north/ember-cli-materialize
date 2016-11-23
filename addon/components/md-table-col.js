@@ -11,7 +11,13 @@ export default Component.extend(ChildComponentSupport, {
   layout,
   valueBindingPath: null,
   headerComponentName: 'md-default-column-header',
-  // header: alias('valueBindingPath'),
+  headerComputed: computed('valueBindingPath', 'header', function() {
+    if(this.get('header') || this.get('header.length') === 0) {
+      return this.get('header');
+    } else {
+      return this.get('valueBindingPath');
+    }
+  }),
   key: alias('valueBindingPath'),
   _value: computed('valueBindingPath', 'row', function() {
     let vbp = this.get('valueBindingPath');
