@@ -31,7 +31,7 @@ Ember.js version | ember-cli-materialize version
 * It's a components library for all Materialize components
 
 ## Usage
-The [online demo](http://mike.works/ember-cli-materialize) demonstrates all components with all possible options.
+The [online demo](http://ember-materialize.mike.works/) demonstrates all components with all possible options.
 
 Or you can download the demo:
 ```sh
