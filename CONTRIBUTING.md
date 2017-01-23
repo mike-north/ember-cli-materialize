@@ -1,6 +1,26 @@
 # Contributing
 First of all, **thank you** for contributing, **you are awesome**!
 
+1. Fork `ember-cli-materialize`, then create a local clone of your fork:
+
+```
+  git clone git@github.com:[your-name]/ember-cli-materialize.git
+  cd ember-cli-materialize
+```
+    
+2. Ensure `node` is installed.
+  - Ensure `npm` is installed
+3. Ensure `ember-cli` is installed: `npm install -g ember-cli`
+4. Ensure `phantomjs` v2.x is installed.
+5. Install dependencies and run the tests:
+
+```
+  npm i && bower i
+  ember test
+```
+
+If all tests pass, you should be all set.
+
 Here are a few rules to follow in order to ease code reviews, and discussions before
 maintainers accept and merge your work.
 
