@@ -4,7 +4,7 @@
         class="{{if validate 'validate'}} {{if errors 'invalid' 'valid'}}"
         disabled={{if disabled "true"}}>
   {{#if prompt}}
-    <option value="" disabled selected={{unless value "true"}}>{{prompt}}</option>
+    <option value="" disabled={{unless withNullOption "true"}} selected={{unless value "true"}}>{{prompt}}</option>
   {{/if}}
   {{#each _parsedContent as |option|}}
     <option value={{option.value}} selected={{if (eq value option.value) "true"}}>{{option.label}}</option>
