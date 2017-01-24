@@ -35,6 +35,32 @@ test('button is added to the page', function(assert) {
   assert.ok(component.$().hasClass('btn'));
 });
 
+test('button click test', function(assert) {
+  let clickedCount = 0;
+  let component = this.subject({
+    action() {
+      clickedCount++;
+    }
+  });
+  this.render();
+  component.$().click();
+  assert.equal(clickedCount, 1, 'action should fire when clicked');
+});
+
+test('button click action does not fire if disabled', function(assert) {
+  let clickedCount = 0;
+  let component = this.subject({
+    isDisabled: true,
+    action() {
+      clickedCount++;
+    }
+  });
+  this.render();
+  component.$().click();
+
+  assert.equal(clickedCount, 0, 'action should not fire when clicked');
+});
+
 test('button text test', function(assert) {
   let component = this.subject();
   this.render();
