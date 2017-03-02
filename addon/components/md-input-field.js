@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
-const { Component, computed, isPresent } = Ember;
+const { Component, TextSupport, computed, isPresent } = Ember;
 
-export default Component.extend({
+export default Component.extend(TextSupport, {
   classNames: ['input-field'],
 
   bindAttributes: ['disabled', 'readonly', 'autofocus'],
