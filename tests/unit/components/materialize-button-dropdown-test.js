@@ -2,9 +2,8 @@ import { moduleForComponent, test } from 'ember-qunit';
 import $ from 'jquery';
 
 moduleForComponent('md-btn-dropdown', 'component:md-btn-dropdown', {
-  unit: true
-  // specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar']
+  unit: true,
+  needs: ['helper:bw-compat-icon']
 });
 
 test('button dropdown renders', function(assert) {

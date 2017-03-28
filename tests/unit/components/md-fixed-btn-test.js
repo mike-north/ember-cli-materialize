@@ -2,7 +2,7 @@ import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('md-fixed-btn', 'component:md-fixed-btn', {
   // Specify the other units that are required for this test
-  needs: ['component:md-btn']
+  needs: ['component:md-btn', 'helper:bw-compat-icon']
 });
 
 test('it renders', function(assert) {
