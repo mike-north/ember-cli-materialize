@@ -65,7 +65,7 @@
     "ember-suave": "4.0.0",
     "ember-sublime": "0.0.9",
     "ember-truth-helpers": "1.2.0",
-    "loader.js": "4.0.10"
+    "loader.js": "4.3.0"
   },
   "keywords": [
     "materialize",
