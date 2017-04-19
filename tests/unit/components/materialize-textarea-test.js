@@ -1,7 +1,10 @@
+import Ember from 'ember';
 import {
   moduleForComponent,
   test
 } from 'ember-qunit';
+
+const { run } = Ember;
 
 moduleForComponent('md-textarea', {
   unit: true,
@@ -19,6 +22,44 @@ test('textarea renders', function(assert) {
   // renders the component to the page
   this.render();
   assert.equal(component._state, 'inDOM');
+});
+
+test('textarea autoresizes on render', function(assert) {
+  const component = this.subject({
+    value: 'largestring'.repeat(1000)
+  });
+  this.render();
+
+  const initialHeight = component.$().height();
+
+  const done = assert.async();
+  run.next(() => {
+    const autoresizedHeight = component.$().height();
+    assert.ok(initialHeight < autoresizedHeight,
+      'Text area should autoresize to fit content');
+    done();
+  });
+});
+
+test('textarea autoresizes on value change', function(assert) {
+  const component = this.subject();
+  this.render();
+
+  const done = assert.async();
+  run.next(() => {
+    const initialHeight = component.$().height();
+
+    const textarea = component.$('textarea');
+    textarea.val('largestring'.repeat(1000));
+    textarea.change();
+
+    run.next(() => {
+      const autoresizedHeight = component.$().height();
+      assert.ok(initialHeight < autoresizedHeight,
+        'Text area should autoresize to fit content');
+      done();
+    });
+  });
 });
 
 test('textarea has class input-field', function(assert) {
