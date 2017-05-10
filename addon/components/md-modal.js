@@ -32,7 +32,7 @@ export default Component.extend(EKMixin, UsesSettings, {
 
   modalClassNames: ['modal', 'show'],
   _modalClassString: computed('modalClassNames.[]', 'isFooterFixed', function() {
-    const names = this.get('modalClassNames');
+    const names = this.get('modalClassNames').slice(0); // copies property
     if (this.get('isFooterFixed')) {
       names.push('modal-fixed-footer');
     }
