@@ -1,5 +1,7 @@
 # ember-cli-materialize
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mike-north/ember-cli-materialize.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/mike-north/ember-cli-materialize.svg?branch=master)](https://travis-ci.org/mike-north/ember-cli-materialize)
 [![npm version](https://badge.fury.io/js/ember-cli-materialize.svg)](http://badge.fury.io/js/ember-cli-materialize)
 [![Code Climate](https://codeclimate.com/github/mike-north/ember-cli-materialize/badges/gpa.svg)](https://codeclimate.com/github/mike-north/ember-cli-materialize)
