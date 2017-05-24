@@ -1,19 +1,14 @@
-import Ember from 'ember';
+import { test } from 'qunit';
+import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
 
-import startApp from '../../tests/helpers/start-app';
-import { module, test } from 'qunit';
+moduleForAcceptance('Acceptance | collection');
 
-let App;
+test('visiting /collection', function(assert) {
+  visit('/collection');
 
-const { run } =  Ember;
-
-module('Acceptance - Collection', {
-  setup() {
-    App = startApp();
-  },
-  teardown() {
-    run(App, 'destroy');
-  }
+  andThen(function() {
+    assert.equal(currentURL(), '/collection');
+  });
 });
 
 test('Load the demo page', function(assert) {

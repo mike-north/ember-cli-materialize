@@ -55,10 +55,10 @@ export default Component.extend(UsesSettings, {
 
   spinnerClassNames: computed('color', 'isBarType', function() {
     if (!this.get('isBarType')) {
-      const color = this.get('color');
+      let color = this.get('color');
       if (!color) {
         return A(['blue', 'red', 'green', 'yellow']
-          .map(c => (`spinner-layer spinner-${c}`)));
+          .map((c) => (`spinner-layer spinner-${c}`)));
       } else {
         return A([`spinner-layer spinner-${color}-only`]);
       }

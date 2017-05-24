@@ -9,16 +9,16 @@ import {
 } from '../../helpers/selectable-item';
 
 moduleForComponent('md-range', {
-  unit: true
+  unit: true,
   // Specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar']
+  needs: ['service:keyboard']
 });
 
 test('it renders', function(assert) {
   assert.expect(2);
 
   // Creates the component instance
-  const component = this.subject();
+  let component = this.subject();
   assert.equal(component._state, 'preRender');
 
   // Renders the component to the page

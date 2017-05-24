@@ -4,7 +4,7 @@ import {
   test
 } from 'ember-qunit';
 
-const { run, run: { schedule }, A, isArray } = Ember;
+const { run, run: { schedule }, A, isArray, $: find } = Ember;
 
 export function selectableItemHasRequiredParts() {
   test('has required DOM elements', function(assert) {
@@ -43,7 +43,7 @@ export function disabledStateTest() {
   });
 }
 
-export function selectTest(params={}) {
+export function selectTest(params = {}) {
   test('clicking changes its state', function(assert) {
     assert.expect(2);
 
@@ -97,7 +97,7 @@ export function labelTest() {
 export function groupItemsRenderTest() {
   test('items render', function(assert) {
     assert.expect(2);
-    let choices = A(['aaa','bbb', 'ccc', 'ddd', 'eee']);
+    let choices = A(['aaa', 'bbb', 'ccc', 'ddd', 'eee']);
     // Creates the component instance
     let component = this.subject({
       content: choices,
@@ -115,7 +115,7 @@ export function groupItemsRenderTest() {
 export function initialSelectionTest(selection) {
   test('initial selection is correct', function(assert) {
     assert.expect(1);
-    let choices = A(['aaa','bbb', 'ccc', 'ddd', 'eee']);
+    let choices = A(['aaa', 'bbb', 'ccc', 'ddd', 'eee']);
     // Creates the component instance
     let component = this.subject({
       content: choices,
@@ -127,7 +127,7 @@ export function initialSelectionTest(selection) {
 
     let shouldBeSelected = isArray(selection) ? selection : A([selection]);
     let actuallySelected = component.$('input:checked').map((idx, e) => {
-      let parentElement = $(e).closest('.materialize-selectable-item');
+      let parentElement = find(e).closest('.materialize-selectable-item');
       return parentElement.find('.materialize-selectable-item-label').text().trim();
     }).toArray();
     assert.equal(actuallySelected.join(''), shouldBeSelected.join(''), 'initial selection is correct');
@@ -137,7 +137,7 @@ export function initialSelectionTest(selection) {
 
 export function disabledGroupTest() {
   test('disabling group disables all inputs', function(assert) {
-    let choices = A(['aaa','bbb', 'ccc', 'ddd', 'eee']);
+    let choices = A(['aaa', 'bbb', 'ccc', 'ddd', 'eee']);
     // Creates the component instance
     let component = this.subject({
       content: choices,

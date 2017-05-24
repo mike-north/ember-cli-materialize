@@ -22,10 +22,10 @@ export default MaterializeInputField.extend({
   },
 
   _parsedContent: computed('optionValuePath', 'optionLabelPath', 'content.[]', function() {
-    const contentRegex = /(content\.|^content$)/;
+    let contentRegex = /(content\.|^content$)/;
     // keep backwards compatability for defining optionValuePath & as optionContentPath `content.{{attName}}`
-    const optionValuePath = (this.get('optionValuePath') || '').replace(contentRegex, '');
-    const optionLabelPath = (this.get('optionLabelPath') || '').replace(contentRegex, '');
+    let optionValuePath = (this.get('optionValuePath') || '').replace(contentRegex, '');
+    let optionLabelPath = (this.get('optionLabelPath') || '').replace(contentRegex, '');
     return A((this.get('content') || []).map((option) => {
       return {
         value: optionValuePath ? get(option, optionValuePath) : option,
@@ -42,11 +42,11 @@ export default MaterializeInputField.extend({
   // TODO: this could be converted to a computed property, returning a string
   //  that is bound to the class attribute of the inputSelector
   errorsDidChange: observer('errors', function() {
-    const inputSelector = this.$('input');
+    let inputSelector = this.$('input');
     // monitor the select's validity and copy the appropriate validation class to the materialize input element.
     if (!isNone(inputSelector)) {
       later(this, function() {
-        const isValid = this.$('select').hasClass('valid');
+        let isValid = this.$('select').hasClass('valid');
         if (isValid) {
           inputSelector.removeClass('invalid');
           inputSelector.addClass('valid');

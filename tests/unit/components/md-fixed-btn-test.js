@@ -9,7 +9,7 @@ test('it renders', function(assert) {
   assert.expect(2);
 
   // Creates the component instance
-  const component = this.subject();
+  let component = this.subject();
   assert.equal(component._state, 'preRender');
 
   // Renders the component to the page
@@ -18,7 +18,7 @@ test('it renders', function(assert) {
 });
 
 test('btnIcon attribute results in an icon being rendered', function(assert) {
-  const component = this.subject({
+  let component = this.subject({
     btnIcon: 'mdi-content-add'
   });
 
@@ -27,7 +27,7 @@ test('btnIcon attribute results in an icon being rendered', function(assert) {
 });
 
 test('btnClass attribute should pass through to the button', function(assert) {
-  const component = this.subject({
+  let component = this.subject({
     btnClass: 'green'
   });
 
@@ -36,20 +36,20 @@ test('btnClass attribute should pass through to the button', function(assert) {
 });
 
 test('btn-floating and btn-large classes are on the button by default', function(assert) {
-  const component = this.subject();
+  let component = this.subject();
   this.render();
   assert.equal(component.$('.btn-floating.btn-large').length, 1, 'Classes should be present');
 });
 
 test('button should be wrapped in a li tag', function(assert) {
-  const component = this.subject();
+  let component = this.subject();
   this.render();
   assert.equal(component.$()[0].tagName, 'LI');
   assert.equal(component.$('.btn-floating').length, 1, 'Button should be wrapped in a li tag');
 });
 
 test('Optionally, users can opt to use small floating buttons', function(assert) {
-  const component = this.subject({
+  let component = this.subject({
     large: false
   });
   this.render();

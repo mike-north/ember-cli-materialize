@@ -1,7 +1,10 @@
+import Ember from 'ember';
 import {
   moduleForComponent,
   test
 } from 'ember-qunit';
+
+const { $ } = Ember;
 
 moduleForComponent('md-btn-dropdown', 'component:md-btn-dropdown', {
   unit: true
@@ -24,7 +27,6 @@ test('button dropdown renders', function(assert) {
 test('button dropdown is added to the page', function(assert) {
   this.subject();
   this.render();
-
   assert.ok($('button').length);
 });
 
@@ -32,7 +34,6 @@ test('dropdown shown when clicked', function(assert) {
   let component = this.subject();
   component.set('hover', false);
   this.render();
-
   let dropdownContentId = `#${component.get('_dropdownContentId')}`;
   let dropdownElement = $(dropdownContentId);
   assert.ok(!dropdownElement.is(':visible'));

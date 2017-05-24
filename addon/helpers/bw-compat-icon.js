@@ -20,7 +20,6 @@ export function bwCompatIcon(params, hash) {
     let classString = A((['material-icons'].concat(classes)).concat(extraClasses)).compact().join(' ');
     return htmlSafe(`<i class='${classString}'>${icon}</i>`);
   }
-  return params;
 }
 
 export default Helper.helper(bwCompatIcon);

@@ -1,19 +1,14 @@
-import Ember from 'ember';
+import { test } from 'qunit';
+import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
 
-import startApp from '../../tests/helpers/start-app';
-import { module, test } from 'qunit';
+moduleForAcceptance('Acceptance | tabs');
 
-let App;
+test('visiting /tabs', function(assert) {
+  visit('/tabs');
 
-const { run } = Ember;
-
-module('Acceptance - Tabs', {
-  setup() {
-    App = startApp();
-  },
-  teardown() {
-    run(App, 'destroy');
-  }
+  andThen(function() {
+    assert.equal(currentURL(), '/tabs');
+  });
 });
 
 test('Basic Example - One set of tabs should be rendered, with three tabs', function(assert) {

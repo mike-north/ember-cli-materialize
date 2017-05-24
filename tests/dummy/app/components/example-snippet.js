@@ -6,6 +6,10 @@ const { Component, computed: { empty } } = Ember;
 export default Component.extend({
   emptySnippet: empty('snippet'),
   exampleFrameClass: 'col s12 position-relative',
+  init() {
+    this._super(...arguments);
+    this.tar = this.get('targetObject') || this.get('_targetObject');
+  },
   partialName: computed('snippet', {
     get() {
       return `snippets/${this.get('snippet') || 'none'}`;
@@ -17,6 +21,6 @@ export default Component.extend({
     }
   }),
   send() {
-    this.get('targetObject').send(...arguments);
+    this.tar.send(...arguments);
   }
 });

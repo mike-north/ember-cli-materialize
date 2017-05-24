@@ -20,12 +20,12 @@ export default Component.extend({
   },
 
   _setupCollapsible() {
-    const accordion = this.get('accordion');
+    let accordion = this.get('accordion');
     this.$().collapsible({ accordion });
   },
 
   _teardownCollapsible() {
-    const $panelHeaders = this.$('> li > .collapsible-header');
+    let $panelHeaders = this.$('> li > .collapsible-header');
     this.$().off('click.collapse', '.collapsible-header');
     $panelHeaders.off('click.collapse');
   },

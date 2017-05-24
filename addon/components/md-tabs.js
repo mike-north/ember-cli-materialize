@@ -44,12 +44,12 @@ export default Component.extend(ParentComponentSupport, {
     if (!this.element) {
       return;
     }
-    const [tabComponent] = (this.get('composableChildren') || []).filter(item => get(item, 'value') === this.get('selected'));
-    const tabSetRect = this.element.getBoundingClientRect();
+    let [tabComponent] = (this.get('composableChildren') || []).filter((item) => get(item, 'value') === this.get('selected'));
+    let tabSetRect = this.element.getBoundingClientRect();
     if (tabComponent) {
-      const tabRect = tabComponent.element.getBoundingClientRect();
+      let tabRect = tabComponent.element.getBoundingClientRect();
 
-      const cssParams = {
+      let cssParams = {
         left: tabRect.left - tabSetRect.left,
         right: tabSetRect.right - tabRect.right
       };
@@ -69,9 +69,9 @@ export default Component.extend(ParentComponentSupport, {
   },
 
   _content: computed('content.[]', 'optionLabelPath', 'optionValuePath', function() {
-    const labelPath = this.get('optionLabelPath');
-    const valuePath = this.get('optionValuePath');
-    return new A((this.get('content') || []).map(contentItem => ({
+    let labelPath = this.get('optionLabelPath');
+    let valuePath = this.get('optionValuePath');
+    return new A((this.get('content') || []).map((contentItem) => ({
       id: contentItem[valuePath],
       title: contentItem[labelPath]
     })));

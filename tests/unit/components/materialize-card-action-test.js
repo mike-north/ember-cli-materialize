@@ -9,7 +9,7 @@ moduleForComponent('md-card-action', {
 
 test('card action renders', function(assert) {
   // creates the component instance
-  const component = this.subject();
+  let component = this.subject();
   assert.equal(component._state, 'preRender');
 
   // appends the component to the page
@@ -20,7 +20,7 @@ test('card action renders', function(assert) {
 test('card action it is added to the page', function(assert) {
   this.subject();
   this.render();
-  assert.ok($('div').length);
+  assert.ok(this.$().length);
 });
 
 test('card action is a DIV', function(assert) {

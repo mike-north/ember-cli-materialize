@@ -1,23 +1,14 @@
-import Ember from 'ember';
+import { test } from 'qunit';
+import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
 
-import startApp from '../../tests/helpers/start-app';
-import { module, test } from 'qunit';
-
-let App;
-
-const { run } = Ember;
-
-module('Acceptance - Collapsible', {
-  setup() {
-    App = startApp();
-    visit('/collapsible');
-  },
-  teardown() {
-    run(App, 'destroy');
-  }
-});
+moduleForAcceptance('Acceptance | collapsible');
 
 test('Collapsible basic tests', function(assert) {
+  visit('/collapsible');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/collapsible');
+  });
 
   andThen(function() {
     assert.equal(find('.accordion-example ul > li').length, 3, 'Accordion should have 3 headers');
@@ -32,6 +23,8 @@ test('Collapsible basic tests', function(assert) {
 });
 
 test('Action collapsible operations', function(assert) {
+  visit('/collapsible');
+
   andThen(function() {
     assert.equal(find('.selected-action').text(), '', 'there should be no selected action');
   });

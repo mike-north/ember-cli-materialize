@@ -1,9 +1,6 @@
 import Ember from 'ember';
 
-const { Route, A } = Ember;
-// jscs:disable disallowDirectPropertyAccess
-const EObj = Ember.Object;
-// jscs:enable disallowDirectPropertyAccess
+const { Route, A, Object: EObj } = Ember;
 
 export default Route.extend({
 

@@ -31,12 +31,12 @@ export default Component.extend(UsesSettings, {
   },
 
   buttonClass: computed('buttonType', function() {
-    const buttonType = this.get('buttonType');
+    let buttonType = this.get('buttonType');
     return buttonType ? `btn-${buttonType}` : 'btn';
   }),
 
   _setupWaves() {
-    const Waves = window.Waves || {};
+    let Waves = window.Waves || {};
     if (typeOf(Waves.displayEffect) === 'function') {
       Waves.displayEffect();
     }

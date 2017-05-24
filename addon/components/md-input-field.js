@@ -29,7 +29,7 @@ export default Component.extend({
   }),
 
   _setupLabel() {
-    const $label = this.$('> label');
+    let $label = this.$('> label');
     if (isPresent(this.get('value')) && !$label.hasClass('active')) {
       $label.addClass('active');
     }

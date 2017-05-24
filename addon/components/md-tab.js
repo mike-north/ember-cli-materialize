@@ -20,13 +20,13 @@ export default Component.extend(ChildComponentSupport, {
   }),
 
   active: computed('composableParent.composableChildren.[]', 'composableParent.selected', 'value', function() {
-    const selected = this.get('composableParent.selected');
+    let selected = this.get('composableParent.selected');
     if (selected) {
       return selected === this.get('value');
     } else {
-      const values = this.get('composableParent')
+      let values = this.get('composableParent')
         .tabComponents()
-        .map(t => t.get('value'));
+        .map((t) => t.get('value'));
       return values.indexOf(this.get('value')) === 0;
     }
   }).readOnly(),

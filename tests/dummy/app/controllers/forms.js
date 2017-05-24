@@ -11,7 +11,7 @@ const {
 } = Ember;
 
 function asJSON(propKey) {
-  return computed(`${propKey,propKey}.[]`, function() {
+  return computed(`${propKey, propKey}.[]`, function() {
     return JSON.stringify(this.get(propKey));
   });
 }
@@ -24,7 +24,7 @@ export default Controller.extend({
     id: 2,
     value: 'Ember-CLI Materialize'
   }]),
-  message: `This is a long message. It might flow to the next line if I keep typing, so it's better suited to a textarea`,
+  message: 'This is a long message. It might flow to the next line if I keep typing, so it\'s better suited to a textarea',
   errors: {
     name: A([]),
     framework: A([])

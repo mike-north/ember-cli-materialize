@@ -12,7 +12,7 @@ export default Controller.extend(AnchorControllerSupport, {
   accentColorVariants: new A(['accent-1', 'accent-2', 'accent-3', 'accent-4']),
 
   colors: computed('colorBases.[]', 'colorVariants.[]', function() {
-    return new A(this.get('colorBases').map(colorBase => {
+    return new A(this.get('colorBases').map((colorBase) => {
       let variants = this.get('colorVariants');
       if (['brown', 'grey', 'blue-grey'].indexOf(colorBase) < 0) {
         variants = variants.concat(this.get('accentColorVariants'));
@@ -25,7 +25,7 @@ export default Controller.extend(AnchorControllerSupport, {
   }),
 
   boringColors: computed('boringColorBases.[]', 'colorVariants.[]', function() {
-    return new A(this.get('boringColorBases').map(colorBase => {
+    return new A(this.get('boringColorBases').map((colorBase) => {
       let variants = this.get('colorVariants');
       if (['brown', 'grey', 'blue-grey'].indexOf(colorBase) < 0) {
         variants = variants.concat(this.get('accentColorVariants'));

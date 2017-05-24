@@ -7,6 +7,6 @@ moduleFor('service:md-settings', 'Unit | Service | md settings', {
 
 // Replace this with your real tests.
 test('it exists', function(assert) {
-  const service = this.subject();
+  let service = this.subject();
   assert.ok(service);
 });

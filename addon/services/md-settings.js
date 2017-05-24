@@ -1,9 +1,8 @@
 import Ember from 'ember';
 
 const { getWithDefault, set, computed: { oneWay }, Service, String: { classify } } = Ember;
-// jscs:disable disallowDirectPropertyAccess
+// eslint-disable-next-line
 const keys = Object.keys || Ember.keys;
-// jscs:enable disallowDirectPropertyAccess
 
 export default Service.extend({
   // Footer
@@ -26,10 +25,10 @@ export default Service.extend({
   },
 
   _setDefaults() {
-    const defaults = getWithDefault(this, 'materializeDefaults', {});
-    keys(defaults).map(key => {
-      const classifiedKey = classify(key);
-      const defaultKey = `default${classifiedKey}`;
+    let defaults = getWithDefault(this, 'materializeDefaults', {});
+    keys(defaults).map((key) => {
+      let classifiedKey = classify(key);
+      let defaultKey = `default${classifiedKey}`;
       return set(this, defaultKey, defaults[key]);
     });
   }

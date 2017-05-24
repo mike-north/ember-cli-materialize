@@ -16,12 +16,12 @@ export default Component.extend({
 
   windowRange: computed('min', 'max', 'range', 'current', function() {
     // TODO: this should be broken out into a util, so that it can be tested independently
-    const max = this.get('max');
-    const min = this.get('min');
-    const range = this.get('range');
-    const current = this.get('current');
+    let max = this.get('max');
+    let min = this.get('min');
+    let range = this.get('range');
+    let current = this.get('current');
 
-    const middle = Math.floor((max - min) / 2);
+    let middle = Math.floor((max - min) / 2);
     let low = Math.max(min, current - Math.floor(range / 2));
     let high = Math.min(max, current + Math.floor(range / 2));
 
@@ -38,9 +38,9 @@ export default Component.extend({
   }),
 
   _pages: computed('windowRange.low', 'windowRange.high', 'current', function() {
-    const a = new A([]);
-    const winRange = this.get('windowRange');
-    const current = this.get('current');
+    let a = new A([]);
+    let winRange = this.get('windowRange');
+    let current = this.get('current');
     for (let i = winRange.low; i <= winRange.high; i += 1) {
       a.addObject({ val: i, cssClass: (current === i ? 'active' : 'waves-effect') });
     }

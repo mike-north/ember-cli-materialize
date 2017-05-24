@@ -4,6 +4,8 @@ import {
   test
 } from 'ember-qunit';
 
+const { $ } = Ember;
+
 import {
   disabledGroupTest,
   groupItemsRenderTest,
@@ -11,7 +13,7 @@ import {
 } from '../../helpers/selectable-item';
 
 import {
-  deselectForSingleSelectionTest,
+  deselectForSingleSelectionTest
 } from '../../helpers/selectable-item-group';
 
 const { A } = Ember;

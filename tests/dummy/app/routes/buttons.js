@@ -1,11 +1,11 @@
 import Ember from 'ember';
 
-const { Route } = Ember;
+const { Route, Logger } = Ember;
 
 export default Route.extend({
   actions: {
     debug() {
-      console.debug('Action debug sent');
+      Logger.debug('Action debug sent');
     }
   }
 });

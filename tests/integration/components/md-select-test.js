@@ -23,7 +23,7 @@ test('basic usage', function(assert) {
       optionLabelPath="content.value"
       optionValuePath="content" class="col s12"}}
   `);
-  assert.equal(this.$().text().trim().replace(/[\s\n]+/g, ''), `Framework▼Pleasechoose...MaterializeCSSEmber-CLIMaterializePleasechoose...MaterializeCSSEmber-CLIMaterialize`);
+  assert.equal(this.$().text().trim().replace(/[\s\n]+/g, ''), 'Framework▼Pleasechoose...MaterializeCSSEmber-CLIMaterializePleasechoose...MaterializeCSSEmber-CLIMaterialize');
 
   assert.ok(this.$('.md-select').hasClass('input-field'));
 

@@ -8,7 +8,7 @@ export default Component.extend({
 
   actions: {
     fireButtonAction() {
-      const actionArgs = this.get('actionArgs');
+      let actionArgs = this.get('actionArgs');
       if (actionArgs) {
         this.sendAction('action', actionArgs || null);
       } else {

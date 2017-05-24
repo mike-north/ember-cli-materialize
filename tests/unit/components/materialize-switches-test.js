@@ -11,10 +11,10 @@ import {
 } from '../../helpers/selectable-item';
 
 import {
-  deselectForSingleSelectionTest,
+  deselectForSingleSelectionTest
 } from '../../helpers/selectable-item-group';
 
-const { A } = Ember;
+const { A, $ } = Ember;
 
 moduleForComponent('md-switches', {
   unit: true,
@@ -25,7 +25,7 @@ test('it renders', function(assert) {
   assert.expect(2);
 
   // Creates the component instance
-  const component = this.subject();
+  let component = this.subject();
   assert.equal(component._state, 'preRender');
 
   // Renders the component to the page
@@ -34,7 +34,7 @@ test('it renders', function(assert) {
 });
 
 test('simple array test', function(assert) {
-  const component = this.subject({
+  let component = this.subject({
     content: A(['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan']),
     selection: A(['Deborah Morgan'])
   });

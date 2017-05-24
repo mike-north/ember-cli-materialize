@@ -1,22 +1,17 @@
-import Ember from 'ember';
+import { test } from 'qunit';
+import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
 
-import startApp from '../../tests/helpers/start-app';
-import { module, test } from 'qunit';
+moduleForAcceptance('Acceptance | table');
 
-let App;
+test('visiting /table', function(assert) {
+  visit('/tables');
 
-const { run } = Ember;
-
-module('Acceptance - Table', {
-  setup() {
-    App = startApp();
-  },
-  teardown() {
-    run(App, 'destroy');
-  }
+  andThen(function() {
+    assert.equal(currentURL(), '/tables');
+  });
 });
 
-test('Load the demo page', assert => {
+test('Load the demo page', (assert) => {
   visit('/tables');
 
   andThen(function() {

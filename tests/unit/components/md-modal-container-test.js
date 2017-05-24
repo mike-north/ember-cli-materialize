@@ -13,7 +13,7 @@ test('it renders', function(assert) {
   assert.expect(2);
 
   // Creates the component instance
-  const component = this.subject();
+  let component = this.subject();
   assert.equal(component._state, 'preRender');
 
   // Renders the component to the page
@@ -25,7 +25,7 @@ test('it has the expected ID for md-modal to render into it', function(assert) {
   assert.expect(1);
 
   // Creates the component instance
-  const component = this.subject({
+  let component = this.subject({
     modalContainerId: 'materialize-modal-root-element'
   });
   // Renders the component to the page

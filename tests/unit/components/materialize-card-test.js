@@ -9,7 +9,7 @@ moduleForComponent('md-card', {
 
 test('card renders', function(assert) {
   // creates the component instance
-  const component = this.subject();
+  let component = this.subject();
   assert.equal(component._state, 'preRender');
 
   // appends the component to the page
@@ -20,7 +20,7 @@ test('card renders', function(assert) {
 test('card is added to the page', function(assert) {
   this.subject();
   this.render();
-  assert.ok($('div').length);
+  assert.ok(this.$().length);
 });
 
 test('card a DIV', function(assert) {
@@ -29,13 +29,13 @@ test('card a DIV', function(assert) {
 });
 
 test('card has title properties', function(assert) {
-  const component = this.subject({ title: 'My Component', titleClass: 'green-text' });
+  let component = this.subject({ title: 'My Component', titleClass: 'green-text' });
   assert.equal('My Component', component.get('title'));
   assert.equal('green-text', component.get('titleClass'));
 });
 
 test('card has an image', function(assert) {
-  const component = this.subject({ image: 'images/ember.png' });
+  let component = this.subject({ image: 'images/ember.png' });
   assert.equal('images/ember.png', component.get('image'));
 });
 

@@ -5,7 +5,7 @@ const { Component } = Ember;
 export default Component.extend({
   layout,
   classNames: ['parallax-container'],
-
+  image: 'http://placehold.it/200/200',
   didInsertElement() {
     this._super(...arguments);
     this._setupParallax();

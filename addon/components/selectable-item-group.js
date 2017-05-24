@@ -58,29 +58,29 @@ export default Component.extend(ParentComponentSupport, {
   disabled: false,
 
   _valuePath: computed('optionValuePath', function() {
-    const optionValuePath = get(this, 'optionValuePath');
+    let optionValuePath = get(this, 'optionValuePath');
     return optionValuePath.replace(/^content\.?/, '');
   }),
 
   _labelPath: computed('optionLabelPath', function() {
-    const optionLabelPath = get(this, 'optionLabelPath');
+    let optionLabelPath = get(this, 'optionLabelPath');
     return optionLabelPath.replace(/^content\.?/, '');
   }),
 
   _content: computed('content.[]', '_valuePath', '_labelPath', function() {
-    const valuePath = get(this, '_valuePath');
-    const labelPath = get(this, '_labelPath');
-    const content = get(this, 'content') || new A([]);
+    let valuePath = get(this, '_valuePath');
+    let labelPath = get(this, '_labelPath');
+    let content = get(this, 'content') || new A([]);
 
     if (valuePath && labelPath) {
       return A(
-        content.map(el => {
+        content.map((el) => {
           return { value: get(el, valuePath), label: get(el, labelPath) };
         })
       );
     } else {
       return A(
-        content.map(el => {
+        content.map((el) => {
           return { value: el, label: el };
         })
       );

@@ -17,7 +17,7 @@ test('it renders', function(assert) {
   assert.expect(2);
 
   // Creates the component instance
-  const component = this.subject();
+  let component = this.subject();
 
   component.setProperties({
     content: new A([
@@ -40,7 +40,7 @@ test('programatically setting selected tab', function(assert) {
   assert.expect(2);
 
   // Creates the component instance
-  const component = this.subject();
+  let component = this.subject();
 
   component.setProperties({
     content: new A([
@@ -66,7 +66,7 @@ test('No initial selection - first tab should be selected', function(assert) {
   assert.expect(1);
 
   // Creates the component instance
-  const component = this.subject();
+  let component = this.subject();
 
   component.setProperties({
     content: new A([
@@ -90,7 +90,7 @@ test('Empty content - should render an empty UL', function(assert) {
   assert.expect(1);
 
   // Creates the component instance
-  const component = this.subject();
+  let component = this.subject();
 
   component.setProperties({
     content: new A([])
@@ -104,7 +104,7 @@ test('Col width - should result in the correct CSS classes', function(assert) {
   assert.expect(3);
 
   // Creates the component instance
-  const component = this.subject();
+  let component = this.subject();
   assert.equal(component.get('colWidth'), 2, 'Default col width is 2');
   component.setProperties({
     colWidth: 4,

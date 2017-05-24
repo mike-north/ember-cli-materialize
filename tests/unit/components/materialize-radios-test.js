@@ -6,7 +6,7 @@ import {
 }
 from 'ember-qunit';
 
-const { A } = Ember;
+const { A, $ } = Ember;
 
 moduleForComponent('md-radios', {
   integration: true
@@ -21,7 +21,7 @@ test('simple array test, with initial selection', function(assert) {
     {{md-radios content=content selection=selection}}
   `);
 
-  assert.deepEqual(this.$('label').toArray().map(x => $(x).text().trim()), ['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan'], 'Choices are valid');
+  assert.deepEqual(this.$('label').toArray().map((x) => $(x).text().trim()), ['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan'], 'Choices are valid');
   assert.equal(this.$('input[type="radio"]')[2].checked, true, 'Third radio is checked');
 });
 

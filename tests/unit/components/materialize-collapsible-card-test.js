@@ -13,7 +13,7 @@ test('collapsible card renders', function(assert) {
   assert.expect(2);
 
   // creates the component instance
-  const component = this.subject();
+  let component = this.subject();
   assert.equal(component._state, 'preRender');
 
   // renders the component to the page
