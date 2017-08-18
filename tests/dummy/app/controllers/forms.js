@@ -7,7 +7,8 @@ const {
   computed,
   isPresent,
   later,
-  computed: { not }
+  computed: { not },
+  set,
 } = Ember;
 
 function asJSON(propKey) {
@@ -108,5 +109,19 @@ export default Controller.extend({
   switchesSelectionsString: asJSON('switchesSelections'),
 
   checkboxChoicesString: asJSON('checkboxChoices'),
-  checkboxSelectionsString: asJSON('checkboxSelections')
+  checkboxSelectionsString: asJSON('checkboxSelections'),
+
+  actions: {
+    enter() {
+      console.log('enter');
+    },
+
+    keyPress() {
+      console.log('key-press');
+    },
+
+    keyUp() {
+      console.log('key-up');
+    },
+  }
 });
