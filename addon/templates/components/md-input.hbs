@@ -13,8 +13,12 @@
   disabled=disabled
   autocomplete=autocomplete
   autofocus=autofocus
-  focusIn=(action 'inputFocusIn')
   step=step
   min=min
-  max=max}}
+  max=max
+
+  focusIn=(action 'inputFocusIn')
+  enter=(action 'enter')
+  key-press=(action 'keyPress')
+  key-up=(action 'keyUp')}}
 <label for="{{id}}" data-error={{_errorString}}>{{label}}</label>
