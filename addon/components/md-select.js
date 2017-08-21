@@ -60,7 +60,6 @@ export default Component.extend({
 
   actions: {
     change() {
-      // const changeAction = this.get('action');
       const selectedEl = this.$('select')[0];
       const selectedIndex = selectedEl.selectedIndex;
       const content = this.get('content');
@@ -70,7 +69,7 @@ export default Component.extend({
       Ember.run.schedule('afterRender', () => {
         this._rebuildSelect();
       });
-      // changeAction(selectedValue);
+      this.sendAction('on-change', selectedValue);
     }
   }
 });
