@@ -1,9 +1,9 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import { alias } from '@ember/object/computed';
+import Component from '@ember/component';
 import ChildComponentSupport from 'ember-composability/mixins/child-component-support';
 import SelectableItemGroup from './selectable-item-group';
 import _computed from 'ember-new-computed';
-
-const { computed, computed: { alias }, Component } = Ember;
 
 export default Component.extend(ChildComponentSupport, {
   _parentComponentTypes: [SelectableItemGroup],

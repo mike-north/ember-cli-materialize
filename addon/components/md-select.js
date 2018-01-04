@@ -1,8 +1,9 @@
-import Ember from 'ember';
+import { A } from '@ember/array';
+import { isNone } from '@ember/utils';
+import { later } from '@ember/runloop';
+import { get, observer, computed } from '@ember/object';
 import MaterializeInputField from './md-input-field';
 import layout from '../templates/components/md-select';
-
-const { computed, A, observer, isNone, run: { later }, get } = Ember;
 
 export default MaterializeInputField.extend({
   layout,

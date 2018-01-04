@@ -1,6 +1,6 @@
-import Ember from 'ember';
-
-const { Helper, String: { htmlSafe }, A } = Ember;
+import Helper from '@ember/component/helper';
+import { htmlSafe } from '@ember/string';
+import { A } from '@ember/array';
 
 export function isOldIcon(str) {
   return str.split(' ').filter((c) => {

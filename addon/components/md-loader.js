@@ -1,15 +1,9 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { A } from '@ember/array';
+import { htmlSafe } from '@ember/string';
 import UsesSettings from '../mixins/uses-settings';
 import layout from '../templates/components/md-loader';
-
-const {
-  Component,
-  computed,
-  A,
-  String: {
-    htmlSafe
-  }
-} = Ember;
 
 export default Component.extend(UsesSettings, {
   layout,

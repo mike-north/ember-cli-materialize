@@ -1,11 +1,9 @@
-import Ember from 'ember';
+import { run } from '@ember/runloop';
 
 import startApp from '../../tests/helpers/start-app';
 import { module, test } from 'qunit';
 
 let App;
-
-const { run } = Ember;
 
 module('Acceptance - Navbar', {
   setup() {

@@ -1,12 +1,10 @@
-import Ember from 'ember';
+import { A } from '@ember/array';
 import hbs from 'htmlbars-inline-precompile';
 import {
   moduleForComponent,
   test
 }
 from 'ember-qunit';
-
-const { A } = Ember;
 
 moduleForComponent('md-radios', {
   integration: true

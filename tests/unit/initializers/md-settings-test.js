@@ -1,10 +1,9 @@
-import Ember from 'ember';
+import { run } from '@ember/runloop';
+import Application from '@ember/application';
 import { initialize } from '../../../initializers/md-settings';
 import { module, test } from 'qunit';
 
 let container, application;
-
-const { run, Application } = Ember;
 
 module('Unit | Initializer | md settings', {
   beforeEach() {

@@ -1,8 +1,6 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
 import layout from '../templates/components/md-btn-dropdown';
 import MaterializeButton from './md-btn';
-
-const { computed } = Ember;
 
 export default MaterializeButton.extend({
   layout,

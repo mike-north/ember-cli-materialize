@@ -1,10 +1,9 @@
-import Ember from 'ember';
+import { schedule, run } from '@ember/runloop';
+import { isArray, A } from '@ember/array';
 
 import {
   test
 } from 'ember-qunit';
-
-const { run, run: { schedule }, A, isArray } = Ember;
 
 export function selectableItemHasRequiredParts() {
   test('has required DOM elements', function(assert) {

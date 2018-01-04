@@ -1,7 +1,6 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { empty } from '@ember/object/computed';
 import computed from 'ember-new-computed';
-
-const { Component, computed: { empty } } = Ember;
 
 export default Component.extend({
   emptySnippet: empty('snippet'),

@@ -1,19 +1,10 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { alias } from '@ember/object/computed';
+import { debounce } from '@ember/runloop';
+import { A } from '@ember/array';
+import { observer, computed, get } from '@ember/object';
 import ParentComponentSupport from 'ember-composability/mixins/parent-component-support';
 import layout from '../templates/components/md-tabs';
-
-const { get,
-  Component,
-  computed,
-  computed: {
-    alias
-  },
-  run: {
-    debounce
-  },
-  A,
-  observer
-} = Ember;
 
 export default Component.extend(ParentComponentSupport, {
   layout,

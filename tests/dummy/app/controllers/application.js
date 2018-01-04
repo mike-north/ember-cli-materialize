@@ -1,6 +1,5 @@
-import Ember from 'ember';
-
-const { A, Controller } = Ember;
+import { A } from '@ember/array';
+import Controller from '@ember/controller';
 
 export default Controller.extend({
   demoSections: new A([

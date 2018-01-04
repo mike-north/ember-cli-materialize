@@ -1,11 +1,9 @@
-import Ember from 'ember';
+import { run } from '@ember/runloop';
 
 import {
   moduleForComponent,
   test
 } from 'ember-qunit';
-
-const { run } = Ember;
 
 moduleForComponent('md-copyright', {
   unit: true

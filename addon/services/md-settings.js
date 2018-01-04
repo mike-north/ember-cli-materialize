@@ -1,8 +1,10 @@
-import Ember from 'ember';
-
-const { getWithDefault, set, computed: { oneWay }, Service, String: { classify } } = Ember;
+import { keys } from '@ember/polyfills';
+import { set, getWithDefault } from '@ember/object';
+import { oneWay } from '@ember/object/computed';
+import Service from '@ember/service';
+import { classify } from '@ember/string';
 // jscs:disable disallowDirectPropertyAccess
-const keys = Object.keys || Ember.keys;
+const keys = Object.keys || keys;
 // jscs:enable disallowDirectPropertyAccess
 
 export default Service.extend({

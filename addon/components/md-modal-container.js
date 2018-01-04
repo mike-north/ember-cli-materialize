@@ -1,8 +1,6 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 import UsesSettings from '../mixins/uses-settings';
 import layout from '../templates/components/md-modal-container';
-
-const { Component } = Ember;
 
 export default Component.extend(UsesSettings, {
   layout,

@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { A } from '@ember/array';
 import {
   moduleForComponent,
   test
@@ -13,8 +13,6 @@ import {
 import {
   deselectForSingleSelectionTest,
 } from '../../helpers/selectable-item-group';
-
-const { A } = Ember;
 
 moduleForComponent('md-checks', {
   unit: true,

@@ -1,8 +1,10 @@
-import Ember from 'ember';
+import { equal } from '@ember/object/computed';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { typeOf } from '@ember/utils';
+import { scheduleOnce } from '@ember/runloop';
 import UsesSettings from '../mixins/uses-settings';
 import layout from '../templates/components/md-btn';
-
-const { Component, computed, typeOf, run: { scheduleOnce } } = Ember;
 
 export default Component.extend(UsesSettings, {
   layout,
@@ -15,7 +17,7 @@ export default Component.extend(UsesSettings, {
   iconPosition: null,
   buttonType: null,
   actionArg: null,
-  isFlat: computed.equal('buttonType', 'flat'),
+  isFlat: equal('buttonType', 'flat'),
   isDisabled: false,
 
   init() {

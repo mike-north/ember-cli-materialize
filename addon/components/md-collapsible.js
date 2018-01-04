@@ -1,8 +1,7 @@
-import Ember from 'ember';
+import { deprecate } from '@ember/application/deprecations';
+import Component from '@ember/component';
 import layout from '../templates/components/md-collapsible';
 import _computed from 'ember-new-computed';
-
-const { deprecate, Component } = Ember;
 
 export default Component.extend({
   layout,

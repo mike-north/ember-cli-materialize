@@ -1,17 +1,12 @@
-import Ember from 'ember';
-
-const {
-  Controller,
-  A,
-  observer,
-  computed,
-  isPresent,
-  later,
-  computed: { not }
-} = Ember;
+import Controller from '@ember/controller';
+import { A } from '@ember/array';
+import { computed, observer } from '@ember/object';
+import { isPresent } from '@ember/utils';
+import { not } from '@ember/object/computed';
+import { later } from '@ember/run';
 
 function asJSON(propKey) {
-  return computed(`${propKey,propKey}.[]`, function() {
+  return computed(`${(propKey, propKey)}.[]`, function() {
     return JSON.stringify(this.get(propKey));
   });
 }

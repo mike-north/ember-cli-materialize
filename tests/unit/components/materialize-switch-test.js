@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { run } from '@ember/runloop';
 
 import {
   moduleForComponent,
@@ -10,8 +10,6 @@ import {
   disabledStateTest,
   labelTest
 } from '../../helpers/selectable-item';
-
-const { run } = Ember;
 
 moduleForComponent('md-switch', {
   unit: true

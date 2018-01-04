@@ -1,11 +1,10 @@
-import Ember from 'ember';
+import { A } from '@ember/array';
+import { schedule, scheduleOnce, run } from '@ember/runloop';
 
 import {
   moduleForComponent,
   test
 } from 'ember-qunit';
-
-const { A, run, run: { scheduleOnce, schedule } } = Ember;
 
 moduleForComponent('md-tabs', {
   unit: true,

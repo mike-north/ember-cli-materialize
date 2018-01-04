@@ -1,9 +1,7 @@
-import Ember from 'ember';
+import { A } from '@ember/array';
+import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 import AnchorControllerSupport from 'ember-anchor/mixins/controller-support';
-
-const {
-  A, Controller, computed
-} = Ember;
 
 export default Controller.extend(AnchorControllerSupport, {
   colorBases: new A(['pink', 'red', 'deep-orange', 'orange', 'amber', 'yellow', 'light-green', 'green', 'teal', 'cyan', 'light-blue', 'blue', 'indigo', 'purple', 'deep-purple']),

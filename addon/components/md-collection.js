@@ -1,7 +1,6 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { bool } from '@ember/object/computed';
 import layout from '../templates/components/md-collection';
-
-const { Component, computed: { bool } } = Ember;
 
 export default Component.extend({
   layout,

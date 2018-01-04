@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { assert } from '@ember/debug';
 import layout from '../templates/components/md-copyright';
-
-const { Component, computed, assert } = Ember;
 
 export default Component.extend({
   layout,

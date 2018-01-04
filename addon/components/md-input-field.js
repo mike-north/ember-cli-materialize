@@ -1,6 +1,6 @@
-import Ember from 'ember';
-
-const { Component, computed, isPresent } = Ember;
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { isPresent } from '@ember/utils';
 
 export default Component.extend({
   classNames: ['input-field'],

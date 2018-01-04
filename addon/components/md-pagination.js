@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { A } from '@ember/array';
 import layout from '../templates/components/md-pagination';
-
-const { Component, computed, A } = Ember;
 
 export default Component.extend({
   layout,

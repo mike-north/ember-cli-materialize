@@ -1,10 +1,8 @@
-import Ember from 'ember';
+import { run } from '@ember/runloop';
 
 import {
   test
 } from 'ember-qunit';
-
-const { run } = Ember;
 
 export function deselectForSingleSelectionTest() {
   test('deselecting checkbox works with multiple=false', function(assert) {
