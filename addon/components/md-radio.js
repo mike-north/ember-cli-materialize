@@ -20,6 +20,9 @@ export default SelectableItem.extend({
 
   didInsertElement() {
     this._super(...arguments);
-    assert(!isEmpty(this.get('group')), 'materialize-radio is not supported outside the context of a materialize-radio-group');
+    assert(
+      !isEmpty(this.get('group')),
+      'materialize-radio is not supported outside the context of a materialize-radio-group'
+    );
   }
 });

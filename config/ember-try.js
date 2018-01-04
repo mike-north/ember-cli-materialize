@@ -2,13 +2,13 @@
 
 function scenario(emberVersion) {
   return {
-    name: "ember-" + emberVersion,
+    name: 'ember-' + emberVersion,
     bower: {
       dependencies: {
-        ember: "~" + emberVersion + ".0"
+        ember: '~' + emberVersion + '.0'
       },
       resolutions: {
-        ember: "~" + emberVersion + ".0"
+        ember: '~' + emberVersion + '.0'
       }
     }
   };
@@ -16,38 +16,38 @@ function scenario(emberVersion) {
 
 module.exports = {
   scenarios: [
-    scenario("1.13"),
-    scenario("2.0"),
-    scenario("2.1"),
-    scenario("2.2"),
-    scenario("2.3"),
-    scenario("2.4"),
-    scenario("2.5"),
-    scenario("2.6"),
+    scenario('1.13'),
+    scenario('2.0'),
+    scenario('2.1'),
+    scenario('2.2'),
+    scenario('2.3'),
+    scenario('2.4'),
+    scenario('2.5'),
+    scenario('2.6'),
     {
-      name: "ember-lts-2.12",
+      name: 'ember-lts-2.12',
       npm: {
         devDependencies: {
-          "ember-source": "~2.12.0"
+          'ember-source': '~2.12.0'
         }
       }
     },
     {
-      name: "ember-lts-2.16",
+      name: 'ember-lts-2.16',
       npm: {
         devDependencies: {
-          "ember-source": "~2.16.0"
+          'ember-source': '~2.16.0'
         }
       }
     },
     {
-      name: "ember-release",
+      name: 'ember-release',
       bower: {
         dependencies: {
-          ember: "components/ember#release"
+          ember: 'components/ember#release'
         },
         resolutions: {
-          ember: "release"
+          ember: 'release'
         }
       },
       npm: {
@@ -57,13 +57,13 @@ module.exports = {
       }
     },
     {
-      name: "ember-beta",
+      name: 'ember-beta',
       bower: {
         dependencies: {
-          ember: "components/ember#beta"
+          ember: 'components/ember#beta'
         },
         resolutions: {
-          ember: "beta"
+          ember: 'beta'
         }
       },
       npm: {
@@ -73,13 +73,13 @@ module.exports = {
       }
     },
     {
-      name: "ember-canary",
+      name: 'ember-canary',
       bower: {
         dependencies: {
-          ember: "components/ember#canary"
+          ember: 'components/ember#canary'
         },
         resolutions: {
-          ember: "canary"
+          ember: 'canary'
         }
       },
       npm: {

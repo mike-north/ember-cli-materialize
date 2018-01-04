@@ -7,4 +7,3 @@ export default Component.extend({
   classNames: ['card-panel'],
   classNameBindings: ['class']
 });
-

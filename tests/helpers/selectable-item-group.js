@@ -1,8 +1,6 @@
 import { run } from '@ember/runloop';
 
-import {
-  test
-} from 'ember-qunit';
+import { test } from 'ember-qunit';
 
 export function deselectForSingleSelectionTest() {
   test('deselecting checkbox works with multiple=false', function(assert) {
@@ -25,5 +23,4 @@ export function deselectForSingleSelectionTest() {
       assert.equal(component.get('selection'), null, 'Selection should be B and only B');
     });
   });
-
 }

@@ -1,9 +1,6 @@
 import { run } from '@ember/runloop';
 
-import {
-  moduleForComponent,
-  test
-} from 'ember-qunit';
+import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('md-btn', {
   unit: true
@@ -66,7 +63,13 @@ test('button text test', function(assert) {
     component.set('text', 'Button');
   });
 
-  assert.equal(component.$().text().trim(), 'Button');
+  assert.equal(
+    component
+      .$()
+      .text()
+      .trim(),
+    'Button'
+  );
 });
 
 test('button icon test', function(assert) {

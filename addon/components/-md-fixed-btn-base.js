@@ -17,6 +17,6 @@ export default Component.extend({
   },
 
   _btnClassString: computed('btnClass', function() {
-    return `${this.get('btnClass')} btn-floating ${this.get('large') ? 'btn-large' : '' }`;
+    return `${this.get('btnClass')} btn-floating ${this.get('large') ? 'btn-large' : ''}`;
   })
 });

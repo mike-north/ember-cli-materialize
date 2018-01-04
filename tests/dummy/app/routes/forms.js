@@ -4,7 +4,6 @@ import { A } from '@ember/array';
 // jscs:enable disallowDirectPropertyAccess
 
 export default Route.extend({
-
   model() {
     return EObj.create({ name: null });
   },
@@ -13,5 +12,4 @@ export default Route.extend({
     this._super(controller, model);
     controller.set('errors', EObj.create({ name: A(['This field is required']) }));
   }
-
 });

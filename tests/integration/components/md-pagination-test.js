@@ -27,7 +27,6 @@ test('decrement button disables at lower end of range', function(assert) {
   assert.equal(labels.length, 1, 'left button is disabled at lower-end of range');
 });
 
-
 test('increment button disables at lower end of range', function(assert) {
   this.render(hbs`
     {{md-pagination min=1 max=12 current=12 range=5}}

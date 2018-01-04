@@ -36,7 +36,9 @@ export default Component.extend(ChildComponentSupport, {
   isSelected: alias('_checked'),
 
   _setupLabel() {
-    let [$input] = this.$('.materialize-selectable-item-input, .materialize-selectable-item-input-container input').toArray();
+    let [$input] = this.$(
+      '.materialize-selectable-item-input, .materialize-selectable-item-input-container input'
+    ).toArray();
 
     let inputId = $input ? $input.id : null;
     this.$('.materialize-selectable-item-label').attr('for', inputId);

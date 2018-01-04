@@ -35,7 +35,9 @@ export default Component.extend(ParentComponentSupport, {
     if (!this.element) {
       return;
     }
-    const [tabComponent] = (this.get('composableChildren') || []).filter(item => get(item, 'value') === this.get('selected'));
+    const [tabComponent] = (this.get('composableChildren') || []).filter(
+      item => get(item, 'value') === this.get('selected')
+    );
     const tabSetRect = this.element.getBoundingClientRect();
     if (tabComponent) {
       const tabRect = tabComponent.element.getBoundingClientRect();
@@ -62,9 +64,11 @@ export default Component.extend(ParentComponentSupport, {
   _content: computed('content.[]', 'optionLabelPath', 'optionValuePath', function() {
     const labelPath = this.get('optionLabelPath');
     const valuePath = this.get('optionValuePath');
-    return new A((this.get('content') || []).map(contentItem => ({
-      id: contentItem[valuePath],
-      title: contentItem[labelPath]
-    })));
+    return new A(
+      (this.get('content') || []).map(contentItem => ({
+        id: contentItem[valuePath],
+        title: contentItem[labelPath]
+      }))
+    );
   })
 });

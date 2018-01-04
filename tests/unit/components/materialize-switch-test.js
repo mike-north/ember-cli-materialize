@@ -1,15 +1,8 @@
 import { run } from '@ember/runloop';
 
-import {
-  moduleForComponent,
-  test
-} from 'ember-qunit';
+import { moduleForComponent, test } from 'ember-qunit';
 
-import {
-  selectTest,
-  disabledStateTest,
-  labelTest
-} from '../../helpers/selectable-item';
+import { selectTest, disabledStateTest, labelTest } from '../../helpers/selectable-item';
 
 moduleForComponent('md-switch', {
   unit: true
@@ -55,4 +48,3 @@ test('custom on/off labels', function(assert) {
 selectTest();
 disabledStateTest();
 labelTest();
-

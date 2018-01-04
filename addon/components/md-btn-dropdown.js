@@ -10,7 +10,13 @@ export default MaterializeButton.extend({
   iconBody: '',
   iconPosition: 'right',
   attributeBindings: [
-    'inDuration:data-induration', 'outDuration:data-outduration', 'constrainWidth:data-constrainwidth', '_hoverVal:data-hover', 'gutter:data-gutter', 'belowOrigin:data-beloworigin', 'alignment'
+    'inDuration:data-induration',
+    'outDuration:data-outduration',
+    'constrainWidth:data-constrainwidth',
+    '_hoverVal:data-hover',
+    'gutter:data-gutter',
+    'belowOrigin:data-beloworigin',
+    'alignment'
   ],
 
   didRender() {

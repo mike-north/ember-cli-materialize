@@ -1,10 +1,7 @@
 import { A } from '@ember/array';
 import { schedule, scheduleOnce, run } from '@ember/runloop';
 
-import {
-  moduleForComponent,
-  test
-} from 'ember-qunit';
+import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('md-tabs', {
   unit: true,
@@ -19,11 +16,7 @@ test('it renders', function(assert) {
   const component = this.subject();
 
   component.setProperties({
-    content: new A([
-      { id: 'a', title: 'First' },
-      { id: 'b', title: 'Second' },
-      { id: 'c', title: 'Third' }
-    ]),
+    content: new A([{ id: 'a', title: 'First' }, { id: 'b', title: 'Second' }, { id: 'c', title: 'Third' }]),
     selected: 'a'
   });
 
@@ -35,57 +28,66 @@ test('it renders', function(assert) {
 });
 
 test('programatically setting selected tab', function(assert) {
-
   assert.expect(2);
 
   // Creates the component instance
   const component = this.subject();
 
   component.setProperties({
-    content: new A([
-      { id: 'a', title: 'First' },
-      { id: 'b', title: 'Second' },
-      { id: 'c', title: 'Third' }
-    ]),
+    content: new A([{ id: 'a', title: 'First' }, { id: 'b', title: 'Second' }, { id: 'c', title: 'Third' }]),
     selected: 'a'
   });
   this.render();
-  assert.equal(component.$('.active').text().trim(), 'First', 'First tab is initially selected');
+  assert.equal(
+    component
+      .$('.active')
+      .text()
+      .trim(),
+    'First',
+    'First tab is initially selected'
+  );
 
   run(function() {
     component.set('selected', 'b');
     schedule('afterRender', function() {
-      assert.equal(component.$('.active').text().trim(), 'Second', 'Second tab is now selected');
+      assert.equal(
+        component
+          .$('.active')
+          .text()
+          .trim(),
+        'Second',
+        'Second tab is now selected'
+      );
     });
   });
 });
 
 test('No initial selection - first tab should be selected', function(assert) {
-
   assert.expect(1);
 
   // Creates the component instance
   const component = this.subject();
 
   component.setProperties({
-    content: new A([
-      { id: 'a', title: 'First' },
-      { id: 'b', title: 'Second' },
-      { id: 'c', title: 'Third' }
-    ])
+    content: new A([{ id: 'a', title: 'First' }, { id: 'b', title: 'Second' }, { id: 'c', title: 'Third' }])
   });
 
   run(() => {
     this.render();
     scheduleOnce('afterRender', () => {
-      assert.equal(component.$('.active').text().trim(), 'First', 'First tab is initially selected');
+      assert.equal(
+        component
+          .$('.active')
+          .text()
+          .trim(),
+        'First',
+        'First tab is initially selected'
+      );
     });
   });
-
 });
 
 test('Empty content - should render an empty UL', function(assert) {
-
   assert.expect(1);
 
   // Creates the component instance
@@ -99,7 +101,6 @@ test('Empty content - should render an empty UL', function(assert) {
 });
 
 test('Col width - should result in the correct CSS classes', function(assert) {
-
   assert.expect(3);
 
   // Creates the component instance
@@ -107,11 +108,7 @@ test('Col width - should result in the correct CSS classes', function(assert) {
   assert.equal(component.get('colWidth'), 2, 'Default col width is 2');
   component.setProperties({
     colWidth: 4,
-    content: new A([
-      { id: 'a', title: 'First' },
-      { id: 'b', title: 'Second' },
-      { id: 'c', title: 'Third' }
-    ])
+    content: new A([{ id: 'a', title: 'First' }, { id: 'b', title: 'Second' }, { id: 'c', title: 'Third' }])
   });
   this.render();
   assert.equal(component.get('composableChildren')[0].get('colWidth'), 4, 'Col width on tab set applies to tabs');

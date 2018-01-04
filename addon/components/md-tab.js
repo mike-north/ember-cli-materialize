@@ -34,5 +34,4 @@ export default Component.extend(ChildComponentSupport, {
   click() {
     this.get('composableParent').set('selected', this.get('value'));
   }
-
 });

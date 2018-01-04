@@ -1,7 +1,4 @@
-import {
-  moduleForComponent,
-  test
-} from 'ember-qunit';
+import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('md-input', {
   unit: true,

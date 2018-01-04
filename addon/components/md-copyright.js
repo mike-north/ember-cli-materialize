@@ -9,9 +9,10 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
-    assert('Property startYear must be less than or equal to the current year.',
-      this.get('startYear') === null ||
-      this.get('startYear') <= new Date().getFullYear());
+    assert(
+      'Property startYear must be less than or equal to the current year.',
+      this.get('startYear') === null || this.get('startYear') <= new Date().getFullYear()
+    );
   },
 
   startYear: null,

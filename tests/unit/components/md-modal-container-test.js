@@ -1,7 +1,4 @@
-import {
-  moduleForComponent,
-  test
-} from 'ember-qunit';
+import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('md-modal-container', {
   unit: true
@@ -30,5 +27,9 @@ test('it has the expected ID for md-modal to render into it', function(assert) {
   });
   // Renders the component to the page
   this.render();
-  assert.equal(component.$('#materialize-modal-root-element').length, 1, '#materialize-modal-root-element should be in the DOM');
+  assert.equal(
+    component.$('#materialize-modal-root-element').length,
+    1,
+    '#materialize-modal-root-element should be in the DOM'
+  );
 });

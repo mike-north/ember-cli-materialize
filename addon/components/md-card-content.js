@@ -17,4 +17,3 @@ export default Component.extend({
     return this.get('titleClass') || 'black-text';
   })
 });
-

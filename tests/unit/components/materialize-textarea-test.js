@@ -1,11 +1,8 @@
-import {
-  moduleForComponent,
-  test
-} from 'ember-qunit';
+import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('md-textarea', {
   unit: true,
-  needs: ['helper:bw-compat-icon']
+  needs: ['helper:bw-compat-icon', 'service:keyboard']
   // specify the other units that are required for this test
 });
 
@@ -53,4 +50,3 @@ test('textarea has an icon', function(assert) {
   this.render();
   assert.ok(component.$('>i').hasClass(icon));
 });
-

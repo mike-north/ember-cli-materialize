@@ -1,9 +1,6 @@
 import { run } from '@ember/runloop';
 
-import {
-  moduleForComponent,
-  test
-} from 'ember-qunit';
+import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('md-badge', {
   unit: true
@@ -29,12 +26,26 @@ test('badge binding to the text property works', function(assert) {
   let component = this.subject();
 
   this.render();
-  assert.equal(component.$().text().trim(), '', 'By default the text property is empty');
+  assert.equal(
+    component
+      .$()
+      .text()
+      .trim(),
+    '',
+    'By default the text property is empty'
+  );
 
   run(function() {
     component.set('text', 'Heisenberg');
     run.schedule('afterRender', function() {
-      assert.equal(component.$().text().trim(), 'Heisenberg', 'Setting the text property updates the content of the badge');
+      assert.equal(
+        component
+          .$()
+          .text()
+          .trim(),
+        'Heisenberg',
+        'Setting the text property updates the content of the badge'
+      );
     });
   });
 });

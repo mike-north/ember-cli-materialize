@@ -9,11 +9,21 @@ export default Component.extend({
   validate: false,
   _wasTouched: false,
   isValid: computed('_wasTouched', 'value', 'validate', 'errors', 'errors.[]', function() {
-    return (isPresent(this.get('value')) || this.get('_wasTouched')) && this.get('validate') && this.get('errors') && this.get('errors.length') === 0;
+    return (
+      (isPresent(this.get('value')) || this.get('_wasTouched')) &&
+      this.get('validate') &&
+      this.get('errors') &&
+      this.get('errors.length') === 0
+    );
   }),
 
   isInvalid: computed('_wasTouched', 'value', 'validate', 'errors', 'errors.[]', function() {
-    return (isPresent(this.get('value')) || this.get('_wasTouched')) && this.get('validate') && this.get('errors') && this.get('errors.length') > 0;
+    return (
+      (isPresent(this.get('value')) || this.get('_wasTouched')) &&
+      this.get('validate') &&
+      this.get('errors') &&
+      this.get('errors.length') > 0
+    );
   }),
 
   didInsertElement() {

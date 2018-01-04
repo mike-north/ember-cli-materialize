@@ -33,7 +33,8 @@ export default Component.extend({
       }
     }
     return {
-      low, high
+      low,
+      high
     };
   }),
 
@@ -42,7 +43,7 @@ export default Component.extend({
     const winRange = this.get('windowRange');
     const current = this.get('current');
     for (let i = winRange.low; i <= winRange.high; i += 1) {
-      a.addObject({ val: i, cssClass: (current === i ? 'active' : 'waves-effect') });
+      a.addObject({ val: i, cssClass: current === i ? 'active' : 'waves-effect' });
     }
     return a;
   }),

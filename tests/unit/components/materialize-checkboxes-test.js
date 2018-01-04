@@ -1,19 +1,10 @@
 import { A } from '@ember/array';
 import $ from 'jquery';
-import {
-  moduleForComponent,
-  test
-} from 'ember-qunit';
+import { moduleForComponent, test } from 'ember-qunit';
 
-import {
-  disabledGroupTest,
-  groupItemsRenderTest,
-  initialSelectionTest
-} from '../../helpers/selectable-item';
+import { disabledGroupTest, groupItemsRenderTest, initialSelectionTest } from '../../helpers/selectable-item';
 
-import {
-  deselectForSingleSelectionTest,
-} from '../../helpers/selectable-item-group';
+import { deselectForSingleSelectionTest } from '../../helpers/selectable-item-group';
 
 moduleForComponent('md-checks', {
   unit: true,
@@ -38,7 +29,14 @@ test('simple array test', function(assert) {
     selection: A(['Harry Morgan'])
   });
   this.render();
-  assert.deepEqual(component.$('label').toArray().map((x) => $(x).text()), ['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan'], 'Choices are valid');
+  assert.deepEqual(
+    component
+      .$('label')
+      .toArray()
+      .map(x => $(x).text()),
+    ['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan'],
+    'Choices are valid'
+  );
   assert.equal(component.$('input[type="checkbox"]')[2].checked, true, 'Third checkbox is checked');
 });
 

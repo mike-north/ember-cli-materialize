@@ -1,12 +1,6 @@
-import {
-  moduleForComponent,
-  test
-} from 'ember-qunit';
+import { moduleForComponent, test } from 'ember-qunit';
 
-import {
-  disabledStateTest,
-  labelTest
-} from '../../helpers/selectable-item';
+import { disabledStateTest, labelTest } from '../../helpers/selectable-item';
 
 moduleForComponent('md-range', {
   unit: true,
