@@ -16,7 +16,6 @@ test('Load the demo page', function(assert) {
 
 test('Floating buttons should be exposed on hover', assert => {
   visit('/buttons');
-  const done = assert.async();
 
   andThen(() => {
     const mainButton = find('.fixed-btns-example > a.btn-floating');
@@ -29,10 +28,10 @@ test('Floating buttons should be exposed on hover', assert => {
   });
 
   andThen(() => {
+    const done = assert.async();
     setTimeout(() => {
-      assert.equal(
-        $('.fixed-btns-example ul li:first-child a').css('opacity'),
-        '1',
+      assert.ok(
+        parseInt($('.fixed-btns-example ul li:first-child a').css('opacity'), 10) > 0.5,        
         'Secondary buttons should be shown after mouseover'
       );
       done();

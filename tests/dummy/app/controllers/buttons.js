@@ -6,6 +6,9 @@ export default Controller.extend({
   myData: new A(['hello', 'world']),
 
   actions: {
+    debug() {
+      window.alert('clicked!');
+    },
     firstAction() {
       window.alert('firstAction');
     },
