@@ -1,56 +1,43 @@
-
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
 dist: trusty
-
 addons:
   chrome: stable
-
 cache:
   directories:
-    - $HOME/.npm
-
+  - "$HOME/.npm"
 env:
   global:
-    # See https://git.io/vdao3 for details.
-    - JOBS=1
+  - JOBS=1
   matrix:
-    # we recommend new addons test the current and previous LTS
-    # as well as latest stable release (bonus points to beta/canary)
-    - EMBER_TRY_SCENARIO=ember-1.13
-    - EMBER_TRY_SCENARIO=ember-lts-2.12
-    - EMBER_TRY_SCENARIO=ember-lts-2.16
-    - EMBER_TRY_SCENARIO=ember-release
-    - EMBER_TRY_SCENARIO=ember-beta
-    - EMBER_TRY_SCENARIO=ember-canary
-
+  - EMBER_TRY_SCENARIO=ember-1.13
+  - EMBER_TRY_SCENARIO=ember-lts-2.12
+  - EMBER_TRY_SCENARIO=ember-lts-2.16
+  - EMBER_TRY_SCENARIO=ember-release
+  - EMBER_TRY_SCENARIO=ember-beta
+  - EMBER_TRY_SCENARIO=ember-canary
 matrix:
   fast_finish: true
   allow_failures:
-    - env: EMBER_TRY_SCENARIO=ember-canary
-
+  - env: EMBER_TRY_SCENARIO=ember-canary
 before_install:
-  - "npm config set spin false"
-  - npm install -g npm@4
-  - npm install -g bower
-  - npm --version
-
+- npm config set spin false
+- npm install -g npm@4
+- npm install -g bower
+- npm --version
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm run lint:js
-  - if [ "${EMBER_TRY_SCENARIO}" = "ember-release" ]; then ember try:one $EMBER_TRY_SCENARIO; else ember try:one $EMBER_TRY_SCENARIO --skip-cleanup; fi
-
+- npm run lint:js
+- if [ "${EMBER_TRY_SCENARIO}" = "ember-release" ]; then ember try:one $EMBER_TRY_SCENARIO;
+  else ember try:one $EMBER_TRY_SCENARIO --skip-cleanup; fi
 deploy:
   provider: heroku
   api_key:
-    secure: JyCVhFlH+gDBkHoIivvBVNNIVuJSZT5jeFDHCBAhCMh2OsHCK99hlGtLJRjG6fPWwJ81jorUb14RDA5jxU/2VPeFvefelDqarkG3lWNUUnVtiFk2mDBuhYHW03P11btoixcg2NTr7cgNjARWEt4UbaZ1a0QkdzsmzhIbSjShrRk=
+    secure: OeFMyi6ylYfPeNd/25cLaueVuVKbqtEHvis/J9GDiWIa7xpVD/NBS+TGxMTMaaA02Mft3Vw+MkZsPSWPU53ws1rQFAwAf98Pqx197dXoQ97Fi3wY0bipm9ZFl+bQYJg58Ydkz0sjQQbIxxtq9jn/gOtVTy5b+hQduSWjx3i15HE=
   app: ember-materialize-demo
   on:
     repo: mike-north/ember-cli-materialize
