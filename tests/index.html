@@ -24,6 +24,9 @@
     <script src="/testem.js" integrity=""></script>
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/test-support.js"></script>
+    <script>
+      QUnit.config.testTimeout = 90000;
+    </script>
     <script src="{{rootURL}}assets/dummy.js"></script>
     <script src="{{rootURL}}assets/tests.js"></script>
 
