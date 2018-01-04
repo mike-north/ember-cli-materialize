@@ -1,19 +1,10 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { alias } from '@ember/object/computed';
+import { debounce } from '@ember/runloop';
+import { A } from '@ember/array';
+import { observer, computed, get } from '@ember/object';
 import ParentComponentSupport from 'ember-composability/mixins/parent-component-support';
 import layout from '../templates/components/md-tabs';
-
-const { get,
-  Component,
-  computed,
-  computed: {
-    alias
-  },
-  run: {
-    debounce
-  },
-  A,
-  observer
-} = Ember;
 
 export default Component.extend(ParentComponentSupport, {
   layout,
@@ -44,7 +35,9 @@ export default Component.extend(ParentComponentSupport, {
     if (!this.element) {
       return;
     }
-    const [tabComponent] = (this.get('composableChildren') || []).filter(item => get(item, 'value') === this.get('selected'));
+    const [tabComponent] = (this.get('composableChildren') || []).filter(
+      item => get(item, 'value') === this.get('selected')
+    );
     const tabSetRect = this.element.getBoundingClientRect();
     if (tabComponent) {
       const tabRect = tabComponent.element.getBoundingClientRect();
@@ -71,9 +64,11 @@ export default Component.extend(ParentComponentSupport, {
   _content: computed('content.[]', 'optionLabelPath', 'optionValuePath', function() {
     const labelPath = this.get('optionLabelPath');
     const valuePath = this.get('optionValuePath');
-    return new A((this.get('content') || []).map(contentItem => ({
-      id: contentItem[valuePath],
-      title: contentItem[labelPath]
-    })));
+    return new A(
+      (this.get('content') || []).map(contentItem => ({
+        id: contentItem[valuePath],
+        title: contentItem[labelPath]
+      }))
+    );
   })
 });

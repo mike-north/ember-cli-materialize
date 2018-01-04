@@ -1,8 +1,6 @@
-import Ember from 'ember';
+import { alias } from '@ember/object/computed';
 import SelectableItem from './selectable-item';
 import layout from '../templates/components/md-checkbox';
-
-const { computed: { alias } } = Ember;
 
 export default SelectableItem.extend({
   layout,

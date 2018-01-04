@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { alias } from '@ember/object/computed';
 import layout from '../templates/components/md-card-content';
-
-const { Component, computed, computed: { alias } } = Ember;
 
 export default Component.extend({
   layout,
@@ -17,4 +17,3 @@ export default Component.extend({
     return this.get('titleClass') || 'black-text';
   })
 });
-

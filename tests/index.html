@@ -21,14 +21,14 @@
     {{content-for "body"}}
     {{content-for "test-body"}}
 
-    <script src="{{rootURL}}testem.js" integrity=""></script>
+    <script src="/testem.js" integrity=""></script>
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/test-support.js"></script>
+    <script>
+      QUnit.config.testTimeout = 90000;
+    </script>
     <script src="{{rootURL}}assets/dummy.js"></script>
-    <script src="{{rootURL}}assets/blanket-options.js"></script>
-    <script src="{{rootURL}}assets/blanket-loader.js"></script>
     <script src="{{rootURL}}assets/tests.js"></script>
-    <script src="{{rootURL}}assets/test-loader.js"></script>
 
     {{content-for "body-footer"}}
     {{content-for "test-body-footer"}}

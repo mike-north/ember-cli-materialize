@@ -1,20 +1,7 @@
-import Ember from 'ember';
+import { test } from 'qunit';
+import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
 
-import startApp from '../../tests/helpers/start-app';
-import { module, test } from 'qunit';
-
-let App;
-
-const { run } = Ember;
-
-module('Acceptance - Table', {
-  setup() {
-    App = startApp();
-  },
-  teardown() {
-    run(App, 'destroy');
-  }
-});
+moduleForAcceptance('Acceptance - Table');
 
 test('Load the demo page', assert => {
   visit('/tables');
@@ -26,6 +13,5 @@ test('Load the demo page', assert => {
     assert.equal(find('.custom-cells table td .btn').length, 3, 'Buttons as table cells');
 
     assert.equal(find('.custom-headers table thead th i').length, 2, 'Headers are customized');
-
   });
 });

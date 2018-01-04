@@ -1,6 +1,5 @@
-import Ember from 'ember';
-
-const { computed, Component } = Ember;
+import { computed } from '@ember/object';
+import Component from '@ember/component';
 
 export default Component.extend({
   actionArgs: null,
@@ -18,6 +17,6 @@ export default Component.extend({
   },
 
   _btnClassString: computed('btnClass', function() {
-    return `${this.get('btnClass')} btn-floating ${this.get('large') ? 'btn-large' : '' }`;
+    return `${this.get('btnClass')} btn-floating ${this.get('large') ? 'btn-large' : ''}`;
   })
 });

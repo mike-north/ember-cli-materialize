@@ -1,7 +1,5 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../templates/components/md-badge';
-
-const { Component } = Ember;
 
 export default Component.extend({
   layout,

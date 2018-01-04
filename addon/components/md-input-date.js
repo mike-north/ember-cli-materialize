@@ -1,12 +1,21 @@
-import Ember from 'ember';
+import $ from 'jquery';
 import MaterializeInput from './md-input';
 import layout from '../templates/components/md-input-date';
 
-const MONTH_NAMES = ['January', 'February', 'March', 'April',
-    'May', 'June', 'July', 'August', 'September', 'October',
-    'November', 'December'];
-
-const { $ } = Ember;
+const MONTH_NAMES = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+];
 
 function formatDate(timestamp) {
   const d = new Date(timestamp);
@@ -41,9 +50,11 @@ export default MaterializeInput.extend({
       }
     };
 
-    this.$('.datepicker').pickadate($.extend(datePickerOptions, {
-      onSet: this._onDateSet
-    }));
+    this.$('.datepicker').pickadate(
+      $.extend(datePickerOptions, {
+        onSet: this._onDateSet
+      })
+    );
   },
 
   _teardownPicker() {

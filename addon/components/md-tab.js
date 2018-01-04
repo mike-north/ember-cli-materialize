@@ -1,9 +1,9 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { oneWay } from '@ember/object/computed';
 import ChildComponentSupport from 'ember-composability/mixins/child-component-support';
 import MdTabs from './md-tabs';
 import layout from '../templates/components/md-tab';
-
-const { Component, computed, computed: { oneWay } } = Ember;
 
 export default Component.extend(ChildComponentSupport, {
   _parentComponentTypes: [MdTabs],
@@ -34,5 +34,4 @@ export default Component.extend(ChildComponentSupport, {
   click() {
     this.get('composableParent').set('selected', this.get('value'));
   }
-
 });

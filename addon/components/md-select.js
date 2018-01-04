@@ -1,8 +1,9 @@
-import Ember from 'ember';
+import { A } from '@ember/array';
+import { isNone } from '@ember/utils';
+import { later } from '@ember/runloop';
+import { get, observer, computed } from '@ember/object';
 import MaterializeInputField from './md-input-field';
 import layout from '../templates/components/md-select';
-
-const { computed, A, observer, isNone, run: { later }, get } = Ember;
 
 export default MaterializeInputField.extend({
   layout,
@@ -26,12 +27,14 @@ export default MaterializeInputField.extend({
     // keep backwards compatability for defining optionValuePath & as optionContentPath `content.{{attName}}`
     const optionValuePath = (this.get('optionValuePath') || '').replace(contentRegex, '');
     const optionLabelPath = (this.get('optionLabelPath') || '').replace(contentRegex, '');
-    return A((this.get('content') || []).map((option) => {
-      return {
-        value: optionValuePath ? get(option, optionValuePath) : option,
-        label: optionLabelPath ? get(option, optionLabelPath) : option
-      };
-    }));
+    return A(
+      (this.get('content') || []).map(option => {
+        return {
+          value: optionValuePath ? get(option, optionValuePath) : option,
+          label: optionLabelPath ? get(option, optionLabelPath) : option
+        };
+      })
+    );
   }),
 
   // TODO: clean up any listeners that $.select() puts in place
@@ -45,16 +48,20 @@ export default MaterializeInputField.extend({
     const inputSelector = this.$('input');
     // monitor the select's validity and copy the appropriate validation class to the materialize input element.
     if (!isNone(inputSelector)) {
-      later(this, function() {
-        const isValid = this.$('select').hasClass('valid');
-        if (isValid) {
-          inputSelector.removeClass('invalid');
-          inputSelector.addClass('valid');
-        } else {
-          inputSelector.removeClass('valid');
-          inputSelector.addClass('invalid');
-        }
-      }, 150);
+      later(
+        this,
+        function() {
+          const isValid = this.$('select').hasClass('valid');
+          if (isValid) {
+            inputSelector.removeClass('invalid');
+            inputSelector.addClass('valid');
+          } else {
+            inputSelector.removeClass('valid');
+            inputSelector.addClass('invalid');
+          }
+        },
+        150
+      );
     }
   })
 });

@@ -1,11 +1,8 @@
-import {
-  moduleForComponent,
-  test
-} from 'ember-qunit';
+import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('md-input', {
   unit: true,
-  needs: ['helper:bw-compat-icon']
+  needs: ['helper:bw-compat-icon', 'service:keyboard']
 });
 
 test('input renders', function(assert) {

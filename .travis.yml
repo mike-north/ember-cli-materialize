@@ -2,48 +2,52 @@
 ---
 language: node_js
 node_js:
-  - "stable"
+  - "4"
 
+sudo: false
 dist: trusty
-sudo: required
 
 addons:
-  apt:
-    sources:
-    - google-chrome
-    packages:
-    - google-chrome-stable
+  chrome: stable
 
 cache:
   directories:
-    - node_modules
+    - $HOME/.npm
 
 env:
-- EMBER_TRY_SCENARIO=ember-1.13
-- EMBER_TRY_SCENARIO=ember-2.4
-- EMBER_TRY_SCENARIO=ember-2.6
-- EMBER_TRY_SCENARIO=ember-release
-- ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-beta
-- ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-canary
+  global:
+    # See https://git.io/vdao3 for details.
+    - JOBS=1
+  matrix:
+    # we recommend new addons test the current and previous LTS
+    # as well as latest stable release (bonus points to beta/canary)
+    - EMBER_TRY_SCENARIO=ember-1.13
+    - EMBER_TRY_SCENARIO=ember-lts-2.12
+    - EMBER_TRY_SCENARIO=ember-lts-2.16
+    - EMBER_TRY_SCENARIO=ember-release
+    - EMBER_TRY_SCENARIO=ember-beta
+    - EMBER_TRY_SCENARIO=ember-canary
 
 matrix:
   fast_finish: true
   allow_failures:
-    - env: ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-beta
-    - env: ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-canary
+    - env: EMBER_TRY_SCENARIO=ember-beta
+    - env: EMBER_TRY_SCENARIO=ember-canary
 
 before_install:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
   - "npm config set spin false"
-  - "npm install -g npm@^3"
+  - npm install -g npm@4
+  - npm install -g bower
+  - npm --version
 
 install:
   - npm install
   - bower install
 
 script:
-- if [ "${EMBER_TRY_SCENARIO}" = "ember-release" ]; then ember try:one $EMBER_TRY_SCENARIO test; else ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup; fi
+  - npm run lint:js
+  - if [ "${EMBER_TRY_SCENARIO}" = "ember-release" ]; then ember try:one $EMBER_TRY_SCENARIO; else ember try:one $EMBER_TRY_SCENARIO --skip-cleanup; fi
+
 deploy:
   provider: heroku
   api_key:
