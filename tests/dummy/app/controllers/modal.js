@@ -2,6 +2,7 @@ import Controller from '@ember/controller';
 
 export default Controller.extend({
   modalIsOpen: false,
+  isOpen: false,
   actions: {
     openModal() {
       this.set('modalIsOpen', true);

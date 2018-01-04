@@ -9,9 +9,9 @@ import {
 } from '../../helpers/selectable-item';
 
 moduleForComponent('md-range', {
-  unit: true
+  unit: true,
   // Specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar']
+  needs: ['service:keyboard']
 });
 
 test('it renders', function(assert) {

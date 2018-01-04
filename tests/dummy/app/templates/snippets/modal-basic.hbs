@@ -1,5 +1,5 @@
 {{#if modalIsOpen}}
-    {{#md-modal close='closeModal' class="test-modal"}}
+    {{#md-modal close=(action (mut modalIsOpen) false) class="test-modal"}}
         <div class="modal-content">
             <h4>Ohai there!</h4>
             <p>Star ember-cli-materialize if you love it on 
@@ -10,7 +10,7 @@
             <a class="modal-action modal-close waves-effect waves-orange btn-flat agree-button" {{action 'agree'}}>
                 Done!
             </a>
-            <a class="modal-action modal-close waves-effect waves-red btn-flat cancel-button" {{action 'closeModal'}}>
+            <a class="modal-action modal-close waves-effect waves-red btn-flat cancel-button" onClick={{action (mut modalIsOpen) false}}>
                 Cancel
             </a>
         </div>

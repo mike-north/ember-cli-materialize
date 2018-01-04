@@ -1,21 +1,10 @@
-import { run } from '@ember/runloop';
+import { test } from 'qunit';
+import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
 import $ from 'jquery';
 
-import startApp from '../../tests/helpers/start-app';
-import { module, test } from 'qunit';
-
-let App;
+moduleForAcceptance('Acceptance - Buttons');
 
 const BUTTON_HOVER_TIMEOUT = 1000;
-
-module('Acceptance - Buttons', {
-  setup() {
-    App = startApp();
-  },
-  teardown() {
-    run(App, 'destroy');
-  }
-});
 
 test('Load the demo page', function(assert) {
   visit('/buttons');
@@ -31,13 +20,21 @@ test('Floating buttons should be exposed on hover', assert => {
 
   andThen(() => {
     const mainButton = find('.fixed-btns-example > a.btn-floating');
-    assert.equal($('.fixed-btns-example ul li:first-child a').css('opacity'), '0', 'Secondary buttons should be hidden before mouseover');
+    assert.equal(
+      $('.fixed-btns-example ul li:first-child a').css('opacity'),
+      '0',
+      'Secondary buttons should be hidden before mouseover'
+    );
     $(mainButton).mouseover();
   });
 
   andThen(() => {
     setTimeout(() => {
-      assert.equal($('.fixed-btns-example ul li:first-child a').css('opacity'), '1', 'Secondary buttons should be shown after mouseover');
+      assert.equal(
+        $('.fixed-btns-example ul li:first-child a').css('opacity'),
+        '1',
+        'Secondary buttons should be shown after mouseover'
+      );
       done();
     }, BUTTON_HOVER_TIMEOUT);
   });
@@ -56,7 +53,6 @@ test('Clicking the first floating button should fire an action', assert => {
   };
 
   click('.fixed-btns-example > a.btn-floating');
-
 });
 
 test('Clicking a secondary floating button should fire a different action, and pass arguments', assert => {
@@ -67,7 +63,11 @@ test('Clicking a secondary floating button should fire a different action, and p
 
   andThen(() => {
     const mainButton = find('.fixed-btns-example > a.btn-floating');
-    assert.equal($('.fixed-btns-example ul li:first-child a').css('opacity'), '0', 'Secondary buttons should be hidden before mouseover');
+    assert.equal(
+      $('.fixed-btns-example ul li:first-child a').css('opacity'),
+      '0',
+      'Secondary buttons should be hidden before mouseover'
+    );
     $(mainButton).mouseover();
   });
 
@@ -82,5 +82,4 @@ test('Clicking a secondary floating button should fire a different action, and p
       click('.fixed-btns-example ul li:first-child a');
     }, BUTTON_HOVER_TIMEOUT);
   });
-
 });

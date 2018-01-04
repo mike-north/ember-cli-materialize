@@ -16,6 +16,9 @@ export default Component.extend({
     }
   }),
   send() {
-    this.get('targetObject').send(...arguments);
+    let target = this.get('targetObject');
+    if (target) {
+      target.send(...arguments);
+    }
   }
 });

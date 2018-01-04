@@ -5,7 +5,7 @@ import {
 
 moduleForComponent('md-input', {
   unit: true,
-  needs: ['helper:bw-compat-icon']
+  needs: ['helper:bw-compat-icon', 'service:keyboard']
 });
 
 test('input renders', function(assert) {
