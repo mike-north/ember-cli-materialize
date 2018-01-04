@@ -1,13 +1,12 @@
-import Ember from 'ember';
+import EmberRouter from '@ember/routing/router';
 import config from './config/environment';
 
-const { Router } = Ember;
-
-const AppRouter = Router.extend({
-  location: config.locationType
+const Router = EmberRouter.extend({
+  location: config.locationType,
+  rootURL: config.rootURL
 });
 
-AppRouter.map(function() {
+Router.map(function() {
   this.route('badges');
   this.route('buttons');
   this.route('cards');
@@ -25,4 +24,4 @@ AppRouter.map(function() {
   this.route('colors');
 });
 
-export default AppRouter;
+export default Router;
