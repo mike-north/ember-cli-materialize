@@ -2,6 +2,7 @@ import {
   moduleForComponent,
   test
 } from 'ember-qunit';
+import $ from 'jquery';
 
 moduleForComponent('md-btn-dropdown', 'component:md-btn-dropdown', {
   unit: true

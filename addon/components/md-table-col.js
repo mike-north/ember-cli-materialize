@@ -6,6 +6,7 @@ import Table from './md-table';
 import ChildComponentSupport from 'ember-composability/mixins/child-component-support';
 
 export default Component.extend(ChildComponentSupport, {
+  // eslint-disable-next-line
   _parentComponentTypes: [Table],
   tagName: 'td',
   layout,

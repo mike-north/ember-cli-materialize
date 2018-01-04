@@ -1,4 +1,5 @@
 import { run } from '@ember/runloop';
+import $ from 'jquery';
 
 import startApp from '../../tests/helpers/start-app';
 import { module, test } from 'qunit';

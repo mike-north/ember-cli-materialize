@@ -12,6 +12,7 @@ function asJSON(propKey) {
 }
 
 export default Controller.extend({
+  //eslint-disable-next-line
   frameworks: new A([{
     id: 1,
     value: 'Materialize CSS'
@@ -20,6 +21,7 @@ export default Controller.extend({
     value: 'Ember-CLI Materialize'
   }]),
   message: `This is a long message. It might flow to the next line if I keep typing, so it's better suited to a textarea`,
+  //eslint-disable-next-line
   errors: {
     name: A([]),
     framework: A([])
@@ -63,6 +65,7 @@ export default Controller.extend({
   radioIsSelected: false,
   radioSelection: 2,
   otherRadioSelection: 'green',
+  //eslint-disable-next-line
   radioChoices: new A([{
     id: 1,
     text: 'One'
@@ -74,7 +77,9 @@ export default Controller.extend({
   radioSelectionString: asJSON('radioSelection'),
   radioChoicesString: asJSON('radioChoices'),
 
+  //eslint-disable-next-line
   checkboxSelections: new A([3, 4]),
+  //eslint-disable-next-line
   checkboxChoices: new A([{
     id: 3,
     label: 'Three'
@@ -87,6 +92,7 @@ export default Controller.extend({
   }]),
 
   switchesChoicesString: asJSON('switchesChoices'),
+  //eslint-disable-next-line
   switchesChoices: new A([{
     key: 6,
     name: 'Six'
@@ -97,6 +103,7 @@ export default Controller.extend({
     key: 8,
     name: 'Eight'
   }]),
+  //eslint-disable-next-line
   switchesSelections: new A([7]),
   switchesSelection: 7,
   switchesSelectionString: asJSON('switchesSelection'),

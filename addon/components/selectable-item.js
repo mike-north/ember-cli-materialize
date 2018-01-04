@@ -6,6 +6,7 @@ import SelectableItemGroup from './selectable-item-group';
 import _computed from 'ember-new-computed';
 
 export default Component.extend(ChildComponentSupport, {
+  // eslint-disable-next-line
   _parentComponentTypes: [SelectableItemGroup],
   checked: null,
   disabled: false,

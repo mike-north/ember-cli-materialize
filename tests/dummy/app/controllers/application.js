@@ -2,6 +2,7 @@ import { A } from '@ember/array';
 import Controller from '@ember/controller';
 
 export default Controller.extend({
+  // eslint-disable-next-line
   demoSections: new A([
     { name: 'Badges',      route: 'badges' },
     { name: 'Buttons',     route: 'buttons' },

@@ -1,5 +1,6 @@
 import { schedule, run } from '@ember/runloop';
 import { isArray, A } from '@ember/array';
+import $ from 'jquery';
 
 import {
   test

@@ -1,4 +1,5 @@
 import { A } from '@ember/array';
+import $ from 'jquery';
 import {
   moduleForComponent,
   test

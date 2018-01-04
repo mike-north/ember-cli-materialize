@@ -2,6 +2,7 @@ import {
   moduleForComponent,
   test
 } from 'ember-qunit';
+import $ from 'jquery';
 
 moduleForComponent('md-card-reveal', {
   unit: true
