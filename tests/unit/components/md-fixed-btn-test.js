@@ -2,7 +2,7 @@ import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('md-fixed-btn', 'component:md-fixed-btn', {
   // Specify the other units that are required for this test
-  needs: ['component:md-btn']
+  needs: ['component:md-btn', 'helper:bw-compat-icon']
 });
 
 test('it renders', function(assert) {
@@ -24,6 +24,15 @@ test('btnIcon attribute results in an icon being rendered', function(assert) {
 
   this.render();
   assert.equal(component.$('i.mdi-content-add').length, 1, 'Icon should be present');
+});
+
+test('btnIcon(material-icons) attribute results in an icon being rendered', function(assert) {
+  const component = this.subject({
+    btnIcon: 'edit'
+  });
+
+  this.render();
+  assert.equal(component.$('i.material-icons').html(), 'edit', 'Icon should be present');
 });
 
 test('btnClass attribute should pass through to the button', function(assert) {
