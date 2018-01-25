@@ -2,9 +2,8 @@ import { moduleForComponent, test } from 'ember-qunit';
 import $ from 'jquery';
 
 moduleForComponent('md-btn-submit', 'component:md-btn-submit', {
-  unit: true
-  // specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar']
+  unit: true,
+  needs: ['helper:bw-compat-icon']
 });
 
 test('button submit renders', function(assert) {
