@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import layout from '../templates/components/md-card-content';
+import { deprecate } from '@ember/application/deprecations';
 
 export default Component.extend({
   layout,
@@ -9,15 +10,30 @@ export default Component.extend({
 
   classNameBindings: ['class'],
 
-  title: computed(function() {
+  title: computed('parentView.title', function() {
+    deprecate('Using md-card-content without passing it a "title" property (relying on parentView.title) is deprecated.',
+      true, {
+      id: 'ember-cli-materialize.deprecate-parentView',
+      until: '1.0.0'
+    });
     return this.get('parentView.title');
-  }).volatile(),
+  }),
 
-  titleClass: computed(function() {
+  titleClass: computed('parentView.titleClass', function() {
+    deprecate('Using md-card-content without passing it a "titleClass" property (relying on parentView.titleClass) is deprecated.',
+      true, {
+      id: 'ember-cli-materialize.deprecate-parentView',
+      until: '1.0.0'
+    });
     return this.get('parentView.titleClass');
-  }).volatile(),
+  }),
 
-  activator: computed(function() {
+  activator: computed('parentView.activator', function() {
+    deprecate('Using md-card-content without passing it an "activator" property (relying on parentView.activator) is deprecated.',
+      true, {
+      id: 'ember-cli-materialize.deprecate-parentView',
+      until: '1.0.0'
+    });
     return this.get('parentView.activator');
   }),
 
