@@ -5,4 +5,3 @@ export default FixedButtonBase.extend({
   layout,
   classNames: ['md-fixed-btns', 'fixed-action-btn']
 });
-

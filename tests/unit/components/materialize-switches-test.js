@@ -1,20 +1,10 @@
-import Ember from 'ember';
-import {
-  moduleForComponent,
-  test
-} from 'ember-qunit';
+import { A } from '@ember/array';
+import $ from 'jquery';
+import { moduleForComponent, test } from 'ember-qunit';
 
-import {
-  disabledGroupTest,
-  groupItemsRenderTest,
-  initialSelectionTest
-} from '../../helpers/selectable-item';
+import { disabledGroupTest, groupItemsRenderTest, initialSelectionTest } from '../../helpers/selectable-item';
 
-import {
-  deselectForSingleSelectionTest,
-} from '../../helpers/selectable-item-group';
-
-const { A } = Ember;
+import { deselectForSingleSelectionTest } from '../../helpers/selectable-item-group';
 
 moduleForComponent('md-switches', {
   unit: true,
@@ -39,7 +29,14 @@ test('simple array test', function(assert) {
     selection: A(['Deborah Morgan'])
   });
   this.render();
-  assert.deepEqual(component.$('.switch-label').toArray().map((x) => $(x).text()), ['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan'], 'Choices are valid');
+  assert.deepEqual(
+    component
+      .$('.switch-label')
+      .toArray()
+      .map(x => $(x).text()),
+    ['Dexter Morgan', 'Deborah Morgan', 'Harry Morgan'],
+    'Choices are valid'
+  );
   assert.equal(component.$('input[type="checkbox"]')[1].checked, true, 'Second checkbox is checked');
 });
 

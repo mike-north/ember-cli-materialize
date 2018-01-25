@@ -1,11 +1,12 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import { alias } from '@ember/object/computed';
+import Component from '@ember/component';
 import ChildComponentSupport from 'ember-composability/mixins/child-component-support';
 import SelectableItemGroup from './selectable-item-group';
 import _computed from 'ember-new-computed';
 
-const { computed, computed: { alias }, Component } = Ember;
-
 export default Component.extend(ChildComponentSupport, {
+  // eslint-disable-next-line
   _parentComponentTypes: [SelectableItemGroup],
   checked: null,
   disabled: false,
@@ -35,7 +36,9 @@ export default Component.extend(ChildComponentSupport, {
   isSelected: alias('_checked'),
 
   _setupLabel() {
-    let [$input] = this.$('.materialize-selectable-item-input, .materialize-selectable-item-input-container input').toArray();
+    let [$input] = this.$(
+      '.materialize-selectable-item-input, .materialize-selectable-item-input-container input'
+    ).toArray();
 
     let inputId = $input ? $input.id : null;
     this.$('.materialize-selectable-item-label').attr('for', inputId);

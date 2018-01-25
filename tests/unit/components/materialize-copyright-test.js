@@ -1,11 +1,6 @@
-import Ember from 'ember';
+import { run } from '@ember/runloop';
 
-import {
-  moduleForComponent,
-  test
-} from 'ember-qunit';
-
-const { run } = Ember;
+import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('md-copyright', {
   unit: true
@@ -32,16 +27,26 @@ test('copyright binding to the text property works', function(assert) {
   let currentYear = new Date().getFullYear();
 
   this.render();
-  assert.equal(component.$().text().trim(),
+  assert.equal(
+    component
+      .$()
+      .text()
+      .trim(),
     `\u00A9 ${currentYear}`,
-    'By default the text property is empty');
+    'By default the text property is empty'
+  );
 
   run(function() {
     component.set('text', 'Copyright Text');
     run.schedule('afterRender', function() {
-      assert.equal(component.$().text().trim(),
+      assert.equal(
+        component
+          .$()
+          .text()
+          .trim(),
         `\u00A9 ${currentYear} Copyright Text`,
-        'Setting the text property updates the content of the copyright component');
+        'Setting the text property updates the content of the copyright component'
+      );
     });
   });
 });
@@ -54,9 +59,11 @@ test('copyright null startYear', function(assert) {
   // confirm the component's date is 'currentYear'
   run(function() {
     run.schedule('afterRender', function() {
-      assert.equal(component.get('date'),
+      assert.equal(
+        component.get('date'),
         new Date().getFullYear(),
-        'Not setting the startYear property just shows the currentYear');
+        'Not setting the startYear property just shows the currentYear'
+      );
     });
   });
 });
@@ -71,9 +78,11 @@ test('copyright current startYear', function(assert) {
   // confirm the component's date is 'currentYear'
   run(function() {
     run.schedule('afterRender', function() {
-      assert.equal(component.get('date'),
+      assert.equal(
+        component.get('date'),
         currentYear,
-        'Setting the startYear property to the same year as the currentYear just shows the currentYear');
+        'Setting the startYear property to the same year as the currentYear just shows the currentYear'
+      );
     });
   });
 });
@@ -88,9 +97,11 @@ test('copyright past startYear', function(assert) {
   // confirm the component's date is 'startYear - currentYear'
   run(function() {
     run.schedule('afterRender', function() {
-      assert.equal(component.get('date'),
+      assert.equal(
+        component.get('date'),
         `${currentYear - 1} - ${currentYear}`,
-        'Setting the startYear property to a year before the currentYear shows startYear - currentYear');
+        'Setting the startYear property to a year before the currentYear shows startYear - currentYear'
+      );
     });
   });
 });

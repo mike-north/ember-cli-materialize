@@ -1,8 +1,6 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
 import SelectableItem from './selectable-item';
 import layout from '../templates/components/md-switch';
-
-const { computed } = Ember;
 
 export default SelectableItem.extend({
   layout,

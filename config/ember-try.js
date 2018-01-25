@@ -5,15 +5,14 @@ function scenario(emberVersion) {
     name: 'ember-' + emberVersion,
     bower: {
       dependencies: {
-        'ember': '~' + emberVersion + '.0'
+        ember: '~' + emberVersion + '.0'
       },
       resolutions: {
-        'ember': '~' + emberVersion + '.0'
+        ember: '~' + emberVersion + '.0'
       }
     }
   };
 }
-
 
 module.exports = {
   scenarios: [
@@ -26,13 +25,34 @@ module.exports = {
     scenario('2.5'),
     scenario('2.6'),
     {
+      name: 'ember-lts-2.12',
+      npm: {
+        devDependencies: {
+          'ember-source': '~2.12.0'
+        }
+      }
+    },
+    {
+      name: 'ember-lts-2.16',
+      npm: {
+        devDependencies: {
+          'ember-source': '~2.16.0'
+        }
+      }
+    },
+    {
       name: 'ember-release',
       bower: {
         dependencies: {
-          'ember': 'components/ember#release'
+          ember: 'components/ember#release'
         },
         resolutions: {
-          'ember': 'release'
+          ember: 'release'
+        }
+      },
+      npm: {
+        devDependencies: {
+          'ember-source': null
         }
       }
     },
@@ -40,10 +60,15 @@ module.exports = {
       name: 'ember-beta',
       bower: {
         dependencies: {
-          'ember': 'components/ember#beta'
+          ember: 'components/ember#beta'
         },
         resolutions: {
-          'ember': 'beta'
+          ember: 'beta'
+        }
+      },
+      npm: {
+        devDependencies: {
+          'ember-source': null
         }
       }
     },
@@ -51,10 +76,15 @@ module.exports = {
       name: 'ember-canary',
       bower: {
         dependencies: {
-          'ember': 'components/ember#canary'
+          ember: 'components/ember#canary'
         },
         resolutions: {
-          'ember': 'canary'
+          ember: 'canary'
+        }
+      },
+      npm: {
+        devDependencies: {
+          'ember-source': null
         }
       }
     }

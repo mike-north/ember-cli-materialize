@@ -1,8 +1,6 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
 import layout from '../templates/components/md-btn-dropdown';
 import MaterializeButton from './md-btn';
-
-const { computed } = Ember;
 
 export default MaterializeButton.extend({
   layout,
@@ -12,7 +10,13 @@ export default MaterializeButton.extend({
   iconBody: '',
   iconPosition: 'right',
   attributeBindings: [
-    'inDuration:data-induration', 'outDuration:data-outduration', 'constrainWidth:data-constrainwidth', '_hoverVal:data-hover', 'gutter:data-gutter', 'belowOrigin:data-beloworigin', 'alignment'
+    'inDuration:data-induration',
+    'outDuration:data-outduration',
+    'constrainWidth:data-constrainwidth',
+    '_hoverVal:data-hover',
+    'gutter:data-gutter',
+    'belowOrigin:data-beloworigin',
+    'alignment'
   ],
 
   didRender() {

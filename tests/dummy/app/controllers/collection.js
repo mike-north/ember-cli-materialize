@@ -1,7 +1,3 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
 
-const { Controller } = Ember;
-
-export default Controller.extend({
-
-});
+export default Controller.extend({});

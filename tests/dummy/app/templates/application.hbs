@@ -1,25 +1,19 @@
 <header>
-{{demo-nav}}
+  {{demo-nav}}
 </header>
 <ul class="side-nav fixed demo-page-submenu" id="mobile-demo">
-  {{#each demoSections as |section|}}
-    {{#link-to section.route activeClass='active' tagName='li'}}
-      {{#link-to section.route}}
-        {{section.name}}
-        {{#if section.new}}
-          {{#md-badge class='deep-orange lighten-1 new-badge right white-text'}}New{{/md-badge}}
-        {{/if}}
-      {{/link-to}}
-    {{/link-to}}
-  {{/each}}
+  {{#each demoSections as |section|}} {{#link-to section.route activeClass='active' tagName='li'}} {{#link-to section.route}}
+  {{section.name}} {{#if section.new}} {{#md-badge class='deep-orange lighten-1 new-badge right white-text'}}New{{/md-badge}}
+  {{/if}} {{/link-to}} {{/link-to}} {{/each}}
 </ul>
 <main>
   {{outlet}}
 </main>
 
-{{md-modal-container}}
+{{!-- {{md-modal-container}} --}}
 
 <footer class="page-footer demo-footer deep-orange darken-2">
-  {{#md-copyright text='Copyright Text' startYear=2014}}<a class="grey-text text-lighten-4 right" href="#!">More Links</a>{{/md-copyright}}
+  {{#md-copyright text='Copyright Text' startYear=2014}}
+  <a class="grey-text text-lighten-4 right" href="#!">More Links</a>{{/md-copyright}}
 </footer>
 {{ember-anchor a=myQueryParam}}

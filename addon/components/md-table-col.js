@@ -1,11 +1,12 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { get, computed } from '@ember/object';
+import { alias } from '@ember/object/computed';
 import layout from '../templates/components/md-table-col';
 import Table from './md-table';
 import ChildComponentSupport from 'ember-composability/mixins/child-component-support';
 
-const { Component, computed, get, computed: { alias } } = Ember;
-
 export default Component.extend(ChildComponentSupport, {
+  // eslint-disable-next-line
   _parentComponentTypes: [Table],
   tagName: 'td',
   layout,

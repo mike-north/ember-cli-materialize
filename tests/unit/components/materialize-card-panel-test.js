@@ -1,7 +1,5 @@
-import {
-  moduleForComponent,
-  test
-} from 'ember-qunit';
+import { moduleForComponent, test } from 'ember-qunit';
+import $ from 'jquery';
 
 moduleForComponent('md-card-panel', {
   unit: true

@@ -1,30 +1,31 @@
-import Ember from 'ember';
-
-const {
-  Controller,
-  A,
-  observer,
-  computed,
-  isPresent,
-  later,
-  computed: { not }
-} = Ember;
+// @ts-check
+import Controller from '@ember/controller';
+import { A } from '@ember/array';
+import { computed, observer } from '@ember/object';
+import { isPresent } from '@ember/utils';
+import { not } from '@ember/object/computed';
+import { later } from '@ember/runloop';
 
 function asJSON(propKey) {
-  return computed(`${propKey,propKey}.[]`, function() {
+  return computed(`${propKey},${propKey}.[]`, function() {
     return JSON.stringify(this.get(propKey));
   });
 }
 
 export default Controller.extend({
-  frameworks: new A([{
-    id: 1,
-    value: 'Materialize CSS'
-  }, {
-    id: 2,
-    value: 'Ember-CLI Materialize'
-  }]),
+  //eslint-disable-next-line
+  frameworks: new A([
+    {
+      id: 1,
+      value: 'Materialize CSS'
+    },
+    {
+      id: 2,
+      value: 'Ember-CLI Materialize'
+    }
+  ]),
   message: `This is a long message. It might flow to the next line if I keep typing, so it's better suited to a textarea`,
+  //eslint-disable-next-line
   errors: {
     name: A([]),
     framework: A([])
@@ -68,40 +69,56 @@ export default Controller.extend({
   radioIsSelected: false,
   radioSelection: 2,
   otherRadioSelection: 'green',
-  radioChoices: new A([{
-    id: 1,
-    text: 'One'
-  }, {
-    id: 2,
-    text: 'Two'
-  }]),
+  //eslint-disable-next-line
+  radioChoices: new A([
+    {
+      id: 1,
+      text: 'One'
+    },
+    {
+      id: 2,
+      text: 'Two'
+    }
+  ]),
 
   radioSelectionString: asJSON('radioSelection'),
   radioChoicesString: asJSON('radioChoices'),
 
+  //eslint-disable-next-line
   checkboxSelections: new A([3, 4]),
-  checkboxChoices: new A([{
-    id: 3,
-    label: 'Three'
-  }, {
-    id: 4,
-    label: 'Four'
-  }, {
-    id: 5,
-    label: 'Five'
-  }]),
+  //eslint-disable-next-line
+  checkboxChoices: new A([
+    {
+      id: 3,
+      label: 'Three'
+    },
+    {
+      id: 4,
+      label: 'Four'
+    },
+    {
+      id: 5,
+      label: 'Five'
+    }
+  ]),
 
   switchesChoicesString: asJSON('switchesChoices'),
-  switchesChoices: new A([{
-    key: 6,
-    name: 'Six'
-  }, {
-    key: 7,
-    name: 'Seven'
-  }, {
-    key: 8,
-    name: 'Eight'
-  }]),
+  //eslint-disable-next-line
+  switchesChoices: new A([
+    {
+      key: 6,
+      name: 'Six'
+    },
+    {
+      key: 7,
+      name: 'Seven'
+    },
+    {
+      key: 8,
+      name: 'Eight'
+    }
+  ]),
+  //eslint-disable-next-line
   switchesSelections: new A([7]),
   switchesSelection: 7,
   switchesSelectionString: asJSON('switchesSelection'),

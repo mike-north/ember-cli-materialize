@@ -1,7 +1,4 @@
-import {
-  moduleForComponent,
-  test
-} from 'ember-qunit';
+import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('md-input-field', {
   unit: true
@@ -53,4 +50,3 @@ test('input field has an icon', function(assert) {
   this.render();
   assert.equal(component.get('icon'), icon);
 });
-

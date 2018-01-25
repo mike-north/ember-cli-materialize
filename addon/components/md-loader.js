@@ -1,15 +1,9 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { A } from '@ember/array';
+import { htmlSafe } from '@ember/string';
 import UsesSettings from '../mixins/uses-settings';
 import layout from '../templates/components/md-loader';
-
-const {
-  Component,
-  computed,
-  A,
-  String: {
-    htmlSafe
-  }
-} = Ember;
 
 export default Component.extend(UsesSettings, {
   layout,
@@ -57,8 +51,7 @@ export default Component.extend(UsesSettings, {
     if (!this.get('isBarType')) {
       const color = this.get('color');
       if (!color) {
-        return A(['blue', 'red', 'green', 'yellow']
-          .map(c => (`spinner-layer spinner-${c}`)));
+        return A(['blue', 'red', 'green', 'yellow'].map(c => `spinner-layer spinner-${c}`));
       } else {
         return A([`spinner-layer spinner-${color}-only`]);
       }

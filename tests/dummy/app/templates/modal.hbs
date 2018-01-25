@@ -1,15 +1,35 @@
 {{example-header title="Modal"}}
 
 <div class='container'>
-  {{#options-panel}}
-    {{component-option optionId="close" default="close" description="action called by hitting 'esc' key or clicking on overlay"}}
-    {{component-option optionId="isFooterFixed" default="false" description="toggle to add a fixed footer to your modal"}}
-  {{/options-panel}}
+  {{#options-panel}} {{component-option optionId="close" default="close" description="action called by hitting 'esc' key or
+  clicking on overlay"}} {{component-option optionId="isFooterFixed" default="false" description="toggle to add a fixed footer
+  to your modal"}} {{/options-panel}}
 
 
-    <div class="section">
-        <h4 class="col s12 header">Modal</h4>
-        {{#md-btn action='openModal' class="open-modal-button"}}Open modal{{/md-btn}}
-        {{example-snippet snippet='modal-basic' class='modal-example' modalIsOpen=modalIsOpen}}
-    </div>
+  <div class="section">
+    <h4 class="col s12 header">Modal</h4>
+    {{#md-btn action='openModal' class="open-modal-button"}}Open modal{{/md-btn}} {{example-snippet snippet='modal-basic' class='modal-example'
+    modalIsOpen=modalIsOpen}}
+  </div>
+</div>
+
+
+<div class="container test-modal-container">
+  {{#if isOpen}}
+    {{#md-modal close=(action (mut isOpen) false) class="test-modal"}}
+        <div class="modal-content">
+            <h4>test</h4>
+            
+        </div>
+        <div class="modal-footer">
+            <a class="modal-action modal-close waves-effect waves-red btn-flat cancel-button" onClick={{action (mut isOpen) false}}>
+                Cancel
+            </a>
+        </div>
+    {{/md-modal}}
+  {{else}}
+
+  <button class='test-modal-button' onClick={{action (mut isOpen) true }}>Open</button>
+  {{/if}}
+
 </div>

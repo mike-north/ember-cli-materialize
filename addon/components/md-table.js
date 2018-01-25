@@ -1,8 +1,8 @@
-import Ember from 'ember';
+import { A } from '@ember/array';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
 import ParentComponentSupport from 'ember-composability/mixins/parent-component-support';
 import layout from '../templates/components/md-table';
-
-const { A, Component, computed } = Ember;
 
 export default Component.extend(ParentComponentSupport, {
   tagName: 'table',

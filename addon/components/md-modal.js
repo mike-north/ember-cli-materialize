@@ -1,22 +1,11 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { oneWay } from '@ember/object/computed';
+import { htmlSafe } from '@ember/string';
+import { on } from '@ember/object/evented';
 import UsesSettings from '../mixins/uses-settings';
 import layout from '../templates/components/md-modal';
-import {
-  EKMixin,
-  keyUp
-} from 'ember-keyboard';
-
-const {
-  Component,
-  computed,
-  computed: {
-    oneWay
-  },
-  String: {
-    htmlSafe
-  },
-  on
-} = Ember;
+import { EKMixin, keyUp } from 'ember-keyboard';
 
 export default Component.extend(EKMixin, UsesSettings, {
   layout,
@@ -57,5 +46,4 @@ export default Component.extend(EKMixin, UsesSettings, {
       this.sendAction('close');
     }
   }
-
 });

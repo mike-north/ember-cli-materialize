@@ -1,8 +1,8 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { A } from '@ember/array';
+import { computed, get } from '@ember/object';
 import ParentComponentSupport from 'ember-composability/mixins/parent-component-support';
 import layout from '../templates/components/selectable-item-group';
-
-const { get, Component, A, computed } = Ember;
 
 export default Component.extend(ParentComponentSupport, {
   layout,

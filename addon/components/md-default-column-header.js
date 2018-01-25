@@ -1,7 +1,6 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { alias } from '@ember/object/computed';
 import layout from '../templates/components/md-default-column-header';
-
-const { Component, computed: { alias } } = Ember;
 
 export default Component.extend({
   tagName: 'th',

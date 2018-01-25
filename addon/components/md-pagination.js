@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { A } from '@ember/array';
 import layout from '../templates/components/md-pagination';
-
-const { Component, computed, A } = Ember;
 
 export default Component.extend({
   layout,
@@ -33,7 +33,8 @@ export default Component.extend({
       }
     }
     return {
-      low, high
+      low,
+      high
     };
   }),
 
@@ -42,7 +43,7 @@ export default Component.extend({
     const winRange = this.get('windowRange');
     const current = this.get('current');
     for (let i = winRange.low; i <= winRange.high; i += 1) {
-      a.addObject({ val: i, cssClass: (current === i ? 'active' : 'waves-effect') });
+      a.addObject({ val: i, cssClass: current === i ? 'active' : 'waves-effect' });
     }
     return a;
   }),
