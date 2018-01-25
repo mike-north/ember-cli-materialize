@@ -55,7 +55,7 @@
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^2.0.0",
-    "ember-keyboard": "^2.3.0",
+    "ember-keyboard": "^3.0.0",
     "ember-load-initializers": "^1.0.0",
     "ember-material-design-icons-shim": "0.1.12",
     "ember-materialize-shim": "~0.4.2",
