@@ -20,7 +20,9 @@ export default Component.extend(ParentComponentSupport, {
 
   didInsertElement() {
     this._super(...arguments);
-    this._updateIndicatorPosition(false);
+    this.$(window).resize(() => {
+      this._updateIndicatorPosition(false);
+    });
   },
 
   _indicatorUpdater: observer('selected', 'content.[]', 'composableChildren.[]', function() {
