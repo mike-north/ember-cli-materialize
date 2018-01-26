@@ -26,6 +26,15 @@ test('btnIcon attribute results in an icon being rendered', function(assert) {
   assert.equal(component.$('i.mdi-content-add').length, 1, 'Icon should be present');
 });
 
+test('btnIcon(material-icons) attribute results in an icon being rendered', function(assert) {
+  const component = this.subject({
+    btnIcon: 'edit'
+  });
+
+  this.render();
+  assert.equal(component.$('i.material-icons').html(), 'edit', 'Icon should be present');
+});
+
 test('btnClass attribute should pass through to the button', function(assert) {
   const component = this.subject({
     btnClass: 'green'
