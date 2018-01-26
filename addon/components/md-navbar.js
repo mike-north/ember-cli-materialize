@@ -26,7 +26,7 @@ export default Component.extend({
   },
 
   _sideNavId: computed(function() {
-    return `${this.get('element.id')}-sidenav`;
+    return (typeof FastBoot === 'undefined') ? `${this.get('element.id')}-sidenav` : '';
   })
 
   // TODO: Unregister any listeners that $.sideNav() puts in place
