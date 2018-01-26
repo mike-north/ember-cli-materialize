@@ -11,9 +11,17 @@ export default MaterializeInputField.extend({
   optionLabelPath: 'content',
   optionValuePath: 'content',
 
-  didInsertElement() {
+  didRender() {
     this._super(...arguments);
     this._setupSelect();
+  },
+
+  willUpdate() {
+    this._teardownSelect();
+  },
+
+  willDestroyElement() {
+    this._teardownSelect();
   },
 
   _setupSelect() {
@@ -37,10 +45,11 @@ export default MaterializeInputField.extend({
     );
   }),
 
-  // TODO: clean up any listeners that $.select() puts in place
-  // _teardownSelect() {
-  //
-  // }
+  _teardownSelect() {
+    // jscs: disable
+    this.$('select').material_select('destroy');
+    // jscs: enable
+  },
 
   // TODO: this could be converted to a computed property, returning a string
   //  that is bound to the class attribute of the inputSelector
