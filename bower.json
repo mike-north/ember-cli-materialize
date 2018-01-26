@@ -1,6 +1,5 @@
 {
   "name": "ember-cli-materialize",
   "dependencies": {
-    "materialize": "~0.98.0"
   }
 }

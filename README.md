@@ -41,7 +41,7 @@ $ sudo npm install -g ember-cli
 $ git clone git@github.com:mike-north/ember-cli-materialize
 $ cd ember-cli-materialize
 # install dependencies
-$ npm install && bower install
+$ npm install
 # fire up local server
 $ ember serve
 ```
