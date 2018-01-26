@@ -42,3 +42,6 @@ deploy:
   on:
     repo: mike-north/ember-cli-materialize
     condition: "$EMBER_TRY_SCENARIO = ember-release"
+after_script:
+  - ls /app/.npm/_logs/
+  - cat /app/.npm/_logs/*-debug.log
