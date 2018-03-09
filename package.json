@@ -32,7 +32,7 @@
   "devDependencies": {
     "@types/ember": "^2.8.4",
     "broccoli-asset-rev": "^2.4.5",
-    "ember-ajax": "3.0.0",
+    "ember-ajax": "3.1.0",
     "ember-anchor": "~0.1.2",
     "ember-array-helper": "3.0.0",
     "ember-ci": "0.1.3",
