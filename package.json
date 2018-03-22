@@ -60,7 +60,7 @@
     "ember-materialize-shim": "~0.4.2",
     "ember-modal-dialog": "^2.0.0",
     "ember-new-computed": "~1.0.2",
-    "ember-percy": "1.2.22",
+    "ember-percy": "1.4.0",
     "ember-radio-button": "1.2.1",
     "ember-resolver": "^4.5.0",
     "ember-source": "~3.0.0-beta.4",
