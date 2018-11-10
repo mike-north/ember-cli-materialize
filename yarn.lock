@@ -4863,7 +4863,7 @@ ember-percy@^1.5.0:
     percy-client "^3.0.0"
     walk "^2.3.9"
 
-ember-qunit@^3.4.1, ember-qunit@^3.5.0:
+ember-qunit@^3.5.0:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/ember-qunit/-/ember-qunit-3.5.3.tgz#bfd0bff8298c78c77e870cca43fe0826e78a0d09"
   integrity sha512-FmXsI1bGsZ5th25x4KEle2fLCVURTptsQODfBt+Pg8tk9rX7y79cqny91PrhtkhE+giZ8p029tnq94SdpJ4ojg==
