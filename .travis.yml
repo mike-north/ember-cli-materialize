@@ -30,7 +30,7 @@ jobs:
     - stage: "Tests"
       name: "Tests"
       install:
-        - yarn install --non-interactive
+        - yarn install --non-interactive && bower install
       script:
         - yarn lint:js
         - ember test
