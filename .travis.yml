@@ -1,39 +1,65 @@
+---
 language: node_js
 node_js:
-- '4'
+  # we recommend testing addons with the same minimum supported node version as Ember CLI
+  # so that your addon works for all apps
+  - "8"
+
 sudo: false
 dist: trusty
+
 addons:
   chrome: stable
+
 cache:
-  directories:
-  - "$HOME/.npm"
+  yarn: true
+yarn: true
 env:
   global:
-  - JOBS=1
-  matrix:
-  - EMBER_TRY_SCENARIO=ember-1.13
-  - EMBER_TRY_SCENARIO=ember-lts-2.12
-  - EMBER_TRY_SCENARIO=ember-lts-2.16
-  - EMBER_TRY_SCENARIO=ember-release
-  - EMBER_TRY_SCENARIO=ember-beta
-  - EMBER_TRY_SCENARIO=ember-canary
-matrix:
-  fast_finish: true
+    # See https://git.io/vdao3 for details.
+    - JOBS=1
+
+jobs:
+  fail_fast: true
   allow_failures:
-  - env: EMBER_TRY_SCENARIO=ember-canary
+    - env: EMBER_TRY_SCENARIO=ember-canary
+
+  include:
+    # runs linting and tests with current locked deps
+
+    - stage: "Tests"
+      name: "Tests"
+      install:
+        - yarn install --non-interactive
+      script:
+        - yarn lint:hbs
+        - yarn lint:js
+        - ember test
+
+    - name: "Floating Dependencies"
+      script:
+        - ember test
+
+    # we recommend new addons test the current and previous LTS
+    # as well as latest stable release (bonus points to beta/canary)
+    - stage: "Additional Tests"
+      env: EMBER_TRY_SCENARIO=ember-1.13
+      env: EMBER_TRY_SCENARIO=ember-lts-2.16
+    - env: EMBER_TRY_SCENARIO=ember-lts-2.18
+    - env: EMBER_TRY_SCENARIO=ember-release
+    - env: EMBER_TRY_SCENARIO=ember-beta
+    - env: EMBER_TRY_SCENARIO=ember-canary
+    - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
+
 before_install:
-- npm config set spin false
-- npm install -g npm@4
-- npm install -g bower
-- npm --version
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH=$HOME/.yarn/bin:$PATH
+
 install:
-- npm install
-- bower install
+  - yarn install --no-lockfile --non-interactive
+
 script:
-- npm run lint:js
-- if [ "${EMBER_TRY_SCENARIO}" = "ember-release" ]; then ember try:one $EMBER_TRY_SCENARIO;
-  else ember try:one $EMBER_TRY_SCENARIO --skip-cleanup; fi
+  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO && yarn travis-deploy-once "yarn semantic-release"
 deploy:
   provider: heroku
   api_key:
@@ -42,6 +68,3 @@ deploy:
   on:
     repo: mike-north/ember-cli-materialize
     condition: "$EMBER_TRY_SCENARIO = ember-release"
-after_script:
-  - ls /app/.npm/_logs/
-  - cat /app/.npm/_logs/*-debug.log
