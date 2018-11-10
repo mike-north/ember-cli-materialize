@@ -21,8 +21,7 @@ jobs:
     install:
     - yarn install --non-interactive && bower install
     script:
-    - yarn lint:js
-    - ember test
+    - yarn lint:js && ember try:one $EMBER_TRY_SCENARIO
   - name: Floating Dependencies
     script:
     - ember test
@@ -40,6 +39,8 @@ before_install:
 - npm install -g bower
 install:
 - yarn install --no-lockfile --non-interactive && bower install
+script:
+- yarn lint:js && ember try:one $EMBER_TRY_SCENARIO
 deploy:
   provider: heroku
   api_key:
