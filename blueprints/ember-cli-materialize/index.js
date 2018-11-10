@@ -1,4 +1,4 @@
-var RSVP = require('rsvp');
+/* eslint-env node */
 
 module.exports = {
   normalizeEntityName: function() {},

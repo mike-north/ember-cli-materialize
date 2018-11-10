@@ -1,3 +1,4 @@
+/* eslint-env node */
 module.exports = {
   root: true,
   parserOptions: {
@@ -15,24 +16,25 @@ module.exports = {
     browser: true
   },
   rules: {
+    "ember/use-brace-expansion": 1,
+    "ember/no-on-calls-in-components": 1,
+    "ember/avoid-leaking-state-in-ember-objects": 1,
+    "ember/closure-actions": 1,
+    "ember/no-global-jquery": 1
   },
   overrides: [
     // node files
     {
       files: [
-        '.template-lintrc.js',
-        'ember-cli-build.js',
         'index.js',
         'testem.js',
-        'blueprints/*/index.js',
+        'ember-cli-build.js',
         'config/**/*.js',
         'tests/dummy/config/**/*.js'
       ],
       excludedFiles: [
-        'addon/**',
-        'addon-test-support/**',
         'app/**',
-        'tests/dummy/app/**'
+        'addon/**'
       ],
       parserOptions: {
         sourceType: 'script',
@@ -46,6 +48,15 @@ module.exports = {
       rules: Object.assign({}, require('eslint-plugin-node').configs.recommended.rules, {
         // add your custom rules and overrides for node files here
       })
+    },
+
+    // test files
+    {
+      files: ['tests/**/*.js'],
+      excludedFiles: ['tests/dummy/**/*.js'],
+      env: {
+        embertest: true
+      }
     }
   ]
 };

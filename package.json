@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "ember build",
-    "lint:js": "eslint ./*.js addon addon-test-support app config lib server test-support tests",
+    "lint:js": "eslint .",
     "start": "ember serve",
     "test": "ember try:each"
   },
@@ -36,6 +36,7 @@
     "@mike-north/js-lib-renovate-config": "^1.0.0",
     "@mike-north/js-lib-semantic-release-config": "^1.0.0",
     "@types/ember": "^3.0.25",
+    "@ember/optional-features": "^0.6.3",
     "bower": "^1.8.4",
     "broccoli-asset-rev": "^3.0.0",
     "ember-ajax": "^4.0.0",
@@ -57,8 +58,8 @@
     "ember-cli-version-checker": "^2.1.0",
     "ember-code-snippet": "^2.3.1",
     "ember-composability": "0.3.8",
+    "ember-qunit": "^3.4.1",
     "ember-disable-prototype-extensions": "^1.1.0",
-    "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^2.0.0",
     "ember-keyboard": "^4.0.0",
     "ember-load-initializers": "^2.0.0",
