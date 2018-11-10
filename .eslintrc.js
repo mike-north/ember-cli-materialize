@@ -15,25 +15,24 @@ module.exports = {
     browser: true
   },
   rules: {
-    "ember/use-brace-expansion": 1,
-    "ember/no-on-calls-in-components": 1,
-    "ember/avoid-leaking-state-in-ember-objects": 1,
-    "ember/closure-actions": 0,
-    "ember/no-global-jquery": 1,
   },
   overrides: [
     // node files
     {
       files: [
+        '.template-lintrc.js',
+        'ember-cli-build.js',
         'index.js',
         'testem.js',
-        'ember-cli-build.js',
+        'blueprints/*/index.js',
         'config/**/*.js',
         'tests/dummy/config/**/*.js'
       ],
       excludedFiles: [
+        'addon/**',
+        'addon-test-support/**',
         'app/**',
-        'addon/**'
+        'tests/dummy/app/**'
       ],
       parserOptions: {
         sourceType: 'script',
@@ -47,15 +46,6 @@ module.exports = {
       rules: Object.assign({}, require('eslint-plugin-node').configs.recommended.rules, {
         // add your custom rules and overrides for node files here
       })
-    },
-
-    // test files
-    {
-      files: ['tests/**/*.js'],
-      excludedFiles: ['tests/dummy/**/*.js'],
-      env: {
-        embertest: true
-      }
     }
   ]
 };
