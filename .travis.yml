@@ -26,12 +26,15 @@ jobs:
     script:
     - ember test
   - stage: Additional Tests
-    env: EMBER_TRY_SCENARIO=ember-1.13
+  - env: EMBER_TRY_SCENARIO=ember-1.13
   - env: EMBER_TRY_SCENARIO=ember-lts-2.16
   - env: EMBER_TRY_SCENARIO=ember-lts-2.18
   - env: EMBER_TRY_SCENARIO=ember-release
   - env: EMBER_TRY_SCENARIO=ember-beta
   - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
+  allow_failures:
+    script:
+      - ember test
   - env: EMBER_TRY_SCENARIO=ember-canary
 before_install:
 - curl -o- -L https://yarnpkg.com/install.sh | bash
@@ -40,7 +43,7 @@ before_install:
 install:
 - yarn install --no-lockfile --non-interactive && bower install
 script:
-- yarn lint:js && ember try:one $EMBER_TRY_SCENARIO && yarn travis-deploy-once "yarn semantic-release"
+- ember try:one $EMBER_TRY_SCENARIO && yarn travis-deploy-once "yarn semantic-release"
 deploy:
   provider: heroku
   api_key:
