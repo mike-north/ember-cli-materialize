@@ -31,8 +31,9 @@ jobs:
   - env: EMBER_TRY_SCENARIO=ember-lts-2.18
   - env: EMBER_TRY_SCENARIO=ember-release
   - env: EMBER_TRY_SCENARIO=ember-beta
-  - env: EMBER_TRY_SCENARIO=ember-canary
   - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
+  allow_failures:
+  - env: EMBER_TRY_SCENARIO=ember-canary
 before_install:
 - curl -o- -L https://yarnpkg.com/install.sh | bash
 - export PATH=$HOME/.yarn/bin:$PATH
