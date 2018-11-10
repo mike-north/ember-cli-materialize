@@ -1,68 +1,49 @@
----
 language: node_js
 node_js:
-  # we recommend testing addons with the same minimum supported node version as Ember CLI
-  # so that your addon works for all apps
-  - "8"
-
+- '8'
 sudo: false
 dist: trusty
-
 addons:
   chrome: stable
-
 cache:
   yarn: true
 yarn: true
 env:
   global:
-    # See https://git.io/vdao3 for details.
-    - JOBS=1
-
+  - JOBS=1
 jobs:
   fail_fast: true
   allow_failures:
-    - env: EMBER_TRY_SCENARIO=ember-canary
-
+  - env: EMBER_TRY_SCENARIO=ember-canary
   include:
-    # runs linting and tests with current locked deps
-
-    - stage: "Tests"
-      name: "Tests"
-      install:
-        - yarn install --non-interactive && bower install
-      script:
-        - yarn lint:js
-        - ember test
-
-    - name: "Floating Dependencies"
-      script:
-        - ember test
-
-    # we recommend new addons test the current and previous LTS
-    # as well as latest stable release (bonus points to beta/canary)
-    - stage: "Additional Tests"
-      env: EMBER_TRY_SCENARIO=ember-1.13
-    - env: EMBER_TRY_SCENARIO=ember-lts-2.16
-    - env: EMBER_TRY_SCENARIO=ember-lts-2.18
-    - env: EMBER_TRY_SCENARIO=ember-release
-    - env: EMBER_TRY_SCENARIO=ember-beta
-    - env: EMBER_TRY_SCENARIO=ember-canary
-    - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
-
+  - stage: Tests
+    name: Tests
+    install:
+    - yarn install --non-interactive && bower install
+    script:
+    - yarn lint:js
+    - ember test
+  - name: Floating Dependencies
+    script:
+    - ember test
+  - stage: Additional Tests
+    env: EMBER_TRY_SCENARIO=ember-1.13
+  - env: EMBER_TRY_SCENARIO=ember-lts-2.16
+  - env: EMBER_TRY_SCENARIO=ember-lts-2.18
+  - env: EMBER_TRY_SCENARIO=ember-release
+  - env: EMBER_TRY_SCENARIO=ember-beta
+  - env: EMBER_TRY_SCENARIO=ember-canary
+  - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
 before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash
-  - export PATH=$HOME/.yarn/bin:$PATH
-  - npm install -g bower
+- curl -o- -L https://yarnpkg.com/install.sh | bash
+- export PATH=$HOME/.yarn/bin:$PATH
+- npm install -g bower
 install:
-  - yarn install --no-lockfile --non-interactive && bower install
-
-script:
-  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO && yarn travis-deploy-once "yarn semantic-release"
+- yarn install --no-lockfile --non-interactive && bower install
 deploy:
   provider: heroku
   api_key:
-    secure: OeFMyi6ylYfPeNd/25cLaueVuVKbqtEHvis/J9GDiWIa7xpVD/NBS+TGxMTMaaA02Mft3Vw+MkZsPSWPU53ws1rQFAwAf98Pqx197dXoQ97Fi3wY0bipm9ZFl+bQYJg58Ydkz0sjQQbIxxtq9jn/gOtVTy5b+hQduSWjx3i15HE=
+    secure: MZDN5BsZUmmxIkOGDC1/fLem7B0E1xoTTX62P/UyzHaNTByQBEBilzhqxarfBVJ+jkrDHVLB4iPxeZKoQhphmdYCBDJvZlPTLmRcSaHBy+m80JfPvm9lkOuTVVklNjcJuwhSLC9rlRxNRL6sVbfJUgOwx/lFEKXyUYVc5Y1Cn6A=
   app: ember-materialize-demo
   on:
     repo: mike-north/ember-cli-materialize
