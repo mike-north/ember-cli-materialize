@@ -1,3 +1,10 @@
+# [0.22.0](https://github.com/mike-north/ember-cli-materialize/compare/v0.21.0...v0.22.0) (2018-11-10)
+
+
+### Features
+
+* upgrade to ember 3 ([d7a8d4c](https://github.com/mike-north/ember-cli-materialize/commit/d7a8d4c))
+
 # Change Log
 
 ## [v0.18.1](https://github.com/mike-north/ember-cli-materialize/tree/v0.18.1) (2015-08-17)
@@ -791,4 +798,3 @@
 [Full Changelog](https://github.com/truenorth/ember-cli-materialize/compare/v0.1.0...v0.1.1)
 
 ## [v0.1.0](https://github.com/truenorth/ember-cli-materialize/tree/v0.1.0) (2014-12-22)
-
