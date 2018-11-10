@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-materialize",
   "description": "An ember-cli addon for using Materialize (CSS Framework based on Material Design) in Ember applications.",
-  "version": "0.22.0-beta.0",
+  "version": "0.0.0-development",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -10,7 +10,9 @@
     "build": "ember build",
     "lint:js": "eslint .",
     "start": "ember serve",
-    "test": "ember try:each"
+    "test": "ember try:each",
+    "travis-deploy-once": "travis-deploy-once",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
