@@ -21,7 +21,7 @@ jobs:
     install:
     - yarn install --non-interactive && bower install
     script:
-    - yarn lint:js && ember try:one $EMBER_TRY_SCENARIO
+    - yarn lint:js && ember test
   - name: Floating Dependencies
     script:
     - ember test
