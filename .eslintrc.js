@@ -18,8 +18,8 @@ module.exports = {
     "ember/use-brace-expansion": 1,
     "ember/no-on-calls-in-components": 1,
     "ember/avoid-leaking-state-in-ember-objects": 1,
-    "ember/closure-actions": 1,
-    "ember/no-global-jquery": 1
+    "ember/closure-actions": 0,
+    "ember/no-global-jquery": 1,
   },
   overrides: [
     // node files

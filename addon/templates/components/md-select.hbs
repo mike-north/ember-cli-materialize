@@ -6,8 +6,8 @@
   {{#if prompt}}
     <option value="" disabled selected={{unless value "true"}}>{{prompt}}</option>
   {{/if}}
-  {{#each _parsedContent as |option|}}
-    <option value={{option.value}} selected={{if (eq value option.value) "true"}}>{{option.label}}</option>
+  {{#each _parsedContent as |opt|}}
+    <option value={{opt.value}} selected={{if (eq value opt.value) "true"}}>{{opt.label}}</option>
   {{/each}}
 </select>
 
