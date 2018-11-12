@@ -64,7 +64,7 @@
     "ember-export-application-global": "2.0.0",
     "ember-keyboard": "4.0.0",
     "ember-load-initializers": "2.0.0",
-    "ember-material-design-icons-shim": "0.1.12",
+    "ember-material-design-icons-shim": "0.1.13",
     "ember-materialize-shim": "0.5.1",
     "ember-modal-dialog": "3.0.0",
     "ember-new-computed": "1.0.3",
