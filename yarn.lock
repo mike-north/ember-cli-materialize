@@ -797,12 +797,12 @@
     mkdirp "^0.5.1"
     rimraf "^2.5.2"
 
-"@mike-north/js-lib-renovate-config@1.0.0":
+"@mike-north/js-lib-renovate-config@1.0.0", "@mike-north/js-lib-renovate-config@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@mike-north/js-lib-renovate-config/-/js-lib-renovate-config-1.0.0.tgz#e00a7264de0767049d3a75c29e36db69b0ac81cf"
   integrity sha512-ixKtfThE8RFJDAFXrypSYPEkPzXB8yTaRjillj5/T5JcF4+pWfrDKhOUb2tytnJLBgNzUjohWwIdxy6yFbWRbQ==
 
-"@mike-north/js-lib-semantic-release-config@1.0.1":
+"@mike-north/js-lib-semantic-release-config@1.0.1", "@mike-north/js-lib-semantic-release-config@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@mike-north/js-lib-semantic-release-config/-/js-lib-semantic-release-config-1.0.1.tgz#39a42e84deeebe77c73aff69879582d1418c0505"
   integrity sha512-vTsYu0l8yTlRrVqWtSOI0MD8oa2MDc+RCW8FKCa+WDPvRGrcbnukva7Ohw81L1RFxEx+7A6I5zKBm7/U6HMXag==
@@ -4830,12 +4830,17 @@ ember-load-initializers@2.0.0:
   dependencies:
     ember-cli-babel "^7.0.0"
 
-ember-material-design-icons-shim@0.1.12:
-  version "0.1.12"
-  resolved "https://registry.yarnpkg.com/ember-material-design-icons-shim/-/ember-material-design-icons-shim-0.1.12.tgz#a75323423c5c1d27895d1b93b5e34b031eba4688"
-  integrity sha1-p1MjQjxcHSeJXRuTteNLAx66Rog=
+ember-material-design-icons-shim@0.1.13:
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/ember-material-design-icons-shim/-/ember-material-design-icons-shim-0.1.13.tgz#c62ab3172fdc4bb2bdc2ef586b9052a44db64de0"
+  integrity sha512-L5pmxbrMmB5oEpy2NpwKHqF1PhJ2kcmgb9NmjseNXP+uFa5eewwlVbRxvH+347QyiRW/o9l93ItCgS+4yZfADg==
   dependencies:
     ember-cli-babel "^6.6.0"
+  optionalDependencies:
+    "@mike-north/js-lib-renovate-config" "^1.0.0"
+    "@mike-north/js-lib-semantic-release-config" "^1.0.1"
+    semantic-release "^15.10.7"
+    travis-deploy-once "^5.0.9"
 
 ember-materialize-shim@0.5.1:
   version "0.5.1"
@@ -10829,7 +10834,7 @@ scss-tokenizer@^0.2.3:
     js-base64 "^2.1.8"
     source-map "^0.4.2"
 
-semantic-release@15.10.8, semantic-release@^15.9.9:
+semantic-release@15.10.8, semantic-release@^15.10.7, semantic-release@^15.9.9:
   version "15.10.8"
   resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-15.10.8.tgz#07027a159199148998dc5f246ed6533d0441851c"
   integrity sha512-+n1eQArIw0TROFFwyf6csSLtKPt47goFbYk0ROAz3ja0r0ltV/ClKNCN6bkV2XzVlvTYqYFY6yutOIvPr1K4hQ==
