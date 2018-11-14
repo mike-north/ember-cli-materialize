@@ -4389,12 +4389,12 @@ ember-assign-polyfill@~2.4.0:
     ember-cli-babel "^6.6.0"
     ember-cli-version-checker "^2.0.0"
 
-ember-ci@0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/ember-ci/-/ember-ci-0.1.3.tgz#92b07cd8aea8330721362154e057d1cfb691ce96"
-  integrity sha1-krB82K6oMwchNiFU4FfRz7aRzpY=
+ember-ci@0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/ember-ci/-/ember-ci-0.1.4.tgz#39f57e8c78887307207f4bf7383338ad91647d1d"
+  integrity sha512-Dgfw4rrrUiDe41JgojpYbOPGo3lPd5DgA5djElEYgvUadNAsjecOqSieGGel5bcLo4X9/QMh8FQjhq5UhfD4nw==
   dependencies:
-    ember-cli-babel "^5.1.6"
+    ember-cli-babel "^6.16.0"
 
 ember-cli-app-version@3.2.0:
   version "3.2.0"
@@ -4404,7 +4404,7 @@ ember-cli-app-version@3.2.0:
     ember-cli-babel "^6.12.0"
     git-repo-version "^1.0.2"
 
-ember-cli-babel@^5.1.5, ember-cli-babel@^5.1.6:
+ember-cli-babel@^5.1.5:
   version "5.2.8"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-5.2.8.tgz#0356b03cc3fdff5d0f2ecaa46a0e1cfaebffd876"
   integrity sha512-Mt9OOB5RaZwjde+LYef8EgwNVCAzsYDv4ktshblaXxr4m/Xm5/7/rxEu42RNrYkoy/qWpT9uhaD+JKK4riMf+w==
