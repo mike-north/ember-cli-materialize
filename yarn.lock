@@ -4366,18 +4366,13 @@ ember-ajax@4.0.0:
     ember-cli-babel "^6.16.0"
     najax "^1.0.3"
 
-ember-anchor@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ember-anchor/-/ember-anchor-1.0.0.tgz#da761df4f04784e7a15a0bef298f6dad8dc95a19"
-  integrity sha512-fLR4hY7CUttTqJdmKQay9RBCrp6ijalmD8fQEqGe/lzR7zXrMiNyPYFTm9t1GgNLpomDQ51ZlTU2rTtVpU2pxQ==
+ember-anchor@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/ember-anchor/-/ember-anchor-1.0.1.tgz#e4aee3aab63f83ee57aa142d67e1f05cdc8f64e6"
+  integrity sha512-EEwi/3H61u9ZMDMLMSkFOSgTogRnBpe0v77HI1xRAV+pfQlON+4n7m3HrUTs6YrTH+PLCXmGnVX/xGyj5zs48w==
   dependencies:
     ember-cli-babel "^7.0.0"
     ember-cli-htmlbars "^3.0.0"
-  optionalDependencies:
-    "@mike-north/js-lib-renovate-config" "1.0.0"
-    "@mike-north/js-lib-semantic-release-config" "1.0.1"
-    semantic-release "^15.10.8"
-    travis-deploy-once "^5.0.9"
 
 ember-array-helper@5.0.0:
   version "5.0.0"
@@ -10875,38 +10870,6 @@ semantic-release@^15.10.7, semantic-release@^15.9.9:
   version "15.10.8"
   resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-15.10.8.tgz#07027a159199148998dc5f246ed6533d0441851c"
   integrity sha512-+n1eQArIw0TROFFwyf6csSLtKPt47goFbYk0ROAz3ja0r0ltV/ClKNCN6bkV2XzVlvTYqYFY6yutOIvPr1K4hQ==
-  dependencies:
-    "@semantic-release/commit-analyzer" "^6.1.0"
-    "@semantic-release/error" "^2.2.0"
-    "@semantic-release/github" "^5.1.0"
-    "@semantic-release/npm" "^5.0.5"
-    "@semantic-release/release-notes-generator" "^7.1.2"
-    aggregate-error "^1.0.0"
-    cosmiconfig "^5.0.1"
-    debug "^4.0.0"
-    env-ci "^3.0.0"
-    execa "^1.0.0"
-    figures "^2.0.0"
-    find-versions "^3.0.0"
-    get-stream "^4.0.0"
-    git-log-parser "^1.2.0"
-    hook-std "^1.1.0"
-    hosted-git-info "^2.7.1"
-    lodash "^4.17.4"
-    marked "^0.5.0"
-    marked-terminal "^3.0.0"
-    p-locate "^3.0.0"
-    p-reduce "^1.0.0"
-    read-pkg-up "^4.0.0"
-    resolve-from "^4.0.0"
-    semver "^5.4.1"
-    signale "^1.2.1"
-    yargs "^12.0.0"
-
-semantic-release@^15.10.8:
-  version "15.12.1"
-  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-15.12.1.tgz#48939aaf8fd623769003f6bd76fdb974e24785b7"
-  integrity sha512-HySTv+k3gKHM7/LWluz/2nZbDRI5zZpsOQ+GTVPLVepRMm5SdWzi4L+I7z5wBwN/JNSPHU7UF4CDSFeGYK1/Mg==
   dependencies:
     "@semantic-release/commit-analyzer" "^6.1.0"
     "@semantic-release/error" "^2.2.0"
