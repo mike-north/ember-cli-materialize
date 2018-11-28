@@ -4366,10 +4366,10 @@ ember-ajax@4.0.0:
     ember-cli-babel "^6.16.0"
     najax "^1.0.3"
 
-ember-anchor@1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/ember-anchor/-/ember-anchor-1.0.1.tgz#e4aee3aab63f83ee57aa142d67e1f05cdc8f64e6"
-  integrity sha512-EEwi/3H61u9ZMDMLMSkFOSgTogRnBpe0v77HI1xRAV+pfQlON+4n7m3HrUTs6YrTH+PLCXmGnVX/xGyj5zs48w==
+ember-anchor@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/ember-anchor/-/ember-anchor-1.0.2.tgz#e157b9c435b6b174695bdec568ad827071654b8f"
+  integrity sha512-fOnzkB/a3vrOHpqfddQ+9lctdygtp+4hbPgTcoZgs1mibS6e3UA5PXNkJgrSSotqQEmzOXFvbdJBMt32ffl80w==
   dependencies:
     ember-cli-babel "^7.0.0"
     ember-cli-htmlbars "^3.0.0"
