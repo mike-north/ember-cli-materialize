@@ -11,6 +11,14 @@ yarn: true
 env:
   global:
   - JOBS=1
+
+stages:
+  - 'Tests'
+  - 'Additional Tests'
+  - 'Canary Tests'
+  - name: 'Deploy'
+    if: branch = master AND type = push
+
 jobs:
   fail_fast: true
   allow_failures:
@@ -37,6 +45,12 @@ jobs:
     script:
       - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
     env: EMBER_TRY_SCENARIO=ember-canary
+  - stage: 'Deploy'
+    name: 'Publish to npm'
+    install:
+      - yarn install --non-interactive
+    script: yarn semantic-release
+
 before_install:
 - curl -o- -L https://yarnpkg.com/install.sh | bash
 - export PATH=$HOME/.yarn/bin:$PATH
@@ -44,7 +58,7 @@ before_install:
 install:
 - yarn install --no-lockfile --non-interactive && bower install
 script:
-- yarn lint:js && ember try:one $EMBER_TRY_SCENARIO && yarn travis-deploy-once "yarn semantic-release"
+- yarn lint:js && ember try:one $EMBER_TRY_SCENARIO
 deploy:
   provider: heroku
   api_key:
