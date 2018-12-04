@@ -36,7 +36,7 @@
     "@commitlint/config-conventional": "7.1.2",
     "@commitlint/travis-cli": "7.2.1",
     "@ember/optional-features": "0.7.0",
-    "@mike-north/js-lib-renovate-config": "1.1.1",
+    "@mike-north/js-lib-renovate-config": "1.1.4",
     "@mike-north/js-lib-semantic-release-config": "1.0.1",
     "@types/ember": "3.0.25",
     "bower": "1.8.4",
