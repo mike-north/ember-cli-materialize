@@ -78,7 +78,7 @@
     "eslint-plugin-node": "8.0.0",
     "husky": "1.2.0",
     "loader.js": "4.7.0",
-    "sass": "1.15.1",
+    "sass": "1.15.2",
     "semantic-release": "15.12.3"
   },
   "keywords": [
