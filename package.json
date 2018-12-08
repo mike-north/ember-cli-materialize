@@ -79,7 +79,7 @@
     "husky": "1.2.0",
     "loader.js": "4.7.0",
     "sass": "1.15.2",
-    "semantic-release": "15.12.3"
+    "semantic-release": "15.12.4"
   },
   "keywords": [
     "materialize",
