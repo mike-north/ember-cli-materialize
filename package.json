@@ -76,7 +76,7 @@
     "ember-try": "1.1.0",
     "eslint-plugin-ember": "5.4.0",
     "eslint-plugin-node": "8.0.1",
-    "husky": "1.2.0",
+    "husky": "1.3.1",
     "loader.js": "4.7.0",
     "sass": "1.15.2",
     "semantic-release": "15.12.4"
