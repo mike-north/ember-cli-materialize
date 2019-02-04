@@ -4721,13 +4721,13 @@ ember-cli-uglify@2.1.0:
     broccoli-uglify-sourcemap "^2.1.1"
     lodash.defaultsdeep "^4.6.0"
 
-ember-cli-version-checker@2.2.0, ember-cli-version-checker@^2.0.0, ember-cli-version-checker@^2.1.0, ember-cli-version-checker@^2.1.1, ember-cli-version-checker@^2.1.2:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-version-checker/-/ember-cli-version-checker-2.2.0.tgz#47771b731fe0962705e27c8199a9e3825709f3b3"
-  integrity sha512-G+KtYIVlSOWGcNaTFHk76xR4GdzDLzAS4uxZUKdASuFX0KJE43C6DaqL+y3VTpUFLI2FIkAS6HZ4I1YBi+S3hg==
+ember-cli-version-checker@3.0.1, ember-cli-version-checker@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-version-checker/-/ember-cli-version-checker-3.0.1.tgz#2d084d2b261374582c68edb658a7df3a10112749"
+  integrity sha512-hX2tGrFVt8PyaiWclZr8XFNUPSnA+Ax4bMifDIVVtYY8RQZG8LZf9AGyTj4XImkBBWBtgKyOeQ0ovg3kgos4JA==
   dependencies:
-    resolve "^1.3.3"
-    semver "^5.3.0"
+    resolve "^1.9.0"
+    semver "^5.6.0"
 
 ember-cli-version-checker@^1.0.2:
   version "1.3.1"
@@ -4736,13 +4736,13 @@ ember-cli-version-checker@^1.0.2:
   dependencies:
     semver "^5.3.0"
 
-ember-cli-version-checker@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/ember-cli-version-checker/-/ember-cli-version-checker-3.0.1.tgz#2d084d2b261374582c68edb658a7df3a10112749"
-  integrity sha512-hX2tGrFVt8PyaiWclZr8XFNUPSnA+Ax4bMifDIVVtYY8RQZG8LZf9AGyTj4XImkBBWBtgKyOeQ0ovg3kgos4JA==
+ember-cli-version-checker@^2.0.0, ember-cli-version-checker@^2.1.0, ember-cli-version-checker@^2.1.1, ember-cli-version-checker@^2.1.2:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-version-checker/-/ember-cli-version-checker-2.2.0.tgz#47771b731fe0962705e27c8199a9e3825709f3b3"
+  integrity sha512-G+KtYIVlSOWGcNaTFHk76xR4GdzDLzAS4uxZUKdASuFX0KJE43C6DaqL+y3VTpUFLI2FIkAS6HZ4I1YBi+S3hg==
   dependencies:
-    resolve "^1.9.0"
-    semver "^5.6.0"
+    resolve "^1.3.3"
+    semver "^5.3.0"
 
 ember-cli@3.7.1:
   version "3.7.1"
