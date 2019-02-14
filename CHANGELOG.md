@@ -1,3 +1,10 @@
+# [0.23.0](https://github.com/mike-north/ember-cli-materialize/compare/v0.22.0...v0.23.0) (2019-02-14)
+
+
+### Features
+
+* trigger actions from md-select. ([#716](https://github.com/mike-north/ember-cli-materialize/issues/716)) ([b8e9821](https://github.com/mike-north/ember-cli-materialize/commit/b8e9821))
+
 # [0.22.0](https://github.com/mike-north/ember-cli-materialize/compare/v0.21.0...v0.22.0) (2018-11-10)
 
 
