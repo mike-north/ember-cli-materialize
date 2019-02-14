@@ -1,6 +1,6 @@
 <label id="{{id}}" class="active">{{label}}</label>
 
-<select onchange={{action (mut value) value="target.value"}}
+<select onchange={{action 'optionSelected'}}
         class="{{if validate 'validate'}} {{if errors 'invalid' 'valid'}}"
         disabled={{if disabled "true"}}>
   {{#if prompt}}

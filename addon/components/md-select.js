@@ -51,6 +51,20 @@ export default MaterializeInputField.extend({
     // jscs: enable
   },
 
+  actions: {
+    optionSelected(e) {
+      const target = e.target;
+      if (!this.get('isDisabled')) {
+        if (this.get('action')) {
+          this.sendAction('action', target.value);
+        }
+        else {
+          this.set('value', target.value)
+        }
+      }
+    }
+  },
+
   // TODO: this could be converted to a computed property, returning a string
   //  that is bound to the class attribute of the inputSelector
   errorsDidChange: observer('errors', function() {
