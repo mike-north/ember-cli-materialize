@@ -630,24 +630,7 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@commitlint/cli@7.5.0":
-  version "7.5.0"
-  resolved "https://registry.yarnpkg.com/@commitlint/cli/-/cli-7.5.0.tgz#6967633e45239daa09f1ff080cbd66e6e9ac11bc"
-  integrity sha512-ts5b7eCF5B2qhUtgXuFFVkhlgnkSqKVyrq9Eu197bCyT1KyxCmAGTVCvPznaK8VhG3ts7rTt7byE+lyDXpuvSg==
-  dependencies:
-    "@commitlint/format" "^7.5.0"
-    "@commitlint/lint" "^7.5.0"
-    "@commitlint/load" "^7.5.0"
-    "@commitlint/read" "^7.5.0"
-    babel-polyfill "6.26.0"
-    chalk "2.3.1"
-    get-stdin "5.0.1"
-    lodash "4.17.11"
-    meow "5.0.0"
-    resolve-from "4.0.0"
-    resolve-global "0.1.0"
-
-"@commitlint/cli@^7.5.0":
+"@commitlint/cli@7.5.2", "@commitlint/cli@^7.5.2":
   version "7.5.2"
   resolved "https://registry.yarnpkg.com/@commitlint/cli/-/cli-7.5.2.tgz#2475cd8f7ed3b2f9c2ab96c06bc24d61d23f8716"
   integrity sha512-UQdW/wNb+XeANoYYLyuKEDIfWKSzdhJkPQZ8ie/IjfMNnsP+B23bkX4Ati+6U8zgz0yyngoxWl+3lfExiIL4hQ==
@@ -698,7 +681,7 @@
   dependencies:
     semver "5.6.0"
 
-"@commitlint/lint@^7.5.0", "@commitlint/lint@^7.5.2":
+"@commitlint/lint@^7.5.2":
   version "7.5.2"
   resolved "https://registry.yarnpkg.com/@commitlint/lint/-/lint-7.5.2.tgz#26cb819c74f8770413c4f6ef1e7abf1b739eda77"
   integrity sha512-DY/UfGFDquMno+5c6+tE50rMxpjdQK3CRG+nktgYlVz1UAqeUD+bRc3pvX5HwAsuGvyDrWAjtszHtEDeYJKcjw==
@@ -778,12 +761,12 @@
   dependencies:
     find-up "^2.1.0"
 
-"@commitlint/travis-cli@7.5.0":
-  version "7.5.0"
-  resolved "https://registry.yarnpkg.com/@commitlint/travis-cli/-/travis-cli-7.5.0.tgz#7b11baef826bc25f207fea73f537c4d00177d413"
-  integrity sha512-rn+wt5s0odO4djcoasjMR9bjBZXZngJduM9J0fV7MLP9yLfTs47E006Ks8Gp9J7I561ZNCAFes7KcuTixEenyA==
+"@commitlint/travis-cli@7.5.2":
+  version "7.5.2"
+  resolved "https://registry.yarnpkg.com/@commitlint/travis-cli/-/travis-cli-7.5.2.tgz#f82ca57296eb913b6557124b80eac9773dcbbf1d"
+  integrity sha512-kbkn8TIjRtGWcKOJBM/fbT9yRPjbLTybetRH5mkAQdX9ratkV9+N3akaOSmv5eemNfHsOM1cdrWkcjZbSqZV2A==
   dependencies:
-    "@commitlint/cli" "^7.5.0"
+    "@commitlint/cli" "^7.5.2"
     babel-runtime "6.26.0"
     execa "0.9.0"
 
