@@ -1,6 +1,6 @@
 import Component from '@ember/component';
+import { computed } from '@ember/object';
 import { empty } from '@ember/object/computed';
-import computed from 'ember-new-computed';
 
 export default Component.extend({
   emptySnippet: empty('snippet'),

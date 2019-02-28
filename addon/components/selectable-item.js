@@ -3,7 +3,6 @@ import { alias } from '@ember/object/computed';
 import Component from '@ember/component';
 import ChildComponentSupport from 'ember-composability/mixins/child-component-support';
 import SelectableItemGroup from './selectable-item-group';
-import _computed from 'ember-new-computed';
 
 export default Component.extend(ChildComponentSupport, {
   // eslint-disable-next-line
@@ -12,7 +11,7 @@ export default Component.extend(ChildComponentSupport, {
   disabled: false,
   classNames: ['materialize-selectable-item'],
 
-  _checked: _computed('checked', 'group.selection', 'group.selection.[]', {
+  _checked: computed('checked', 'group.selection', 'group.selection.[]', {
     get() {
       let group = this.get('group');
       if (!group) {
