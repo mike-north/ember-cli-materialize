@@ -41,7 +41,7 @@
     "bower": "1.8.8",
     "broccoli-asset-rev": "3.0.0",
     "ember-ajax": "4.0.2",
-    "ember-anchor": "1.0.2",
+    "ember-anchor": "1.0.3",
     "ember-array-helper": "5.0.0",
     "ember-ci": "0.1.4",
     "ember-cli": "3.8.1",
