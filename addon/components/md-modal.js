@@ -38,12 +38,16 @@ export default Component.extend(EKMixin, UsesSettings, {
   }),
 
   cancel() {
-    this.sendAction('close');
+    if (this.close) {
+      this.close;
+    }
   },
 
   actions: {
     closeModal() {
-      this.sendAction('close');
+      if (this.close) {
+        this.close;
+      }
     }
   }
 });
