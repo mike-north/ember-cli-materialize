@@ -4,6 +4,7 @@ import Component from '@ember/component';
 import { typeOf } from '@ember/utils';
 import { scheduleOnce } from '@ember/runloop';
 import layout from '../templates/components/md-navbar';
+import jQuery from 'jquery';
 
 export default Component.extend({
   tagName: 'nav',
@@ -19,7 +20,7 @@ export default Component.extend({
   _setupNavbar() {
     if (typeOf($('.button-collapse').sideNav) === 'function') {
       this.notifyPropertyChange('_sideNavId');
-      this.$('.button-collapse').sideNav({
+      jQuery('.button-collapse').sideNav({
         closeOnClick: true
       });
     }

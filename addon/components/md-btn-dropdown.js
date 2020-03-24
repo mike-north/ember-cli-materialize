@@ -1,6 +1,7 @@
 import { computed } from '@ember/object';
 import layout from '../templates/components/md-btn-dropdown';
 import MaterializeButton from './md-btn';
+import jQuery from 'jquery';
 
 export default MaterializeButton.extend({
   layout,
@@ -30,7 +31,7 @@ export default MaterializeButton.extend({
 
   _setupDropdown() {
     // needed until the Materialize.dropdown plugin is replaced
-    this.$().attr('data-activates', this.get('_dropdownContentId'));
+    jQuery.attr('data-activates', this.get('_dropdownContentId'));
     let options = {
       hover: !!this.getWithDefault('hover', false),
       // Ignore requireCamelCaseOrUpperCaseIdentifiers because the original
@@ -45,7 +46,7 @@ export default MaterializeButton.extend({
       alignment: this.getWithDefault('alignment', 'left')
     };
 
-    this.$().dropdown(options);
+    jQuery.dropdown(options);
   },
   _dropdownContentId: computed(function() {
     return `${this.get('elementId')}-dropdown-content`;

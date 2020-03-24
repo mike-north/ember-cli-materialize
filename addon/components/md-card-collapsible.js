@@ -1,6 +1,7 @@
 import { computed } from '@ember/object';
 import Component from '@ember/component';
 import layout from '../templates/components/md-card-collapsible';
+import jQuery from 'jquery';
 
 export default Component.extend({
   layout,
@@ -20,12 +21,12 @@ export default Component.extend({
 
   _setupCollapsible() {
     const accordion = this.get('accordion');
-    this.$().collapsible({ accordion });
+    jQuery().collapsible({ accordion });
   },
 
   _teardownCollapsible() {
-    const $panelHeaders = this.$('> li > .collapsible-header');
-    this.$().off('click.collapse', '.collapsible-header');
+    const $panelHeaders = jQuery('> li > .collapsible-header');
+    jQuery().off('click.collapse', '.collapsible-header');
     $panelHeaders.off('click.collapse');
   },
 

@@ -4,6 +4,7 @@ import { later } from '@ember/runloop';
 import { get, observer, computed } from '@ember/object';
 import MaterializeInputField from './md-input-field';
 import layout from '../templates/components/md-select';
+import jQuery from 'jquery';
 
 export default MaterializeInputField.extend({
   layout,
@@ -26,7 +27,7 @@ export default MaterializeInputField.extend({
 
   _setupSelect() {
     // jscs: disable
-    this.$('select').material_select();
+    jQuery('select').material_select();
     // jscs: enable
   },
 
@@ -47,7 +48,7 @@ export default MaterializeInputField.extend({
 
   _teardownSelect() {
     // jscs: disable
-    this.$('select').material_select('destroy');
+    jQuery('select').material_select('destroy');
     // jscs: enable
   },
 
@@ -68,13 +69,13 @@ export default MaterializeInputField.extend({
   // TODO: this could be converted to a computed property, returning a string
   //  that is bound to the class attribute of the inputSelector
   errorsDidChange: observer('errors', function() {
-    const inputSelector = this.$('input');
+    const inputSelector = jQuery('input');
     // monitor the select's validity and copy the appropriate validation class to the materialize input element.
     if (!isNone(inputSelector)) {
       later(
         this,
         function() {
-          const isValid = this.$('select').hasClass('valid');
+          const isValid = jQuery('select').hasClass('valid');
           if (isValid) {
             inputSelector.removeClass('invalid');
             inputSelector.addClass('valid');
