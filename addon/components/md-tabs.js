@@ -5,6 +5,7 @@ import { A } from '@ember/array';
 import { observer, computed, get } from '@ember/object';
 import ParentComponentSupport from 'ember-composability/mixins/parent-component-support';
 import layout from '../templates/components/md-tabs';
+import jQuery from 'jquery';
 
 export default Component.extend(ParentComponentSupport, {
   layout,
@@ -48,12 +49,12 @@ export default Component.extend(ParentComponentSupport, {
       };
 
       if (!animate) {
-        this.$('.indicator').css(cssParams);
+        jQuery('.indicator').css(cssParams);
       } else {
-        this.$('.indicator1').velocity(cssParams, {
+        jQuery('.indicator1').velocity(cssParams, {
           duration: 150
         });
-        this.$('.indicator2').velocity(cssParams, {
+        jQuery('.indicator2').velocity(cssParams, {
           duration: 150,
           delay: 40
         });

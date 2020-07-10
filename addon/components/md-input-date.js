@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import MaterializeInput from './md-input';
 import layout from '../templates/components/md-input-date';
+import jQuery from 'jquery';
 
 const MONTH_NAMES = [
   'January',
@@ -50,7 +51,7 @@ export default MaterializeInput.extend({
       }
     };
 
-    this.$('.datepicker').pickadate(
+    jQuery('.datepicker').pickadate(
       $.extend(datePickerOptions, {
         onSet: this._onDateSet
       })
@@ -58,7 +59,7 @@ export default MaterializeInput.extend({
   },
 
   _teardownPicker() {
-    const $pickadate = this.$('.datepicker').data('pickadate');
+    const $pickadate = jQuery('.datepicker').data('pickadate');
     if ($pickadate) {
       $pickadate.stop();
     }

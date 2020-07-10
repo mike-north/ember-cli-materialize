@@ -3,6 +3,7 @@ import { alias } from '@ember/object/computed';
 import Component from '@ember/component';
 import ChildComponentSupport from 'ember-composability/mixins/child-component-support';
 import SelectableItemGroup from './selectable-item-group';
+import jQuery from 'jquery';
 
 export default Component.extend(ChildComponentSupport, {
   // eslint-disable-next-line
@@ -35,12 +36,12 @@ export default Component.extend(ChildComponentSupport, {
   isSelected: alias('_checked'),
 
   _setupLabel() {
-    let [$input] = this.$(
+    let [$input] = jQuery(
       '.materialize-selectable-item-input, .materialize-selectable-item-input-container input'
     ).toArray();
 
     let inputId = $input ? $input.id : null;
-    this.$('.materialize-selectable-item-label').attr('for', inputId);
+    jQuery('.materialize-selectable-item-label').attr('for', inputId);
   },
 
   didInsertElement() {

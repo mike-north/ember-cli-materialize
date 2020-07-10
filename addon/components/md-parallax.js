@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 import layout from '../templates/components/md-parallax';
+import jQuery from 'jquery';
 
 export default Component.extend({
   layout,
@@ -11,7 +12,7 @@ export default Component.extend({
   },
 
   _setupParallax() {
-    this.$('.parallax').parallax();
+    jQuery('.parallax').parallax();
   }
 
   // TODO: unregister any listeners that $.parallax() registers

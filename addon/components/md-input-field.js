@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { isPresent } from '@ember/utils';
+import jQuery from 'jquery';
 
 export default Component.extend({
   classNames: ['input-field'],
@@ -30,7 +31,7 @@ export default Component.extend({
     this._super(...arguments);
     // pad the errors element when an icon is present
     if (isPresent(this.get('icon'))) {
-      this.$('> span').css('padding-left', '3rem');
+      jQuery('> span').css('padding-left', '3rem');
     }
   },
 
@@ -39,7 +40,7 @@ export default Component.extend({
   }),
 
   _setupLabel() {
-    const $label = this.$('> label');
+    const $label = jQuery('> label');
     if (isPresent(this.get('value')) && !$label.hasClass('active')) {
       $label.addClass('active');
     }
