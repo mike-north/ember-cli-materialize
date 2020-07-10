@@ -70,7 +70,7 @@
     "ember-radio-button": "2.0.1",
     "ember-resolver": "8.0.0",
     "ember-source": "3.19.0",
-    "ember-source-channel-url": "1.1.0",
+    "ember-source-channel-url": "1.2.0",
     "ember-truth-helpers": "2.1.0",
     "ember-try": "1.1.0",
     "eslint-plugin-ember": "8.9.1",
