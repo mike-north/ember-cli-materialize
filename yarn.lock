@@ -3375,11 +3375,6 @@ base64-js@0.0.2:
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-0.0.2.tgz#024f0f72afa25b75f9c0ee73cd4f55ec1bed9784"
   integrity sha1-Ak8Pcq+iW3X5wO5zzU9V7Bvtl4Q=
 
-base64-js@^1.2.3:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.3.0.tgz#cab1e6118f051095e58b5281aea8c1cd22bfc0e3"
-  integrity sha512-ccav/yGvoa80BQDljCxsmmQ3Xvx60/UpBIij5QN21W3wBi/hhIC9OoO+KLpu9IJTS9j4DRVJ3aDDF9cMSoa2lw==
-
 base64id@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/base64id/-/base64id-1.0.0.tgz#47688cb99bb6804f0e06d3e763b1c32e57d8e6b6"
@@ -5492,6 +5487,11 @@ dotenv@^5.0.1:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-5.0.1.tgz#a5317459bd3d79ab88cff6e44057a6a3fbb1fcef"
   integrity sha512-4As8uPrjfwb7VXC+WnLCbXK7y+Ueb2B3zgNCePYfhxS1PYeaO1YTeplffTEcbfLhvFNGLAz90VvJs9yomG7bow==
 
+dotenv@^8.1.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
+  integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
+
 duplex@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/duplex/-/duplex-1.0.0.tgz#6abc5c16ec17e4c578578727126700590d3a2dda"
@@ -6119,15 +6119,15 @@ ember-modal-dialog@3.0.0:
     ember-ignore-children-helper "^1.0.0"
     ember-wormhole "^0.5.1"
 
-ember-percy@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/ember-percy/-/ember-percy-1.5.0.tgz#c70d66f7cdcc6078d2b7e18de04e545ac4da9818"
-  integrity sha512-wdGKo4gK40QeLXTcmmymk6kTe+8lpxW3vz46kuZIB6S1TzoyVpopE+4bDa9RyKP94b1kmJA0cepcW5npBH9xKQ==
+ember-percy@1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/ember-percy/-/ember-percy-1.6.0.tgz#b0b7f27a4f60ac8992648337fc6d64404109d325"
+  integrity sha512-E/g1gF55OtEemjWeffHAOujwKLHhiwWMy2EFZ7w9aST8viVP7eI3LKEe/1ZeMBxw46BiE7EJeoUesn9zcnlurQ==
   dependencies:
     body-parser "^1.15.0"
-    ember-cli-babel "^6.10.0"
+    ember-cli-babel "^7.11.0"
     es6-promise-pool "^2.4.1"
-    percy-client "^3.0.0"
+    percy-client "^3.0.13"
     walk "^2.3.9"
 
 ember-qunit@^3.5.0:
@@ -11324,14 +11324,14 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-percy-client@^3.0.0:
-  version "3.0.12"
-  resolved "https://registry.yarnpkg.com/percy-client/-/percy-client-3.0.12.tgz#325e7fded4860e61b8f219aa1a3653e72cbb1280"
-  integrity sha512-xpddmKn0C/nDDOJYP5dSfAefYzcge8P0FoZB2y1vWyZl587TAkdJCkG6/CF04QYfIfBxLYh4RV0G/h++LgxyzA==
+percy-client@^3.0.13:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/percy-client/-/percy-client-3.8.0.tgz#e838570d8815fa033edaf917e5efbd7a5a1bba57"
+  integrity sha512-6SVEpnPteN9mR4fq/FCW7M0KDHWbNAyiiyj9igTpHSv2oBjgyNnDA2y0S+o8U+AN7QDRbh40JbAWi72M+cfOJg==
   dependencies:
-    base64-js "^1.2.3"
     bluebird "^3.5.1"
     bluebird-retry "^0.11.0"
+    dotenv "^8.1.0"
     es6-promise-pool "^2.5.0"
     jssha "^2.1.0"
     regenerator-runtime "^0.13.1"
