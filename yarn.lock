@@ -5635,12 +5635,13 @@ ember-anchor@1.0.3:
     ember-cli-babel "^7.0.0"
     ember-cli-htmlbars "^3.0.0"
 
-ember-array-helper@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/ember-array-helper/-/ember-array-helper-5.0.0.tgz#d2d72f170e15d120bdaffe456d5cdfd8d335de75"
-  integrity sha512-TkmHoOgPmv4QOs8Z/DPA80kas8m8yl3aeuxC1Ph40V3byFEq1A4Z/JNnUNkfRYmWiYveBc996NV/y2wwK/2ptw==
+ember-array-helper@5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/ember-array-helper/-/ember-array-helper-5.1.0.tgz#1d9f319b24df05181ecf207f97b19a99128537c8"
+  integrity sha512-inSnELMADOgX46ipx7E1jcAOFLxQ0X1AqaaoEZfn9TFEzwgx0PMYZL7i5YbEfNqpMswmO8sbMZeW4hxKvEycnw==
   dependencies:
     ember-cli-babel "^7.1.2"
+    ember-cli-version-checker "^4.1.0"
 
 ember-assign-polyfill@~2.4.0:
   version "2.4.0"
