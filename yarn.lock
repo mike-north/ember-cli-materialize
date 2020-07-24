@@ -5382,7 +5382,7 @@ ember-export-application-global@2.0.1:
   resolved "https://registry.yarnpkg.com/ember-export-application-global/-/ember-export-application-global-2.0.1.tgz#b120a70e322ab208defc9e2daebe8d0dfc2dcd46"
   integrity sha512-B7wiurPgsxsSGzJuPFkpBWnaeuCu2PGpG2BjyrfA1VcL7//o+5RSnZqiCEY326y7qmxb2GoCgo0ft03KBU0rRw==
 
-ember-ignore-children-helper@^1.0.0:
+ember-ignore-children-helper@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/ember-ignore-children-helper/-/ember-ignore-children-helper-1.0.1.tgz#f7c4aa17afb9c5685e1d4dcdb61c7b138ca7cdc3"
   integrity sha512-AgKkrvd1/hIBWdLn42gITlweVsALUGPYF9fMpQ2IDqp7QnRmtO8ocRbZEmMddPDWY9Xu7W5qO2f35rbD7OSpYw==
@@ -5430,16 +5430,16 @@ ember-materialize-shim@0.5.1:
     exists-sync "^0.0.4"
     fastboot-transform "^0.1.0"
 
-ember-modal-dialog@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/ember-modal-dialog/-/ember-modal-dialog-3.0.0.tgz#44c119b0482c809ddf400293fd3d217f356ea036"
-  integrity sha1-RMEZsEgsgJ3fQAKT/T0hfzVuoDY=
+ember-modal-dialog@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/ember-modal-dialog/-/ember-modal-dialog-3.0.1.tgz#f26f2f5ab6dc153514025e9444a3f80e36e32450"
+  integrity sha512-dCTxOtNjdpXqoi0bXub7bb04DMF6r0BPVLHCOEsfEzkuAKJVNmuJjtQhSmc/fapRnjE/z1LXPLvs1sVkTu2S/g==
   dependencies:
-    ember-cli-babel "^6.8.2"
-    ember-cli-htmlbars "^2.0.1"
+    ember-cli-babel "^7.1.3"
+    ember-cli-htmlbars "^3.0.0"
     ember-cli-version-checker "^2.1.0"
-    ember-ignore-children-helper "^1.0.0"
-    ember-wormhole "^0.5.1"
+    ember-ignore-children-helper "^1.0.1"
+    ember-wormhole "^0.5.5"
 
 ember-percy@1.6.0:
   version "1.6.0"
@@ -5581,7 +5581,7 @@ ember-try@1.4.0:
     rsvp "^4.7.0"
     walk-sync "^1.1.3"
 
-ember-wormhole@^0.5.1:
+ember-wormhole@^0.5.5:
   version "0.5.5"
   resolved "https://registry.yarnpkg.com/ember-wormhole/-/ember-wormhole-0.5.5.tgz#db417ff748cb21e574cd5f233889897bc27096cb"
   integrity sha512-z8l3gpoKmRA2BnTwvnYRk4jKVcETKHpddsD6kpS+EJ4EfyugadFS3zUqBmRDuJhFbNP8BVBLXlbbATj+Rk1Kgg==
