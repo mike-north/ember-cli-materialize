@@ -65,7 +65,7 @@
     "ember-load-initializers": "2.1.1",
     "ember-material-design-icons-shim": "0.1.13",
     "ember-materialize-shim": "0.5.1",
-    "ember-modal-dialog": "3.0.0",
+    "ember-modal-dialog": "3.0.1",
     "ember-percy": "1.6.0",
     "ember-radio-button": "2.0.1",
     "ember-resolver": "8.0.0",
