@@ -68,7 +68,7 @@
     "ember-modal-dialog": "3.0.1",
     "ember-percy": "1.6.0",
     "ember-radio-button": "2.0.1",
-    "ember-resolver": "8.0.0",
+    "ember-resolver": "8.0.1",
     "ember-source": "3.20.3",
     "ember-source-channel-url": "1.2.0",
     "ember-truth-helpers": "2.1.0",
