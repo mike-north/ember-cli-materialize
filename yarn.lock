@@ -5531,10 +5531,10 @@ ember-radio-button@2.0.1:
     ember-cli-babel "^6.9.2"
     ember-cli-htmlbars "^1.1.1"
 
-ember-resolver@8.0.1:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/ember-resolver/-/ember-resolver-8.0.1.tgz#d96a670db0b5548b38798d9dd8a811f812d1ce00"
-  integrity sha512-oYxbXwV9aOLh6SnQxeVXGcn+80iIA58pcC/AW6gStKNPc9iuTAnQfgqj+JCESHiA3EYvlHx6OgZ3ZfV6aVgUAQ==
+ember-resolver@8.0.2:
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/ember-resolver/-/ember-resolver-8.0.2.tgz#8a45a744aaf5391eb52b4cb393b3b06d2db1975c"
+  integrity sha512-BmCoPT8nf5uv0g2QkhMsrG1Gmu6MtXd6igfhCVzCTMTwZ97SxhJKqoMY62EP/av5HVSWBC/Sa1uGU5cQvX1Aog==
   dependencies:
     babel-plugin-debug-macros "^0.3.3"
     broccoli-funnel "^3.0.3"
@@ -5571,10 +5571,10 @@ ember-source-channel-url@^2.0.1:
   dependencies:
     got "^8.0.1"
 
-ember-source@3.20.3:
-  version "3.20.3"
-  resolved "https://registry.yarnpkg.com/ember-source/-/ember-source-3.20.3.tgz#fdc0e8d9a402985783a2c53729f75abbb7b2ac95"
-  integrity sha512-Fpz0eVFcL4s74d2mw5D3RFGlhRcljB6N4RyjsuumwYTlg7UMrkDdlHy7A1ZI2tDw2Cz7uE7W2dKzSnCQcZGcVQ==
+ember-source@3.20.4:
+  version "3.20.4"
+  resolved "https://registry.yarnpkg.com/ember-source/-/ember-source-3.20.4.tgz#582545ae3b20de5ffd9f8b43c42c94815e592291"
+  integrity sha512-ycWlaq7W63S3Nh7pMRU4oXNirBB9MbNGDN6hUgs3/qc1gjOUVGfGv0p2NPVcKXgqWtbiqrWGqCbp1iTay2MUpA==
   dependencies:
     "@babel/helper-module-imports" "^7.8.3"
     "@babel/plugin-transform-block-scoping" "^7.8.3"
