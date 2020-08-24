@@ -5559,10 +5559,10 @@ ember-source-channel-url@^2.0.1:
   dependencies:
     got "^8.0.1"
 
-ember-source@3.20.4:
-  version "3.20.4"
-  resolved "https://registry.yarnpkg.com/ember-source/-/ember-source-3.20.4.tgz#582545ae3b20de5ffd9f8b43c42c94815e592291"
-  integrity sha512-ycWlaq7W63S3Nh7pMRU4oXNirBB9MbNGDN6hUgs3/qc1gjOUVGfGv0p2NPVcKXgqWtbiqrWGqCbp1iTay2MUpA==
+ember-source@3.21.0:
+  version "3.21.0"
+  resolved "https://registry.yarnpkg.com/ember-source/-/ember-source-3.21.0.tgz#36ff63584438fba3a336529c30c1aeb14caba9e7"
+  integrity sha512-BoNAhEjB4zb3TuJMzUK81ivz7S6IYLO4MRFfEN8x6nxf3hL9HE0D2QdbqlX9j54xkqssPz5iqmR6/LEEbgP9pA==
   dependencies:
     "@babel/helper-module-imports" "^7.8.3"
     "@babel/plugin-transform-block-scoping" "^7.8.3"
@@ -5839,10 +5839,10 @@ escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-plugin-ember@8.10.1:
-  version "8.10.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-8.10.1.tgz#359e31dc5478959244481c03323e22813ff65508"
-  integrity sha512-NmsrB8E4An8ErjHz5exCS4zjJSueFetZ9UCqdqYyERV6i/yucSBlPsop6tM2Bfopj0nSbB+qdSzTF3AZWVAAqA==
+eslint-plugin-ember@8.12.0:
+  version "8.12.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-8.12.0.tgz#7e4b50bc6aa457cda58b09809b1545350650af16"
+  integrity sha512-o2mtq8Tz1Rwdab8f+YlGXtSdH5wpPRJeGC/MeBGGSZK9O/TmpOYbbj1sklUHphtthz6yStU3EhxubZ2M3PoMIw==
   dependencies:
     "@ember-data/rfc395-data" "^0.0.4"
     ember-rfc176-data "^0.3.15"
