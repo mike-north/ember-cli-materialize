@@ -45,7 +45,7 @@
     "ember-array-helper": "5.1.0",
     "ember-ci": "0.1.4",
     "ember-cli": "3.22.0",
-    "ember-cli-app-version": "3.2.0",
+    "ember-cli-app-version": "4.0.0",
     "ember-cli-dependency-checker": "3.2.0",
     "ember-cli-eslint": "5.1.0",
     "ember-cli-htmlbars-inline-precompile": "3.0.1",
