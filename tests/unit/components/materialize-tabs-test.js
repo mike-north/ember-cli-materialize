@@ -16,7 +16,7 @@ test('it renders', function(assert) {
   const component = this.subject();
 
   component.setProperties({
-    content: new A([{ id: 'a', title: 'First' }, { id: 'b', title: 'Second' }, { id: 'c', title: 'Third' }]),
+    content: A([{ id: 'a', title: 'First' }, { id: 'b', title: 'Second' }, { id: 'c', title: 'Third' }]),
     selected: 'a'
   });
 
@@ -34,7 +34,7 @@ test('programatically setting selected tab', function(assert) {
   const component = this.subject();
 
   component.setProperties({
-    content: new A([{ id: 'a', title: 'First' }, { id: 'b', title: 'Second' }, { id: 'c', title: 'Third' }]),
+    content: A([{ id: 'a', title: 'First' }, { id: 'b', title: 'Second' }, { id: 'c', title: 'Third' }]),
     selected: 'a'
   });
   this.render();
@@ -69,7 +69,7 @@ test('No initial selection - first tab should be selected', function(assert) {
   const component = this.subject();
 
   component.setProperties({
-    content: new A([{ id: 'a', title: 'First' }, { id: 'b', title: 'Second' }, { id: 'c', title: 'Third' }])
+    content: A([{ id: 'a', title: 'First' }, { id: 'b', title: 'Second' }, { id: 'c', title: 'Third' }])
   });
 
   run(() => {
@@ -94,7 +94,7 @@ test('Empty content - should render an empty UL', function(assert) {
   const component = this.subject();
 
   component.setProperties({
-    content: new A([])
+    content: A([])
   });
   this.render();
   assert.equal(component.$('.materialize-tabs-tab').length, 0, 'No tabs should be rendered');
@@ -108,7 +108,7 @@ test('Col width - should result in the correct CSS classes', function(assert) {
   assert.equal(component.get('colWidth'), 2, 'Default col width is 2');
   component.setProperties({
     colWidth: 4,
-    content: new A([{ id: 'a', title: 'First' }, { id: 'b', title: 'Second' }, { id: 'c', title: 'Third' }])
+    content: A([{ id: 'a', title: 'First' }, { id: 'b', title: 'Second' }, { id: 'c', title: 'Third' }])
   });
   this.render();
   assert.equal(component.get('composableChildren')[0].get('colWidth'), 4, 'Col width on tab set applies to tabs');

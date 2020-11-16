@@ -5,7 +5,7 @@ import AnchorControllerSupport from 'ember-anchor/mixins/controller-support';
 
 export default Controller.extend(AnchorControllerSupport, {
   //eslint-disable-next-line
-  colorBases: new A([
+  colorBases: A([
     'pink',
     'red',
     'deep-orange',
@@ -23,9 +23,9 @@ export default Controller.extend(AnchorControllerSupport, {
     'deep-purple'
   ]),
   //eslint-disable-next-line
-  boringColorBases: new A(['brown', 'grey', 'blue-grey']),
+  boringColorBases: A(['brown', 'grey', 'blue-grey']),
   //eslint-disable-next-line
-  colorVariants: new A([
+  colorVariants: A([
     'lighten-5',
     'lighten-4',
     'lighten-3',
@@ -38,10 +38,10 @@ export default Controller.extend(AnchorControllerSupport, {
     'darken-4'
   ]),
   //eslint-disable-next-line
-  accentColorVariants: new A(['accent-1', 'accent-2', 'accent-3', 'accent-4']),
+  accentColorVariants: A(['accent-1', 'accent-2', 'accent-3', 'accent-4']),
 
   colors: computed('colorBases.[]', 'colorVariants.[]', function() {
-    return new A(
+    return A(
       this.get('colorBases').map(colorBase => {
         let variants = this.get('colorVariants');
         if (['brown', 'grey', 'blue-grey'].indexOf(colorBase) < 0) {
@@ -49,14 +49,14 @@ export default Controller.extend(AnchorControllerSupport, {
         }
         return {
           base: colorBase,
-          variants: new A(variants)
+          variants: A(variants)
         };
       })
     );
   }),
 
   boringColors: computed('boringColorBases.[]', 'colorVariants.[]', function() {
-    return new A(
+    return A(
       this.get('boringColorBases').map(colorBase => {
         let variants = this.get('colorVariants');
         if (['brown', 'grey', 'blue-grey'].indexOf(colorBase) < 0) {
@@ -64,7 +64,7 @@ export default Controller.extend(AnchorControllerSupport, {
         }
         return {
           base: colorBase,
-          variants: new A(variants)
+          variants: A(variants)
         };
       })
     );

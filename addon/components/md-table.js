@@ -15,7 +15,7 @@ export default Component.extend(ParentComponentSupport, {
   },
 
   columnComponents: computed('composableChildren', function() {
-    return new A(this.get('composableChildren'));
+    return A(this.get('composableChildren'));
   }).readOnly(),
 
   registerChildComponent(childComponent) {

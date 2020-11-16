@@ -14,7 +14,7 @@ function asJSON(propKey) {
 
 export default Controller.extend({
   //eslint-disable-next-line
-  frameworks: new A([
+  frameworks: A([
     {
       id: 1,
       value: 'Materialize CSS'
@@ -70,7 +70,7 @@ export default Controller.extend({
   radioSelection: 2,
   otherRadioSelection: 'green',
   //eslint-disable-next-line
-  radioChoices: new A([
+  radioChoices: A([
     {
       id: 1,
       text: 'One'
@@ -85,9 +85,9 @@ export default Controller.extend({
   radioChoicesString: asJSON('radioChoices'),
 
   //eslint-disable-next-line
-  checkboxSelections: new A([3, 4]),
+  checkboxSelections: A([3, 4]),
   //eslint-disable-next-line
-  checkboxChoices: new A([
+  checkboxChoices: A([
     {
       id: 3,
       label: 'Three'
@@ -104,7 +104,7 @@ export default Controller.extend({
 
   switchesChoicesString: asJSON('switchesChoices'),
   //eslint-disable-next-line
-  switchesChoices: new A([
+  switchesChoices: A([
     {
       key: 6,
       name: 'Six'
@@ -119,7 +119,7 @@ export default Controller.extend({
     }
   ]),
   //eslint-disable-next-line
-  switchesSelections: new A([7]),
+  switchesSelections: A([7]),
   switchesSelection: 7,
   switchesSelectionString: asJSON('switchesSelection'),
   switchesSelectionsString: asJSON('switchesSelections'),

@@ -64,7 +64,7 @@ export default Component.extend(ParentComponentSupport, {
   _content: computed('content.[]', 'optionLabelPath', 'optionValuePath', function() {
     const labelPath = this.get('optionLabelPath');
     const valuePath = this.get('optionValuePath');
-    return new A(
+    return A(
       (this.get('content') || []).map(contentItem => ({
         id: contentItem[valuePath],
         title: contentItem[labelPath]
