@@ -39,7 +39,7 @@ export default Component.extend({
   }),
 
   _pages: computed('windowRange.low', 'windowRange.high', 'current', function() {
-    const a = new A([]);
+    const a = A([]);
     const winRange = this.get('windowRange');
     const current = this.get('current');
     for (let i = winRange.low; i <= winRange.high; i += 1) {

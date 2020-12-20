@@ -3,7 +3,7 @@ import Controller from '@ember/controller';
 
 export default Controller.extend({
   // eslint-disable-next-line
-  demoSections: new A([
+  demoSections: A([
     { name: 'Badges', route: 'badges' },
     { name: 'Buttons', route: 'buttons' },
     { name: 'Cards', route: 'cards' },

@@ -18,7 +18,7 @@ export default Component.extend(ParentComponentSupport, {
   init() {
     this._super(...arguments);
     if (this.get('selection') === null && !!this.get('multiple')) {
-      this.set('selection', new A([]));
+      this.set('selection', A([]));
     }
   },
 
@@ -70,7 +70,7 @@ export default Component.extend(ParentComponentSupport, {
   _content: computed('content.[]', '_valuePath', '_labelPath', function() {
     const valuePath = get(this, '_valuePath');
     const labelPath = get(this, '_labelPath');
-    const content = get(this, 'content') || new A([]);
+    const content = get(this, 'content') || A([]);
 
     if (valuePath && labelPath) {
       return A(
