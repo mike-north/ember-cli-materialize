@@ -17,7 +17,7 @@ export default Component.extend(ParentComponentSupport, {
 
   init() {
     this._super(...arguments);
-    if (this.get('selection') === null && !!this.get('multiple')) {
+    if ((this.get('selection') === null || this.get('selection') === undefined) && !!this.get('multiple')) {
       this.set('selection', new A([]));
     }
   },
