@@ -9,5 +9,11 @@ export default MaterializeInputField.extend({
     this._super(...arguments);
     // make sure the label moves when a value is bound.
     this._setupLabel();
+  },
+
+  didUpdateAttrs() {
+    this._super(...arguments);
+
+    this._setupLabel();
   }
 });
