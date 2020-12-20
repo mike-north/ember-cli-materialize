@@ -47,6 +47,8 @@ export default MaterializeInput.extend({
     this._onDateSet = evt => {
       if (evt.select) {
         this.set('value', formatDate(evt.select));
+      } else {
+        this.set('value', null);
       }
     };
 
