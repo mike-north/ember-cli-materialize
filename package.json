@@ -58,7 +58,7 @@
     "ember-cli-uglify": "3.0.0",
     "ember-cli-version-checker": "3.0.1",
     "ember-code-snippet": "2.4.0",
-    "ember-composability": "1.0.1",
+    "ember-composability": "git://github.com/jacobq/ember-composability.git#30b10d71562b08af9ad5cecc1506953aec46392e",
     "ember-disable-prototype-extensions": "1.1.3",
     "ember-export-application-global": "2.0.1",
     "ember-keyboard": "4.0.0",

@@ -3,7 +3,7 @@ import { A } from '@ember/array';
 
 export default Controller.extend({
   // eslint-disable-next-line
-  myData: new A(['hello', 'world']),
+  myData: A(['hello', 'world']),
 
   actions: {
     debug() {
