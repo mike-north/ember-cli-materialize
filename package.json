@@ -71,7 +71,7 @@
     "ember-resolver": "8.1.0",
     "ember-source": "4.11.0",
     "ember-source-channel-url": "1.2.0",
-    "ember-truth-helpers": "2.1.0",
+    "ember-truth-helpers": "3.1.1",
     "ember-try": "1.4.0",
     "eslint-plugin-ember": "10.6.1",
     "eslint-plugin-node": "11.1.0",
