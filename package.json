@@ -51,7 +51,7 @@
     "ember-cli-htmlbars-inline-precompile": "3.0.2",
     "ember-cli-inject-live-reload": "2.1.0",
     "ember-cli-qunit": "4.4.0",
-    "ember-cli-sass": "10.0.1",
+    "ember-cli-sass": "11.0.1",
     "ember-cli-shims": "1.2.0",
     "ember-cli-sri": "2.1.1",
     "ember-cli-test-loader": "2.2.0",
